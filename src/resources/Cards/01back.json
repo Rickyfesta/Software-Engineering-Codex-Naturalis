@@ -7,8 +7,8 @@
   "BOTTOMSYMBOL": null,
   "LEFTSYMBOL": null,
   "RIGHTSYMBOL": null,
-  "BOTTOM": false,
-  "RIGHT": false,
-  "LEFT": false,
-  "TOP": false
+  "BOTTOM": true,
+  "RIGHT": true,
+  "LEFT": true,
+  "TOP": true
 }
