@@ -10,7 +10,7 @@
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0">
          <image>
-            <Image url="@../../../../../OneDrive/Desktop/mainbg.png" />
+            <Image url="Cards/img/mainbg.png" />
          </image>
       </ImageView>
       <Button layoutX="282.0" layoutY="323.0" mnemonicParsing="false" text="Esci" />
