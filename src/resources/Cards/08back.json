@@ -1,5 +1,5 @@
 {
-  "ID": "009",
+  "ID": "008",
   "CARDTYPE": "Resource",
   "SYMBOL": "Mushroom",
   "POINTS": "0",
@@ -10,6 +10,6 @@
   "BOTTOM": true,
   "RIGHT": true,
   "LEFT": true,
-  "TOP": true
-
+  "TOP": true,
+  "COLOUR": "red"
 }

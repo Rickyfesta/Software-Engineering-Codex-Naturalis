@@ -6,7 +6,7 @@
   "TOPSYMBOL": "Potion",
   "LEFTSYMBOL": null,
   "RIGHTSYMBOL": "Mushroom",
-  "BOTTOMSYMBOL": "Wolf",
+  "BOTTOMSYMBOL": "Animal",
   "TOP": true,
   "LEFT": false,
   "RIGHT": true,

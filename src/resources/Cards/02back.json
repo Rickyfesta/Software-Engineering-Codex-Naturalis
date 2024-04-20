@@ -10,6 +10,5 @@
   "BOTTOM": true,
   "RIGHT": true,
   "LEFT": true,
-  "TOP": true
-
+  "COLOUR": "red"
 }

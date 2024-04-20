@@ -5,12 +5,11 @@
   "POINTS": "0",
   "TOPSYMBOL": "Mushroom",
   "LEFTSYMBOL": "Scroll",
-  "RIGHTSYMBOL": "Butterfly",
+  "RIGHTSYMBOL": "Insect",
   "BOTTOMSYMBOL": null,
   "TOP": true,
   "LEFT": true,
   "RIGHT": true,
   "BOTTOM": true,
   "COLOUR": "red"
-
 }
