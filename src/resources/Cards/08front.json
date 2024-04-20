@@ -1,4 +1,16 @@
 {
-
+  "ID": "008",
+  "CARDTYPE": "",
+  "SYMBOL": "Mushroom",
+  "POINTS": "0",
+  "TOPSYMBOL": "Mushroom",
+  "LEFTSYMBOL": null,
+  "RIGHTSYMBOL": "Mushroom",
+  "BOTTOMSYMBOL": null,
+  "TOP": true,
+  "LEFT": false,
+  "RIGHT": true,
+  "BOTTOM": true,
+  "COLOUR": "red"
 
 }

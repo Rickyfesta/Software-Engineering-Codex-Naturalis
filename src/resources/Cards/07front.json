@@ -1,4 +1,16 @@
 {
-
+  "ID": "007",
+  "CARDTYPE": "Resource",
+  "SYMBOL": "Mushroom",
+  "POINTS": "0",
+  "TOPSYMBOL": "Mushroom",
+  "LEFTSYMBOL": "Scroll",
+  "RIGHTSYMBOL": "Butterfly",
+  "BOTTOMSYMBOL": null,
+  "TOP": true,
+  "LEFT": true,
+  "RIGHT": true,
+  "BOTTOM": true,
+  "COLOUR": "red"
 
 }
