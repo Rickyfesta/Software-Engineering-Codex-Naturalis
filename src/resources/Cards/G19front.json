@@ -1,5 +1,5 @@
 {
-  "ID": "036",
+  "ID": "040",
   "CARDTYPE": "Resource",
   "SYMBOL": "Insect",
   "POINTS": "0",
@@ -11,5 +11,5 @@
   "RIGHT": true,
   "LEFT": true,
   "TOP": true,
-  "COLOUR": "purple"
+  "COLOUR": "Purple"
 }
