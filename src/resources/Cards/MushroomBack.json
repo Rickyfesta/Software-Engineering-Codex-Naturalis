@@ -1,7 +1,7 @@
 {
-  "ID": "037",
+  "ID": ["001","002","003","004","005","006","007","008","009","010"],
   "CARDTYPE": "Resource",
-  "SYMBOL": "Insect",
+  "SYMBOL": "Mushroom",
   "POINTS": "0",
   "TOPSYMBOL": null,
   "BOTTOMSYMBOL": null,
@@ -11,5 +11,5 @@
   "RIGHT": true,
   "LEFT": true,
   "TOP": true,
-  "COLOUR": "purple"
+  "COLOUR": "red"
 }

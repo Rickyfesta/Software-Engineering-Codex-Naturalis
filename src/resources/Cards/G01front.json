@@ -1,15 +1,16 @@
 {
-  "ID": "001",
-  "CARDTYPE": "Resource",
+  "ID": "G01",
+  "CARDTYPE": "Gold",
   "SYMBOL": "Mushroom",
-  "POINTS": "0",
-  "TOPSYMBOL": "Mushroom",
-  "BOTTOMSYMBOL": null,
-  "LEFTSYMBOL": "Mushroom",
+  "POINTS": "1 for each Feather on board",
+  "TOPSYMBOL": null,
+  "LEFTSYMBOL": null,
   "RIGHTSYMBOL": null,
-  "BOTTOM": false,
-  "RIGHT": true,
+  "BOTTOMSYMBOL": "Feather",
+  "TOP": false,
   "LEFT": true,
-  "TOP": true,
-  "COLOUR": "red"
+  "RIGHT": true,
+  "BOTTOM": true,
+  "COLOUR": "red",
+  "REQUIRED": ["Mushroom","Mushroom","Animal"]
 }

@@ -1,7 +1,7 @@
 {
-  "ID": "009",
+  "ID": ["011","012","013","014","015","016","017","018","019","020"],
   "CARDTYPE": "Resource",
-  "SYMBOL": "Mushroom",
+  "SYMBOL": "Plant",
   "POINTS": "0",
   "TOPSYMBOL": null,
   "BOTTOMSYMBOL": null,
@@ -11,5 +11,5 @@
   "RIGHT": true,
   "LEFT": true,
   "TOP": true,
-  "COLOUR": "red"
+  "COLOUR": "green"
 }
