@@ -1,4 +1,15 @@
 {
-
-
+  "ID": "037",
+  "CARDTYPE": "Resource",
+  "SYMBOL": "Insect",
+  "POINTS": "0",
+  "TOPSYMBOL": "Insect",
+  "LEFTSYMBOL": "Potion",
+  "RIGHTSYMBOL": "Plant",
+  "BOTTOMSYMBOL": null,
+  "TOP": true,
+  "LEFT": true,
+  "RIGHT": true,
+  "BOTTOM": false,
+  "COLOUR": "purple"
 }

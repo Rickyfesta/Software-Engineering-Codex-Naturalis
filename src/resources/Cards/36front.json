@@ -1,4 +1,15 @@
 {
-
-
+  "ID": "036",
+  "CARDTYPE": "Resource",
+  "SYMBOL": "Insect",
+  "POINTS": "0",
+  "TOPSYMBOL": "Scroll",
+  "LEFTSYMBOL": null,
+  "RIGHTSYMBOL": "Insect",
+  "BOTTOMSYMBOL": "Mushroom",
+  "TOP": true,
+  "LEFT": false,
+  "RIGHT": true,
+  "BOTTOM": true,
+  "COLOUR": "purple"
 }

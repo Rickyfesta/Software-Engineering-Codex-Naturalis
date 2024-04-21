@@ -1,4 +1,15 @@
 {
-
-
+  "ID": "026",
+  "CARDTYPE": "Resource",
+  "SYMBOL": "Animal",
+  "POINTS": "0",
+  "TOPSYMBOL": "Plant",
+  "LEFTSYMBOL": null,
+  "RIGHTSYMBOL": "Animal",
+  "BOTTOMSYMBOL": "Scroll",
+  "TOP": true,
+  "LEFT": false,
+  "RIGHT": true,
+  "BOTTOM": true,
+  "COLOUR": "blue"
 }

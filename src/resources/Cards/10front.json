@@ -1,4 +1,15 @@
 {
-
-
+  "ID": "010",
+  "CARDTYPE": "Resource",
+  "SYMBOL": "Mushroom",
+  "POINTS": "1",
+  "TOPSYMBOL": null,
+  "LEFTSYMBOL": "Mushroom",
+  "RIGHTSYMBOL": null,
+  "BOTTOMSYMBOL": null,
+  "TOP": false,
+  "LEFT": true,
+  "RIGHT": true,
+  "BOTTOM": true,
+  "COLOUR": "red"
 }
