@@ -1,7 +1,7 @@
 {
-  "ID": "040",
-  "CARDTYPE": "Resource",
-  "SYMBOL": "Insect",
+  "ID": ["G21","G22","G23","G24","G25","G26","G27","G28","G29","G30"],
+  "CARDTYPE": "Gold",
+  "SYMBOL": "Animal",
   "POINTS": "0",
   "TOPSYMBOL": null,
   "BOTTOMSYMBOL": null,
@@ -11,5 +11,5 @@
   "RIGHT": true,
   "LEFT": true,
   "TOP": true,
-  "COLOUR": "Purple"
+  "COLOUR": "blue"
 }

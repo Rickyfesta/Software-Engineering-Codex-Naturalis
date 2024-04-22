@@ -1,15 +1,16 @@
 {
-  "ID": "040",
-  "CARDTYPE": "Resource",
+  "ID": "G38",
+  "CARDTYPE": "Gold",
   "SYMBOL": "Insect",
-  "POINTS": "0",
+  "POINTS": "3",
   "TOPSYMBOL": null,
-  "BOTTOMSYMBOL": null,
   "LEFTSYMBOL": null,
-  "RIGHTSYMBOL": null,
-  "BOTTOM": true,
-  "RIGHT": true,
-  "LEFT": true,
+  "RIGHTSYMBOL": "Scroll",
+  "BOTTOMSYMBOL": null,
   "TOP": true,
-  "COLOUR": "Purple"
+  "LEFT": false,
+  "RIGHT": true,
+  "BOTTOM": false,
+  "COLOUR": "purple",
+  "REQUIRED": ["Insect","Insect","Insect"]
 }
