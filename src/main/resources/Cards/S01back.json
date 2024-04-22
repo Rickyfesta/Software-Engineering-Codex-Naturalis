@@ -1,0 +1,15 @@
+{
+  "ID": "S01",
+  "CARDTYPE": "Starter",
+  "SYMBOL": null,
+  "POINTS": "0",
+  "TOPSYMBOL": null,
+  "BOTTOMSYMBOL": null,
+  "LEFTSYMBOL": null,
+  "RIGHTSYMBOL": null,
+  "BOTTOM": true,
+  "RIGHT": true,
+  "LEFT": true,
+  "TOP": true,
+  "COLOUR": "red"
+}
