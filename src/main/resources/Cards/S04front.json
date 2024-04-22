@@ -1,7 +1,7 @@
 {
-  "ID": ["G01","G02","G03","G04","G05","G06","G07","G08","G09","G10"],
-  "CARDTYPE": "Gold",
-  "SYMBOL": "Mushroom",
+  "ID": "S04",
+  "CARDTYPE": "Starter",
+  "SYMBOL": ["Insect","Animal"],
   "POINTS": "0",
   "TOPSYMBOL": null,
   "BOTTOMSYMBOL": null,
@@ -11,5 +11,5 @@
   "RIGHT": true,
   "LEFT": true,
   "TOP": true,
-  "COLOUR": "red"
+  "COLOUR": null
 }
