@@ -1,0 +1,7 @@
+{
+  "ID": "O13",
+  "CARDTYPE": "Objective",
+  "SYMBOL": null,
+  "POINTS": "3 if there is Feather,Potion,Scroll",
+  "COLOUR": null
+}
