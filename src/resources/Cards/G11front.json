@@ -1,15 +1,16 @@
 {
-  "ID": "040",
-  "CARDTYPE": "Resource",
-  "SYMBOL": "Insect",
-  "POINTS": "0",
-  "TOPSYMBOL": null,
-  "BOTTOMSYMBOL": null,
+  "ID": "G11",
+  "CARDTYPE": "Gold",
+  "SYMBOL": "Plant",
+  "POINTS": "1 for each Feather on board",
+  "TOPSYMBOL": "Feather",
   "LEFTSYMBOL": null,
   "RIGHTSYMBOL": null,
-  "BOTTOM": true,
-  "RIGHT": true,
-  "LEFT": true,
+  "BOTTOMSYMBOL": null,
   "TOP": true,
-  "COLOUR": "Purple"
+  "LEFT": true,
+  "RIGHT": true,
+  "BOTTOM": false,
+  "COLOUR": "green",
+  "REQUIRED": ["Plant","Plant","Insect"]
 }

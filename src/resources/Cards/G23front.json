@@ -1,15 +1,16 @@
 {
-  "ID": "040",
-  "CARDTYPE": "Resource",
-  "SYMBOL": "Insect",
-  "POINTS": "0",
+  "ID": "G23",
+  "CARDTYPE": "Gold",
+  "SYMBOL": "Animal",
+  "POINTS": "1 for each Feather on board",
   "TOPSYMBOL": null,
-  "BOTTOMSYMBOL": null,
-  "LEFTSYMBOL": null,
+  "LEFTSYMBOL": "Feather",
   "RIGHTSYMBOL": null,
-  "BOTTOM": true,
-  "RIGHT": true,
-  "LEFT": true,
+  "BOTTOMSYMBOL": null,
   "TOP": true,
-  "COLOUR": "Purple"
+  "LEFT": true,
+  "RIGHT": false,
+  "BOTTOM": true,
+  "COLOUR": "blue",
+  "REQUIRED": ["Animal","Animal","Mushroom"]
 }

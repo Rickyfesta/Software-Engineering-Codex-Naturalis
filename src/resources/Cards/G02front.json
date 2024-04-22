@@ -1,15 +1,16 @@
 {
-  "ID": "040",
-  "CARDTYPE": "Resource",
-  "SYMBOL": "Insect",
-  "POINTS": "0",
+  "ID": "G02",
+  "CARDTYPE": "Gold",
+  "SYMBOL": "Mushroom",
+  "POINTS": "1 for each Potion on board",
   "TOPSYMBOL": null,
-  "BOTTOMSYMBOL": null,
   "LEFTSYMBOL": null,
-  "RIGHTSYMBOL": null,
-  "BOTTOM": true,
-  "RIGHT": true,
-  "LEFT": true,
+  "RIGHTSYMBOL": "Potion",
+  "BOTTOMSYMBOL": null,
   "TOP": true,
-  "COLOUR": "Purple"
+  "LEFT": false,
+  "RIGHT": true,
+  "BOTTOM": true,
+  "COLOUR": "red",
+  "REQUIRED": ["Mushroom","Mushroom","Plant"]
 }

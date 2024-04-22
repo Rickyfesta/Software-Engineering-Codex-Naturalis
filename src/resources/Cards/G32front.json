@@ -1,15 +1,16 @@
 {
-  "ID": "040",
-  "CARDTYPE": "Resource",
+  "ID": "G32",
+  "CARDTYPE": "Gold",
   "SYMBOL": "Insect",
-  "POINTS": "0",
+  "POINTS": "1 for each Scroll on board",
   "TOPSYMBOL": null,
-  "BOTTOMSYMBOL": null,
-  "LEFTSYMBOL": null,
+  "LEFTSYMBOL": "Scroll",
   "RIGHTSYMBOL": null,
-  "BOTTOM": true,
-  "RIGHT": true,
-  "LEFT": true,
+  "BOTTOMSYMBOL": null,
   "TOP": true,
-  "COLOUR": "Purple"
+  "LEFT": true,
+  "RIGHT": false,
+  "BOTTOM": true,
+  "COLOUR": "purple",
+  "REQUIRED": ["Insect","Insect","Animal"]
 }

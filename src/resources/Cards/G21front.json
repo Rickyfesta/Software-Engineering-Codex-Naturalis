@@ -1,15 +1,16 @@
 {
-  "ID": "040",
-  "CARDTYPE": "Resource",
-  "SYMBOL": "Insect",
-  "POINTS": "0",
-  "TOPSYMBOL": null,
-  "BOTTOMSYMBOL": null,
+  "ID": "G21",
+  "CARDTYPE": "Gold",
+  "SYMBOL": "Animal",
+  "POINTS": "1 for each Potion on board",
+  "TOPSYMBOL": "Potion",
   "LEFTSYMBOL": null,
   "RIGHTSYMBOL": null,
-  "BOTTOM": true,
-  "RIGHT": true,
-  "LEFT": true,
+  "BOTTOMSYMBOL": null,
   "TOP": true,
-  "COLOUR": "Purple"
+  "LEFT": true,
+  "RIGHT": true,
+  "BOTTOM": false,
+  "COLOUR": "blue",
+  "REQUIRED": ["Animal","Animal","Insect"]
 }

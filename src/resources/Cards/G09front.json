@@ -1,15 +1,16 @@
 {
-  "ID": "040",
-  "CARDTYPE": "Resource",
-  "SYMBOL": "Insect",
-  "POINTS": "0",
+  "ID": "G09",
+  "CARDTYPE": "Gold",
+  "SYMBOL": "Mushroom",
+  "POINTS": "3",
   "TOPSYMBOL": null,
-  "BOTTOMSYMBOL": null,
   "LEFTSYMBOL": null,
-  "RIGHTSYMBOL": null,
-  "BOTTOM": true,
+  "RIGHTSYMBOL": "Scroll",
+  "BOTTOMSYMBOL": null,
+  "TOP": false,
+  "LEFT": false,
   "RIGHT": true,
-  "LEFT": true,
-  "TOP": true,
-  "COLOUR": "Purple"
+  "BOTTOM": true,
+  "COLOUR": "red",
+  "REQUIRED": ["Mushroom","Mushroom","Mushroom"]
 }

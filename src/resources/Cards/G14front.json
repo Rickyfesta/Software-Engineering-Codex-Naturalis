@@ -1,15 +1,16 @@
 {
-  "ID": "040",
-  "CARDTYPE": "Resource",
-  "SYMBOL": "Insect",
-  "POINTS": "0",
+  "ID": "G14",
+  "CARDTYPE": "Gold",
+  "SYMBOL": "Plant",
+  "POINTS": "2 for each angle occupied",
   "TOPSYMBOL": null,
-  "BOTTOMSYMBOL": null,
   "LEFTSYMBOL": null,
   "RIGHTSYMBOL": null,
-  "BOTTOM": true,
-  "RIGHT": true,
+  "BOTTOMSYMBOL": null,
+  "TOP": false,
   "LEFT": true,
-  "TOP": true,
-  "COLOUR": "Purple"
+  "RIGHT": true,
+  "BOTTOM": true,
+  "COLOUR": "green",
+  "REQUIRED": ["Plant","Plant","Plant","Insect"]
 }
