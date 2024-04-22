@@ -3,13 +3,13 @@
   "CARDTYPE": "Starter",
   "SYMBOL": null,
   "POINTS": "0",
-  "TOPSYMBOL": null,
-  "BOTTOMSYMBOL": null,
-  "LEFTSYMBOL": null,
-  "RIGHTSYMBOL": null,
+  "TOPSYMBOL": "Mushroom",
+  "BOTTOMSYMBOL": "Insect",
+  "LEFTSYMBOL": "Plant",
+  "RIGHTSYMBOL": "Animal",
   "BOTTOM": true,
   "RIGHT": true,
   "LEFT": true,
   "TOP": true,
-  "COLOUR": "red"
+  "COLOUR": null
 }
