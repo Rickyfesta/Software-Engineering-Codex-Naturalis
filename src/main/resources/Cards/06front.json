@@ -1,0 +1,15 @@
+{
+  "ID": "006",
+  "CARDTYPE": "Resource",
+  "SYMBOL": "Mushroom",
+  "POINTS": "0",
+  "TOPSYMBOL": "Potion",
+  "LEFTSYMBOL": null,
+  "RIGHTSYMBOL": "Mushroom",
+  "BOTTOMSYMBOL": "Animal",
+  "TOP": true,
+  "LEFT": false,
+  "RIGHT": true,
+  "BOTTOM": true,
+  "COLOUR": "red"
+}

@@ -1,0 +1,15 @@
+{
+  "ID": "025",
+  "CARDTYPE": "Resource",
+  "SYMBOL": "Animal",
+  "POINTS": "0",
+  "TOPSYMBOL": null,
+  "LEFTSYMBOL": "Potion",
+  "RIGHTSYMBOL": "Insect",
+  "BOTTOMSYMBOL": "Animal",
+  "TOP":false,
+  "LEFT": true,
+  "RIGHT": true,
+  "BOTTOM": true,
+  "COLOUR": "blue"
+}

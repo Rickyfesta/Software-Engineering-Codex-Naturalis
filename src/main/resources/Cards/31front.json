@@ -1,0 +1,15 @@
+{
+  "ID": "031",
+  "CARDTYPE": "Resource",
+  "SYMBOL": "Insect",
+  "POINTS": "0",
+  "TOPSYMBOL": "Insect",
+  "LEFTSYMBOL": null,
+  "RIGHTSYMBOL": "Insect",
+  "BOTTOMSYMBOL": null,
+  "TOP": true,
+  "LEFT": true,
+  "RIGHT": true,
+  "BOTTOM": false,
+  "COLOUR": "purple"
+}
