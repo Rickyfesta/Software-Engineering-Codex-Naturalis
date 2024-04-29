@@ -1,6 +1,6 @@
 package Board;
 
-import Cards.Card;
+import Model.Cards.Card;
 
 import java.util.HashMap;
 import java.util.Map;
