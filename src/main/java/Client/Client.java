@@ -1,5 +1,6 @@
 package Client;
 
+import Client.GUI.ClientGUI;
 import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
@@ -79,10 +80,34 @@ public class Client {
         String username = scanner.nextLine();
         Socket socket = new Socket("localhost", 1234 );
         Client client = new Client(socket, username);
-        //Both blocking methods but they're on separate threads so it will alternate.
+        System.out.println("Choose if you want to play on cli or gui: ");
+        String interfaceClient = scanner.nextLine();
+        //TO BE CHANGED
         client.listenForMessage();
         client.sendMessage();
 
+        if (interfaceClient.equalsIgnoreCase("CLI")){
+            Client.startCLI();
+        }
+        else if (interfaceClient.equalsIgnoreCase("GUI")) {
+            try{
+                new Thread(() -> ClientGUI.main(args)).start();
+            }catch(Exception e){
+                System.out.println("Something went wrong SHIT");
+            }
+
+            Client.startGUI();
+        }
+        else{
+            System.out.println("Invalid parameter, you have to write GUI or CLI !");
+            System.exit(0);
+        }
+    }
+
+    private static void startGUI() {
+    }
+
+    private static void startCLI() {
     }
 
 }

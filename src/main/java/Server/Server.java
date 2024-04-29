@@ -21,6 +21,7 @@ public class Server {
     public void startServer(){
 
         try{ //For avoiding any exception (errori in java)
+            System.out.println("Server freaking ready!");
             while(!serverSocket.isClosed()){ //To make the server run un tempo indefinito
                 Socket socket = serverSocket.accept(); //Blocking method, meaning the server doesn't go forward but stops here waiting for any client to connect.
                 System.out.println("A new client has connected."); //Here a client has connected
