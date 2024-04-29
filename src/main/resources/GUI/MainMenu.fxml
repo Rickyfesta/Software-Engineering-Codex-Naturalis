@@ -66,17 +66,17 @@
       </Text>
       <AnchorPane layoutX="244.0" layoutY="128.0" prefHeight="155.0" prefWidth="126.0">
          <children>
-            <Button layoutX="21.0" layoutY="14.0" mnemonicParsing="false" onAction="#playNewGame" styleClass="buttons" text="New Game">
+            <Button fx:id="newGameBtn" layoutX="21.0" layoutY="14.0" mnemonicParsing="false" onAction="#playNewGame" styleClass="buttons" text="New Game">
                <font>
                   <Font name="Old English Text MT" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="25.0" layoutY="54.0" mnemonicParsing="false" styleClass="buttons" text="Reconnect">
+            <Button fx:id="reconnectBtn" layoutX="25.0" layoutY="54.0" mnemonicParsing="false" onAction="#reconnect" styleClass="buttons" text="Reconnect">
                <font>
                   <Font name="Old English Text MT" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="39.0" layoutY="95.0" mnemonicParsing="false" styleClass="buttons" text="Quit">
+            <Button fx:id="quitBtn" layoutX="39.0" layoutY="95.0" mnemonicParsing="false" onAction="#quitGame" styleClass="buttons" text="Quit">
                <font>
                   <Font name="Old English Text MT" size="12.0" />
                </font>
