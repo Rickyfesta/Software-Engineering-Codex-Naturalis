@@ -57,7 +57,7 @@ public class ClientHandler implements Runnable{
             }
         }
     }
-
+    // Client shut down the connection to the server
     public void removeClientHandler(){
         clientHandlers.remove(this);
         broadcastMessage( "SERVER: " + clientUsername + " has left the chat.");

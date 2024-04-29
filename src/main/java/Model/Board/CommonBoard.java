@@ -1,14 +1,14 @@
-package Board;
+package Model.Board;
 
-import Cards.Card;
+import Model.Cards.Card;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Board {
+public class CommonBoard {
     private Map<Integer, Map<Integer, Card>> boardMap;
 
-    public Board() {
+    public CommonBoard() {
         boardMap = new HashMap<>();
     }
 
