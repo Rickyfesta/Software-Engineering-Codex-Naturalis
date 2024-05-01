@@ -5,14 +5,19 @@ import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
+
 public class Client {
 
     private Socket socket;
     private BufferedReader bufferedReader;
     private BufferedWriter bufferedWriter;
     private String username;
+    private static ClientHandler clientChat;
+    private static final Client clientIn = new Client();
 
-    public Client(Socket socket, String username){
+
+/*
+    public Client(){ //Client Setup
         try{
             this.socket = socket;
             this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
@@ -21,6 +26,26 @@ public class Client {
         }catch(IOException e){
             closeEverything(socket, bufferedReader, bufferedWriter);
         }
+    }
+*/
+    public void setClient(){ //Client Setup
+        final String interfaccia = "cli";
+        final String address = "192.168.0.1";
+        final String port = "1234";
+        try {
+            socket = new Socket(address, Integer.parseInt(port));
+
+            this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+            this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            this.username = username;
+        }catch (IOException e ) {
+            System.out.println("Errore setupClient (metodo setClient)");  //TODO: Change this sysout
+            closeEverything(socket, bufferedReader, bufferedWriter); //donno if it's necessary
+            System.exit(0);
+        }
+    }
+    public static Client getInstance(){
+        return clientIn;
     }
 
     public void sendMessage(){
@@ -78,13 +103,18 @@ public class Client {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your username for the group chat: ");
         String username = scanner.nextLine();
-        Socket socket = new Socket("localhost", 1234 );
-        Client client = new Client(socket, username);
+        try{
+            clientIn.setClient();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            System.exit(0);
+        }
         System.out.println("Choose if you want to play on cli or gui: ");
         String interfaceClient = scanner.nextLine();
         //TO BE CHANGED
-        client.listenForMessage();
-        client.sendMessage();
+        //client.listenForMessage();
+        //client.sendMessage();
 
         if (interfaceClient.equalsIgnoreCase("CLI")){
             Client.startCLI();
@@ -108,6 +138,10 @@ public class Client {
     }
 
     private static void startCLI() {
+        System.out.println("We started!");
+        clientChat = new CLIClientMOV(); //to be completed
+        //startListen();
+
     }
 
 }

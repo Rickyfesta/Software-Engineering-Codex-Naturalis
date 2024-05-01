@@ -1,7 +1,5 @@
 package Server;
 
-import Client.ClientHandler;
-
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -24,11 +22,11 @@ public class Server {
             while(!serverSocket.isClosed()){ //To make the server run un tempo indefinito
                 Socket socket = serverSocket.accept(); //Blocking method, meaning the server doesn't go forward but stops here waiting for any client to connect.
                 System.out.println("A new client has connected."); //Here a client has connected
-                ClientHandler clientHandler = new ClientHandler(socket); //Each object of this class will communicate with the client.
+               // ClientHandler clientHandler = new ClientHandler(); //Each object of this class will communicate with the client.
                 // It implements runnable to be executed by a separated thread.
                 //To spawn a new thread we have to call the thread method and pass the class that will implement runnable (diventa un fratello dei thread)
-                Thread thread = new Thread(clientHandler);
-                thread.start(); //After creating the thread for the client, it must be started.
+               // Thread thread = new Thread(clientHandler);
+               // thread.start(); //After creating the thread for the client, it must be started.
             }
         }catch(IOException e){
 
