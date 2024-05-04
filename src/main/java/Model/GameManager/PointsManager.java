@@ -1,42 +1,73 @@
 package Model.GameManager;
-import java.util.HashMap;
-import java.util.Map;
+
+import java.util.*;
 
 public class PointsManager {
-    private Map<String, Integer> PlayerPoints;
+    private Map<String, Integer> playersPoints;
+    private Set<String> playerName;
 
     public PointsManager() {
-        PlayerPoints = new HashMap<>();
+        playersPoints = new HashMap<>();
+        playerName = new HashSet<>();
     }
 
-    // Add points to players
-    public void addPoints(String playerName, int PointsAdded) {
-        PlayerPoints.put(playerName, PlayerPoints.getOrDefault(playerName, 0) + PointsAdded);
+    // Metodo per aggiungere un giocatore con un nome unico
+    public void addPlayers() {
+        Scanner scanner = new Scanner(System.in);
+        String playerName;
+
+        do {
+            System.out.print("Inserisci l'username del giocatore: ");
+            playerName = scanner.nextLine().trim();
+
+            if (this.playerName.contains(playerName)) {
+                System.out.println("Username già utilizzato. Si prega di sceglierne un altro.");
+            }
+        } while (this.playerName.contains(playerName));
+
+        this.playerName.add(playerName);
+        playersPoints.put(playerName, 0);
+        System.out.println("Giocatore aggiunto con successo!");
     }
 
-    // get points from players
-    public int getPlayersPoints(String playerName) {
-        return PlayerPoints.getOrDefault(playerName, 0);
+    // Metodo per aggiungere punti a un giocatore
+    public void addPoints(String playerName, int pointsAdded) {
+        playersPoints.put(playerName, playersPoints.getOrDefault(playerName, 0) + pointsAdded);
     }
 
-    // Get all players points
-    public Map<String, Integer> getPlayersPoints() {
-        return PlayerPoints;
+    // Metodo per trovare il leader in punti
+    public String pointsLeader() {
+        int maxPoints = Integer.MIN_VALUE;
+        String leader = null;
+        for (Map.Entry<String, Integer> entry : playersPoints.entrySet()) {
+            if (entry.getValue() > maxPoints) {
+                maxPoints = entry.getValue();
+                leader = entry.getKey();
+            }
+        }
+        return leader;
     }
-
+    // Metodo per mostrare la classifica dei giocatori
+    public void showLeaderBoard() {
+        System.out.println("Classifica dei giocatori:");
+        for (Map.Entry<String, Integer> entry : playersPoints.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue() + " punti");
+        }
+    }
     public static void main(String[] args) {
-        PointsManager pointManager = new PointsManager();
+        PointsManager pointsManager = new PointsManager();
 
-        // Aggiungi punti ai giocatori
-        pointManager.addPoints("Giocatore1", 10);
-        pointManager.addPoints("Giocatore2", 20);
-        pointManager.addPoints("Giocatore1", 5);
+        // Aggiungere giocatori e punti
+        pointsManager.addPlayers();
+        pointsManager.addPlayers();
+        pointsManager.addPoints("Giocatore1", 20);
+        pointsManager.addPoints("Giocatore2", 15);
 
-        // Stampare i punti dei giocatori
-        System.out.println("Punti di Giocatore1: " + pointManager.getPlayersPoints("Giocatore1"));
-        System.out.println("Punti di Giocatore2: " + pointManager.getPlayersPoints("Giocatore2"));
+        // Mostrare la classifica dei giocatori
+        pointsManager.showLeaderBoard();
 
-
+        // Trovare il leader in punti
+        String leader = pointsManager.pointsLeader();
+        System.out.println("Il leader in punti è: " + leader);
     }
 }
-
