@@ -10,7 +10,7 @@
 
 ## About
 
-<img src="Github/Codex.png" width=300px height=300px align="right"/>
+<img src="Github/Codex.png" width=200px height=200px align="right"/>
 
 
 ### Implemented Functionalities
