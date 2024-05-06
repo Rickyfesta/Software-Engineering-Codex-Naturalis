@@ -2,6 +2,8 @@ package Model.Cards;
 
 import java.util.Random;
 
+
+//Issue
 public class RandomCardFile {
     public static void main(String[] args) {
         // Get a random card front and its corresponding back
@@ -18,13 +20,15 @@ public class RandomCardFile {
     // Method to generate a random "XXfront.json" file name
     public static String getRandomXXFileName() {
         String number = generateRandomNumber();
+        //System.out.println(number + "front.json");
         return number + "front.json";
     }
 
     // Method to generate a random "GXXfront.json" file name
     public static String getRandomGXXFileName() {
-        String number = generateRandomNumber();
-        return "G" + number + "front.json";
+        String number = generateRandomNumber(); //stringa = numero
+        //System.out.println("G" + number + "front.json");
+        return  "G" + number + "front.json";
     }
 
     // Helper method to generate a random two-digit number
@@ -58,7 +62,8 @@ public class RandomCardFile {
     // Determines the associated back file based on the card number from the front file
     public static String getAssociatedGBackFileName(String frontFileName) {
         // Extract the number from the filename
-        int cardNumber = Integer.parseInt(frontFileName.substring(0, 2));
+        //System.out.println(Integer.parseInt(frontFileName.substring(1, 3)));
+        int cardNumber = Integer.parseInt(frontFileName.substring(1, 3));
 
         // Return the corresponding back file
         if (cardNumber >= 1 && cardNumber <= 10) {
