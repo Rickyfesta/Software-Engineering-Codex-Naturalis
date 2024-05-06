@@ -5,10 +5,11 @@ import Client.Client;
 import java.util.*;
 
 public class GameManager {
-    private Map<String, Integer> playersPoints; //points of the players
-    private List<String> playerNames; //list of players to track the order of the turns
+    //private GameState gameState;
+    protected Map<String, Integer> playersPoints; //points of the players
+    protected List<String> playerNames; //list of players to track the order of the turns
     private int currentPlayerIndex; // index to track the current turn
-    private boolean isFinalRound; // index if the game is in the last lap
+    protected boolean isFinalRound; // index if the game is in the last lap
     private boolean gameOver; //shows if the game is ended
 
     public GameManager() {
@@ -53,18 +54,6 @@ public class GameManager {
             startTurn(); // the new turn starts
         }
     }
-    public void updateScore(String playerName, int points) {
-        int newScore = playersPoints.get(playerName) + points;
-        playersPoints.put(playerName, newScore);
-        System.out.println(playerName + " ora ha " + newScore + " punti.");
-
-        // Check if a player has reached 20 points and start the final round if necessary
-        if (newScore >= 20 && !isFinalRound) {
-            isFinalRound = true;
-            System.out.println("Inizio del giro finale!");
-        }
-    }
-
 
     // method to find the leader in points
     public String pointsLeader() {
