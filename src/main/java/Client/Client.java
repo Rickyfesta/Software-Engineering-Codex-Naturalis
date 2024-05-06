@@ -5,29 +5,37 @@ import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
-
+//TODO Check if username already in use
 public class Client {
 
     private Socket socket;
     private BufferedReader bufferedReader;
     private BufferedWriter bufferedWriter;
-    private String username;
+    public static String username;
     private static ClientHandler clientChat;
     private static final Client clientIn = new Client();
 
 
-/*
-    public Client(){ //Client Setup
-        try{
-            this.socket = socket;
-            this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-            this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            this.username = username;
-        }catch(IOException e){
-            closeEverything(socket, bufferedReader, bufferedWriter);
-        }
+    public String getUsername(){
+        return username;
     }
-*/
+    public static void resetUsername(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Choose another client username \n");
+        Client.username = scanner.nextLine();
+    }
+    /*
+        public Client(){ //Client Setup
+            try{
+                this.socket = socket;
+                this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+                this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                this.username = username;
+            }catch(IOException e){
+                closeEverything(socket, bufferedReader, bufferedWriter);
+            }
+        }
+    */
     public void setClient(){ //Client Setup
         final String interfaccia = "cli";
         final String address = "192.168.0.1";

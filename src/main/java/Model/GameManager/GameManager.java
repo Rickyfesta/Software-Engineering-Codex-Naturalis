@@ -1,17 +1,19 @@
 package Model.GameManager;
 
+import Client.Client;
+
 import java.util.*;
 
 public class GameManager {
     private Map<String, Integer> playersPoints; //points of the players
-    private List<String> playerName; //list of players to track the order of the turns
+    private List<String> playerNames; //list of players to track the order of the turns
     private int currentPlayerIndex; // index to track the current turn
     private boolean isFinalRound; // index if the game is in the last lap
     private boolean gameOver; //shows if the game is ended
 
     public GameManager() {
         this.playersPoints = new HashMap<>();
-        this.playerName = new ArrayList<>();
+        this.playerNames = new ArrayList<>();
         this.currentPlayerIndex = 0;
         this.isFinalRound = false;
         this.gameOver = false;
@@ -20,32 +22,30 @@ public class GameManager {
 
     //method to add a player with a unique name
     public void addPlayers() {
-        Scanner scanner = new Scanner(System.in);
-        String playerName;
-
+        //Scanner scanner = new Scanner(System.in);
+        String playerName = Client.username;
         do {
-            System.out.print("Inserisci l'username del giocatore: ");
-            playerName = scanner.nextLine().trim();
-
-            if (this.playerName.contains(playerName)) {
-                System.out.println("Username già utilizzato. Si prega di sceglierne un altro.");
+            playerName = Client.username;
+            //System.out.print("Inserisci l'username del giocatore: ");
+            if (this.playerNames.contains(playerName)) {
+                System.out.println("Username already used, choose another one");
+                Client.resetUsername();
             }
-        } while (this.playerName.contains(playerName));
-
-        this.playerName.add(playerName);
+        } while (this.playerNames.contains(playerName));
+        this.playerNames.add(playerName);
         playersPoints.put(playerName, 0);
-        System.out.println("Giocatore aggiunto con successo!");
+        System.out.println("Client added!");
     }
     public void startTurn() {
-        if (currentPlayerIndex >= playerName.size()) {
+        if (currentPlayerIndex >= playerNames.size()) {
             currentPlayerIndex = 0;  //Rewind index to first player if necessary
         }
-        String currentPlayer = playerName.get(currentPlayerIndex);
-        System.out.println("È il turno di " + currentPlayer);
+        String currentPlayer = playerNames.get(currentPlayerIndex);
+        System.out.println("Turn of" + currentPlayer);
 
     }
     public void endTurn() {
-        if (isFinalRound && currentPlayerIndex == playerName.size() - 1) {
+        if (isFinalRound && currentPlayerIndex == playerNames.size() - 1) {
             gameOver = true; // End the game if this is the last player in the final round
             endGame();
         } else {
