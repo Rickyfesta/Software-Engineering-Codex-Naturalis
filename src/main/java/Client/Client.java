@@ -5,7 +5,6 @@ import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
-//TODO Check if username already in use
 public class Client {
 
     private Socket socket;

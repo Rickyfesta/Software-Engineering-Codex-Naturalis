@@ -11,10 +11,11 @@ public class RandomCardFile {
         String randomGFront = getRandomGXXFileName();
         String randomOFront = getRandomOXXFileName();
         String randomSFront = getRandomSXXFileName();
+        //System.out.println(randomSFront);
         String associatedBack = getAssociatedBackFileName(randomFront);
         String associatedOBack = getAssociatedOBackFileName(randomOFront);
         String associatedGBack = getAssociatedGBackFileName(randomGFront);
-        String associatedSBack = getAssociatedOBackFileName(randomSFront);
+        String associatedSBack = getRandomSXXFileNameBack(randomSFront);
         System.out.println("Random front file: " + randomFront);
         System.out.println("Associated back file: " + associatedBack);
         System.out.println("Random Gold front file: " + randomGFront);
@@ -22,7 +23,7 @@ public class RandomCardFile {
         System.out.println("Random Objective front file: " + randomOFront);
         System.out.println("Associated Objective back file: " + associatedOBack);
         System.out.println("Random Starter front file: " + randomSFront);
-        System.out.println("Associated Objective back file: " + associatedSBack);
+        System.out.println("Associated Starter back file: " + associatedSBack);
     }
 
     // Method to generate a random "XXfront.json" file name
@@ -46,8 +47,15 @@ public class RandomCardFile {
     // Method to generate a random "SXXfront.json" file name
     public static String getRandomSXXFileName() {
         String number = generateRandomNumber1();
+        String back = "S" + number + "back.json";
         return "S" + number + "front.json";
     }
+    //file takes the random number and return back
+    public static String getRandomSXXFileNameBack(String back) {
+        return back.replace("front", "back");
+    }
+
+
     // Helper method to generate a random two-digit number
     private static String generateRandomNumber() {
         Random random = new Random();
@@ -117,27 +125,6 @@ public class RandomCardFile {
 
         // Return the corresponding back file
         return "OBack.json";
-    }
-    // Determines the associated back file based on the card number from the front file
-    /*public static String getAssociatedGBackFileName(String frontFileName) {
-        // Extract the number from the filename
-        //System.out.println(Integer.parseInt(frontFileName.substring(1, 3)));
-        int cardNumber = Integer.parseInt(frontFileName.substring(1, 3));
-
-        // Return the corresponding back file
-        if (cardNumber >= 1 && cardNumber <= 10) {
-            return "GMushroomBack.json";
-        } else if (cardNumber >= 11 && cardNumber <= 20) {
-            return "GPlantBack.json";
-        } else if (cardNumber >= 21 && cardNumber <= 30) {
-            // Handle unexpected card number, if necessary
-            return "GAnimalBack.json";
-        } else if (cardNumber >= 31 && cardNumber <= 40) {
-            return "GInsectBack.json";
-        } else {
-            return null;  // Invalid card number
-
-      }*/
     }
 }
 
