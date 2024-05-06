@@ -14,7 +14,7 @@ public class PersonalBoard {
         this.board.put(new Point(0, 0), "Starting Card"); // Initialize the origin
         minX = maxX = minY = maxY = 0; // Initialize the boundaries around the origin
     }
-
+ //TODO connect this method with the class card.
     public boolean placeCard(int x, int y, String card) {
         Point p = new Point(x, y);
         if (!board.containsKey(p)) { // Check if the spot is already taken
@@ -24,7 +24,6 @@ public class PersonalBoard {
         }
         return false;
     }
-
     private void updateBoundaries(int x, int y) {
         if (x < minX) minX = x;
         if (x > maxX) maxX = x;
