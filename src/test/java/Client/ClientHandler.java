@@ -9,7 +9,7 @@ public class ClientHandler implements Runnable{
     //Static arraylist of every ClientHandler we instanceate
     // Whenever a client sends a message we loop this arraylist and send a message to each of the clients in there.
     //Broadcast insomma
-    public static ArrayList<ClientHandler> clientHandlers = new ArrayList<>();
+    public static ArrayList<Controller.ClientHandler> clientHandlers = new ArrayList<>();
     private Socket socket; //Socket from the server class
     private BufferedReader bufferedReader; //Used to read data sent from the client
     private BufferedWriter bufferedWriter; //Send data to all clients.
@@ -45,7 +45,7 @@ public class ClientHandler implements Runnable{
         }
     }
     public void broadcastMessage(String messageToSend){
-        for(ClientHandler clientHandler : clientHandlers){
+        for(Controller.ClientHandler clientHandler : clientHandlers){
             try{
                 if(!clientHandler.clientUsername.equals(clientUsername)){
                     clientHandler.bufferedWriter.write(messageToSend);

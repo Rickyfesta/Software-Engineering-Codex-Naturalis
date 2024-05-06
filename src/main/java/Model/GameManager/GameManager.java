@@ -1,7 +1,8 @@
 package Model.GameManager;
 
 import Client.Client;
-import Client.ClientHandler;
+import Controller.ClientHandler;
+import Server.Server;
 
 import java.util.*;
 
@@ -20,6 +21,10 @@ public class GameManager {
         this.isFinalRound = false;
         this.gameOver = false;
 
+    }
+    //To start a game
+    public void startGame(){
+        Server.startServer();
     }
 
     //method to add a player with a unique name
