@@ -16,9 +16,6 @@ public class Server {
         this.serverSocket = serverSocket; //Set up serverSocket.
     }
     public static void startServer() {
-        //Our server will get the clients listening on this port:
-
-        //Create the server
         List<Socket> clients = new ArrayList<>();
         try (ServerSocket serverSocket = new ServerSocket(1234);) {
             System.out.println("Server is running");
