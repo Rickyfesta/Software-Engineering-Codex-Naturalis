@@ -1,6 +1,7 @@
 package Model.GameManager;
 
 import Client.Client;
+import Client.ClientHandler;
 
 import java.util.*;
 
@@ -24,7 +25,7 @@ public class GameManager {
     //method to add a player with a unique name
     public void addPlayers() {
         //Scanner scanner = new Scanner(System.in);
-        String playerName = Client.username;
+        String playerName;
         do {
             playerName = Client.username;
             //System.out.print("Inserisci l'username del giocatore: ");
@@ -35,7 +36,7 @@ public class GameManager {
         } while (this.playerNames.contains(playerName));
         this.playerNames.add(playerName);
         playersPoints.put(playerName, 0);
-        System.out.println("Client added!");
+        System.out.println("Player added!");
     }
     public void startTurn() {
         if (currentPlayerIndex >= playerNames.size()) {
@@ -43,6 +44,7 @@ public class GameManager {
         }
         String currentPlayer = playerNames.get(currentPlayerIndex);
         System.out.println("Turn of" + currentPlayer);
+        ClientHandler.makeTurn(currentPlayer);
 
     }
     public void endTurn() {
@@ -77,9 +79,9 @@ public class GameManager {
 
     // Method for showing player rankings
     public void showLeaderBoard() {
-        System.out.println("Classifica dei giocatori:");
+        System.out.println("Players leaderboard:");
         for (Map.Entry<String, Integer> entry : playersPoints.entrySet()) {
-            System.out.println(entry.getKey() + ": " + entry.getValue() + " punti");
+            System.out.println(entry.getKey() + ": " + entry.getValue() + " Points");
         }
     }
 

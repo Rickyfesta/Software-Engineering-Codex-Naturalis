@@ -22,7 +22,6 @@ public CommonBoard(GameManager gameManager) {
         int newScore = playersPoints.get(playerName) + points;
         playersPoints.put(playerName, newScore);
         System.out.println(playerName + " now has " + newScore + " points.");
-
         // Check if a player has reached 20 points and start the final round if necessary
         if (newScore >= 20 && !isFinalRound) {
             isFinalRound = true;
