@@ -1,21 +1,27 @@
 package Client;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.net.Socket;
-import java.util.ArrayList;
 //implements runnable so that the instances will be executed by a separate thread
-public class ClientHandler implements Runnable{
+public class ClientHandler implements Runnable {
 
     //Static arraylist of every ClientHandler we instanceate
     // Whenever a client sends a message we loop this arraylist and send a message to each of the clients in there.
     //Broadcast insomma
-    public static ArrayList<Controller.ClientHandler> clientHandlers = new ArrayList<>();
+    // public static ArrayList<Client.ClientHandler> clientHandlers = new ArrayList<Client.ClientHandler>();
     private Socket socket; //Socket from the server class
     private BufferedReader bufferedReader; //Used to read data sent from the client
     private BufferedWriter bufferedWriter; //Send data to all clients.
 
     private String clientUsername;
 
+    @Override
+    public void run() {
+
+    }
+}
+/*
     public ClientHandler(Socket socket){
         try{
             this.socket = socket; //Socket of this class equal to the socket passed.
@@ -45,7 +51,7 @@ public class ClientHandler implements Runnable{
         }
     }
     public void broadcastMessage(String messageToSend){
-        for(Controller.ClientHandler clientHandler : clientHandlers){
+        for(Client.ClientHandler clientHandler : clientHandlers){
             try{
                 if(!clientHandler.clientUsername.equals(clientUsername)){
                     clientHandler.bufferedWriter.write(messageToSend);
@@ -79,3 +85,4 @@ public class ClientHandler implements Runnable{
         }
     }
 }
+*/
