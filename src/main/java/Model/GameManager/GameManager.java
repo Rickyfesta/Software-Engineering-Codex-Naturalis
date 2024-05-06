@@ -3,15 +3,22 @@ package Model.GameManager;
 import java.util.*;
 
 public class GameManager {
-    private Map<String, Integer> playersPoints;
-    private Set<String> playerName;
+    private Map<String, Integer> playersPoints; //points of the players
+    private List<String> playerName; //list of players to track the order of the turns
+    private int currentPlayerIndex; // index to track the current turn
+    private boolean isFinalRound; // index if the game is in the last lap
+    private boolean gameOver; //shows if the game is ended
 
     public GameManager() {
-        playersPoints = new HashMap<>();
-        playerName = new HashSet<>();
+        this.playersPoints = new HashMap<>();
+        this.playerName = new ArrayList<>();
+        this.currentPlayerIndex = 0;
+        this.isFinalRound = false;
+        this.gameOver = false;
+
     }
 
-    // Metodo per aggiungere un giocatore con un nome unico
+    //method to add a player with a unique name
     public void addPlayers() {
         Scanner scanner = new Scanner(System.in);
         String playerName;
@@ -29,13 +36,37 @@ public class GameManager {
         playersPoints.put(playerName, 0);
         System.out.println("Giocatore aggiunto con successo!");
     }
+    public void startTurn() {
+        if (currentPlayerIndex >= playerName.size()) {
+            currentPlayerIndex = 0;  //Rewind index to first player if necessary
+        }
+        String currentPlayer = playerName.get(currentPlayerIndex);
+        System.out.println("È il turno di " + currentPlayer);
 
-    // Metodo per aggiungere punti a un giocatore
-    public void addPoints(String playerName, int pointsAdded) {
-        playersPoints.put(playerName, playersPoints.getOrDefault(playerName, 0) + pointsAdded);
+    }
+    public void endTurn() {
+        if (isFinalRound && currentPlayerIndex == playerName.size() - 1) {
+            gameOver = true; // End the game if this is the last player in the final round
+            endGame();
+        } else {
+            currentPlayerIndex++; //Move on to the next player
+            startTurn(); // the new turn starts
+        }
+    }
+    public void updateScore(String playerName, int points) {
+        int newScore = playersPoints.get(playerName) + points;
+        playersPoints.put(playerName, newScore);
+        System.out.println(playerName + " ora ha " + newScore + " punti.");
+
+        // Check if a player has reached 20 points and start the final round if necessary
+        if (newScore >= 20 && !isFinalRound) {
+            isFinalRound = true;
+            System.out.println("Inizio del giro finale!");
+        }
     }
 
-    // Metodo per trovare il leader in punti
+
+    // method to find the leader in points
     public String pointsLeader() {
         int maxPoints = Integer.MIN_VALUE;
         String leader = null;
@@ -48,7 +79,14 @@ public class GameManager {
         return leader;
     }
 
-    // Metodo per mostrare la classifica dei giocatori
+    public void endGame() {
+        // game ends
+        this.gameOver = true;
+        System.out.println("Game Over. Winner: " + pointsLeader());
+        showLeaderBoard();
+    }
+
+    // Method for showing player rankings
     public void showLeaderBoard() {
         System.out.println("Classifica dei giocatori:");
         for (Map.Entry<String, Integer> entry : playersPoints.entrySet()) {
@@ -56,20 +94,5 @@ public class GameManager {
         }
     }
 
-    public static void main(String[] args) {
-        GameManager gameManager = new GameManager();
 
-        // Aggiungere giocatori e punti
-        gameManager.addPlayers();
-        gameManager.addPlayers();
-        gameManager.addPoints("Giocatore1", 20);
-        gameManager.addPoints("Giocatore2", 15);
-
-        // Mostrare la classifica dei giocatori
-        gameManager.showLeaderBoard();
-
-        // Trovare il leader in punti
-        String leader = gameManager.pointsLeader();
-        System.out.println("Il leader in punti è: " + leader);
-    }
 }
