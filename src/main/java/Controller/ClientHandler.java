@@ -1,4 +1,6 @@
-package Client;
+package Controller;
+
+import Client.Client;
 
 public abstract class ClientHandler{
 
