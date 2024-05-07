@@ -4,7 +4,7 @@
   "SYMBOL": "Plant",
   "POINTS": "0",
   "TOPSYMBOL": null,
-  "LEFTSYMBOL": null,
+  "LEFTSYMBOL": "",
   "RIGHTSYMBOL": "Plant",
   "BOTTOMSYMBOL": "Plant",
   "TOP": false,

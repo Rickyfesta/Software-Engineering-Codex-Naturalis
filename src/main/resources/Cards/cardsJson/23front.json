@@ -6,7 +6,7 @@
   "TOPSYMBOL": "Animal",
   "LEFTSYMBOL": "Animal",
   "RIGHTSYMBOL": null,
-  "BOTTOMSYMBOL": null,
+  "BOTTOMSYMBOL": "",
   "TOP": true,
   "LEFT": true,
   "RIGHT": false,

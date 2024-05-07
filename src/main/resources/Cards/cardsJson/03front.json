@@ -3,7 +3,7 @@
   "CARDTYPE": "Resource",
   "SYMBOL": "Mushroom",
   "POINTS": "0",
-  "TOPSYMBOL": null,
+  "TOPSYMBOL": "",
   "LEFTSYMBOL": "Mushroom",
   "RIGHTSYMBOL": null,
   "BOTTOMSYMBOL": "Mushroom",

@@ -6,7 +6,7 @@
   "TOPSYMBOL": "Plant",
   "BOTTOMSYMBOL":null,
   "LEFTSYMBOL": "Plant",
-  "RIGHTSYMBOL": null,
+  "RIGHTSYMBOL": "",
   "BOTTOM": false,
   "RIGHT": true,
   "LEFT": true,
