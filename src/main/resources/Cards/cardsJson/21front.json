@@ -4,7 +4,7 @@
   "SYMBOL": "Animal",
   "POINTS": "0",
   "TOPSYMBOL": "Animal",
-  "LEFTSYMBOL": null,
+  "LEFTSYMBOL": "",
   "RIGHTSYMBOL": "Animal",
   "BOTTOMSYMBOL": null,
   "TOP": true,

@@ -3,7 +3,7 @@
   "CARDTYPE": "Resource",
   "SYMBOL": "Insect",
   "POINTS": "0",
-  "TOPSYMBOL": null,
+  "TOPSYMBOL": "",
   "LEFTSYMBOL": null,
   "RIGHTSYMBOL": "Insect",
   "BOTTOMSYMBOL": "Insect",

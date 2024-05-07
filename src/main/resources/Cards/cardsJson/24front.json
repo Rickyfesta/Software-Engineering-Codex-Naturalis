@@ -3,7 +3,7 @@
   "CARDTYPE": "Resource",
   "SYMBOL": "Animal",
   "POINTS": "0",
-  "TOPSYMBOL": null,
+  "TOPSYMBOL": "",
   "LEFTSYMBOL": null,
   "RIGHTSYMBOL": "Animal",
   "BOTTOMSYMBOL": "Animal",

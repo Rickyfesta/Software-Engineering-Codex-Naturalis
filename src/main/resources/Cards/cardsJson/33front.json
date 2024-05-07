@@ -6,7 +6,7 @@
   "TOPSYMBOL": "Insect",
   "LEFTSYMBOL": "Insect",
   "RIGHTSYMBOL": null,
-  "BOTTOMSYMBOL": null,
+  "BOTTOMSYMBOL": "",
   "TOP": true,
   "LEFT": true,
   "RIGHT": false,

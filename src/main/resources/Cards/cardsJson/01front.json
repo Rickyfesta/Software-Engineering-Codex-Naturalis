@@ -6,7 +6,7 @@
   "TOPSYMBOL": "Mushroom",
   "BOTTOMSYMBOL": null,
   "LEFTSYMBOL": "Mushroom",
-  "RIGHTSYMBOL": null,
+  "RIGHTSYMBOL": "",
   "BOTTOM": false,
   "RIGHT": true,
   "LEFT": true,
