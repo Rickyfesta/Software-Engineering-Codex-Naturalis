@@ -3,7 +3,7 @@
   "CARDTYPE": "Gold",
   "SYMBOL": "Animal",
   "POINTS": "3",
-  "TOPSYMBOL": null,
+  "TOPSYMBOL": "",
   "LEFTSYMBOL": null,
   "RIGHTSYMBOL": "Potion",
   "BOTTOMSYMBOL": null,

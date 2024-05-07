@@ -4,7 +4,7 @@
   "SYMBOL": "Insect",
   "POINTS": "3",
   "TOPSYMBOL": "Potion",
-  "LEFTSYMBOL": null,
+  "LEFTSYMBOL": "",
   "RIGHTSYMBOL": null,
   "BOTTOMSYMBOL": null,
   "TOP": true,

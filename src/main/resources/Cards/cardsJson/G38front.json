@@ -3,7 +3,7 @@
   "CARDTYPE": "Gold",
   "SYMBOL": "Insect",
   "POINTS": "3",
-  "TOPSYMBOL": null,
+  "TOPSYMBOL": "",
   "LEFTSYMBOL": null,
   "RIGHTSYMBOL": "Scroll",
   "BOTTOMSYMBOL": null,

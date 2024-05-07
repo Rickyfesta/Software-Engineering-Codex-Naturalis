@@ -6,7 +6,7 @@
   "TOPSYMBOL": null,
   "LEFTSYMBOL": null,
   "RIGHTSYMBOL": "Scroll",
-  "BOTTOMSYMBOL": null,
+  "BOTTOMSYMBOL": "",
   "TOP": false,
   "LEFT": false,
   "RIGHT": true,

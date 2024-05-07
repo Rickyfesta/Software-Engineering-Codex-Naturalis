@@ -5,7 +5,7 @@
   "POINTS": "3",
   "TOPSYMBOL": null,
   "LEFTSYMBOL": null,
-  "RIGHTSYMBOL": null,
+  "RIGHTSYMBOL": "",
   "BOTTOMSYMBOL": "Feather",
   "TOP": false,
   "LEFT":false,
