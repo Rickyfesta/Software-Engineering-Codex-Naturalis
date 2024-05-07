@@ -3,6 +3,9 @@ package Client;
 import Client.CLI.CLIClient;
 import Client.GUI.GUIClient;
 import Controller.ClientHandler;
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.Socket;
@@ -113,7 +116,7 @@ public class Client {
             }
             else if (interfaceClient.equalsIgnoreCase("GUI")) {
                 try{
-                    new Thread(GUIClient::start);
+                    new Thread(() -> Application.launch(GUIClient.class)).start();
                 }catch(Exception e){
                     System.out.println("Something went wrong SHIT");
                 }
@@ -138,10 +141,32 @@ public class Client {
 
             if(cli){
                 CLIClient.start();
-                //System.out.println("sus");
             }
             else{
-                GUIClient.start();
+                if (!Platform.isFxApplicationThread()) {
+                    Platform.startup(() -> {
+                        GUIClient myGuiClient = new GUIClient();
+                        try {
+                            myGuiClient.init(); // Prepare your GUI without showing it
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
+                        }
+                        Platform.runLater(() -> {
+                            myGuiClient.start(new Stage()); // Now show the GUI
+                        });
+                    });
+                }else {
+                    // Perform GUI-related operations on the JavaFX thread
+                    Platform.runLater(() -> {
+                        try {
+                            GUIClient.start(); // Assuming start manages starting or updating the GUI
+                        } catch (Exception e) {
+                            System.out.println("Failed to start/update the GUI: " + e.getMessage());
+                            e.printStackTrace();
+                        }
+                    });
+                }
+
             }
         } catch (UnknownHostException e) {
             System.out.println("Server not found");

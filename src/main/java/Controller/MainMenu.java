@@ -16,13 +16,13 @@ public class MainMenu {
     private URL location;
 
     @FXML
-    private Button newGameBtn;
+    private static Button newGameBtn;
 
     @FXML
-    private Button quitBtn;
+    private static Button quitBtn;
 
     @FXML
-    private Button reconnectBtn;
+    private static Button reconnectBtn;
 
     @FXML
     void playNewGame(ActionEvent event) {
@@ -40,7 +40,7 @@ public class MainMenu {
     }
 
     @FXML
-    void initialize() {
+    public static void initialize() {
         assert newGameBtn != null : "fx:id=\"newGameBtn\" was not injected: check your FXML file 'MainMenu.fxml'.";
         assert quitBtn != null : "fx:id=\"quitBtn\" was not injected: check your FXML file 'MainMenu.fxml'.";
         assert reconnectBtn != null : "fx:id=\"reconnectBtn\" was not injected: check your FXML file 'MainMenu.fxml'.";
