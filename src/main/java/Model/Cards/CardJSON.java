@@ -3,16 +3,13 @@ package Model.Cards;
 public class CardJSON {
     private String ID;
     private String RESOURCE;
-    private String CARDTYPE;
-    private boolean TOP;
-    private boolean LEFT;
-    private boolean RIGHT;
-    private boolean BOTTOM;
-    private String POINTS;
+    private static String CARDTYPE;
+    private static String POINTS;
     private String TOPSYMBOL;
     private String LEFTSYMBOL;
     private String BOTTOMSYMBOL;
     private String RIGHTSYMBOL;
+    private static String SYMBOL;
     private String COLOUR;
     private String REQUIRED;
 
@@ -26,6 +23,12 @@ public class CardJSON {
     public void setID(String ID) {
         this.ID = ID;
     }
+    public void setSYMBOL(String SYMBOL) {
+        this.SYMBOL = SYMBOL;
+    }
+    public static String getSYMBOL() {
+        return SYMBOL;
+    }
 
     public String getRESOURCE() {
         return RESOURCE;
@@ -35,48 +38,12 @@ public class CardJSON {
         this.RESOURCE = RESOURCE;
     }
 
-    public String getCARDTYPE() {
+    public static String getCARDTYPE() {
         return CARDTYPE;
     }
 
     public void setCARDTYPE(String CARDTYPE) {
         this.CARDTYPE = CARDTYPE;
-    }
-
-    public boolean getTOP() {
-        return TOP;
-    }
-
-    // Setter for a boolean
-    public void setTOP(boolean TOP) {
-        this.TOP = TOP;
-    }
-
-    public boolean getRIGHT() {
-        return RIGHT;
-    }
-
-    // Setter for a boolean
-    public void setRIGHT(boolean RIGHT) {
-        this.RIGHT = RIGHT;
-    }
-
-    public boolean getLEFT() {
-        return LEFT;
-    }
-
-    // Setter for a boolean
-    public void setLEFT(boolean LEFT) {
-        this.LEFT = LEFT;
-    }
-
-    public boolean getBOTTOM() {
-        return BOTTOM;
-    }
-
-    // Setter for a boolean
-    public void setBOTTOM(boolean BOTTOM) {
-        this.BOTTOM = BOTTOM;
     }
 
     public String getTOPSYMBOL() {
@@ -111,7 +78,7 @@ public class CardJSON {
         this.BOTTOMSYMBOL = BOTTOMSYMBOL;
     }
 
-    public String getPOINTS() {
+    public static String getPOINTS() {
         return POINTS;
     }
 

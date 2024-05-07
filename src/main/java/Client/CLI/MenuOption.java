@@ -7,7 +7,7 @@ package Client.CLI;
 //TODO: TO BE REVISED
 class MenuOption {
 
-    private final String title;
+    private static String title = null;
     private final Runnable action;
 
     /**
@@ -24,7 +24,7 @@ class MenuOption {
      * Gets the title attribute
      * @return Returns title value
      */
-    public String getTitle() {
+    public static String getTitle() {
         return title;
     }
 
