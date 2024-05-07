@@ -1,7 +1,7 @@
 {
   "ID": "G04",
   "CARDTYPE": "Gold",
-  "SYMBOL": "Mushroom",
+  "SYMBOL": null,
   "POINTS": "2 for each angle occupied",
   "TOPSYMBOL": "",
   "LEFTSYMBOL": null,

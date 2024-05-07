@@ -1,7 +1,7 @@
 {
   "ID": "G15",
   "CARDTYPE": "Gold",
-  "SYMBOL": "Plant",
+  "SYMBOL": null,
   "POINTS": "2 for each angle occupied",
   "TOPSYMBOL": "",
   "LEFTSYMBOL": "",

@@ -1,7 +1,7 @@
 {
   "ID": "028",
   "CARDTYPE": "Resource",
-  "SYMBOL": "Animal",
+  "SYMBOL": null,
   "POINTS": "1",
   "TOPSYMBOL": null,
   "LEFTSYMBOL": "Animal",

@@ -1,7 +1,7 @@
 {
   "ID": "G33",
   "CARDTYPE": "Gold",
-  "SYMBOL": "Insect",
+  "SYMBOL": null,
   "POINTS": "1 for each Potion on board",
   "TOPSYMBOL": null,
   "LEFTSYMBOL": "",

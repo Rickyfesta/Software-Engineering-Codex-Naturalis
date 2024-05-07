@@ -1,7 +1,7 @@
 {
   "ID": "G32",
   "CARDTYPE": "Gold",
-  "SYMBOL": "Insect",
+  "SYMBOL": null,
   "POINTS": "1 for each Scroll on board",
   "TOPSYMBOL": "",
   "LEFTSYMBOL": "Scroll",

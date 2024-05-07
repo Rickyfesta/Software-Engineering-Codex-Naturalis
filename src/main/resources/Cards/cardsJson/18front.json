@@ -1,7 +1,7 @@
 {
   "ID": "018",
   "CARDTYPE": "Resource",
-  "SYMBOL": "Plant",
+  "SYMBOL": null,
   "POINTS": "1",
   "TOPSYMBOL": "",
   "LEFTSYMBOL": "Plant",

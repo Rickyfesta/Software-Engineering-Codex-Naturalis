@@ -1,7 +1,7 @@
 {
   "ID": "G22",
   "CARDTYPE": "Gold",
-  "SYMBOL": "Animal",
+  "SYMBOL": null,
   "POINTS": "1 for each Scroll on board",
   "TOPSYMBOL": null,
   "LEFTSYMBOL": "",

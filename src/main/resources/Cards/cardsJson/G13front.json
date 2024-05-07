@@ -1,7 +1,7 @@
 {
   "ID": "G12",
   "CARDTYPE": "Gold",
-  "SYMBOL": "Plant",
+  "SYMBOL": null,
   "POINTS": "1 for each Potion on board",
   "TOPSYMBOL": "",
   "LEFTSYMBOL": "Potion",

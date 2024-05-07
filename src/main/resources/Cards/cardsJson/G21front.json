@@ -1,7 +1,7 @@
 {
   "ID": "G21",
   "CARDTYPE": "Gold",
-  "SYMBOL": "Animal",
+  "SYMBOL": null,
   "POINTS": "1 for each Potion on board",
   "TOPSYMBOL": "Potion",
   "LEFTSYMBOL": "",

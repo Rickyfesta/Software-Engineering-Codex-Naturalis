@@ -1,7 +1,7 @@
 {
   "ID": "G26",
   "CARDTYPE": "Gold",
-  "SYMBOL": "Animal",
+  "SYMBOL": null,
   "POINTS": "2 for each angle occupied",
   "TOPSYMBOL": null,
   "LEFTSYMBOL": "",
