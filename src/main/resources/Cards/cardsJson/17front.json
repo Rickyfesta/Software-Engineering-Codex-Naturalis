@@ -7,9 +7,5 @@
   "LEFTSYMBOL": "Plant",
   "RIGHTSYMBOL": null,
   "BOTTOMSYMBOL": "Animal",
-  "TOP": true,
-  "LEFT": true,
-  "RIGHT": false,
-  "BOTTOM": true,
   "COLOUR": "green"
 }

@@ -7,10 +7,6 @@
   "LEFTSYMBOL": "",
   "RIGHTSYMBOL": "",
   "BOTTOMSYMBOL": "Scroll",
-  "TOP": false,
-  "LEFT": true,
-  "RIGHT": true,
-  "BOTTOM": true,
   "COLOUR": "blue",
   "REQUIRED": ["Animal","Animal","Plant"]
 }

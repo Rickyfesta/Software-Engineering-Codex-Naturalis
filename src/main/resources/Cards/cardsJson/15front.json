@@ -7,9 +7,5 @@
   "LEFTSYMBOL": "Feather",
   "RIGHTSYMBOL": "Insect",
   "BOTTOMSYMBOL": "Plant",
-  "TOP": false,
-  "LEFT": true,
-  "RIGHT": true,
-  "BOTTOM": true,
   "COLOUR": "green"
 }

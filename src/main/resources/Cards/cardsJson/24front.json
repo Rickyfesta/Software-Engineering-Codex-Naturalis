@@ -7,9 +7,5 @@
   "LEFTSYMBOL": null,
   "RIGHTSYMBOL": "Animal",
   "BOTTOMSYMBOL": "Animal",
-  "TOP": true,
-  "LEFT": false,
-  "RIGHT": true,
-  "BOTTOM": true,
   "COLOUR": "blue"
 }

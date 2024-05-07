@@ -7,10 +7,6 @@
   "LEFTSYMBOL": null,
   "RIGHTSYMBOL": "Scroll",
   "BOTTOMSYMBOL": "",
-  "TOP": false,
-  "LEFT": false,
-  "RIGHT": true,
-  "BOTTOM": true,
   "COLOUR": "red",
   "REQUIRED": ["Mushroom","Mushroom","Mushroom"]
 }

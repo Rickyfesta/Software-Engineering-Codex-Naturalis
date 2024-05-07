@@ -7,10 +7,6 @@
   "LEFTSYMBOL": "",
   "RIGHTSYMBOL": "",
   "BOTTOMSYMBOL": "Potion",
-  "TOP": false,
-  "LEFT": true,
-  "RIGHT": true,
-  "BOTTOM": true,
   "COLOUR": "purple",
   "REQUIRED": ["Insect","Insect","Mushroom"]
 }
