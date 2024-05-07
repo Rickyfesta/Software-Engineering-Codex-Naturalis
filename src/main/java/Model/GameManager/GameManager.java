@@ -2,10 +2,11 @@ package Model.GameManager;
 
 import Client.Client;
 import Controller.ClientHandler;
-import Server.Server;
 
-import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class GameManager {
     //private GameState gameState;
@@ -24,9 +25,7 @@ public class GameManager {
 
     }
     //To start a game
-    public void startGame() throws IOException {
-        Server.startServer();
-    }
+
 
     //method to add a player with a unique name
     public void addPlayers() {

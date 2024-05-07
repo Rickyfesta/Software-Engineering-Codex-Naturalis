@@ -22,6 +22,15 @@ public class MenuOption {
             "██║░╚███║██║░░██║░░░██║░░░╚██████╔╝██║░░██║██║░░██║███████╗██║██████╔╝\n" +
             "╚═╝░░╚══╝╚═╝░░╚═╝░░░╚═╝░░░░╚═════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚══════╝╚═╝╚═════╝░";
     private final Runnable action;
+    private static String startGame = "\n" +
+            "░█▀▀▀█ ▀▀█▀▀ █▀▀█ █▀▀█ ▀▀█▀▀ 　 █▀▀▀ █▀▀█ █▀▄▀█ █▀▀ \n" +
+            "─▀▀▀▄▄ ──█── █▄▄█ █▄▄▀ ──█── 　 █─▀█ █▄▄█ █─▀─█ █▀▀ \n" +
+            "░█▄▄▄█ ──▀── ▀──▀ ▀─▀▀ ──▀── 　 ▀▀▀▀ ▀──▀ ▀───▀ ▀▀▀";
+
+    private static String quit = "\n" +
+            "░█▀▀█ █──█ ─▀─ ▀▀█▀▀ \n" +
+            "░█─░█ █──█ ▀█▀ ──█── \n" +
+            "─▀▀█▄ ─▀▀▀ ▀▀▀ ──▀──";
 
     /**
      * Constructor for a CLI option
@@ -39,6 +48,14 @@ public class MenuOption {
      */
     public static String getTitle() {
         return title;
+    }
+
+    public static String getStart() {
+        return startGame;
+    }
+
+    public static String getQuit() {
+        return quit;
     }
 
     /**

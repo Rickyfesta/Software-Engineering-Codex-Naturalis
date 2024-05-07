@@ -11,16 +11,13 @@ import java.util.Scanner;
 
 public class Client {
 
-    private Socket socket;
-    private BufferedReader bufferedReader;
-    private BufferedWriter bufferedWriter;
+    public static Socket socket;
+    public static BufferedReader bufferedReader;
+    public static BufferedWriter bufferedWriter;
     public static String username;
     private static ClientHandler clientChat;
-    private static final Client clientIn = new Client();
 
     static boolean cli;
-
-
     public String getUsername(){
         return username;
     }
@@ -29,36 +26,21 @@ public class Client {
         System.out.println("Choose another client username \n");
         Client.username = scanner.nextLine();
     }
-    /*
-        public Client(){ //Client Setup
+
+     /*   public Client(Socket socket, String username){ //Client Setup
             try{
-                this.socket = socket;
+                Client.socket = socket;
                 this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
                 this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                this.username = username;
+                Client.username = username;
             }catch(IOException e){
                 closeEverything(socket, bufferedReader, bufferedWriter);
             }
         }
     */
-    public void setClient(String username){ //Client Setup
-        final String interfaccia = "cli";
-        final String address = "192.168.0.1";
-        final String port = "1234";
-        try {
-            socket = new Socket(address, Integer.parseInt(port));
-
-            this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-            this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            Client.username = username;
-        }catch (IOException e ) {
-            System.out.println("Errore setupClient (metodo setClient)");  //TODO: Change this sysout
-            closeEverything(socket, bufferedReader, bufferedWriter); //donno if it's necessary
-            System.exit(0);
-        }
-    }
-    public static Client getInstance(){
-        return clientIn;
+    public Client(Socket socket, String username){
+        Client.socket = socket;
+        Client.username = username;
     }
 
     public void sendMessage(){
@@ -97,7 +79,7 @@ public class Client {
         }).start();
     }
 
-    public void closeEverything(Socket socket, BufferedReader bufferedReader, BufferedWriter bufferedWriter){
+    public static void closeEverything(Socket socket, BufferedReader bufferedReader, BufferedWriter bufferedWriter){
         try{
             if(bufferedReader != null){
                 bufferedReader.close();
@@ -117,7 +99,7 @@ public class Client {
         System.out.println("Enter your username for the group chat: ");
         String username = scanner.nextLine();
         try{
-            clientIn.setClient(username);
+            Client client = new Client(socket, username);
         }
         catch(Exception e){
             e.printStackTrace();
@@ -125,42 +107,44 @@ public class Client {
         }
         System.out.println("Choose if you want to play on cli or gui: ");
         String interfaceClient = scanner.nextLine();
-        //TO BE CHANGED
-        //client.listenForMessage();
-        //client.sendMessage();
-
-        if (interfaceClient.equalsIgnoreCase("CLI")){
-            System.out.println("Connecting to the server...");
-            Client.connectToServer(true);
-        }
-        else if (interfaceClient.equalsIgnoreCase("GUI")) {
-            try{
-                new Thread(GUIClient::start);
-            }catch(Exception e){
-                System.out.println("Something went wrong SHIT");
+           if (interfaceClient.equalsIgnoreCase("CLI")){
+                System.out.println("Connecting to the server...");
+                Client.connectToServer(true);
             }
+            else if (interfaceClient.equalsIgnoreCase("GUI")) {
+                try{
+                    new Thread(GUIClient::start);
+                }catch(Exception e){
+                    System.out.println("Something went wrong SHIT");
+                }
 
-            System.out.println("Connecting to the server...");
-            Client.connectToServer(false);
+                System.out.println("Connecting to the server...");
+                Client.connectToServer(false);
 
+            }
+            else{
+                System.out.println("Invalid parameter, you have to write GUI or CLI !");
+                System.exit(0);
+            }
         }
-        else{
-            System.out.println("Invalid parameter, you have to write GUI or CLI !");
-            System.exit(0);
-        }
-    }
+
 
     private static void connectToServer(boolean cli) {
-        try (Socket socket = new Socket(username, 1234)) {
+       // System.out.println("hey");
+        try (Socket socket = new Socket("localhost", 1234)) {
             System.out.println("Connected to the server");
+            Client.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+            Client.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
             if(cli){
                 CLIClient.start();
+                //System.out.println("sus");
             }
             else{
                 GUIClient.start();
             }
         } catch (UnknownHostException e) {
-            System.out.println("Server not found: " + e.getMessage());
+            System.out.println("Server not found");
         } catch (IOException e) {
             System.out.println("I/O error: " + e.getMessage());
         }

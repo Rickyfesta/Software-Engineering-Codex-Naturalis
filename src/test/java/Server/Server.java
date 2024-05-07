@@ -52,6 +52,5 @@ public class Server {
         //Create the server
         Server server = new Server(serverSocket);
         //Run the server
-        server.startServer();
     }
 }

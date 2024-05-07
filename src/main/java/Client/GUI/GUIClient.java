@@ -12,5 +12,6 @@ public class GUIClient extends Application {
     }
 
     public static void start() {
+        System.out.println("Hello world ok gui");
     }
 }
