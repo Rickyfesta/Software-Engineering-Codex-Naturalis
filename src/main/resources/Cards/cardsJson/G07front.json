@@ -3,7 +3,7 @@
   "CARDTYPE": "Gold",
   "SYMBOL": "Mushroom",
   "POINTS": "3",
-  "TOPSYMBOL": null,
+  "TOPSYMBOL": "",
   "LEFTSYMBOL": "Potion",
   "RIGHTSYMBOL": null,
   "BOTTOMSYMBOL": null,

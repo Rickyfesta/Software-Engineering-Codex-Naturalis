@@ -3,7 +3,7 @@
   "CARDTYPE": "Gold",
   "SYMBOL": "Plant",
   "POINTS": "3",
-  "TOPSYMBOL":null,
+  "TOPSYMBOL":"",
   "LEFTSYMBOL": "Feather",
   "RIGHTSYMBOL": null,
   "BOTTOMSYMBOL": null,

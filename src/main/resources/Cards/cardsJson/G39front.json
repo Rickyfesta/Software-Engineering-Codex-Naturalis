@@ -6,7 +6,7 @@
   "TOPSYMBOL": null,
   "LEFTSYMBOL": "Feather",
   "RIGHTSYMBOL": null,
-  "BOTTOMSYMBOL": null,
+  "BOTTOMSYMBOL": "",
   "TOP": false,
   "LEFT": true,
   "RIGHT": false,
