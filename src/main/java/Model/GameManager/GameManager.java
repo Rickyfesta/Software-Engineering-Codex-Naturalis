@@ -4,6 +4,7 @@ import Client.Client;
 import Controller.ClientHandler;
 import Server.Server;
 
+import java.io.IOException;
 import java.util.*;
 
 public class GameManager {
@@ -23,7 +24,7 @@ public class GameManager {
 
     }
     //To start a game
-    public void startGame(){
+    public void startGame() throws IOException {
         Server.startServer();
     }
 
