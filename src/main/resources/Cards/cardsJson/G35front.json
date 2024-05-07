@@ -7,10 +7,6 @@
   "LEFTSYMBOL": "",
   "RIGHTSYMBOL": "",
   "BOTTOMSYMBOL": null,
-  "TOP": true,
-  "LEFT": true,
-  "RIGHT": true,
-  "BOTTOM": false,
   "COLOUR": "purple",
   "REQUIRED": ["Insect","Insect","Insect","Plant"]
 }

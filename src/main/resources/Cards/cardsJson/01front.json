@@ -7,9 +7,5 @@
   "BOTTOMSYMBOL": null,
   "LEFTSYMBOL": "Mushroom",
   "RIGHTSYMBOL": "",
-  "BOTTOM": false,
-  "RIGHT": true,
-  "LEFT": true,
-  "TOP": true,
   "COLOUR": "red"
 }

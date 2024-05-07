@@ -7,10 +7,6 @@
   "LEFTSYMBOL": null,
   "RIGHTSYMBOL": "Potion",
   "BOTTOMSYMBOL": null,
-  "TOP": true,
-  "LEFT": false,
-  "RIGHT": true,
-  "BOTTOM": false,
   "COLOUR": "blue",
   "REQUIRED": ["Animal","Animal","Animal"]
 }

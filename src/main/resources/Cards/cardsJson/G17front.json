@@ -7,10 +7,6 @@
   "LEFTSYMBOL": "Feather",
   "RIGHTSYMBOL": null,
   "BOTTOMSYMBOL": null,
-  "TOP": true,
-  "LEFT": true,
-  "RIGHT": false,
-  "BOTTOM": false,
   "COLOUR": "green",
   "REQUIRED": ["Plant","Plant","Plant"]
 }

@@ -7,9 +7,5 @@
   "LEFTSYMBOL": null,
   "RIGHTSYMBOL": "Plant",
   "BOTTOMSYMBOL": "Potion",
-  "TOP": true,
-  "LEFT": false,
-  "RIGHT": true,
-  "BOTTOM": true,
   "COLOUR": "green"
 }

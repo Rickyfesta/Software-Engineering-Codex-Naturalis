@@ -7,10 +7,6 @@
   "LEFTSYMBOL": null,
   "RIGHTSYMBOL": "",
   "BOTTOMSYMBOL": "Feather",
-  "TOP": false,
-  "LEFT":false,
-  "RIGHT": true,
-  "BOTTOM": true,
   "COLOUR": "blue",
   "REQUIRED": ["Animal","Animal","Animal"]
 }

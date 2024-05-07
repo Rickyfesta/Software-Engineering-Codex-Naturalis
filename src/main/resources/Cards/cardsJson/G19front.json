@@ -7,10 +7,6 @@
   "LEFTSYMBOL": null,
   "RIGHTSYMBOL": "Potion",
   "BOTTOMSYMBOL": "",
-  "TOP": false,
-  "LEFT": false,
-  "RIGHT": true,
-  "BOTTOM": true,
   "COLOUR": "green",
   "REQUIRED": ["Plant","Plant","Plant"]
 }

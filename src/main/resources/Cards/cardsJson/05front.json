@@ -7,9 +7,5 @@
   "LEFTSYMBOL": "Plant",
   "RIGHTSYMBOL":"Feather" ,
   "BOTTOMSYMBOL": "Mushroom",
-  "TOP": false,
-  "LEFT": true,
-  "RIGHT": true,
-  "BOTTOM": true,
   "COLOUR": "red"
 }
