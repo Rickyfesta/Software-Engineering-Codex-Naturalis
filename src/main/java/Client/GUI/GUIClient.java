@@ -18,7 +18,7 @@ public class GUIClient extends Application {
     public void start(Stage MainMenu) {
         try {
             // Load the FXML file
-            URL fxmlLocation = getClass().getResource("/fxml/MainMenu.fxml");
+            URL fxmlLocation = getClass().getResource("/GUI/MainMenu.fxml");
             //System.out.println(getClass().getResource("/fxml/MainMenu.fxml"));
             FXMLLoader loader = new FXMLLoader(fxmlLocation);
             //System.out.println(loader);
