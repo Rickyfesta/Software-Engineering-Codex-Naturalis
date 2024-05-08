@@ -4,8 +4,6 @@ import Client.CLI.CLIClient;
 import Client.GUI.GUIClient;
 import Controller.ClientHandler;
 import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.Socket;
@@ -13,7 +11,6 @@ import java.net.UnknownHostException;
 import java.util.Scanner;
 
 public class Client {
-
     public static Socket socket;
     public static BufferedReader bufferedReader;
     public static BufferedWriter bufferedWriter;
@@ -98,6 +95,7 @@ public class Client {
         }
     }
     public static void main(String[] args) throws IOException {
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your username for the group chat: ");
         String username = scanner.nextLine();
@@ -143,30 +141,7 @@ public class Client {
                 CLIClient.start();
             }
             else{
-                if (!Platform.isFxApplicationThread()) {
-                    Platform.startup(() -> {
-                        GUIClient myGuiClient = new GUIClient();
-                        try {
-                            myGuiClient.init(); // Prepare your GUI without showing it
-                        } catch (Exception e) {
-                            throw new RuntimeException(e);
-                        }
-                        Platform.runLater(() -> {
-                            myGuiClient.start(new Stage()); // Now show the GUI
-                        });
-                    });
-                }else {
-                    // Perform GUI-related operations on the JavaFX thread
-                    Platform.runLater(() -> {
-                        try {
-                            GUIClient.start(); // Assuming start manages starting or updating the GUI
-                        } catch (Exception e) {
-                            System.out.println("Failed to start/update the GUI: " + e.getMessage());
-                            e.printStackTrace();
-                        }
-                    });
-                }
-
+                GUIClient.main(null);
             }
         } catch (UnknownHostException e) {
             System.out.println("Server not found");

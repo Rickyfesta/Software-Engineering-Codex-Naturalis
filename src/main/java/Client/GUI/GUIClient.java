@@ -1,26 +1,28 @@
 package Client.GUI;
 
-import Controller.MainMenu;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.net.URL;
 
 public class GUIClient extends Application {
 
 
+    public static void main(String[] args) {
+        launch();
+    }
 
     @Override
     public void start(Stage MainMenu) {
         try {
             // Load the FXML file
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("src/main/resources/GUI/MainMenu.fxml")); // Update the path as needed
-            Parent root = loader.load();
-
-            // Set the scene and stage
-            Scene scene = new Scene(root);
+            URL fxmlLocation = getClass().getResource("/fxml/MainMenu.fxml");
+            //System.out.println(getClass().getResource("/fxml/MainMenu.fxml"));
+            FXMLLoader loader = new FXMLLoader(fxmlLocation);
+            //System.out.println(loader);
+            Scene scene = new Scene(loader.load());
             MainMenu.setScene(scene);
             MainMenu.setTitle("Main Menu");
             MainMenu.show();
@@ -29,8 +31,5 @@ public class GUIClient extends Application {
         }
     }
 
-    public static void start() {
 
-        MainMenu.initialize();
-    }
 }
