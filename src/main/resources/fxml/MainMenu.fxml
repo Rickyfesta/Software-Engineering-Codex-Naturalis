@@ -10,14 +10,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@css/MainMenu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainMenu">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" stylesheets="@css/MainMenu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainMenu">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
+      <ImageView fitHeight="700.0" fitWidth="1000.0" pickOnBounds="true">
          <image>
             <Image url="@img/Mainbg.png" />
          </image>
       </ImageView>
-      <Text layoutX="83.0" layoutY="120.0" opacity="0.57" strokeType="OUTSIDE" strokeWidth="0.0" text="███████████" underline="true">
+      <Text layoutX="286.0" layoutY="137.0" opacity="0.57" strokeType="OUTSIDE" strokeWidth="0.0" text="███████████" underline="true">
          <font>
             <Font name="Old English Text MT" size="61.0" />
          </font>
@@ -38,12 +38,12 @@
             </LinearGradient>
          </fill>
       </Text>
-      <Text layoutX="90.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codex Naturalis">
+      <Text layoutX="300.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codex Naturalis">
          <font>
             <Font name="Old English Text MT" size="61.0" />
          </font>
       </Text>
-      <Text fontSmoothingType="LCD" layoutX="83.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codex Naturalis" underline="true">
+      <Text fontSmoothingType="LCD" layoutX="300.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codex Naturalis" underline="true">
          <font>
             <Font name="Old English Text MT" size="61.0" />
          </font>
@@ -64,24 +64,21 @@
             </LinearGradient>
          </fill>
       </Text>
-      <AnchorPane layoutX="244.0" layoutY="128.0" prefHeight="155.0" prefWidth="126.0">
-         <children>
-            <Button fx:id="newGameBtn" layoutX="21.0" layoutY="14.0" mnemonicParsing="false" onAction="#playNewGame" styleClass="buttons" text="New Game">
-               <font>
-                  <Font name="Old English Text MT" size="12.0" />
-               </font>
-            </Button>
-            <Button fx:id="reconnectBtn" layoutX="25.0" layoutY="54.0" mnemonicParsing="false" onAction="#reconnect" styleClass="buttons" text="Reconnect">
-               <font>
-                  <Font name="Old English Text MT" size="12.0" />
-               </font>
-            </Button>
-            <Button fx:id="quitBtn" layoutX="39.0" layoutY="95.0" mnemonicParsing="false" onAction="#quitGame" styleClass="buttons" text="Quit">
-               <font>
-                  <Font name="Old English Text MT" size="12.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
+      <AnchorPane layoutX="244.0" layoutY="128.0" prefHeight="155.0" prefWidth="126.0" />
+      <Button fx:id="quitBtn" layoutX="470.0" layoutY="383.0" mnemonicParsing="false" onAction="#quitGame" prefHeight="30.0" prefWidth="65.0" styleClass="buttons" text="Quit">
+         <font>
+            <Font name="Old English Text MT" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="reconnectBtn" layoutX="455.0" layoutY="320.0" mnemonicParsing="false" onAction="#reconnect" prefHeight="39.0" prefWidth="90.0" styleClass="buttons" text="Reconnect">
+         <font>
+            <Font name="Old English Text MT" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="newGameBtn" layoutX="451.0" layoutY="256.0" mnemonicParsing="false" onAction="#playNewGame" prefHeight="39.0" prefWidth="98.0" styleClass="buttons" text="New Game">
+         <font>
+            <Font name="Old English Text MT" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

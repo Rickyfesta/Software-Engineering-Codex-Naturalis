@@ -2,6 +2,7 @@ package Client.GUI;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -22,10 +23,14 @@ public class GUIClient extends Application {
             //System.out.println(getClass().getResource("/fxml/MainMenu.fxml"));
             FXMLLoader loader = new FXMLLoader(fxmlLocation);
             //System.out.println(loader);
-            Scene scene = new Scene(loader.load());
+            Parent parent = loader.load();
+            Scene scene = new Scene(parent, 1000, 700);
             MainMenu.setScene(scene);
+            MainMenu.setResizable(false);
             MainMenu.setTitle("Main Menu");
             MainMenu.show();
+
+
         } catch(Exception e) {
             e.printStackTrace();
         }
