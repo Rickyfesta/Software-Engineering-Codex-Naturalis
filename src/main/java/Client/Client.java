@@ -2,11 +2,9 @@ package Client;
 
 import Client.CLI.CLIClient;
 import Client.GUI.GUIClient;
-import Controller.ClientHandler;
 
 import java.io.*;
 import java.net.Socket;
-import java.net.UnknownHostException;
 import java.util.Scanner;
 
 public class Client {
@@ -14,32 +12,19 @@ public class Client {
     public static BufferedReader bufferedReader;
     public static BufferedWriter bufferedWriter;
     public static String username;
-    private static ClientHandler clientChat;
 
-    static boolean cli;
-    public String getUsername(){
-        return username;
-    }
     public static void resetUsername(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Choose another client username \n");
         Client.username = scanner.nextLine();
     }
 
-     /*   public Client(Socket socket, String username){ //Client Setup
-            try{
-                Client.socket = socket;
-                this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-                this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                Client.username = username;
-            }catch(IOException e){
-                closeEverything(socket, bufferedReader, bufferedWriter);
-            }
-        }
-    */
-    public Client(Socket socket, String username){
-        Client.socket = socket;
-        Client.username = username;
+    public Client(Socket socket, String username) throws IOException {
+        this.socket = socket;
+        this.username = username;
+        this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+        this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
     }
 
     public void sendMessage(){
@@ -94,22 +79,19 @@ public class Client {
         }
     }
     public static void main(String[] args) throws IOException {
-
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your username for the group chat: ");
         String username = scanner.nextLine();
-        try{
-            Client client = new Client(socket, username);
-        }
-        catch(Exception e){
-            e.printStackTrace();
-            System.exit(0);
-        }
+        Socket socket = new Socket("localhost", 1234);
+        Client client = new Client(socket, username);
+        System.out.println("Connected to the server");
         System.out.println("Choose if you want to play on cli or gui: ");
         String interfaceClient = scanner.nextLine();
            if (interfaceClient.equalsIgnoreCase("CLI")){
                 System.out.println("Connecting to the server...");
-                Client.connectToServer(true);
+                client.connectToServer(true);
+                client.listenForMessage();
+                client.sendMessage();
             }
             else if (interfaceClient.equalsIgnoreCase("GUI")) {
                 try{
@@ -119,7 +101,9 @@ public class Client {
                 }
 
                 System.out.println("Connecting to the server...");
-                Client.connectToServer(false);
+                client.connectToServer(false);
+                client.listenForMessage();
+                client.sendMessage();
 
             }
             else{
@@ -130,25 +114,13 @@ public class Client {
 
 
     private static void connectToServer(boolean cli) {
-       // System.out.println("hey");
-        try (Socket socket = new Socket("localhost", 1234)) {
-            System.out.println("Connected to the server");
-            Client.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-            Client.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-
             if(cli){
                 CLIClient.start();
+
             }
             else{
                 GUIClient.main(null);
             }
-        } catch (UnknownHostException e) {
-            System.out.println("Server not found");
-        } catch (IOException e) {
-            System.out.println("I/O error: " + e.getMessage());
-        }
     }
-
-
 }
 
