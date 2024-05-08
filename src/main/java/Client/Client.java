@@ -3,7 +3,6 @@ package Client;
 import Client.CLI.CLIClient;
 import Client.GUI.GUIClient;
 import Controller.ClientHandler;
-import javafx.application.Application;
 
 import java.io.*;
 import java.net.Socket;
@@ -114,7 +113,7 @@ public class Client {
             }
             else if (interfaceClient.equalsIgnoreCase("GUI")) {
                 try{
-                    new Thread(() -> Application.launch(GUIClient.class)).start();
+                    new Thread(() -> GUIClient.main(null));
                 }catch(Exception e){
                     System.out.println("Something went wrong SHIT");
                 }
