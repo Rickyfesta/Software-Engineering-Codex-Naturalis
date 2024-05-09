@@ -3,60 +3,52 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ChoosePlayers">
+<AnchorPane prefHeight="567.0" prefWidth="992.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ChoosePlayers">
    <children>
-      <Text layoutX="-15.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose how many players to play with" textAlignment="CENTER" wrappingWidth="1000.0000000000001">
+      <ImageView fitHeight="660.0" fitWidth="992.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/anotherbackgroundnature.png" />
+         </image>
+      </ImageView>
+      <Text fill="#ae1616" layoutX="-15.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose how many players to play with" textAlignment="CENTER" wrappingWidth="1000.0000000000001">
          <font>
             <Font name="Old English Text MT" size="61.0" />
          </font>
       </Text>
-      <Text layoutX="212.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
+      <Text layoutX="-15.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose how many players to play with" textAlignment="CENTER" wrappingWidth="1000.0000000000001">
+         <font>
+            <Font name="Old English Text MT" size="61.0" />
+         </font>
+      </Text>
+      <Text fill="#a91212" layoutX="289.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
          <font>
             <Font name="Old English Text MT" size="46.0" />
          </font>
       </Text>
-      <Text layoutX="394.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4">
+      <Text fill="#b70909" layoutX="647.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4">
          <font>
             <Font name="Old English Text MT" size="46.0" />
          </font>
       </Text>
-      <Text layoutX="473.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5">
+      <Text fill="#b10a0a" layoutX="473.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
          <font>
             <Font name="Old English Text MT" size="46.0" />
          </font>
       </Text>
-      <Text layoutX="557.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6">
-         <font>
-            <Font name="Old English Text MT" size="46.0" />
-         </font>
-      </Text>
-      <Text layoutX="744.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8">
-         <font>
-            <Font name="Old English Text MT" size="46.0" />
-         </font>
-      </Text>
-      <Text layoutX="646.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7">
-         <font>
-            <Font name="Old English Text MT" size="46.0" />
-         </font>
-      </Text>
-      <Text layoutX="307.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
-         <font>
-            <Font name="Old English Text MT" size="46.0" />
-         </font>
-      </Text>
-      <ScrollBar fx:id="scoreBar" blockIncrement="1.0" layoutX="181.0" layoutY="383.0" max="8.0" min="2.0" prefHeight="26.0" prefWidth="607.0" value="1.0" visibleAmount="0.8" />
+      <ScrollBar fx:id="scoreBar" blockIncrement="1.0" layoutX="181.0" layoutY="383.0" max="4.0" min="2.0" prefHeight="26.0" prefWidth="607.0" value="1.0" visibleAmount="0.8" />
       <Text layoutX="394.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Value is:" wrappingWidth="105.199951171875">
          <font>
             <Font name="Old English Text MT" size="28.0" />
          </font>
       </Text>
       <Button layoutX="435.0" layoutY="460.0" mnemonicParsing="false" onAction="#playGame" text="Play" />
-      <Text fx:id="scoreValue" layoutX="513.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="23.449218749999773">
+      <Text fx:id="scoreValue" fill="#9e0a0a" layoutX="513.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="23.449218749999773">
          <font>
             <Font name="Old English Text MT" size="30.0" />
          </font>
