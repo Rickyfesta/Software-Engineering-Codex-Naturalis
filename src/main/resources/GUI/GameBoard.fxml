@@ -6,16 +6,16 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GameBoard">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GameBoard">
    <center>
-      <AnchorPane fx:id="mainBoardPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="mainBoardPane" prefHeight="486.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
          <children>
-            <StackPane layoutY="-1.0" prefHeight="274.0" prefWidth="130.0" />
-            <Button layoutY="274.0" mnemonicParsing="false" onAction="#loadCommonBoard" text="commonBoardButton" />
+            <StackPane fx:id="commonBoardContainer" prefHeight="402.0" prefWidth="170.0" />
+            <Button layoutY="402.0" mnemonicParsing="false" onAction="#loadCommonBoard" text="commonBoardButton" />
          </children>
       </AnchorPane>
    </center>
    <bottom>
-      <HBox fx:id="handCardsHBox" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <HBox fx:id="handCardsHBox" prefHeight="159.0" prefWidth="1000.0" BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>

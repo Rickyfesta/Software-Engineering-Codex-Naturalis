@@ -7,6 +7,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -34,15 +35,14 @@ public class GameBoard {
     }
 
     public void loadCommonBoard(javafx.event.ActionEvent actionEvent) {
-        try {
-            // Load CommonBoard
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("CommonBoard.fxml"));
-            StackPane commonBoard = loader.load();
-
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/CommonBoard.fxml"));
+            Pane commonBoard = null;
+            try {
+                commonBoard = loader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
             // Set CommonBoard into the placeholder
             commonBoardContainer.getChildren().add(commonBoard);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }
