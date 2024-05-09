@@ -8,18 +8,27 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.net.URL;
+
 public class GameBoard {
+    @FXML
+    private URL location;
     @FXML
     private Pane mainBoardPane;
     @FXML
-    private HBox handCardHBox;
+    private HBox handCardsHBox;
     @FXML
     private Button commonBoardButton;
 
     private Stage commonBoardStage;
 
-    private void initialize() {
+    @FXML
+    void initialize() {
         setupCommonBoard();
+        assert commonBoardButton != null : "fx:id=\"commonBoardButton\" was not injected: check your FXML file 'GameBoard.fxml'.";
+        assert handCardsHBox != null : "fx:id=\"handCardsHBox\" was not injected: check your FXML file 'GameBoard.fxml'.";
+        assert mainBoardPane != null : "fx:id=\"mainBoardPane\" was not injected: check your FXML file 'GameBoard.fxml'.";
+
     }
     private void setupCommonBoard() {
         try {

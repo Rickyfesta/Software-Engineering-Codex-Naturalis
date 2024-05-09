@@ -23,13 +23,10 @@ public class ChoosePlayers {
 
     @FXML
     private URL location;
-
     @FXML
-    private Label errorLabel;
-
+    private Label ErrorLabel;
     @FXML
     private ScrollBar scoreBar;
-
     @FXML
     private Text scoreValue;
 
@@ -38,7 +35,7 @@ public class ChoosePlayers {
     private Parent root;
     @FXML
     void playGame(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/GUI/Game.fxml")));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/GUI/UsernameScene.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -49,23 +46,22 @@ public class ChoosePlayers {
         scoreBar.setOnMouseClicked(event -> {
             double value = scoreBar.getValue();
             scoreValue.setText(String.format("%.0f", value));
-
         });
+        assert ErrorLabel != null : "fx:id=\"ErrorLabel\" was not injected: check your FXML file 'ChoosePlayers.fxml'.";
         assert scoreBar != null : "fx:id=\"scoreBar\" was not injected: check your FXML file 'ChoosePlayers.fxml'.";
         assert scoreValue != null : "fx:id=\"scoreValue\" was not injected: check your FXML file 'ChoosePlayers.fxml'.";
-
     }
+    @FXML
     private void Enoughplayers() {
         if (!isRequirementMet()) {
-            errorLabel.setText("You need at least 2 players to start the game.");
+            ErrorLabel.setText("You need at least 2 players to start the game.");
         } else {
-            errorLabel.setText("");
-            // Proceed with the action
+            ErrorLabel.setText("");
         }
     }
 
     private boolean isRequirementMet() {
-        // Implement your specific requirement check here
+
         return false; // Example
     }
 }
