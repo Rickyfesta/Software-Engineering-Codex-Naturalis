@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -22,6 +23,9 @@ public class ChoosePlayers {
 
     @FXML
     private URL location;
+
+    @FXML
+    private Label errorLabel;
 
     @FXML
     private ScrollBar scoreBar;
@@ -50,5 +54,18 @@ public class ChoosePlayers {
         assert scoreBar != null : "fx:id=\"scoreBar\" was not injected: check your FXML file 'ChoosePlayers.fxml'.";
         assert scoreValue != null : "fx:id=\"scoreValue\" was not injected: check your FXML file 'ChoosePlayers.fxml'.";
 
+    }
+    private void Enoughplayers() {
+        if (!isRequirementMet()) {
+            errorLabel.setText("You need at least 2 players to start the game.");
+        } else {
+            errorLabel.setText("");
+            // Proceed with the action
+        }
+    }
+
+    private boolean isRequirementMet() {
+        // Implement your specific requirement check here
+        return false; // Example
     }
 }
