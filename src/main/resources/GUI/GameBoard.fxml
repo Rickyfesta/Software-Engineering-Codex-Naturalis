@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GameBoard">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GameBoard">
    <center>
-      <AnchorPane fx:id="mainBoardPane" prefHeight="486.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="mainBoardPane" prefHeight="750.0" prefWidth="1300.0" BorderPane.alignment="CENTER">
          <children>
             <StackPane fx:id="commonBoardContainer" prefHeight="402.0" prefWidth="170.0" />
             <Button layoutY="402.0" mnemonicParsing="false" onAction="#loadCommonBoard" text="commonBoardButton" />
