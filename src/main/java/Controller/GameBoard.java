@@ -3,6 +3,8 @@ package Controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -27,22 +29,33 @@ public class GameBoard {
     private StackPane commonBoardContainer;
 
     @FXML
+    private ImageView CardHand1;
+
+    @FXML
+    private ImageView CardHand2;
+
+    @FXML
+    private ImageView CardHand3;
+
+    @FXML
     void initialize() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/CommonBoard.fxml"));
+        Pane commonBoard = null;
+        try {
+            commonBoard = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        // Set CommonBoard into the placeholder
+        commonBoardContainer.getChildren().add(commonBoard);
+        //System.out.println("/Cards/cardsimg/" + RandomCardFile.getRandomGXXFileName());
+        CardHand1.setImage(new Image("/Cards/carding/26front.jpg"));
+        //System.out.println(RandomCardFile.getRandomXXFileName());
         assert commonBoardButton != null : "fx:id=\"commonBoardButton\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert handCardsHBox != null : "fx:id=\"handCardsHBox\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert mainBoardPane != null : "fx:id=\"mainBoardPane\" was not injected: check your FXML file 'GameBoard.fxml'.";
 
     }
 
-    public void loadCommonBoard(javafx.event.ActionEvent actionEvent) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/CommonBoard.fxml"));
-            Pane commonBoard = null;
-            try {
-                commonBoard = loader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            // Set CommonBoard into the placeholder
-            commonBoardContainer.getChildren().add(commonBoard);
-    }
+
 }

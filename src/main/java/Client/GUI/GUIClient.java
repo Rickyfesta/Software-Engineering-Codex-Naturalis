@@ -32,7 +32,7 @@ public class GUIClient extends Application {
             Image img = new Image ("icon.jpg");
             MainMenu.getIcons().add(img);
             MainMenu.show();
-
+            //PersonalHand.start();
 
         } catch(Exception e) {
             e.printStackTrace();

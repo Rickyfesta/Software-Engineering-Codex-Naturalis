@@ -1,59 +1,54 @@
 package Model.Cards;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 
 //Issue
 public class RandomCardFile {
-    private static List<Integer> generatedNumbers = new ArrayList<>();
-    private static List<Integer> generatedNumbers0 = new ArrayList<>();
-    private static List<Integer> generatedNumbers1 = new ArrayList<>();
     public static void main(String[] args) {
         // Get a random card front and its corresponding back
-        String randomFront = getRandomXXFileName();
-        String randomGFront = getRandomGXXFileName();
-        String randomOFront = getRandomOXXFileName();
-        String randomSFront = getRandomSXXFileName();
-        //System.out.println(randomSFront);
+        String randomFront = getRandomXXFileName(); //Resource
+        String randomGFront = getRandomGXXFileName(); //Gold
+        String randomOFront = getRandomOXXFileName(); //Objective
+        String randomSFront = getRandomSXXFileName(); //Starter
+        System.out.println(randomSFront);
         String associatedBack = getAssociatedBackFileName(randomFront);
         String associatedOBack = getAssociatedOBackFileName(randomOFront);
         String associatedGBack = getAssociatedGBackFileName(randomGFront);
         String associatedSBack = getRandomSXXFileNameBack(randomSFront);
-        System.out.println("Random front file: " + randomFront);
+        /*System.out.println("Random front file: " + randomFront);
         System.out.println("Associated back file: " + associatedBack);
         System.out.println("Random Gold front file: " + randomGFront);
         System.out.println("Associated Gold back file: " + associatedGBack);
         System.out.println("Random Objective front file: " + randomOFront);
         System.out.println("Associated Objective back file: " + associatedOBack);
         System.out.println("Random Starter front file: " + randomSFront);
-        System.out.println("Associated Starter back file: " + associatedSBack);
+        System.out.println("Associated Starter back file: " + associatedSBack)*/;
     }
 
     // Method to generate a random "XXfront.json" file name
     public static String getRandomXXFileName() {
         String number = generateRandomNumber();
         //System.out.println(number + "front.json");
-        return number + "front.json";
+        return number + "front.jpg";
     }
 
     // Method to generate a random "GXXfront.json" file name
     public static String getRandomGXXFileName() {
         String number = generateRandomNumber();
-        return "G" + number + "front.json";
+        return "G" + number + "front.jpg";
     }
 
     // Method to generate a random "OXXfront.json" file name
     public static String getRandomOXXFileName() {
         String number = generateRandomNumberO();
-        return "O" + number + "front.json";
+        return "O" + number + "front.jpg";
     }
     // Method to generate a random "SXXfront.json" file name
     public static String getRandomSXXFileName() {
         String number = generateRandomNumber1();
-        String back = "S" + number + "back.json";
-        return "S" + number + "front.json";
+        String back = "S" + number + "back.jpg";
+        return "S" + number + "front.jpg";
     }
     //file takes the random number and return back
     public static String getRandomSXXFileNameBack(String back) {
@@ -65,12 +60,7 @@ public class RandomCardFile {
     private static String generateRandomNumber() {
         Random random = new Random();
         int cardNumber;  // Generates a number from 1 to 20
-        if (generatedNumbers.size() == 40) {
-            throw new RuntimeException("There aren't anymore cards");
-        }
-        do {
             cardNumber = 1 + random.nextInt(40);  // Generates a number from 1 to 40
-        } while (generatedNumbers.contains(cardNumber));
         return String.format("%02d", cardNumber);  // Formats the number as two digits
     }
 
@@ -78,27 +68,13 @@ public class RandomCardFile {
     private static String generateRandomNumberO() {
         Random random = new Random();
         int cardNumber;  // Generates a number from 1 to 20
-        if (generatedNumbers0.size() == 16) {
-            throw new RuntimeException("There aren't anymore cards");
-        }
-        do {
             cardNumber = 1 + random.nextInt(16);  // Generates a number from 1 to 40
-        }
-        while (generatedNumbers0.contains(cardNumber));
-        generatedNumbers0.add(cardNumber);
         return String.format("%02d", cardNumber);  // Formats the number as two digits
     }
     private static String generateRandomNumber1() {
         Random random = new Random();
         int cardNumber;// Generates a number from 1 to 20
-        if (generatedNumbers1.size() == 6) {
-            throw new RuntimeException("There aren't anymore cards");
-        }
-        do {
             cardNumber = 1 + random.nextInt(6);  // Generates a number from 1 to 40
-        }
-        while (generatedNumbers1.contains(cardNumber));
-        generatedNumbers1.add(cardNumber);
         return String.format("%02d", cardNumber);  // Formats the number as two digits
     }
     // Determines the associated back file based on the card number from the front file
@@ -108,14 +84,14 @@ public class RandomCardFile {
 
         // Return the corresponding back file
         if (cardNumber >= 1 && cardNumber <= 10) {
-            return "MushroomBack.json";
+            return "MushroomBack.jpg";
         } else if (cardNumber >= 11 && cardNumber <= 20) {
-            return "PlantBack.json";
+            return "PlantBack.jpg";
         } else if (cardNumber >= 21 && cardNumber <= 30) {
             // Handle unexpected card number, if necessary
-            return "AnimalBack.json";
+            return "AnimalBack.jpg";
         } else if (cardNumber >= 31 && cardNumber <= 40) {
-            return "InsectBack.json";
+            return "InsectBack.jpg";
         } else {
             return null;  // Invalid card number
 
@@ -130,14 +106,14 @@ public class RandomCardFile {
 
         // Return the corresponding back file
         if (cardNumber >= 1 && cardNumber <= 10) {
-            return "GMushroomBack.json";
+            return "GMushroomBack.jpg";
         } else if (cardNumber >= 11 && cardNumber <= 20) {
-            return "GPlantBack.json";
+            return "GPlantBack.jpg";
         } else if (cardNumber >= 21 && cardNumber <= 30) {
             // Handle unexpected card number, if necessary
-            return "GAnimalBack.json";
+            return "GAnimalBack.jpg";
         } else if (cardNumber >= 31 && cardNumber <= 40) {
-            return "GInsectBack.json";
+            return "GInsectBack.jpg";
         } else {
             return null;  // Invalid card number
 
@@ -151,7 +127,7 @@ public class RandomCardFile {
         int cardNumber = Integer.parseInt(frontFileName.substring(1, 3));
 
         // Return the corresponding back file
-        return "OBack.json";
+        return "OBack.jpg";
     }
 
 }
