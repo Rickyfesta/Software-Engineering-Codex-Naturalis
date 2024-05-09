@@ -1,10 +1,15 @@
 package Model.Cards;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 
 //Issue
 public class RandomCardFile {
+    private static List<Integer> generatedNumbers = new ArrayList<>();
+    private static List<Integer> generatedNumbers0 = new ArrayList<>();
+    private static List<Integer> generatedNumbers1 = new ArrayList<>();
     public static void main(String[] args) {
         // Get a random card front and its corresponding back
         String randomFront = getRandomXXFileName();
@@ -59,19 +64,41 @@ public class RandomCardFile {
     // Helper method to generate a random two-digit number
     private static String generateRandomNumber() {
         Random random = new Random();
-        int cardNumber = 1 + random.nextInt(40);  // Generates a number from 1 to 20
+        int cardNumber;  // Generates a number from 1 to 20
+        if (generatedNumbers.size() == 40) {
+            throw new RuntimeException("There aren't anymore cards");
+        }
+        do {
+            cardNumber = 1 + random.nextInt(40);  // Generates a number from 1 to 40
+        } while (generatedNumbers.contains(cardNumber));
         return String.format("%02d", cardNumber);  // Formats the number as two digits
     }
 
     // Helper method to generate a random two-digit number
     private static String generateRandomNumberO() {
         Random random = new Random();
-        int cardNumber = 1 + random.nextInt(16);  // Generates a number from 1 to 20
+        int cardNumber;  // Generates a number from 1 to 20
+        if (generatedNumbers0.size() == 16) {
+            throw new RuntimeException("There aren't anymore cards");
+        }
+        do {
+            cardNumber = 1 + random.nextInt(16);  // Generates a number from 1 to 40
+        }
+        while (generatedNumbers0.contains(cardNumber));
+        generatedNumbers0.add(cardNumber);
         return String.format("%02d", cardNumber);  // Formats the number as two digits
     }
     private static String generateRandomNumber1() {
         Random random = new Random();
-        int cardNumber = 1 + random.nextInt(6);  // Generates a number from 1 to 20
+        int cardNumber;// Generates a number from 1 to 20
+        if (generatedNumbers1.size() == 6) {
+            throw new RuntimeException("There aren't anymore cards");
+        }
+        do {
+            cardNumber = 1 + random.nextInt(6);  // Generates a number from 1 to 40
+        }
+        while (generatedNumbers1.contains(cardNumber));
+        generatedNumbers1.add(cardNumber);
         return String.format("%02d", cardNumber);  // Formats the number as two digits
     }
     // Determines the associated back file based on the card number from the front file
@@ -126,5 +153,6 @@ public class RandomCardFile {
         // Return the corresponding back file
         return "OBack.json";
     }
+
 }
 
