@@ -9,9 +9,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="567.0" prefWidth="992.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ChoosePlayers">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ChoosePlayers">
    <children>
-      <ImageView fitHeight="660.0" fitWidth="992.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitWidth="1000.0" layoutX="7.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/anotherbackgroundnature.png" />
          </image>
@@ -53,7 +53,6 @@
             <Font name="Old English Text MT" size="30.0" />
          </font>
       </Text>
-      <Label text="Label" />
       <Label fx:id="ErrorLabel" alignment="TOP_CENTER" layoutX="401.0" layoutY="493.0" prefHeight="18.0" prefWidth="105.0" text="Not enough players" textFill="#fc0505" />
    </children>
 </AnchorPane>
