@@ -9,50 +9,50 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ChoosePlayers">
+<AnchorPane prefHeight="750.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ChoosePlayers">
    <children>
-      <ImageView fitWidth="1000.0" layoutX="7.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="750.0" fitWidth="1300.0" layoutY="1.0" pickOnBounds="true">
          <image>
             <Image url="@img/anotherbackgroundnature.png" />
          </image>
       </ImageView>
-      <Text fill="#ae1616" layoutX="-15.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose how many players to play with" textAlignment="CENTER" wrappingWidth="1000.0000000000001">
+      <Text fill="#ae1616" layoutX="158.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose how many players to play with" textAlignment="CENTER" wrappingWidth="1000.0000000000001">
          <font>
             <Font name="Old English Text MT" size="61.0" />
          </font>
       </Text>
-      <Text layoutX="-15.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose how many players to play with" textAlignment="CENTER" wrappingWidth="1000.0000000000001">
+      <Text layoutX="158.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose how many players to play with" textAlignment="CENTER" wrappingWidth="1000.0000000000001">
          <font>
             <Font name="Old English Text MT" size="61.0" />
          </font>
       </Text>
-      <Text fill="#a91212" layoutX="289.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
+      <Text fill="#a91212" layoutX="461.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
          <font>
             <Font name="Old English Text MT" size="46.0" />
          </font>
       </Text>
-      <Text fill="#b70909" layoutX="647.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4">
+      <Text fill="#b70909" layoutX="850.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4">
          <font>
             <Font name="Old English Text MT" size="46.0" />
          </font>
       </Text>
-      <Text fill="#b10a0a" layoutX="473.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
+      <Text fill="#b10a0a" layoutX="658.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
          <font>
             <Font name="Old English Text MT" size="46.0" />
          </font>
       </Text>
-      <ScrollBar fx:id="scoreBar" blockIncrement="1.0" layoutX="181.0" layoutY="383.0" max="4.0" min="2.0" prefHeight="26.0" prefWidth="607.0" value="1.0" visibleAmount="0.8" />
-      <Text layoutX="394.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Value is:" wrappingWidth="105.199951171875">
+      <ScrollBar fx:id="scoreBar" blockIncrement="1.0" layoutX="366.0" layoutY="391.0" max="4.0" min="2.0" prefHeight="26.0" prefWidth="607.0" value="1.0" visibleAmount="0.8" />
+      <Text layoutX="575.0" layoutY="443.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Value is:" wrappingWidth="105.199951171875">
          <font>
             <Font name="Old English Text MT" size="28.0" />
          </font>
       </Text>
-      <Button layoutX="435.0" layoutY="460.0" mnemonicParsing="false" onAction="#playGame" text="Play" />
-      <Text fx:id="scoreValue" fill="#9e0a0a" layoutX="513.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="23.449218749999773">
+      <Button layoutX="651.0" layoutY="480.0" mnemonicParsing="false" onAction="#playGame" text="Play" />
+      <Text fx:id="scoreValue" fill="#9e0a0a" layoutX="681.0" layoutY="443.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="23.449218749999773">
          <font>
             <Font name="Old English Text MT" size="30.0" />
          </font>
       </Text>
-      <Label fx:id="ErrorLabel" alignment="TOP_CENTER" layoutX="401.0" layoutY="493.0" prefHeight="18.0" prefWidth="105.0" text="Not enough players" textFill="#fc0505" />
+      <Label fx:id="ErrorLabel" alignment="TOP_CENTER" layoutX="617.0" layoutY="518.0" prefHeight="18.0" prefWidth="105.0" text="Not enough players" textFill="#fc0505" />
    </children>
 </AnchorPane>
