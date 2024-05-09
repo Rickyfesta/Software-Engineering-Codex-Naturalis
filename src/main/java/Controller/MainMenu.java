@@ -36,7 +36,6 @@ public class MainMenu {
     private Parent root;
     @FXML
     void playNewGame(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/GUI/ChoosePlayers.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
