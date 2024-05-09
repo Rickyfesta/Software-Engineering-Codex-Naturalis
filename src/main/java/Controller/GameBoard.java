@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Cards.RandomCardFile;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -49,7 +50,9 @@ public class GameBoard {
         // Set CommonBoard into the placeholder
         commonBoardContainer.getChildren().add(commonBoard);
         //System.out.println("/Cards/cardsimg/" + RandomCardFile.getRandomGXXFileName());
-        CardHand1.setImage(new Image("/Cards/carding/26front.jpg"));
+        CardHand1.setImage(new Image("cards/carding/" + RandomCardFile.getRandomGXXFileName()));
+        CardHand2.setImage(new Image("cards/carding/" + RandomCardFile.getRandomXXFileName()));
+        CardHand3.setImage(new Image("cards/carding/" + RandomCardFile.getRandomXXFileName()));
         //System.out.println(RandomCardFile.getRandomXXFileName());
         assert commonBoardButton != null : "fx:id=\"commonBoardButton\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert handCardsHBox != null : "fx:id=\"handCardsHBox\" was not injected: check your FXML file 'GameBoard.fxml'.";
