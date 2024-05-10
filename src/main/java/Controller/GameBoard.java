@@ -46,7 +46,7 @@ public class GameBoard {
     @FXML
     void initialize() {
         // Set CommonBoard into the placeholder
-        System.out.println("/Cards/cardsimg/" + RandomCardFile.getRandomGXXFileName());
+        //System.out.println("/Cards/cardsimg/" + RandomCardFile.getRandomGXXFileName());
         CardHand1.setImage(new Image("cards/carding/" + RandomCardFile.getRandomGXXFileName()));
         CardHand2.setImage(new Image("cards/carding/" + RandomCardFile.getRandomXXFileName()));
         CardHand3.setImage(new Image("cards/carding/" + RandomCardFile.getRandomXXFileName()));

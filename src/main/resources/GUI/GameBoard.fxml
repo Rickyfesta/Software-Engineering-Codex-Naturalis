@@ -47,7 +47,15 @@
             </AnchorPane>
             <AnchorPane layoutX="221.0" prefHeight="594.0" prefWidth="1081.0">
                <children>
-                  <ImageView fx:id="StartingCard" fitHeight="80.0" fitWidth="150.0" layoutX="466.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="StartingCard" fitHeight="80.0" fitWidth="150.0" layoutX="466.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/P-Cobj.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Right1" fitHeight="80.0" fitWidth="150.0" layoutX="569.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="Up1" fitHeight="80.0" fitWidth="150.0" layoutX="569.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="Left1" fitHeight="80.0" fitWidth="150.0" layoutX="358.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="Down1" fitHeight="80.0" fitWidth="150.0" layoutX="358.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true" />
                </children></AnchorPane>
             <ImageView fx:id="ResDeck" fitHeight="94.0" fitWidth="215.0" layoutX="14.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="GoldDeck" fitHeight="93.0" fitWidth="215.0" layoutX="14.0" layoutY="492.0" pickOnBounds="true" preserveRatio="true" />
