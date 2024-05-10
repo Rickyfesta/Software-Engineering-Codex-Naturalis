@@ -1,8 +1,8 @@
 {
   "ASCII": [
         "+----------------------------------------------+",
-        "|         |            |1\uD83D\uDCDC|           |         |",
-        "|         |             \uD83C\uDF31            |    \uD83D\uDCDC    |",
+        "|         |            |1\uD83E\uDEB6|           |         |",
+        "|         |             \uD83E\uDD8B            |    \uD83E\uDEB6    |",
         "|         |                          |         |",
         "|---------+                          +---------|",
         "|                                              |",
@@ -11,9 +11,9 @@
         "|                                    +---------|",
         "|                                    |         |",
         "|                                    |         |",
-        "|                      \uD83C\uDF31\uD83C\uDF31\uD83C\uDF44             |         |",
+        "|                      \uD83E\uDD8B\uD83E\uDD8B\uD83C\uDF31          |         |",
         "+----------------------------------------------+"
       ],
-  "ID": "G12",
-  "DESCRIPTION": "ASCII for plant gold"
+  "ID": "G31",
+  "DESCRIPTION": "ASCII for insect gold"
 }

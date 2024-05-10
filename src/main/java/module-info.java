@@ -9,6 +9,8 @@ module IS24.LB09 {
 
     opens Controller;
     opens Client.GUI;
+    opens Client.CLI;
     exports Controller;
     exports Client.GUI;
+    exports Client.CLI;
 }
