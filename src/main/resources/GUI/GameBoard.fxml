@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -7,59 +8,57 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GameBoard">
-   <center>
-      <AnchorPane fx:id="mainBoardPane" prefHeight="750.0" prefWidth="1303.0" BorderPane.alignment="CENTER">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="807.0" prefWidth="1319.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GameBoard">
+
+   <AnchorPane fx:id="mainBoardPane" prefHeight="750.0" prefWidth="1303.0" BorderPane.alignment="CENTER">
+      <ImageView fitHeight="380.0" fitWidth="220.0" layoutY="18.0" pickOnBounds="true">
+         <image>
+            <Image url="@img/plateau.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutY="596.0" prefHeight="130.0" prefWidth="1300.0">
          <children>
-            <ImageView fitHeight="380.0" fitWidth="220.0" layoutY="18.0" pickOnBounds="true">
+            <ImageView fitHeight="200.0" fitWidth="1309.0" pickOnBounds="true">
                <image>
-                  <Image url="@img/plateau.jpg" />
+                  <Image url="@img/bgHand.jpg" />
                </image>
             </ImageView>
-            <AnchorPane layoutY="596.0" prefHeight="130.0" prefWidth="1300.0">
-               <children>
-                  <ImageView fitHeight="200.0" fitWidth="1309.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@img/bgHand.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="200.0" fitWidth="395.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/P-Cobj.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="CardHand1" fitHeight="120.0" fitWidth="215.0" layoutX="508.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="CardHand2" fitHeight="120.0" fitWidth="215.0" layoutX="801.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="CardHand3" fitHeight="120.0" fitWidth="215.0" layoutX="1064.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="CommonObj" fitHeight="97.0" fitWidth="179.0" layoutX="178.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="PersonalObj" fitHeight="98.0" fitWidth="172.0" layoutX="181.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" />
-                  <Text fill="WHITE" layoutX="14.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Common Goal" wrappingWidth="134.13668823242188">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Text>
-                  <Text fill="WHITE" layoutX="14.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Goal" wrappingWidth="126.13668823242188">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Text>
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="221.0" prefHeight="594.0" prefWidth="1081.0">
-               <children>
-                  <ImageView fx:id="StartingCard" fitHeight="80.0" fitWidth="150.0" layoutX="466.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/P-Cobj.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="Right1" fitHeight="80.0" fitWidth="150.0" layoutX="569.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="Up1" fitHeight="80.0" fitWidth="150.0" layoutX="569.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="Left1" fitHeight="80.0" fitWidth="150.0" layoutX="358.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="Down1" fitHeight="80.0" fitWidth="150.0" layoutX="358.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true" />
-               </children></AnchorPane>
-            <ImageView fx:id="ResDeck" fitHeight="94.0" fitWidth="215.0" layoutX="14.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="GoldDeck" fitHeight="93.0" fitWidth="215.0" layoutX="14.0" layoutY="492.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="200.0" fitWidth="395.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/P-Cobj.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="CardHand1" fitHeight="120.0" fitWidth="215.0" layoutX="508.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="CardHand2" fitHeight="120.0" fitWidth="215.0" layoutX="801.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="CardHand3" fitHeight="120.0" fitWidth="215.0" layoutX="1064.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="CommonObj" fitHeight="97.0" fitWidth="179.0" layoutX="178.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="PersonalObj" fitHeight="98.0" fitWidth="172.0" layoutX="181.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" />
+            <Text fill="WHITE" layoutX="14.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Common Goal" wrappingWidth="134.13668823242188">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="14.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Goal" wrappingWidth="126.13668823242188">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
-   </center>
-</BorderPane>
+      <AnchorPane layoutX="221.0" prefHeight="594.0" prefWidth="1081.0">
+         <children>
+            <ImageView fx:id="StartingCard" fitHeight="80.0" fitWidth="150.0" layoutX="466.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/P-Cobj.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Right1" fitHeight="80.0" fitWidth="150.0" layoutX="569.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="Up1" fitHeight="80.0" fitWidth="150.0" layoutX="569.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="Left1" fitHeight="80.0" fitWidth="150.0" layoutX="358.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="Down1" fitHeight="80.0" fitWidth="150.0" layoutX="358.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="ResDeck" fitHeight="94.0" fitWidth="215.0" layoutX="14.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="GoldDeck" fitHeight="93.0" fitWidth="215.0" layoutX="14.0" layoutY="492.0" pickOnBounds="true" preserveRatio="true" />
+   </AnchorPane>
+</ScrollPane>

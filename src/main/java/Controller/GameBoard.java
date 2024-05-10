@@ -46,15 +46,15 @@ public class GameBoard {
     @FXML
     void initialize() {
         // Set CommonBoard into the placeholder
-        //System.out.println("/Cards/cardsimg/" + RandomCardFile.getRandomGXXFileName());
-        CardHand1.setImage(new Image("cards/carding/" + RandomCardFile.getRandomGXXFileName()));
-        CardHand2.setImage(new Image("cards/carding/" + RandomCardFile.getRandomXXFileName()));
-        CardHand3.setImage(new Image("cards/carding/" + RandomCardFile.getRandomXXFileName()));
-        CommonObj.setImage(new Image("cards/carding/" + RandomCardFile.getRandomOXXFileName()));
-        GoldDeck.setImage(new Image("cards/carding/" + RandomCardFile.getRandomGXXFileName()));
-        PersonalObj.setImage(new Image("cards/carding/" + RandomCardFile.getRandomOXXFileName()));
-        ResDeck.setImage(new Image("cards/carding/" + RandomCardFile.getRandomXXFileName()));
-        StartingCard.setImage(new Image("cards/carding/" + RandomCardFile.getRandomSXXFileName()));
+        //System.out.println("/cards/cardsimg/" + RandomCardFile.getRandomGXXFileName());
+        CardHand1.setImage(new Image("/" + RandomCardFile.getRandomGXXFileName()));
+        CardHand2.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
+        CardHand3.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
+        CommonObj.setImage(new Image("/" + RandomCardFile.getRandomOXXFileName()));
+        GoldDeck.setImage(new Image("/" + RandomCardFile.getRandomGXXFileName()));
+        PersonalObj.setImage(new Image("/" + RandomCardFile.getRandomOXXFileName()));
+        ResDeck.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
+        StartingCard.setImage(new Image("/" + RandomCardFile.getRandomSXXFileName()));
 
         //System.out.println(RandomCardFile.getRandomXXFileName());
         assert CardHand1 != null : "fx:id=\"CardHand1\" was not injected: check your FXML file 'GameBoard.fxml'.";
