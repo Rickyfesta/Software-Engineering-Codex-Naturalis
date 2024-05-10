@@ -1,10 +1,15 @@
 package Client.CLI;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 public class CLICard {
+    @JsonProperty("ID")
     private String ID;
+    @JsonProperty("DESCRIPTION")
     private String DESCRIPTION;
+    @JsonProperty("ASCII")
     private List<String> ASCII;
 
     // Constructors
