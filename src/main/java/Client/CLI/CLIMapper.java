@@ -6,7 +6,7 @@ public class CLIMapper {
     public static void main(String[] args) {
         ObjectMapper mapper = new ObjectMapper();
         try {
-            CLICard cardArt = mapper.readValue(CLIMapper.class.getResourceAsStream("/CLI/CLI20front.json"), CLICard.class);
+            CLICard cardArt = mapper.readValue(CLIMapper.class.getResourceAsStream("/CLI/CLI40front.json"), CLICard.class);
             System.out.println("Art ID: " + cardArt.getID());
             System.out.println("Description: " + cardArt.getDESCRIPTION());
             System.out.println("ASCII Art:");
