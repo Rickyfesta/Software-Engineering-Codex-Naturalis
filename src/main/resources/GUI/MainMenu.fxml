@@ -17,7 +17,7 @@
             <Image url="@img/Mainbg.png" />
          </image>
       </ImageView>
-      <Text layoutX="286.0" layoutY="137.0" opacity="0.57" strokeType="OUTSIDE" strokeWidth="0.0" text="███████████" underline="true">
+      <Text layoutX="426.0" layoutY="137.0" opacity="0.57" strokeType="OUTSIDE" strokeWidth="0.0" text="███████████" underline="true">
          <font>
             <Font name="Old English Text MT" size="61.0" />
          </font>
@@ -38,12 +38,12 @@
             </LinearGradient>
          </fill>
       </Text>
-      <Text layoutX="300.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codex Naturalis">
+      <Text layoutX="440.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codex Naturalis">
          <font>
             <Font name="Old English Text MT" size="61.0" />
          </font>
       </Text>
-      <Text fontSmoothingType="LCD" layoutX="300.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codex Naturalis" underline="true">
+      <Text fontSmoothingType="LCD" layoutX="446.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codex Naturalis" underline="true">
          <font>
             <Font name="Old English Text MT" size="61.0" />
          </font>
