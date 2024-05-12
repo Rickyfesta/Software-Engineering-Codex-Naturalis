@@ -44,6 +44,17 @@ public class GameBoard {
     private ImageView StartingCard;
 
     @FXML
+    private ImageView Down1;
+    @FXML
+    private ImageView Right1;
+    @FXML
+    private ImageView Left1;
+    @FXML
+    private ImageView Up1;
+    @FXML
+    private ImageView Down2;
+
+    @FXML
     void initialize() {
         // Set CommonBoard into the placeholder
         //System.out.println("/cards/cardsimg/" + RandomCardFile.getRandomGXXFileName());
@@ -55,6 +66,12 @@ public class GameBoard {
         PersonalObj.setImage(new Image("/" + RandomCardFile.getRandomOXXFileName()));
         ResDeck.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
         StartingCard.setImage(new Image("/" + RandomCardFile.getRandomSXXFileName()));
+        Down1.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
+        Right1.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
+        Left1.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
+        Up1.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
+        Down2.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
+
 
         //System.out.println(RandomCardFile.getRandomXXFileName());
         assert CardHand1 != null : "fx:id=\"CardHand1\" was not injected: check your FXML file 'GameBoard.fxml'.";
