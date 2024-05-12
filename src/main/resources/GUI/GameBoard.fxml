@@ -52,32 +52,6 @@
                   <Image url="@img/P-Cobj.jpg" />
                </image>
             </ImageView>
-            <ImageView fx:id="Right1" fitHeight="80.0" fitWidth="150.0" layoutX="554.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Up1" fitHeight="80.0" fitWidth="150.0" layoutX="554.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Left1" fitHeight="80.0" fitWidth="150.0" layoutX="378.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Down1" fitHeight="80.0" fitWidth="150.0" layoutX="378.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Down2" fitHeight="80.0" fitWidth="150.0" layoutX="290.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Right2" fitHeight="80.0" fitWidth="150.0" layoutX="632.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Up2" fitHeight="80.0" fitWidth="150.0" layoutX="632.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Left2" fitHeight="80.0" fitWidth="150.0" layoutX="290.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Down3" fitHeight="80.0" fitWidth="150.0" layoutX="202.0" layoutY="395.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Down4" fitHeight="80.0" fitWidth="150.0" layoutX="114.0" layoutY="441.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Down5" fitHeight="80.0" fitWidth="150.0" layoutX="26.0" layoutY="487.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Down6" fitHeight="80.0" fitWidth="150.0" layoutX="-62.0" layoutY="533.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Down7" fitHeight="80.0" fitWidth="150.0" layoutX="-150.0" layoutY="579.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Down8" fitHeight="80.0" fitWidth="150.0" layoutX="-238.0" layoutY="625.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Down9" fitHeight="80.0" fitWidth="150.0" layoutX="-326.0" layoutY="671.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Down10" fitHeight="80.0" fitWidth="150.0" layoutX="-414.0" layoutY="717.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Down12" fitHeight="80.0" fitWidth="150.0" layoutX="-502.0" layoutY="763.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Down13" fitHeight="80.0" fitWidth="150.0" layoutX="-590.0" layoutY="809.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Down14" fitHeight="80.0" fitWidth="150.0" layoutX="-678.0" layoutY="855.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Down15" fitHeight="80.0" fitWidth="150.0" layoutX="-766.0" layoutY="901.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Down16" fitHeight="80.0" fitWidth="150.0" layoutX="-854.0" layoutY="947.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Down17" fitHeight="80.0" fitWidth="150.0" layoutX="-942.0" layoutY="993.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Down18" fitHeight="80.0" fitWidth="150.0" layoutX="-1030.0" layoutY="1039.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Down19" fitHeight="80.0" fitWidth="150.0" layoutX="-1118.0" layoutY="1085.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Down20" fitHeight="80.0" fitWidth="150.0" layoutX="-1206.0" layoutY="1131.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Down21" fitHeight="80.0" fitWidth="150.0" layoutX="-1196.0" layoutY="1141.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
       <ImageView fx:id="ResDeck" fitHeight="94.0" fitWidth="215.0" layoutX="14.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true" />
