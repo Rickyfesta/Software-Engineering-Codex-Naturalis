@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
@@ -83,8 +84,35 @@ public class GameBoard {
     @FXML
     private Text personalGoalText;
 
+    private double scaleValue = 1.0;
+
     @FXML
     void initialize() {
+
+        // Handle scroll events on the ScrollPane
+        personalBoardScroll.addEventFilter(ScrollEvent.SCROLL, event -> {
+            if (event.isControlDown()) {
+                double deltaY = event.getDeltaY();
+                final double zoomFactor = 1.4; // Consider adjusting this value
+                final double minScale = 0.5; // Adjust minimum scale as needed
+                final double maxScale = 2.0; // Maximum scale
+
+                if (deltaY < 0) {
+                    scaleValue /= zoomFactor;
+                } else {
+                    scaleValue *= zoomFactor;
+                }
+
+                // Limit the zoom level
+                scaleValue = Math.min(maxScale, Math.max(minScale, scaleValue));
+
+                // Apply the scale transformation to the content
+                personalBoardScroll.getContent().setScaleX(scaleValue);
+                personalBoardScroll.getContent().setScaleY(scaleValue);
+
+                event.consume();
+            }
+        });
 
         // Set CommonBoard into the placeholder
         //System.out.println("/cards/cardsimg/" + RandomCardFile.getRandomGXXFileName());
