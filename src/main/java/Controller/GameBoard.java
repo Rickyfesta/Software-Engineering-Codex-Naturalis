@@ -126,6 +126,8 @@ public class GameBoard {
         ResDeck.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
         StartingCard.setImage(new Image("/" + RandomCardFile.getRandomSXXFileName()));
 
+        Right1.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
+
         //System.out.println(RandomCardFile.getRandomXXFileName());
         assert CardHand1 != null : "fx:id=\"CardHand1\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert CardHand2 != null : "fx:id=\"CardHand2\" was not injected: check your FXML file 'GameBoard.fxml'.";
