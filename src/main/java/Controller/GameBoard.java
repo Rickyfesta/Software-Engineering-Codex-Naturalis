@@ -1,13 +1,21 @@
 package Controller;
 
+import Client.GUI.DraggableMaker;
 import Model.Cards.RandomCardFile;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -58,7 +66,7 @@ public class GameBoard {
     private ImageView Up1;
 
     @FXML
-    private AnchorPane commonBoardDecksContainer;
+    private HBox commonBoardDecksContainer;
 
     @FXML
     private ImageView commonBoardIMG;
@@ -86,9 +94,51 @@ public class GameBoard {
 
     private double scaleValue = 1.0;
 
+    DraggableMaker draggableMaker = new DraggableMaker();
+
+    private Double commonWidth = 800.0d;
+
+
+    @FXML
+    public void showBoardandCards(MouseEvent event) {
+        if (event.getButton() == MouseButton.SECONDARY){
+            if (commonBoardDecksContainer.getPrefWidth() == 0) { // Only expand if it's collapsed
+                Timeline timeline = new Timeline();
+                timeline.getKeyFrames().addAll(
+                        new KeyFrame(Duration.ZERO,
+                                new KeyValue(commonBoardDecksContainer.prefWidthProperty(), 0)
+                        ),
+                        new KeyFrame(Duration.millis(300.0d),
+                                new KeyValue(commonBoardDecksContainer.prefWidthProperty(), commonWidth)
+                        )
+                );
+                timeline.play();
+            }
+        } else if(event.getButton() == MouseButton.PRIMARY){
+            dismissTop();
+        }
+    }
+
+    private void dismissTop() {
+        if (commonBoardDecksContainer.getPrefWidth() > 0) { // Only collapse if it's expanded
+            Timeline timeline = new Timeline();
+            timeline.getKeyFrames().addAll(
+                    new KeyFrame(Duration.ZERO,
+                            new KeyValue(commonBoardDecksContainer.prefWidthProperty(), commonWidth)
+                    ),
+                    new KeyFrame(Duration.millis(300.0d),
+                            new KeyValue(commonBoardDecksContainer.prefWidthProperty(), 0)
+                    )
+            );
+            timeline.play();
+        }
+    }
+
     @FXML
     void initialize() {
 
+
+        commonWidth = commonBoardDecksContainer.getWidth();
         // Handle scroll events on the ScrollPane
         personalBoardScroll.addEventFilter(ScrollEvent.SCROLL, event -> {
             if (event.isControlDown()) {
@@ -120,11 +170,22 @@ public class GameBoard {
         CardHand1.setImage(new Image("/" + RandomCardFile.getRandomGXXFileName()));
         CardHand2.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
         CardHand3.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
+
+        draggableMaker.makeDraggable(CardHand1, personalBoardScroll);
+        draggableMaker.makeDraggable(CardHand2, personalBoardScroll);
+        draggableMaker.makeDraggable(CardHand3, personalBoardScroll);
+
+
+
         CommonObj.setImage(new Image("/" + RandomCardFile.getRandomOXXFileName()));
         GoldDeck.setImage(new Image("/" + RandomCardFile.getRandomGXXFileName()));
         PersonalObj.setImage(new Image("/" + RandomCardFile.getRandomOXXFileName()));
         ResDeck.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
         StartingCard.setImage(new Image("/" + RandomCardFile.getRandomSXXFileName()));
+
+
+
+
 
         //System.out.println(RandomCardFile.getRandomXXFileName());
         assert CardHand1 != null : "fx:id=\"CardHand1\" was not injected: check your FXML file 'GameBoard.fxml'.";
