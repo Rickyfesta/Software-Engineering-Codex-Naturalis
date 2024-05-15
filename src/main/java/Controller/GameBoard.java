@@ -84,6 +84,9 @@ public class GameBoard {
     @FXML
     private Text personalGoalText;
 
+    @FXML
+    private ImageView yellowPawn;
+
     private double scaleValue = 1.0;
 
     @FXML
