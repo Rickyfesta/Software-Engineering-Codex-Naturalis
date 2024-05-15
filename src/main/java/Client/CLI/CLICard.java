@@ -13,7 +13,7 @@ public class CLICard {
     private List<String> ASCII;
 
     // Constructors
-    public CLICard() {}
+
 
     public CLICard(String ID, String DESCRIPTION, List<String> ASCII) {
         this.ID = ID;
