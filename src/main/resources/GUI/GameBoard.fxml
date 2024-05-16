@@ -19,26 +19,11 @@
       </ImageView>
       <ImageView fx:id="ResDeck" fitHeight="94.0" fitWidth="215.0" layoutX="3.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="GoldDeck" fitHeight="93.0" fitWidth="215.0" layoutX="3.0" layoutY="380.0" pickOnBounds="true" preserveRatio="true" />
-         <ImageView fx:id="redPawn0" fitHeight="20.0" fitWidth="20.0" layoutX="40.0" layoutY="350.0" pickOnBounds="true">
-            <image>
-               <Image url="@img/redPawn.png" />
-            </image>
-         </ImageView>
-         <ImageView fx:id="greenPawn0" fitHeight="20.0" fitWidth="20.0" layoutX="63.0" layoutY="350.0" pickOnBounds="true">
-            <image>
-               <Image url="@img/greenPawn.png" />
-            </image>
-         </ImageView>
-         <ImageView fx:id="bluePawn0" fitHeight="20.0" fitWidth="20.0" layoutX="63.0" layoutY="330.0" pickOnBounds="true">
-            <image>
-               <Image url="@img/bluePawn.png" />
-            </image>
-         </ImageView>
-         <ImageView fx:id="yellowPawn0" fitHeight="20.0" fitWidth="20.0" layoutX="40.0" layoutY="330.0" pickOnBounds="true">
-            <image>
-               <Image url="@img/yellowPawn.png" />
-            </image>
-         </ImageView>
+
+         <ImageView fx:id="redPawn0" fitHeight="20.0" fitWidth="20.0" layoutX="40.0" layoutY="350.0" pickOnBounds="true" />
+         <ImageView fx:id="greenPawn0" fitHeight="20.0" fitWidth="20.0" layoutX="63.0" layoutY="350.0" pickOnBounds="true" />
+         <ImageView fx:id="bluePawn0" fitHeight="20.0" fitWidth="20.0" layoutX="63.0" layoutY="330.0" pickOnBounds="true" />
+         <ImageView fx:id="yellowPawn0" fitHeight="20.0" fitWidth="20.0" layoutX="40.0" layoutY="330.0" pickOnBounds="true" />
          <ImageView fx:id="redPawn1" fitHeight="20.0" fitWidth="20.0" layoutX="90.0" layoutY="350.0" pickOnBounds="true" />
          <ImageView fx:id="greenPawn1" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="350.0" pickOnBounds="true" />
          <ImageView fx:id="bluePawn1" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="330.0" pickOnBounds="true" />
@@ -119,18 +104,42 @@
          <ImageView fx:id="greenPawn20" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="130.0" pickOnBounds="true" />
          <ImageView fx:id="bluePawn20" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="110.0" pickOnBounds="true" />
          <ImageView fx:id="yellowPawn20" fitHeight="20.0" fitWidth="20.0" layoutX="90.0" layoutY="110.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn21" fitHeight="20.0" fitWidth="20.0" layoutX="13.0" layoutY="150.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn21" fitHeight="20.0" fitWidth="20.0" layoutX="36.0" layoutY="150.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn21" fitHeight="20.0" fitWidth="20.0" layoutX="36.0" layoutY="130.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn21" fitHeight="20.0" fitWidth="20.0" layoutX="13.0" layoutY="130.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn22" fitHeight="20.0" fitWidth="20.0" layoutX="13.0" layoutY="110.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn22" fitHeight="20.0" fitWidth="20.0" layoutX="36.0" layoutY="110.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn22" fitHeight="20.0" fitWidth="20.0" layoutX="36.0" layoutY="90.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn22" fitHeight="20.0" fitWidth="20.0" layoutX="13.0" layoutY="90.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn23" fitHeight="20.0" fitWidth="20.0" layoutX="13.0" layoutY="70.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn23" fitHeight="20.0" fitWidth="20.0" layoutX="36.0" layoutY="70.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn23" fitHeight="20.0" fitWidth="20.0" layoutX="36.0" layoutY="50.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn23" fitHeight="20.0" fitWidth="20.0" layoutX="13.0" layoutY="50.0" pickOnBounds="true" />
+         <ImageView fx:id="redPawn21" fitHeight="20.0" fitWidth="20.0" layoutX="16.0" layoutY="150.0" pickOnBounds="true" />
+         <ImageView fx:id="greenPawn21" fitHeight="20.0" fitWidth="20.0" layoutX="39.0" layoutY="150.0" pickOnBounds="true" />
+         <ImageView fx:id="bluePawn21" fitHeight="20.0" fitWidth="20.0" layoutX="39.0" layoutY="130.0" pickOnBounds="true" />
+         <ImageView fx:id="yellowPawn21" fitHeight="20.0" fitWidth="20.0" layoutX="16.0" layoutY="130.0" pickOnBounds="true" />
+         <ImageView fx:id="redPawn22" fitHeight="20.0" fitWidth="20.0" layoutX="16.0" layoutY="110.0" pickOnBounds="true" />
+         <ImageView fx:id="greenPawn22" fitHeight="20.0" fitWidth="20.0" layoutX="39.0" layoutY="110.0" pickOnBounds="true" />
+         <ImageView fx:id="bluePawn22" fitHeight="20.0" fitWidth="20.0" layoutX="39.0" layoutY="90.0" pickOnBounds="true" />
+         <ImageView fx:id="yellowPawn22" fitHeight="20.0" fitWidth="20.0" layoutX="16.0" layoutY="90.0" pickOnBounds="true" />
+         <ImageView fx:id="redPawn23" fitHeight="20.0" fitWidth="20.0" layoutX="16.0" layoutY="70.0" pickOnBounds="true" />
+         <ImageView fx:id="greenPawn23" fitHeight="20.0" fitWidth="20.0" layoutX="39.0" layoutY="70.0" pickOnBounds="true" />
+         <ImageView fx:id="bluePawn23" fitHeight="20.0" fitWidth="20.0" layoutX="39.0" layoutY="50.0" pickOnBounds="true" />
+         <ImageView fx:id="yellowPawn23" fitHeight="20.0" fitWidth="20.0" layoutX="16.0" layoutY="50.0" pickOnBounds="true" />
+         <ImageView fx:id="redPawn24" fitHeight="20.0" fitWidth="20.0" layoutX="43.0" layoutY="38.0" pickOnBounds="true" />
+         <ImageView fx:id="greenPawn24" fitHeight="20.0" fitWidth="20.0" layoutX="66.0" layoutY="38.0" pickOnBounds="true" />
+         <ImageView fx:id="bluePawn24" fitHeight="20.0" fitWidth="20.0" layoutX="66.0" layoutY="18.0" pickOnBounds="true" />
+         <ImageView fx:id="yellowPawn24" fitHeight="20.0" fitWidth="20.0" layoutX="43.0" layoutY="18.0" pickOnBounds="true" />
+         <ImageView fx:id="redPawn25" fitHeight="20.0" fitWidth="20.0" layoutX="90.0" layoutY="32.0" pickOnBounds="true" />
+         <ImageView fx:id="bluePawn25" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="12.0" pickOnBounds="true" />
+         <ImageView fx:id="greenPawn25" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="32.0" pickOnBounds="true" />
+         <ImageView fx:id="yellowPawn25" fitHeight="20.0" fitWidth="20.0" layoutX="90.0" layoutY="12.0" pickOnBounds="true" />
+         <ImageView fx:id="redPawn26" fitHeight="20.0" fitWidth="20.0" layoutX="134.0" layoutY="38.0" pickOnBounds="true" />
+         <ImageView fx:id="greenPawn26" fitHeight="20.0" fitWidth="20.0" layoutX="157.0" layoutY="38.0" pickOnBounds="true" />
+         <ImageView fx:id="bluePawn26" fitHeight="20.0" fitWidth="20.0" layoutX="157.0" layoutY="18.0" pickOnBounds="true" />
+         <ImageView fx:id="yellowPawn26" fitHeight="20.0" fitWidth="20.0" layoutX="134.0" layoutY="18.0" pickOnBounds="true" />
+         <ImageView fx:id="redPawn27" fitHeight="20.0" fitWidth="20.0" layoutX="162.0" layoutY="70.0" pickOnBounds="true" />
+         <ImageView fx:id="greenPawn27" fitHeight="20.0" fitWidth="20.0" layoutX="185.0" layoutY="70.0" pickOnBounds="true" />
+         <ImageView fx:id="bluePawn27" fitHeight="20.0" fitWidth="20.0" layoutX="185.0" layoutY="50.0" pickOnBounds="true" />
+         <ImageView fx:id="yellowPawn27" fitHeight="20.0" fitWidth="20.0" layoutX="162.0" layoutY="50.0" pickOnBounds="true" />
+         <ImageView fx:id="redPawn28" fitHeight="20.0" fitWidth="20.0" layoutX="162.0" layoutY="110.0" pickOnBounds="true" />
+         <ImageView fx:id="greenPawn28" fitHeight="20.0" fitWidth="20.0" layoutX="185.0" layoutY="110.0" pickOnBounds="true" />
+         <ImageView fx:id="bluePawn28" fitHeight="20.0" fitWidth="20.0" layoutX="185.0" layoutY="90.0" pickOnBounds="true" />
+         <ImageView fx:id="yellowPawn28" fitHeight="20.0" fitWidth="20.0" layoutX="162.0" layoutY="90.0" pickOnBounds="true" />
+         <ImageView fx:id="redPawn29" fitHeight="20.0" fitWidth="20.0" layoutX="90.0" layoutY="80.0" pickOnBounds="true" />
+         <ImageView fx:id="greenPawn29" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="80.0" pickOnBounds="true" />
+         <ImageView fx:id="bluePawn29" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="60.0" pickOnBounds="true" />
+         <ImageView fx:id="yellowPawn29" fitHeight="20.0" fitWidth="20.0" layoutX="90.0" layoutY="60.0" pickOnBounds="true" />
 
 
       </children>
