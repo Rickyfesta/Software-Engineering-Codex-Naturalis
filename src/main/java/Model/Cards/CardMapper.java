@@ -1,17 +1,10 @@
 package Model.Cards;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-
 public class CardMapper {
+/*
     public static void main(String[] args) {
-        String directoryPath = "path/to/json/files";
+        String directoryPath = "/json";
         List<Card> cards = new ArrayList<>();
         ObjectMapper mapper = new ObjectMapper();
 
@@ -31,7 +24,7 @@ public class CardMapper {
                     });
 
             // Output the loaded cards or perform further processing
-            cards.forEach(card -> System.out.println(CardJSON.getCARDTYPE() + " - " + CardJSON.getPOINTS()));
+            //cards.forEach(card -> System.out.println(CardJSON.getCARDTYPE() + " - " + CardJSON.getPOINTS()));
         } catch (IOException e) {
             System.err.println("Failed to walk through directory: " + directoryPath);
             e.printStackTrace();
@@ -43,12 +36,13 @@ public class CardMapper {
         String left = cardJson.getLEFTSYMBOL().equals("null") ? null : cardJson.getLEFTSYMBOL();
         String right = cardJson.getRIGHTSYMBOL().equals("null") ? null : cardJson.getRIGHTSYMBOL();
         String bottom = cardJson.getBOTTOMSYMBOL().equals("null") ? null : cardJson.getBOTTOMSYMBOL();
-        String type = CardJSON.getCARDTYPE();
-        String mainResource = cardJson.getRESOURCE().equals("Back") ? null : cardJson.getRESOURCE();
-        int points = Integer.parseInt(CardJSON.getPOINTS());
-        boolean isFlipped = cardJson.getRESOURCE().contains("Back");
-        String symbol = CardJSON.getSYMBOL();
-        return new Card(mainResource, top, left, right, bottom, type, symbol, points);
+        //String type = CardJSON.getCARDTYPE();
+        String color = cardJson.getCOLOUR().equals("Back") ? null : cardJson.getCOLOUR();
+        //int points = Integer.parseInt(CardJSON.getPOINTS());
+        //String symbol = CardJSON.getSYMBOL();
+        return new Card(color, top, left, right, bottom, type, symbol, points);
     }
+    */
+
 }
 

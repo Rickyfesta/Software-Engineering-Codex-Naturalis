@@ -1,18 +1,26 @@
 package Model.Cards;
 
-public class CardJSON {
-    private String ID;
-    private String RESOURCE;
-    private static String CARDTYPE;
-    private static String POINTS;
-    private String TOPSYMBOL;
-    private String LEFTSYMBOL;
-    private String BOTTOMSYMBOL;
-    private String RIGHTSYMBOL;
-    private static String SYMBOL;
-    private String COLOUR;
-    private String REQUIRED;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+public class CardJSON {
+    @JsonProperty("ID")
+    private String ID;
+    @JsonProperty("CARDTYPE")
+    private String CARDTYPE;
+    @JsonProperty("SYMBOL")
+    private String SYMBOL;
+    @JsonProperty("POINTS")
+    private String POINTS;
+    @JsonProperty("TOPSYMBOL")
+    private String TOPSYMBOL;
+    @JsonProperty("LEFTSYMBOL")
+    private String LEFTSYMBOL;
+    @JsonProperty("RIGHTSYMBOL")
+    private String RIGHTSYMBOL;
+    @JsonProperty("BOTTOMSYMBOL")
+    private String BOTTOMSYMBOL;
+    @JsonProperty("COLOUR")
+    private String COLOUR;
 
 
     // Getters and setters for each field
@@ -26,19 +34,11 @@ public class CardJSON {
     public void setSYMBOL(String SYMBOL) {
         this.SYMBOL = SYMBOL;
     }
-    public static String getSYMBOL() {
+    public String getSYMBOL() {
         return SYMBOL;
     }
 
-    public String getRESOURCE() {
-        return RESOURCE;
-    }
-
-    public void setRESOURCE(String RESOURCE) {
-        this.RESOURCE = RESOURCE;
-    }
-
-    public static String getCARDTYPE() {
+    public String getCARDTYPE() {
         return CARDTYPE;
     }
 
@@ -78,7 +78,7 @@ public class CardJSON {
         this.BOTTOMSYMBOL = BOTTOMSYMBOL;
     }
 
-    public static String getPOINTS() {
+    public String getPOINTS() {
         return POINTS;
     }
 
@@ -92,13 +92,5 @@ public class CardJSON {
 
     public void setCOLOUR(String COLOUR) {
         this.COLOUR = COLOUR;
-    }
-
-    public String getREQUIRED() {
-        return REQUIRED;
-    }
-
-    public void setREQUIRED(String REQUIRED) {
-        this.REQUIRED = REQUIRED;
     }
 }

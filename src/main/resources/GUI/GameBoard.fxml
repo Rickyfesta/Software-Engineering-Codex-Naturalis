@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -10,11 +11,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GameBoard">
+<Pane fx:id="allContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GameBoard">
 
 
-<ScrollPane fx:id="personalBoardScroll" hvalue="0.5" layoutX="220.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="592.0" prefWidth="1181.0" vvalue="0.5">
-
+<ScrollPane fx:id="personalBoardScroll" hvalue="0.5" layoutX="1.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="592.0" prefWidth="1400.0" vvalue="0.5">
+   
    <AnchorPane fx:id="personalBoardContainer" prefHeight="4000.0" prefWidth="4000.0" BorderPane.alignment="CENTER">
       <ImageView fx:id="StartingCard" fitHeight="80.0" fitWidth="150.0" layoutX="2000.0" layoutY="2000.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -23,7 +24,7 @@
       </ImageView>
       <ImageView fx:id="Right1" fitHeight="80.0" fitWidth="150.0" layoutX="514.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="Up1" fitHeight="80.0" fitWidth="150.0" layoutX="238.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Left1" fitHeight="80.0" fitWidth="150.0" layoutX="43.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Left1" fitHeight="80.0" fitWidth="150.0" layoutX="1912.0" layoutY="1954.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="Down1" fitHeight="80.0" fitWidth="150.0" layoutX="238.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="Down2" fitHeight="80.0" fitWidth="150.0" layoutX="290.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="Right2" fitHeight="80.0" fitWidth="150.0" layoutX="632.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true" />
@@ -58,15 +59,15 @@
       <ImageView fx:id="Down29" fitHeight="80.0" fitWidth="150.0" layoutX="-2086.0" layoutY="1591.0" pickOnBounds="true" preserveRatio="true" />
    </AnchorPane>
 </ScrollPane>
-   <HBox fx:id="commonBoardDecksContainer" onMouseClicked="#showBoardandCards" prefHeight="598.0" prefWidth="800.0">
+   <HBox fx:id="commonBoardDecksContainer" layoutX="-650.0" prefHeight="598.0" prefWidth="650.0">
       <children>
-      <ImageView fx:id="commonBoardIMG" fitHeight="380.0" fitWidth="220.0" pickOnBounds="true">
-         <image>
-            <Image url="@img/plateau.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="ResDeck" fitHeight="94.0" fitWidth="215.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="GoldDeck" fitHeight="93.0" fitWidth="215.0" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fx:id="commonBoardIMG" fitHeight="380.0" fitWidth="220.0" pickOnBounds="true">
+            <image>
+               <Image url="@img/plateau.jpg" />
+            </image>
+         </ImageView>
+         <ImageView fx:id="ResDeck" fitHeight="94.0" fitWidth="215.0" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fx:id="GoldDeck" fitHeight="93.0" fitWidth="215.0" pickOnBounds="true" preserveRatio="true" />
       </children>
    </HBox>
       <ImageView fx:id="handBg" fitHeight="200.0" fitWidth="1400.0" layoutY="600" pickOnBounds="true">
@@ -94,4 +95,5 @@
             <Font size="20.0" />
          </font>
       </Text>
+   <Button fx:id="showBtn" layoutY="300.0" mnemonicParsing="false" onMouseClicked="#showBoardandCards" text="&gt;" />
 </Pane>

@@ -8,9 +8,12 @@ module IS24.LB09 {
     requires java.desktop;
 
     opens Controller;
+    opens Model.Cards to com.fasterxml.jackson.databind;
     opens Client.GUI;
     opens Client.CLI;
     exports Controller;
     exports Client.GUI;
     exports Client.CLI;
+
+    exports Model.Cards to com.fasterxml.jackson.databind;
 }
