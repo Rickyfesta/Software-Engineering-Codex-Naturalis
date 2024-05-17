@@ -4,14 +4,14 @@ package Model.Cards;
 public class Card {
     private String top, left, right, bottom, symbol; //If corner not playable String == null ; else empty else if resource on the corner = Resource
     protected String type; // "Risorsa" o "Oro"
-    protected String mainResource = null; // "Plants", "Animal", "Mushroom", "Insect"
+    protected String color = null; // "Plants", "Animal", "Mushroom", "Insect"
     protected int points;
     boolean isFlipped; //Mapper will adjust to "mainResource"Back.jpg
 
 
 
-    public Card(String mainResource, String top, String left, String right, String bottom, String type, String symbol, int points) {
-        this.mainResource = mainResource; //for object cards
+    public Card(String color, String top, String left, String right, String bottom, String type, String symbol, int points) {
+        this.color = color; //for object cards
         this.type = type;
         this.points = points;
         this.top = top;
@@ -27,7 +27,7 @@ public class Card {
         return corner != null;
     }
     public String getMainResource (){ //This will serve the mapper
-        return this.mainResource;
+        return this.color;
     }
     public void FlipCard (boolean isFlipped){
         isFlipped = !isFlipped;
@@ -36,7 +36,7 @@ public class Card {
             this.left = "";
             this.right = "";
             this.bottom = "";
-            this.symbol = mainResource; //resource , not placiable on
+            this.symbol = color; //resource , not placeable on
         }
     }
 

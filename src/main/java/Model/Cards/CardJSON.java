@@ -1,44 +1,53 @@
 package Model.Cards;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.List;
+
 public class CardJSON {
+    @JsonProperty("ID")
     private String ID;
-    private String RESOURCE;
-    private static String CARDTYPE;
-    private static String POINTS;
+    @JsonProperty("CARDTYPE")
+    private String CARDTYPE;
+    @JsonProperty("SYMBOL")
+    private String SYMBOL;
+    @JsonProperty("POINTS")
+    private String POINTS;
+    @JsonProperty("TOPSYMBOL")
     private String TOPSYMBOL;
+    @JsonProperty("LEFTSYMBOL")
     private String LEFTSYMBOL;
-    private String BOTTOMSYMBOL;
+    @JsonProperty("RIGHTSYMBOL")
     private String RIGHTSYMBOL;
-    private static String SYMBOL;
+    @JsonProperty("BOTTOMSYMBOL")
+    private String BOTTOMSYMBOL;
+    @JsonProperty("COLOUR")
     private String COLOUR;
-    private String REQUIRED;
-
-
-
+    @JsonProperty("REQUIRED")
+    private List<String> REQUIRED;
     // Getters and setters for each field
     public String getID() {
         return ID;
     }
 
+    public List<String> getREQUIRED() {
+        return REQUIRED;
+    }
+
+    public void setREQUIRED(List<String> REQUIRED) {
+        this.REQUIRED = REQUIRED;
+    }
     public void setID(String ID) {
         this.ID = ID;
     }
     public void setSYMBOL(String SYMBOL) {
         this.SYMBOL = SYMBOL;
     }
-    public static String getSYMBOL() {
+    public String getSYMBOL() {
         return SYMBOL;
     }
 
-    public String getRESOURCE() {
-        return RESOURCE;
-    }
-
-    public void setRESOURCE(String RESOURCE) {
-        this.RESOURCE = RESOURCE;
-    }
-
-    public static String getCARDTYPE() {
+    public String getCARDTYPE() {
         return CARDTYPE;
     }
 
@@ -78,7 +87,7 @@ public class CardJSON {
         this.BOTTOMSYMBOL = BOTTOMSYMBOL;
     }
 
-    public static String getPOINTS() {
+    public String getPOINTS() {
         return POINTS;
     }
 
@@ -92,13 +101,5 @@ public class CardJSON {
 
     public void setCOLOUR(String COLOUR) {
         this.COLOUR = COLOUR;
-    }
-
-    public String getREQUIRED() {
-        return REQUIRED;
-    }
-
-    public void setREQUIRED(String REQUIRED) {
-        this.REQUIRED = REQUIRED;
     }
 }
