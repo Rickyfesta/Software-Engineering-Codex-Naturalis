@@ -36,6 +36,24 @@
 </td></tr>
 </table>
 
+
+### Tabella Voto
+<table>
+
+
+| Requisiti                                 |Voto Massimo|Realizzazione|
+|:------------------------------------------|:----------:|:-----------:|
+| Regole semplificate + comunicazione + CLI |     18     |  :warning:  |
+| Regole complete + comunicazione + CLI     |     21     |  :warning:  |
+| Regole complete + comunicazione + GUI     |     24     |  :warning:  |
+| Regole complete + comunicazione + GUI +1FA|     27     |  :warning:  |
+
+
+  
+</table>
+
+
+
 ##### Legend
 :x: Not Implemented &nbsp;&nbsp;:warning: Implementing &nbsp;&nbsp;:white_check_mark: Implemented
 
