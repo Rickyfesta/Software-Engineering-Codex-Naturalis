@@ -115,8 +115,22 @@ public class GameBoard {
 
     public static boolean isFlipped;
 
+    public static String StartUrl = RandomCardFile.getRandomSXXFileName();
+
     DraggableMaker draggableMaker = new DraggableMaker();
     FlippableMaker flippableMaker = new FlippableMaker();
+
+    public static void dropCard(String isCornerPlayable) {
+        switch(isCornerPlayable){
+            case "top":
+                //have to set is placeable false for left 1
+            case "left":
+
+            case "right":
+
+            case "bottom":
+        }
+    }
 
     @FXML
     public void showBoardandCards(MouseEvent event) {
@@ -171,6 +185,9 @@ public class GameBoard {
     }
     @FXML
     void initialize() {
+
+        //TODO VISUALIZE RESOURCES THAT I HAVE
+        //To optimize useless operations
         commonBoardDecksContainer.setPrefWidth(0.0d);
         commonBoardIMG.setVisible(false);
         ResDeck.setVisible(false);
@@ -267,7 +284,7 @@ public class GameBoard {
         GoldDeck.setImage(new Image("/" + RandomCardFile.getRandomGXXFileName()));
         PersonalObj.setImage(new Image("/" + RandomCardFile.getRandomOXXFileName()));
         ResDeck.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
-        StartingCard.setImage(new Image("/" + RandomCardFile.getRandomSXXFileName()));
+        StartingCard.setImage(new Image("/" + StartUrl));
 
 
         assert CardHand1 != null : "fx:id=\"CardHand1\" was not injected: check your FXML file 'GameBoard.fxml'.";

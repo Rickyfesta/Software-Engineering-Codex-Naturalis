@@ -2,6 +2,8 @@ package Model.Cards;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.List;
+
 public class CardJSON {
     @JsonProperty("ID")
     private String ID;
@@ -21,13 +23,20 @@ public class CardJSON {
     private String BOTTOMSYMBOL;
     @JsonProperty("COLOUR")
     private String COLOUR;
-
-
+    @JsonProperty("REQUIRED")
+    private List<String> REQUIRED;
     // Getters and setters for each field
     public String getID() {
         return ID;
     }
 
+    public List<String> getREQUIRED() {
+        return REQUIRED;
+    }
+
+    public void setREQUIRED(List<String> REQUIRED) {
+        this.REQUIRED = REQUIRED;
+    }
     public void setID(String ID) {
         this.ID = ID;
     }

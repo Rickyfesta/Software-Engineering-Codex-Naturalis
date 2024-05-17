@@ -24,7 +24,7 @@ public class DraggableMaker {
     private final double initialCardY = 2000;
     private final double initialCardWidth = 150;
     private final double initialCardHeight = 80;
-    private final double snapDistance = 2; // Distance within which snapping occurs
+    private final double snapDistance = 5; // Distance within which snapping occurs
 
     public void makeDraggable(Node node, ScrollPane scrollPane, double initialX, double initialY, Node left1) {
         initialXMap.put(node, initialX);
