@@ -1,4 +1,4 @@
-package Client.GUI;
+package Controller;
 
 import javafx.animation.ScaleTransition;
 import javafx.scene.image.Image;

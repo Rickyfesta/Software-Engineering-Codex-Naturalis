@@ -1,11 +1,11 @@
 {
   "ID": "S06",
   "CARDTYPE": "Starter",
-  "SYMBOL": ["Plant","Animal","Mushroom"],
+  "SYMBOL": "Plant + Animal + Mushroom",
   "POINTS": "0",
   "TOPSYMBOL": "",
-  "BOTTOMSYMBOL": null,
   "LEFTSYMBOL": null,
   "RIGHTSYMBOL": "",
+  "BOTTOMSYMBOL": null,
   "COLOUR": null
 }

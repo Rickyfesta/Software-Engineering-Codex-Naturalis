@@ -12,9 +12,14 @@
 <?import javafx.scene.text.Text?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GameBoard">
-   <ScrollPane fx:id="personalBoardScroll" hvalue="0.5" layoutX="1.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="592.0" prefWidth="1400.0" vvalue="0.5">
+   <ScrollPane fx:id="personalBoardScroll" hvalue="0.32" layoutX="1.0" layoutY="-3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="600.0" prefWidth="1400.0" vvalue="0.32">
    
-   <AnchorPane fx:id="personalBoardContainer" prefHeight="4000.0" prefWidth="4000.0" BorderPane.alignment="CENTER">
+   <AnchorPane fx:id="personalBoardContainer" prefHeight="6000.0" prefWidth="6000.0" BorderPane.alignment="CENTER">
+         <ImageView fx:id="backgroundBoard" fitHeight="6000.0" fitWidth="6000.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@img/backgroundPersonalBoard.jpg" />
+            </image>
+         </ImageView>
       <ImageView fx:id="StartingCard" fitHeight="80.0" fitWidth="150.0" layoutX="2000.0" layoutY="2000.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/P-Cobj.jpg" />
@@ -400,8 +405,35 @@
       <ImageView fx:id="CenterUp53" fitHeight="80.0" fitWidth="150.0" layoutX="2440.0" layoutY="1494.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="CenterUp54" fitHeight="80.0" fitWidth="150.0" layoutX="2616.0" layoutY="1494.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="CenterUp55" fitHeight="80.0" fitWidth="150.0" layoutX="2792.0" layoutY="1494.0" pickOnBounds="true" preserveRatio="true" />
+
    </AnchorPane>
 </ScrollPane>
+   <ImageView fx:id="copy" fitHeight="80.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="handBg" fitHeight="200.0" fitWidth="1400.0" layoutY="600.0" pickOnBounds="true">
+      <image>
+         <Image url="@img/bgHand.jpg" />
+      </image>
+   </ImageView>
+   <ImageView fx:id="objbackground" fitHeight="200.0" fitWidth="395.0" layoutY="600.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@img/P-Cobj.jpg" />
+      </image>
+   </ImageView>
+   <ImageView fx:id="CardHand1" fitHeight="120.0" fitWidth="215.0" layoutX="400.0" layoutY="650.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="CardHand2" fitHeight="120.0" fitWidth="215.0" layoutX="750.0" layoutY="650.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="CardHand3" fitHeight="120.0" fitWidth="215.0" layoutX="1000.0" layoutY="650.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="CommonObj" fitHeight="97.0" fitWidth="179.0" layoutY="600.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="PersonalObj" fitHeight="98.0" fitWidth="172.0" layoutX="4.0" layoutY="692.0" pickOnBounds="true" preserveRatio="true" />
+   <Text fx:id="commonGoalText" fill="WHITE" layoutX="200.0" layoutY="630.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Common Goal" wrappingWidth="134.13668823242188">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Text>
+   <Text fx:id="personalGoalText" fill="WHITE" layoutX="204.0" layoutY="749.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Goal" wrappingWidth="126.13668823242188">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Text>
    <HBox fx:id="commonBoardDecksContainer" layoutX="-650.0" prefHeight="598.0" prefWidth="650.0">
       <children>
          <ImageView fx:id="commonBoardIMG" fitHeight="380.0" fitWidth="220.0" pickOnBounds="true">
@@ -411,155 +443,11 @@
          </ImageView>
          <ImageView fx:id="ResDeck" fitHeight="94.0" fitWidth="215.0" layoutX="3.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true" />
          <ImageView fx:id="GoldDeck" fitHeight="93.0" fitWidth="215.0" layoutX="3.0" layoutY="380.0" pickOnBounds="true" preserveRatio="true" />
-
          <ImageView fx:id="redPawn0" fitHeight="20.0" fitWidth="20.0" layoutX="40.0" layoutY="350.0" pickOnBounds="true" />
          <ImageView fx:id="greenPawn0" fitHeight="20.0" fitWidth="20.0" layoutX="63.0" layoutY="350.0" pickOnBounds="true" />
          <ImageView fx:id="bluePawn0" fitHeight="20.0" fitWidth="20.0" layoutX="63.0" layoutY="330.0" pickOnBounds="true" />
          <ImageView fx:id="yellowPawn0" fitHeight="20.0" fitWidth="20.0" layoutX="40.0" layoutY="330.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn1" fitHeight="20.0" fitWidth="20.0" layoutX="90.0" layoutY="350.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn1" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="350.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn1" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="330.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn1" fitHeight="20.0" fitWidth="20.0" layoutX="90.0" layoutY="330.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn2" fitHeight="20.0" fitWidth="20.0" layoutX="140.0" layoutY="350.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn2" fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="350.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn2" fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="330.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn2" fitHeight="20.0" fitWidth="20.0" layoutX="140.0" layoutY="330.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn3" fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="310.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn3" fitHeight="20.0" fitWidth="20.0" layoutX="186.0" layoutY="310.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn3" fitHeight="20.0" fitWidth="20.0" layoutX="186.0" layoutY="290.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn3" fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="290.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn4" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="310.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn4" fitHeight="20.0" fitWidth="20.0" layoutX="136.0" layoutY="310.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn4" fitHeight="20.0" fitWidth="20.0" layoutX="136.0" layoutY="290.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn4" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="290.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn5" fitHeight="20.0" fitWidth="20.0" layoutX="63.0" layoutY="310.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn5" fitHeight="20.0" fitWidth="20.0" layoutX="86.0" layoutY="310.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn5" fitHeight="20.0" fitWidth="20.0" layoutX="86.0" layoutY="290.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn5" fitHeight="20.0" fitWidth="20.0" layoutX="63.0" layoutY="290.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn6" fitHeight="20.0" fitWidth="20.0" layoutX="13.0" layoutY="310.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn6" fitHeight="20.0" fitWidth="20.0" layoutX="36.0" layoutY="310.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn6" fitHeight="20.0" fitWidth="20.0" layoutX="36.0" layoutY="290.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn6" fitHeight="20.0" fitWidth="20.0" layoutX="13.0" layoutY="290.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn7" fitHeight="20.0" fitWidth="20.0" layoutX="13.0" layoutY="270.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn7" fitHeight="20.0" fitWidth="20.0" layoutX="36.0" layoutY="270.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn7" fitHeight="20.0" fitWidth="20.0" layoutX="36.0" layoutY="250.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn7" fitHeight="20.0" fitWidth="20.0" layoutX="13.0" layoutY="250.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn8" fitHeight="20.0" fitWidth="20.0" layoutX="63.0" layoutY="270.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn8" fitHeight="20.0" fitWidth="20.0" layoutX="86.0" layoutY="270.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn8" fitHeight="20.0" fitWidth="20.0" layoutX="86.0" layoutY="250.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn8" fitHeight="20.0" fitWidth="20.0" layoutX="63.0" layoutY="250.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn9" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="270.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn9" fitHeight="20.0" fitWidth="20.0" layoutX="136.0" layoutY="270.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn9" fitHeight="20.0" fitWidth="20.0" layoutX="136.0" layoutY="250.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn9" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="250.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn10" fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="270.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn10" fitHeight="20.0" fitWidth="20.0" layoutX="186.0" layoutY="270.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn10" fitHeight="20.0" fitWidth="20.0" layoutX="186.0" layoutY="250.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn10" fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="250.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn11" fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="230.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn11" fitHeight="20.0" fitWidth="20.0" layoutX="186.0" layoutY="230.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn11" fitHeight="20.0" fitWidth="20.0" layoutX="186.0" layoutY="210.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn11" fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="210.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn12" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="230.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn12" fitHeight="20.0" fitWidth="20.0" layoutX="136.0" layoutY="230.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn12" fitHeight="20.0" fitWidth="20.0" layoutX="136.0" layoutY="210.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn12" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="210.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn13" fitHeight="20.0" fitWidth="20.0" layoutX="63.0" layoutY="230.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn13" fitHeight="20.0" fitWidth="20.0" layoutX="86.0" layoutY="230.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn13" fitHeight="20.0" fitWidth="20.0" layoutX="86.0" layoutY="210.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn13" fitHeight="20.0" fitWidth="20.0" layoutX="63.0" layoutY="210.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn14" fitHeight="20.0" fitWidth="20.0" layoutX="13.0" layoutY="230.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn14" fitHeight="20.0" fitWidth="20.0" layoutX="36.0" layoutY="230.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn14" fitHeight="20.0" fitWidth="20.0" layoutX="36.0" layoutY="210.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn14" fitHeight="20.0" fitWidth="20.0" layoutX="13.0" layoutY="210.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn15" fitHeight="20.0" fitWidth="20.0" layoutX="13.0" layoutY="190.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn15" fitHeight="20.0" fitWidth="20.0" layoutX="36.0" layoutY="190.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn15" fitHeight="20.0" fitWidth="20.0" layoutX="36.0" layoutY="170.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn15" fitHeight="20.0" fitWidth="20.0" layoutX="13.0" layoutY="170.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn16" fitHeight="20.0" fitWidth="20.0" layoutX="63.0" layoutY="190.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn16" fitHeight="20.0" fitWidth="20.0" layoutX="86.0" layoutY="190.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn16" fitHeight="20.0" fitWidth="20.0" layoutX="86.0" layoutY="170.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn16" fitHeight="20.0" fitWidth="20.0" layoutX="63.0" layoutY="170.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn17" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="190.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn17" fitHeight="20.0" fitWidth="20.0" layoutX="136.0" layoutY="190.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn17" fitHeight="20.0" fitWidth="20.0" layoutX="136.0" layoutY="170.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn17" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="170.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn18" fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="190.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn18" fitHeight="20.0" fitWidth="20.0" layoutX="186.0" layoutY="190.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn18" fitHeight="20.0" fitWidth="20.0" layoutX="186.0" layoutY="170.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn18" fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="170.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn19" fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="150.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn19" fitHeight="20.0" fitWidth="20.0" layoutX="186.0" layoutY="150.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn19" fitHeight="20.0" fitWidth="20.0" layoutX="186.0" layoutY="130.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn19" fitHeight="20.0" fitWidth="20.0" layoutX="163.0" layoutY="130.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn20" fitHeight="20.0" fitWidth="20.0" layoutX="90.0" layoutY="130.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn20" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="130.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn20" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="110.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn20" fitHeight="20.0" fitWidth="20.0" layoutX="90.0" layoutY="110.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn21" fitHeight="20.0" fitWidth="20.0" layoutX="16.0" layoutY="150.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn21" fitHeight="20.0" fitWidth="20.0" layoutX="39.0" layoutY="150.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn21" fitHeight="20.0" fitWidth="20.0" layoutX="39.0" layoutY="130.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn21" fitHeight="20.0" fitWidth="20.0" layoutX="16.0" layoutY="130.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn22" fitHeight="20.0" fitWidth="20.0" layoutX="16.0" layoutY="110.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn22" fitHeight="20.0" fitWidth="20.0" layoutX="39.0" layoutY="110.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn22" fitHeight="20.0" fitWidth="20.0" layoutX="39.0" layoutY="90.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn22" fitHeight="20.0" fitWidth="20.0" layoutX="16.0" layoutY="90.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn23" fitHeight="20.0" fitWidth="20.0" layoutX="16.0" layoutY="70.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn23" fitHeight="20.0" fitWidth="20.0" layoutX="39.0" layoutY="70.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn23" fitHeight="20.0" fitWidth="20.0" layoutX="39.0" layoutY="50.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn23" fitHeight="20.0" fitWidth="20.0" layoutX="16.0" layoutY="50.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn24" fitHeight="20.0" fitWidth="20.0" layoutX="43.0" layoutY="38.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn24" fitHeight="20.0" fitWidth="20.0" layoutX="66.0" layoutY="38.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn24" fitHeight="20.0" fitWidth="20.0" layoutX="66.0" layoutY="18.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn24" fitHeight="20.0" fitWidth="20.0" layoutX="43.0" layoutY="18.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn25" fitHeight="20.0" fitWidth="20.0" layoutX="90.0" layoutY="32.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn25" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="12.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn25" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="32.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn25" fitHeight="20.0" fitWidth="20.0" layoutX="90.0" layoutY="12.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn26" fitHeight="20.0" fitWidth="20.0" layoutX="134.0" layoutY="38.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn26" fitHeight="20.0" fitWidth="20.0" layoutX="157.0" layoutY="38.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn26" fitHeight="20.0" fitWidth="20.0" layoutX="157.0" layoutY="18.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn26" fitHeight="20.0" fitWidth="20.0" layoutX="134.0" layoutY="18.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn27" fitHeight="20.0" fitWidth="20.0" layoutX="162.0" layoutY="70.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn27" fitHeight="20.0" fitWidth="20.0" layoutX="185.0" layoutY="70.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn27" fitHeight="20.0" fitWidth="20.0" layoutX="185.0" layoutY="50.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn27" fitHeight="20.0" fitWidth="20.0" layoutX="162.0" layoutY="50.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn28" fitHeight="20.0" fitWidth="20.0" layoutX="162.0" layoutY="110.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn28" fitHeight="20.0" fitWidth="20.0" layoutX="185.0" layoutY="110.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn28" fitHeight="20.0" fitWidth="20.0" layoutX="185.0" layoutY="90.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn28" fitHeight="20.0" fitWidth="20.0" layoutX="162.0" layoutY="90.0" pickOnBounds="true" />
-         <ImageView fx:id="redPawn29" fitHeight="20.0" fitWidth="20.0" layoutX="90.0" layoutY="80.0" pickOnBounds="true" />
-         <ImageView fx:id="greenPawn29" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="80.0" pickOnBounds="true" />
-         <ImageView fx:id="bluePawn29" fitHeight="20.0" fitWidth="20.0" layoutX="113.0" layoutY="60.0" pickOnBounds="true" />
-         <ImageView fx:id="yellowPawn29" fitHeight="20.0" fitWidth="20.0" layoutX="90.0" layoutY="60.0" pickOnBounds="true" />
-
-
       </children>
    </HBox>
-      <ImageView fx:id="handBg" fitHeight="200.0" fitWidth="1400.0" layoutY="600" pickOnBounds="true">
-         <image>
-            <Image url="@img/bgHand.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="objbackground" fitHeight="200.0" fitWidth="395.0" layoutY="600" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/P-Cobj.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="CardHand1" fitHeight="120.0" fitWidth="215.0" layoutX="508.0" layoutY="650.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="CardHand2" fitHeight="120.0" fitWidth="215.0" layoutX="801.0" layoutY="650.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="CardHand3" fitHeight="120.0" fitWidth="215.0" layoutX="1064.0" layoutY="650.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="CommonObj" fitHeight="97.0" fitWidth="179.0" layoutX="178.0" layoutY="600.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="PersonalObj" fitHeight="98.0" fitWidth="172.0" layoutX="181.0" layoutY="700.0" pickOnBounds="true" preserveRatio="true" />
-      <Text fx:id="commonGoalText" fill="WHITE" layoutX="14.0" layoutY="631.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Common Goal" wrappingWidth="134.13668823242188">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <Text fx:id="personalGoalText" fill="WHITE" layoutX="18.0" layoutY="732.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Goal" wrappingWidth="126.13668823242188">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
    <Button fx:id="showBtn" layoutY="300.0" mnemonicParsing="false" onMouseClicked="#showBoardandCards" text="&gt;" />
 </Pane>
