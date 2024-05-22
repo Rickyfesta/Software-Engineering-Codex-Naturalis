@@ -5,6 +5,7 @@ import java.util.List;
 
     public class CLIPlayableCard {
         private List<CLICard> cardList;
+        private static CLIMapper mapper = new CLIMapper();
 
         public CLIPlayableCard() {
             cardList = new ArrayList<>(8); // Initialize with a size of 4
@@ -25,10 +26,10 @@ import java.util.List;
             }
         }
         public void setDrawableCard(int position, CLICard clicard) {
-            if (position >= 4 && position <= 8) {
-                cardList.set(position, clicard); // Set the drawable card at the given position (4-8)
+            if (position >= 4 && position <= 7) {
+                cardList.set(position, clicard); // Set the drawable card at the given position (4-7)
             } else {
-                System.out.println("Invalid drawable card position. Must be between 4 and 8.");
+                System.out.println("Invalid drawable card position. Must be between 4 and 7.");
             }
 
         }
@@ -43,27 +44,27 @@ import java.util.List;
         public void showCards() {
             for (int i = 0; i < cardList.size(); i++) {
                 CLICard clicard = cardList.get(i);
-                System.out.println("Position " + i + ": " + clicard);
+                if (i==0) System.out.println("Starter card:");
+                else if (i >= 1 && i <= 3) System.out.println("Hand card " + i + ":");
+                else System.out.println("Drawable card " + i + ":");
+
+                clicard.getASCII().forEach(System.out::println);
             }
         }
 
         public static void main(String[] args) {
             CLIPlayableCard manager = new CLIPlayableCard();
-            manager.setStarterCard(new CLICard(RandomCLICardPicker.getRandomCLISXXFileName(), "Starter Card", CLICard.getASCII()));
-            manager.setHandCard(1, new CLICard(RandomCLICardPicker.getRandomCLIGXXFileName(), "Gold Card", CLICard.getASCII()));
-            manager.setHandCard(2, new CLICard(RandomCLICardPicker.getRandomCLIXXFileName(), "Resource Card", CLICard.getASCII()));
-            manager.setHandCard(3, new CLICard(RandomCLICardPicker.getRandomCLIXXFileName(), "Resource Card", CLICard.getASCII()));
-            manager.setDrawableCard(4, new CLICard(RandomCLICardPicker.getRandomCLIXXFileName(), "Resource Card", CLICard.getASCII()));
-            manager.setDrawableCard(5, new CLICard(RandomCLICardPicker.getRandomCLIGXXFileName(), "Drawable Gold Card", CLICard.getASCII()));
-            manager.setDrawableCard(6, new CLICard(RandomCLICardPicker.getRandomCLIGXXFileName(), "Drawable Gold Card", CLICard.getASCII()));
-            manager.setDrawableCard(7, new CLICard(RandomCLICardPicker.getRandomCLIXXFileName(), "Drawable Resource Card", CLICard.getASCII()));
-            manager.setDrawableCard(8, new CLICard(RandomCLICardPicker.getRandomCLIXXFileName(), "Drawable Resource Card", CLICard.getASCII()));
+            manager.setStarterCard(mapper.getCard("/CLI/"+RandomCLICardPicker.getRandomCLISXXFileName()));
+            manager.setHandCard(1, mapper.getCard("/CLI/"+RandomCLICardPicker.getRandomCLIXXFileName()));
+            manager.setHandCard(2, mapper.getCard("/CLI/"+RandomCLICardPicker.getRandomCLIXXFileName()));
+            manager.setHandCard(3, mapper.getCard("/CLI/"+RandomCLICardPicker.getRandomCLIGXXFileName()));
+            manager.setDrawableCard(4, mapper.getCard("/CLI/"+RandomCLICardPicker.getRandomCLIXXFileName()));
+            manager.setDrawableCard(5, mapper.getCard("/CLI/"+RandomCLICardPicker.getRandomCLIXXFileName()));
+            manager.setDrawableCard(6, mapper.getCard("/CLI/"+RandomCLICardPicker.getRandomCLIGXXFileName()));
+            manager.setDrawableCard(7, mapper.getCard("/CLI/"+RandomCLICardPicker.getRandomCLIGXXFileName()));
             System.out.println("Initial card list:");
             manager.showCards();
 
-            System.out.println("Using card at position 2:");
-            manager.useCLICard(2);
-            manager.showCards();
         }
     }
 

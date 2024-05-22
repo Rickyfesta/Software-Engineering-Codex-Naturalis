@@ -21,6 +21,9 @@ public class CLICard {
         this.ASCII = ASCII;
     }
 
+    public CLICard() {
+    }
+
     // Getters and Setters
     public String getID() {
         return ID;
