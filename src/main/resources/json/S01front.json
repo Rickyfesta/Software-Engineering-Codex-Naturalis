@@ -4,8 +4,8 @@
   "SYMBOL": "Insect",
   "POINTS": "0",
   "TOPSYMBOL": "",
-  "BOTTOMSYMBOL": "",
   "LEFTSYMBOL": "Insect",
   "RIGHTSYMBOL": "Plant",
+  "BOTTOMSYMBOL": "",
   "COLOUR": null
 }

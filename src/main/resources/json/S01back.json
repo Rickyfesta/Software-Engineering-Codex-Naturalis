@@ -4,8 +4,8 @@
   "SYMBOL": null,
   "POINTS": "0",
   "TOPSYMBOL": "Mushroom",
-  "BOTTOMSYMBOL": "Animal",
   "LEFTSYMBOL": "Insect",
   "RIGHTSYMBOL": "Plant",
+  "BOTTOMSYMBOL": "Animal",
   "COLOUR": null
 }

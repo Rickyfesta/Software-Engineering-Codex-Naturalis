@@ -1,4 +1,4 @@
-package Client.GUI;
+package Controller;
 
 import Model.Cards.CardJSON;
 
@@ -13,7 +13,9 @@ public class ResourcesCounter {
     private static int plants = 0;
 
     //TODO: For points to add later feather and potion and scroll
+    //TODO: View for seeing how many points I have
 
+    //Once I placed the card I get the resource it gives me
     public static void updateResources(CardJSON cardToRead){
         String[] symbols = {
                 cardToRead.getLEFTSYMBOL(),
@@ -23,9 +25,11 @@ public class ResourcesCounter {
                 cardToRead.getSYMBOL()
         };
         for (String symbol : symbols) {
-            updateResourceCount(symbol.toLowerCase());
+            //updateResourceCount(symbol.toLowerCase());
         }
     }
+
+    //update the count
     private static void updateResourceCount(String symbol) {
         if (symbol.contains("animal")) {
             animals++;
@@ -56,10 +60,10 @@ public class ResourcesCounter {
             String resource = entry.getKey();
             int count = entry.getValue();
             if (!hasEnoughResource(resource, count)) {
-                return false;
+                return false; //Cannot place card so need to teleport it to the hand
             }
         }
-        return true;
+        return true; //Can place card so actually place it there
     }
 
     private static boolean hasEnoughResource(String resource, int requiredCount) {

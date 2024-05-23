@@ -1,11 +1,11 @@
 {
   "ID": "S05",
   "CARDTYPE": "Starter",
-  "SYMBOL": ["Insect","Animal","Plant"],
+  "SYMBOL": "Insect + Animal + Plant",
   "POINTS": "0",
   "TOPSYMBOL": "",
-  "BOTTOMSYMBOL": null,
   "LEFTSYMBOL": null,
   "RIGHTSYMBOL": "",
+  "BOTTOMSYMBOL": null,
   "COLOUR": null
 }
