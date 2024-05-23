@@ -74,6 +74,7 @@ public class BoardManager {
 
             Point2D topRightCoordinates = new Point2D(2044,1977);
             availableCorners.put(id +" topRight", topRightCoordinates);
+            //System.out.println(availableCorners.get(id +" topRight"));
             //System.out.println("hello1");
         }
 

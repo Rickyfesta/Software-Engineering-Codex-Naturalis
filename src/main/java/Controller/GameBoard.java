@@ -15,7 +15,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -1358,7 +1357,7 @@ public class GameBoard {
         ResDeck.setVisible(false);
         GoldDeck.setVisible(false);
         // Handle scroll events on the ScrollPane
-        personalBoardScroll.addEventFilter(ScrollEvent.SCROLL, event -> {
+        /* personalBoardScroll.addEventFilter(ScrollEvent.SCROLL, event -> {
             if (event.isControlDown()) {
                 double deltaY = event.getDeltaY();
                 final double zoomFactor = 1.4; // Consider adjusting this value
@@ -1400,6 +1399,8 @@ public class GameBoard {
                 event.consume();
             }
         });
+
+         */
 
 
         // Set CommonBoard into the placeholder
