@@ -12,8 +12,8 @@ public class RandomCLICardPicker {
         String associatedCLIBack = getAssociatedCLIBackFileName(randomCLIFront);
         String associatedCLIGBack = getAssociatedCLIGBackFileName(randomCLIGFront);
         String associatedCLISBack = getRandomCLISXXFileNameBack(randomCLISFront);
-       // System.out.println("Random front file: " + randomCLIFront);
-        //System.out.println("Associated back file: " + associatedCLIBack);
+        System.out.println("Random front file: " + randomCLIFront);
+        System.out.println("Associated back file: " + associatedCLIBack);
         //System.out.println("Random Gold front file: " + randomCLIGFront);
         //System.out.println("Associated Gold back file: " + associatedCLIGBack);
         //System.out.println("Random Objective front file: " + randomCLIOFront);
