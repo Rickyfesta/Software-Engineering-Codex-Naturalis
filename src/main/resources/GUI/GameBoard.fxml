@@ -6,7 +6,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -434,20 +433,29 @@
          <Font size="20.0" />
       </font>
    </Text>
-   <HBox fx:id="commonBoardDecksContainer" layoutX="-650.0" prefHeight="598.0" prefWidth="650.0">
+   <AnchorPane fx:id="commonBoardDecksContainer" layoutX="-650.0" prefHeight="598.0" prefWidth="650.0">
       <children>
+         <ImageView fx:id="DecksBG" fitHeight="598.0" fitWidth="650.0">
+                 <image>
+                    <Image url="@img/backgroundDecks.jpg" />
+                 </image>
+         </ImageView>
          <ImageView fx:id="commonBoardIMG" fitHeight="380.0" fitWidth="220.0" pickOnBounds="true">
             <image>
                <Image url="@img/plateau.jpg" />
             </image>
          </ImageView>
-         <ImageView fx:id="ResDeck" fitHeight="94.0" fitWidth="215.0" layoutX="3.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true" />
-         <ImageView fx:id="GoldDeck" fitHeight="93.0" fitWidth="215.0" layoutX="3.0" layoutY="380.0" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fx:id="ResDeck" fitHeight="94.0" fitWidth="215.0" layoutX="450.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fx:id="GoldDeck" fitHeight="93.0" fitWidth="200.0" layoutX="236.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
          <ImageView fx:id="redPawn0" fitHeight="20.0" fitWidth="20.0" layoutX="40.0" layoutY="350.0" pickOnBounds="true" />
          <ImageView fx:id="greenPawn0" fitHeight="20.0" fitWidth="20.0" layoutX="63.0" layoutY="350.0" pickOnBounds="true" />
          <ImageView fx:id="bluePawn0" fitHeight="20.0" fitWidth="20.0" layoutX="63.0" layoutY="330.0" pickOnBounds="true" />
          <ImageView fx:id="yellowPawn0" fitHeight="20.0" fitWidth="20.0" layoutX="40.0" layoutY="330.0" pickOnBounds="true" />
+         <ImageView fx:id="GoldDeck1" fitHeight="93.0" fitWidth="200.0" layoutX="236.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fx:id="GoldDeck2" fitHeight="93.0" fitWidth="200.0" layoutX="236.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fx:id="ResDeck2" fitHeight="94.0" fitWidth="200.0" layoutX="450.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fx:id="ResDeck3" fitHeight="94.0" fitWidth="200.0" layoutX="450.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true" />
       </children>
-   </HBox>
+   </AnchorPane>
    <Button fx:id="showBtn" layoutY="300.0" mnemonicParsing="false" onMouseClicked="#showBoardandCards" text="&gt;" />
 </Pane>

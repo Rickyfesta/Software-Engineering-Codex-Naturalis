@@ -190,6 +190,8 @@ public class DraggableMaker {
                                                 imageView.setImage(new Image("/" + imageViewIHandCard.replace("json", "jpg")));
                                                 System.out.println("169: Remember now need to pick another card");
                                                 returnToOriginalPosition(HandCard);
+                                                CardPicker.PickNewCard((ImageView) HandCard);
+                                                //METHOD TO FREEZE
                                             }
                                         }
                                     }
@@ -251,6 +253,8 @@ public class DraggableMaker {
                                                     imageView.setImage(new Image("/" + imageViewIHandCard.replace("json", "jpg")));
                                                     System.out.println("Remember now need to pick another card");
                                                     returnToOriginalPosition(HandCard);
+                                                    CardPicker.PickNewCard((ImageView) HandCard);
+                                                    //METHOD TO FREEZE
                                                 }
                                             }
                                         }
@@ -272,6 +276,9 @@ public class DraggableMaker {
                                                         imageView.setImage(new Image("/" + imageViewIHandCard.replace("json", "jpg")));
                                                         System.out.println("Remember now need to pick another card");
                                                         returnToOriginalPosition(HandCard);
+                                                        CardPicker.PickNewCard((ImageView) HandCard);
+
+                                                        //METHOD TO FREEZE
                                                     }
                                                 }
                                             }

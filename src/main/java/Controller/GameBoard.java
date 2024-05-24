@@ -16,7 +16,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
@@ -1197,6 +1196,9 @@ public class GameBoard {
     private ImageView CardHand1;
 
     @FXML
+    private ImageView ResDeck3;
+
+    @FXML
     private ImageView CardHand2;
 
     @FXML
@@ -1204,7 +1206,7 @@ public class GameBoard {
     
 
     @FXML
-    private HBox commonBoardDecksContainer;
+    private AnchorPane commonBoardDecksContainer;
 
     @FXML
     private ImageView commonBoardIMG;
@@ -1221,6 +1223,14 @@ public class GameBoard {
 
     @FXML
     private ImageView objbackground;
+    @FXML
+    private ImageView GoldDeck1;
+    @FXML
+    private ImageView GoldDeck2;
+
+    @FXML
+    private ImageView ResDeck2;
+
 
     @FXML
     private AnchorPane personalBoardContainer;
@@ -1248,6 +1258,7 @@ public class GameBoard {
 
     FlippableMaker flippableMaker = new FlippableMaker();
 
+    public static List<ImageView> DecksList;
     public static List<ImageView> imageViewList;
 
     @FXML
@@ -1310,6 +1321,11 @@ public class GameBoard {
     void initialize() throws IOException {
 
         DraggableMaker draggableMaker = new DraggableMaker(this);
+        CardPicker cardPicker = new CardPicker(this);
+
+        DecksList = Arrays.asList(
+                ResDeck, ResDeck2, ResDeck3, GoldDeck, GoldDeck1, GoldDeck2
+        );
 
         imageViewList = Arrays.asList(
                 StartingCard ,Right1, Up1, Left1, Down1, Down2, Right2, Up2, Left2, Down3, Down4,
@@ -1485,9 +1501,21 @@ public class GameBoard {
 
         CommonObj.setImage(new Image("/" + RandomCardFile.getRandomOXXFileName()));
         GoldDeck.setImage(new Image("/" + RandomCardFile.getRandomGXXFileName()));
+        GoldDeck1.setImage(new Image("/" + RandomCardFile.getRandomGXXFileName()));
+        GoldDeck2.setImage(new Image("/" + RandomCardFile.getRandomGXXFileName()));
         PersonalObj.setImage(new Image("/" + RandomCardFile.getRandomOXXFileName()));
         ResDeck.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
+        ResDeck2.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
+        ResDeck3.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
         StartingCard.setImage(new Image("/" + StartUrl));
+
+        //Make the cards pickable from deck
+        cardPicker.makePickable(ResDeck, DecksList);
+        cardPicker.makePickable(ResDeck2, DecksList);
+        cardPicker.makePickable(ResDeck3, DecksList);
+        cardPicker.makePickable(GoldDeck, DecksList);
+        cardPicker.makePickable(GoldDeck1, DecksList);
+        cardPicker.makePickable(GoldDeck2, DecksList);
 
 
         assert CardHand1 != null : "fx:id=\"CardHand1\" was not injected: check your FXML file 'GameBoard.fxml'.";
@@ -1496,9 +1524,13 @@ public class GameBoard {
         assert CommonObj != null : "fx:id=\"CommonObj\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert Down1 != null : "fx:id=\"Down1\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert GoldDeck != null : "fx:id=\"GoldDeck\" was not injected: check your FXML file 'GameBoard.fxml'.";
+        assert GoldDeck1 != null : "fx:id=\"GoldDeck1\" was not injected: check your FXML file 'GameBoard.fxml'.";
+        assert GoldDeck2 != null : "fx:id=\"GoldDeck2\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert Left1 != null : "fx:id=\"Left1\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert PersonalObj != null : "fx:id=\"PersonalObj\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert ResDeck != null : "fx:id=\"ResDeck\" was not injected: check your FXML file 'GameBoard.fxml'.";
+        assert ResDeck2 != null : "fx:id=\"ResDeck2\" was not injected: check your FXML file 'GameBoard.fxml'.";
+        assert ResDeck3 != null : "fx:id=\"ResDeck2\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert Right1 != null : "fx:id=\"Right1\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert StartingCard != null : "fx:id=\"StartingCard\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert Up1 != null : "fx:id=\"Up1\" was not injected: check your FXML file 'GameBoard.fxml'.";
