@@ -1419,11 +1419,12 @@ public class GameBoard {
         //System.out.println(StartUrl);
         //System.out.println(boardMapper.readValue(new File("src/main/resources/json/" + url1.replace("jpg", "json")), CardJSON.class));
         CardJSON startingCard = boardMapper.readValue(new File("src/main/resources/json/" + StartUrl.replace("jpg", "json")), CardJSON.class);
+        //initialize the personal board
+        BoardManager.initializeBoard(startingCard);
+
         CardJSON Card1 = boardMapper.readValue(new File("src/main/resources/json/" + url1.replace("jpg", "json")), CardJSON.class);
         CardJSON Card2 = boardMapper.readValue(new File("src/main/resources/json/" + url2.replace("jpg", "json")), CardJSON.class);
         CardJSON Card3 = boardMapper.readValue(new File("src/main/resources/json/" + url3.replace("jpg", "json")), CardJSON.class);
-        //initialize the personal board
-        BoardManager.initializeBoard(startingCard);
 
         //Here i make draggable all the cards inside my hand to make them placeable
         draggableMaker.makeDraggable(CardHand1, personalBoardScroll, 508, 650, Card1, copy, personalBoardContainer, StartUrl, imageViewList);
