@@ -41,7 +41,7 @@ import java.util.List;
                 System.out.println("Invalid card position or card already used.");
             }
         }
-        public void showCards() {
+        public List<String> showCards() {
             for (int i = 0; i < cardList.size(); i++) {
                 CLICard clicard = cardList.get(i);
                 if (i==0) System.out.println("Starter card:");
@@ -50,18 +50,35 @@ import java.util.List;
 
                 clicard.getASCII().forEach(System.out::println);
             }
+            return null;
         }
 
         public static void main(String[] args) {
             CLIPlayableCard manager = new CLIPlayableCard();
-            manager.setStarterCard(mapper.getCard("/CLI/"+RandomCLICardPicker.getRandomCLISXXFileName()));
-            manager.setHandCard(1, mapper.getCard("/CLI/"+RandomCLICardPicker.getRandomCLIXXFileName()));
-            manager.setHandCard(2, mapper.getCard("/CLI/"+RandomCLICardPicker.getRandomCLIXXFileName()));
-            manager.setHandCard(3, mapper.getCard("/CLI/"+RandomCLICardPicker.getRandomCLIGXXFileName()));
-            manager.setDrawableCard(4, mapper.getCard("/CLI/"+RandomCLICardPicker.getRandomCLIXXFileName()));
-            manager.setDrawableCard(5, mapper.getCard("/CLI/"+RandomCLICardPicker.getRandomCLIXXFileName()));
-            manager.setDrawableCard(6, mapper.getCard("/CLI/"+RandomCLICardPicker.getRandomCLIGXXFileName()));
-            manager.setDrawableCard(7, mapper.getCard("/CLI/"+RandomCLICardPicker.getRandomCLIGXXFileName()));
+            String card1 = RandomCLICardPicker.getRandomCLISXXFileName();
+            String card2 = RandomCLICardPicker.getRandomCLIXXFileName();
+            String card3 = RandomCLICardPicker.getRandomCLIXXFileName();
+            String card4 = RandomCLICardPicker.getRandomCLIGXXFileName();
+            String card5 = RandomCLICardPicker.getRandomCLIXXFileName();
+            String card6 = RandomCLICardPicker.getRandomCLIXXFileName();
+            String card7 = RandomCLICardPicker.getRandomCLIGXXFileName();
+            String card8 = RandomCLICardPicker.getRandomCLIGXXFileName();
+            CLICard starterCard = mapper.getCard("/CLI/" + card1);
+            CLICard handCard1 = mapper.getCard("/CLI/" + card2);
+            CLICard handCard2 = mapper.getCard("/CLI/" + card3);
+            CLICard handCard3 = mapper.getCard("/CLI/" + card4);
+            CLICard drawableCard1 = mapper.getCard("/CLI/" + card5);
+            CLICard drawableCard2 = mapper.getCard("/CLI/" + card6);
+            CLICard drawableCard3 = mapper.getCard("/CLI/" + card7);
+            CLICard drawableCard4 = mapper.getCard("/CLI/" + card8);
+            manager.setStarterCard(starterCard);
+            manager.setHandCard(1, handCard1);
+            manager.setHandCard(2, handCard2);
+            manager.setHandCard(3, handCard3);
+            manager.setDrawableCard(4, drawableCard1);
+            manager.setDrawableCard(5, drawableCard2);
+            manager.setDrawableCard(6, drawableCard3);
+            manager.setDrawableCard(7, drawableCard4);
             System.out.println("Initial card list:");
             manager.showCards();
 
