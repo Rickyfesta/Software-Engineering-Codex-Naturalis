@@ -144,18 +144,38 @@ public class DraggableMaker {
                         //System.out.println("143: "+ destination.getId() + " " + intersectedCorner);
                         //System.out.println("144: "+ availableCorners.get(destination.getId() + " " + intersectedCorner));
                         if(!trustCorner){ //NOT ON STARTING CARD
-                            System.out.println(destination.getId());
-                            System.out.println(intersectedCorner);
+                            System.out.println("147 Id destination card: " + destination.getId());
+                            System.out.println("148 intersted corner of destination card: " +intersectedCorner);
                             String idCard = extractLetters(destination.getId());
-                            String availableId = null;
-                            if(destination.getId().equals(idCard +"1")){
+                            String availableId;
+                            CardJSON realDestination = null;
+                            if(destination.getId().equals(idCard +"1")){ //If i'm on one of the starting card neighbour i pass as the id the id of the starting card
                                 availableId = startingCardJSON.getID();
+                                realDestination = startingCardJSON;
+                            }else{
+                                availableId = decrementDirection(destination.getId());
+                                System.out.println("157 effective bonding card: " + availableId);
+                                for(ImageView imageView : imageViewList){
+                                    if(Objects.equals(imageView.getId(), availableId)){
+                                        String StrangeURLDestinationS = imageView.getImage().getUrl();
+                                        String secondURL = StrangeURLDestinationS.substring(StrangeURLDestinationS.lastIndexOf('/') +1).replace(".jpg", ".json");
+                                        realDestination = boardMapper.readValue(new File("src/main/resources/json/" + secondURL.replace("jpg", "json")), CardJSON.class);
+                                    }
+                                }
+                            }
+                            //System.out.println("166 " +availableCorners.get(new Point(0,2)));
+                            for (Map.Entry<String, Point> entry : availableCorners.entrySet()) {
+                                //If it has any corners free then it places it in one of those corners
+                                if (entry.getKey() != null) {
+                                    System.out.println("Not null: " +entry.getKey());
+                                }
                             }
                             if(!availableCorners.containsKey(availableId+ " " +intersectedCorner)){ //If it's not in the available corner map, the user just dragged it randomly
-                                System.out.println("147: Corner not available...");
+                                System.out.println("168: Corner not available...");
                                 returnToOriginalPosition(HandCard);
                                 resetNodeSize(HandCard);
                             }else{
+                                //System.out.println("160");
                                 if(TryToPlace(HandCard, destination, intersectedCorner)){
                                     for (ImageView imageView : imageViewList) {
                                         if(imageView == destination){
@@ -163,7 +183,7 @@ public class DraggableMaker {
                                             String imageViewIHandCard = imageViewIdWrongURLHandCard.substring(imageViewIdWrongURLHandCard.lastIndexOf('/') +1).replace(".jpg", ".json");
                                             CardJSON HandCardJson;
                                             HandCardJson = boardMapper.readValue(new File("src/main/resources/json/" + imageViewIHandCard.replace("jpg", "json")), CardJSON.class);
-                                            if(!Place(null, HandCardJson, intersectedCorner)){
+                                            if(!Place(realDestination, HandCardJson, intersectedCorner)){
                                                 returnToOriginalPosition(HandCard);
                                             }else{
                                                 ((ImageView) HandCard).setImage(null);
@@ -180,8 +200,7 @@ public class DraggableMaker {
                         else{
                             String StrangeURLDestination = destination.getImage().getUrl();
                             String secondURL = StrangeURLDestination.substring(StrangeURLDestination.lastIndexOf('/') +1).replace(".jpg", ".json");
-                            CardJSON destinationJson;
-                            destinationJson = boardMapper.readValue(new File("src/main/resources/json/" + secondURL.replace("jpg", "json")), CardJSON.class);
+                            CardJSON destinationJson = boardMapper.readValue(new File("src/main/resources/json/" + secondURL.replace("jpg", "json")), CardJSON.class);
                             //System.out.println(destinationJson.getID() + " "+ intersectedCorner);
                             //System.out.println(availableCorners.containsKey(destination.getId()+ " " +intersectedCorner));
                             if(!availableCorners.containsKey(destinationJson.getID()+ " " + intersectedCorner)){ //If it's not in the available corner map, the user just dragged it randomly
@@ -344,7 +363,7 @@ public class DraggableMaker {
             // Check for intersection in the scene coordinate space
             if (handCardBoundsInAnchorPane.intersects(imageViewBoundsInAnchorPane)) {
                 System.out.println(" ");
-                System.out.println("343: Intersection found " +imageView.getId());
+                System.out.println("347 : Intersection found " +imageView.getId());
                 return imageView;
                 //DONE: JUST NEED TO SEE IF INTERACTS WITH AN IMAGE VIEW.
             }
@@ -512,6 +531,22 @@ public class DraggableMaker {
         }
 
         return builder.toString();
+    }
+    public static String decrementDirection(String direction) {
+        // Extract the non-numeric part of the string
+        String textPart = direction.replaceAll("\\d", "");
+
+        // Extract the numeric part of the string
+        String numberPart = direction.replaceAll("\\D", "");
+
+        // Parse the numeric part to an integer
+        int number = Integer.parseInt(numberPart);
+
+        // Decrease the number by one
+        number--;
+
+        // Combine the text part and the decremented number
+        return textPart + number;
     }
 
 }
