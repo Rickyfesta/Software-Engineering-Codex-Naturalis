@@ -41,12 +41,13 @@
 <table>
 
 
-| Requisiti                                 |Voto Massimo|Realizzazione|
-|:------------------------------------------|:----------:|:-----------:|
-| Regole semplificate + comunicazione + CLI |     18     |  :warning:  |
-| Regole complete + comunicazione + CLI     |     21     |  :warning:  |
-| Regole complete + comunicazione + GUI     |     24     |  :warning:  |
-| Regole complete + comunicazione + GUI +1FA|     27     |  :warning:  |
+| Requisiti                                       |Voto Massimo|Realizzazione|
+|:------------------------------------------------|:----------:|:-----------:|
+| Regole semplificate + comunicazione + CLI       |     18     |  :warning:  |
+| Regole complete + comunicazione + CLI           |     21     |  :warning:  |
+| Regole complete + comunicazione + GUI           |     24     |  :warning:  |
+| Regole complete + comunicazione + GUI +1FA      |     27     |  :warning:  |
+| Regole complete + comunicazione + CLI + GUI +1FA| 30 / 30L   |  :warning:  |
 
 
   
