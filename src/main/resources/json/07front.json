@@ -6,6 +6,17 @@
   "TOPSYMBOL": "Mushroom",
   "LEFTSYMBOL": "Scroll",
   "RIGHTSYMBOL": "Insect",
-  "BOTTOMSYMBOL": "",
-  "COLOUR": "red"
+  "BOTTOMSYMBOL": null,
+  "COLOUR": "red",
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |                       |    |",
+    "| \uD83C\uDF44 |           \uD83C\uDF44          | \uD83E\uDD8B |",
+    "|----+                       +----|",
+    "|                                 |",
+    "|----+                            |",
+    "| \uD83D\uDCDC |                            |",
+    "|    |                            |",
+    "+---------------------------------+"
+  ]
 }

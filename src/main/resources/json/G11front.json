@@ -9,5 +9,15 @@
   "BOTTOMSYMBOL": null,
   "COLOUR": "green",
   "REQUIRED": ["Plant","Plant","Insect"],
-  "CENTER": null
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |          |1\uD83E\uDEB6|        |    |",
+    "| \uD83E\uDEB6 |           \uD83C\uDF31          |    |",
+    "|----+                       +----|",
+    "|                                 |",
+    "|----+                            |",
+    "|    |                            |",
+    "|    |         \uD83C\uDF31\uD83C\uDF31\uD83E\uDD8B             |",
+    "+---------------------------------+"
+  ]
 }
