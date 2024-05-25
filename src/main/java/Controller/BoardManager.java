@@ -2,24 +2,24 @@ package Controller;
 //This class reads if a position of a image view is actually usable for a card to be placed.
 
 import Model.Cards.CardJSON;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import javafx.geometry.Point2D;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 
 import java.awt.*;
-import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 import static Controller.GameBoard.imageViewList;
+import static Controller.ResourcesCounter.canPlaceCard;
+
 public class BoardManager {
     private static final Map<String, Point> Board = new HashMap<>(); // Map to track board
     //Want to do a list of the imageView already present on the board, so that if a card wants to be placed on one of them but it's not there it's rip.
     public static Map<String, Point> availableCorners = new HashMap<>();
     static int i = 0;
-    public static void initializeBoard(CardJSON startingCard){
+    public static void initializeBoard(CardJSON startingCard, List<Text> resourceList){
         //Initialize the board: put everything inside of it, the availableCorners function will make me know if i can place on it.
         //TODO add the other missing cards
         for (ImageView imageView : imageViewList) {
@@ -44,7 +44,6 @@ public class BoardManager {
                 x = 0;
                 y = -n;
             }
-
             if (imageView.getId().equals("StartingCard")) {
                 Board.put(startingCard.getID(), new Point(x, y));
             }else{
@@ -53,7 +52,7 @@ public class BoardManager {
             //System.out.println("Just putted in the board the following: " +Board.get((new Point(x,y))));
         }
         //System.out.println("Here's what is on the starting position of the board: " +Board.get(target));
-        ResourcesCounter.updateResources(startingCard);
+        ResourcesCounter.updateResources(startingCard, resourceList);
         //now i create for the starting card the coordinates of his corners, to be able to place a card on
         String id = startingCard.getID();
         String topRight = startingCard.getRIGHTSYMBOL();
@@ -66,7 +65,6 @@ public class BoardManager {
         System.out.println(bottomLeft);
         */
         if(topRight != null){
-
             Point topRightCoordinates = new Point(0,1);
             availableCorners.put(id +" topRight", topRightCoordinates);
             //id is in form S01 ecc
@@ -88,13 +86,14 @@ public class BoardManager {
             Point bottomLeftCoordinates = new Point(0,-1);
             availableCorners.put(id +" bottomLeft", bottomLeftCoordinates);
             //System.out.println("hello4");
-          //System.out.println("Available Corners: " + id + "  " + availableCorners.get(id + " topRight"));
+        }
+        //System.out.println("Available Corners: " + id + "  " + availableCorners.get(id + " topRight"));
         //System.out.println(availableCorners.containsKey(id+ " topRight"));
     }
 
 
 
-    public static boolean Place(CardJSON destination, CardJSON wantToBePlaced, String corner){
+    public static boolean Place(CardJSON destination, CardJSON wantToBePlaced, String corner, List<Text> resourcesList){
         /*if(!ResourcesCounter.canPlaceCard(wantToBePlaced)){
             return false; //cannot place card so i have to return because i cannot place it.
             //TODO Resources Counter
@@ -108,6 +107,10 @@ public class BoardManager {
                     coordinates.x--;
                     if (!Objects.equals(corner, "")) {
                         //TODO keep track of the loss of resource
+                        String losingRes = destination.getLEFTSYMBOL();
+                        if(!canPlaceCard(wantToBePlaced, losingRes, resourcesList)){
+                            return false;
+                        }
                         System.out.println("I'm the guy: " +corner);
                         // Update the placement status
                         Board.put(wantToBePlaced.getID(), coordinates);
@@ -127,6 +130,10 @@ public class BoardManager {
                     coordinates.y--;
                     if (!Objects.equals(corner, "")) {
                         //TODO keep track of the loss of resource
+                        String losingRes = destination.getBOTTOMSYMBOL();
+                        if(!canPlaceCard(wantToBePlaced, losingRes, resourcesList)){
+                            return false;
+                        }
                         System.out.println("I'm the guy: " +corner);
                         // Update the placement status
                         Board.put(wantToBePlaced.getID(), coordinates);
@@ -145,6 +152,10 @@ public class BoardManager {
                     coordinates.y++;
                     if (!Objects.equals(corner, "")) {
                         //TODO keep track of the loss of resource
+                        String losingRes = destination.getTOPSYMBOL();
+                        if(!canPlaceCard(wantToBePlaced, losingRes, resourcesList)){
+                            return false;
+                        }
                         System.out.println("I'm the guy: " +corner);
                         // Update the placement status
                         Board.put(wantToBePlaced.getID(), coordinates);
@@ -165,6 +176,10 @@ public class BoardManager {
                     coordinates.x++;
                     if (!Objects.equals(corner, "")) {
                         //TODO keep track of the loss of resource
+                        String losingRes = destination.getRIGHTSYMBOL();
+                        if(!canPlaceCard(wantToBePlaced, losingRes, resourcesList)){
+                            return false;
+                        }
                         System.out.println("I'm the guy: " +corner);
                         // Update the placement status
                         Board.put(wantToBePlaced.getID(), coordinates);
@@ -225,6 +240,10 @@ public class BoardManager {
                     coordinates = getCardPosition(destination);
                     if (!Objects.equals(corner, "")) {
                         //TODO keep track of the loss of resource
+                        String losingRes = destination.getLEFTSYMBOL();
+                        if(!canPlaceCard(wantToBePlaced, losingRes, resourcesList)){
+                            return false;
+                        }
                         System.out.println("I'm the guy: " +corner);
                         // Update the placement status
                         Board.put(wantToBePlaced.getID(), coordinates);
@@ -242,6 +261,10 @@ public class BoardManager {
                     coordinates = getCardPosition(destination);
                     if (!Objects.equals(corner, "")) {
                         //TODO keep track of the loss of resource
+                        String losingRes = destination.getBOTTOMSYMBOL();
+                        if(!canPlaceCard(wantToBePlaced, losingRes, resourcesList)){
+                            return false;
+                        }
                         System.out.println("I'm the guy: " +corner);
                         // Update the placement status
                         Board.put(wantToBePlaced.getID(), coordinates);
@@ -259,7 +282,10 @@ public class BoardManager {
                 case "topRight":
                     coordinates = getCardPosition(destination);
                     if (!Objects.equals(corner, "")) {
-                        //TODO keep track of the loss of resource
+                        String losingRes = destination.getTOPSYMBOL();
+                        if(!canPlaceCard(wantToBePlaced, losingRes, resourcesList)){
+                            return false;
+                        }
                         System.out.println("I'm the guy: " +corner);
                         // Update the placement status
                         Board.put(wantToBePlaced.getID(), coordinates);
@@ -278,7 +304,10 @@ public class BoardManager {
                 case "bottomRight":
                     coordinates = getCardPosition(destination);
                     if (!Objects.equals(corner, "")) {
-                        //TODO keep track of the loss of resource
+                        String losingRes = destination.getRIGHTSYMBOL();
+                        if(!canPlaceCard(wantToBePlaced, losingRes, resourcesList)){
+                            return false;
+                        }
                         System.out.println("I'm the guy: " +corner);
                         // Update the placement status
                         Board.put(wantToBePlaced.getID(), coordinates);

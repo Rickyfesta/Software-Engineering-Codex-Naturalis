@@ -16,6 +16,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.awt.*;
@@ -66,7 +67,7 @@ public class DraggableMaker {
         cornerPositions.put(cardCoordinates, new Point2D[][]{new Point2D[]{corner_topLeft, corner_bottomLeft}, new Point2D[]{corner_topRight, corner_bottomRight}});
     }
 
-    public void makeDraggable(Node HandCard, ScrollPane scrollPane, double initialX, double initialY, CardJSON cardToPlaceJSON, ImageView copy, AnchorPane personalBoardContainer, String startURL, List<ImageView> imageViewList) throws IOException {
+    public void makeDraggable(Node HandCard, ScrollPane scrollPane, double initialX, double initialY, CardJSON cardToPlaceJSON, ImageView copy, AnchorPane personalBoardContainer, String startURL, List<ImageView> imageViewList, List<Text> resourcesList) throws IOException {
         initialXMap.put(HandCard, initialX);
         initialYMap.put(HandCard, initialY);
         HandCard.setLayoutX(initialX);
@@ -186,7 +187,7 @@ public class DraggableMaker {
                                             CardJSON HandCardJson;
                                             HandCardJson = boardMapper.readValue(new File("src/main/resources/json/" + imageViewIHandCard.replace("jpg", "json")), CardJSON.class);
 
-                                            if(!Place(realDestination, HandCardJson, intersectedCorner)){
+                                            if(!Place(realDestination, HandCardJson, intersectedCorner, resourcesList)){
                                                 returnToOriginalPosition(HandCard);
                                             }else{
                                                 ((ImageView) HandCard).setImage(null);
@@ -251,7 +252,7 @@ public class DraggableMaker {
                                                 String imageViewIdWrongURLDESTINATION = destination.getImage().getUrl();
                                                 String imageViewIdDESTINATION = imageViewIdWrongURLDESTINATION.substring(imageViewIdWrongURLDESTINATION.lastIndexOf('/') +1).replace(".jpg", ".json");
                                                 destinationJson = boardMapper.readValue(new File("src/main/resources/json/" + imageViewIdDESTINATION.replace("jpg", "json")), CardJSON.class);
-                                                if(!Place(destinationJson, HandCardJson, intersectedCorner)){
+                                                if(!Place(destinationJson, HandCardJson, intersectedCorner, resourcesList)){
                                                     returnToOriginalPosition(HandCard);
                                                 }else{
                                                     ((ImageView) HandCard).setImage(null);
@@ -275,7 +276,7 @@ public class DraggableMaker {
                                                     String imageViewIdWrongURLDESTINATION = imageView.getImage().getUrl();
                                                     String imageViewIdDESTINATION = imageViewIdWrongURLDESTINATION.substring(imageViewIdWrongURLDESTINATION.lastIndexOf('/') +1).replace(".jpg", ".json");
                                                     destinationJson = boardMapper.readValue(new File("src/main/resources/json/" + imageViewIdDESTINATION.replace("jpg", "json")), CardJSON.class);
-                                                    if(!Place(destinationJson, HandCardJson, intersectedCorner)){
+                                                    if(!Place(destinationJson, HandCardJson, intersectedCorner, resourcesList)){
                                                         returnToOriginalPosition(HandCard);
                                                     }else{
                                                         ((ImageView) HandCard).setImage(null);
@@ -309,6 +310,38 @@ public class DraggableMaker {
             }
             resetNodeSize(HandCard); // Reset the size after releasing the HandCard
         });
+    }
+
+    public static String decrementDirection(String direction) {
+        // Extract the non-numeric part of the string
+        String textPart = direction.replaceAll("\\d", "");
+
+        // Extract the numeric part of the string
+        String numberPart = direction.replaceAll("\\D", "");
+
+        // Parse the numeric part to an integer
+        int number = Integer.parseInt(numberPart);
+
+        // Decrease the number by one
+        number--;
+
+        // Combine the text part and the decremented number
+        return textPart + number;
+    }
+
+    public static String extractLetters(String str) {
+        StringBuilder builder = new StringBuilder();
+        boolean digitFound = false;
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (Character.isDigit(ch)) {
+                digitFound = true;
+            } else if (!digitFound) {
+                builder.append(ch);
+            }
+        }
+        return builder.toString();
     }
 
     private boolean TryToPlace(Node CardToPlace, ImageView destination, String corner) throws IOException {
