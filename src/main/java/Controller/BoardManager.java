@@ -2,15 +2,18 @@ package Controller;
 //This class reads if a position of a image view is actually usable for a card to be placed.
 
 import Model.Cards.CardJSON;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import javafx.geometry.Point2D;
 import javafx.scene.image.ImageView;
 
 import java.awt.*;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 import static Controller.GameBoard.imageViewList;
-
 public class BoardManager {
     private static final Map<String, Point> Board = new HashMap<>(); // Map to track board
     //Want to do a list of the imageView already present on the board, so that if a card wants to be placed on one of them but it's not there it's rip.
@@ -41,6 +44,7 @@ public class BoardManager {
                 x = 0;
                 y = -n;
             }
+
             if (imageView.getId().equals("StartingCard")) {
                 Board.put(startingCard.getID(), new Point(x, y));
             }else{
@@ -62,6 +66,7 @@ public class BoardManager {
         System.out.println(bottomLeft);
         */
         if(topRight != null){
+
             Point topRightCoordinates = new Point(0,1);
             availableCorners.put(id +" topRight", topRightCoordinates);
             //id is in form S01 ecc
@@ -83,8 +88,7 @@ public class BoardManager {
             Point bottomLeftCoordinates = new Point(0,-1);
             availableCorners.put(id +" bottomLeft", bottomLeftCoordinates);
             //System.out.println("hello4");
-        }
-        //System.out.println("Available Corners: " + id + "  " + availableCorners.get(id + " topRight"));
+          //System.out.println("Available Corners: " + id + "  " + availableCorners.get(id + " topRight"));
         //System.out.println(availableCorners.containsKey(id+ " topRight"));
     }
 

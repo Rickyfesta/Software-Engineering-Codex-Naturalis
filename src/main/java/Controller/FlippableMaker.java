@@ -19,6 +19,7 @@ public class FlippableMaker {
     private static final String GGREEN_IMAGE = "/GPlantBack.jpg";
     private static final String GPURPLE_IMAGE = "/GInsectBack.jpg";
 
+
     private final Map<ImageView, Boolean> flippedState = new HashMap<>();
 
     public void flipCard(ImageView cardImageView, String cardColor, String type, String url) {

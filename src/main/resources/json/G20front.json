@@ -8,5 +8,16 @@
   "RIGHTSYMBOL": "",
   "BOTTOMSYMBOL": null,
   "COLOUR": "green",
-  "REQUIRED": ["Plant","Plant","Plant","Plant","Plant"]
+  "REQUIRED": ["Plant","Plant","Plant","Plant","Plant"],
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |          |5|          |    |",
+    "|    |          \uD83C\uDF31           |    |",
+    "|----+                       +----|",
+    "|                                 |",
+    "|                                 |",
+    "|                                 |",
+    "|           \uD83C\uDF31\uD83C\uDF31\uD83C\uDF31\uD83C\uDF31\uD83C\uDF31           |",
+    "+---------------------------------+"
+  ]
 }

@@ -7,5 +7,16 @@
   "LEFTSYMBOL": null,
   "RIGHTSYMBOL": "Mushroom",
   "BOTTOMSYMBOL": "Animal",
-  "COLOUR": "red"
+  "COLOUR": "red",
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |                       |    |",
+    "| \uD83E\uDED9 |           \uD83C\uDF44          | \uD83C\uDF44 |",
+    "|----+                       +----|",
+    "|                                 |",
+    "|                            +----|",
+    "|                            | \uD83D\uDC3A |",
+    "|                            |    |",
+    "+---------------------------------+"
+  ]
 }

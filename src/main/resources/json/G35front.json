@@ -8,5 +8,16 @@
   "RIGHTSYMBOL": "",
   "BOTTOMSYMBOL": null,
   "COLOUR": "purple",
-  "REQUIRED": ["Insect","Insect","Insect","Plant"]
+  "REQUIRED": ["Insect","Insect","Insect","Plant"],
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |          |2\uD83D\uDCD0|        |    |",
+    "|    |           \uD83E\uDD8B          |    |",
+    "|----+                       +----|",
+    "|                                 |",
+    "|----+                            |",
+    "|    |                            |",
+    "|    |        \uD83E\uDD8B\uD83E\uDD8B\uD83E\uDD8B\uD83C\uDF31           |",
+    "+---------------------------------+"
+  ]
 }

@@ -3,5 +3,16 @@
   "CARDTYPE": "Objective",
   "SYMBOL": null,
   "POINTS": "2 for 3 Animal",
-  "COLOUR": null
+  "COLOUR": null,
+  "ASCII": [
+    "+---------------------------------+",
+    "|                                 |",
+    "|                   ━━┓           |",
+    "|                ╳ ┏━━┛           |",
+    "|                  ┗━━            |",
+    "|                  \uD83D\uDC3A             |",
+    "|               \uD83D\uDC3A    \uD83D\uDC3A          |",
+    "|                                 |",
+    "+---------------------------------+"
+  ]
 }

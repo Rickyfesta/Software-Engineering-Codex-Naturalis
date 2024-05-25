@@ -8,5 +8,16 @@
   "RIGHTSYMBOL": "",
   "BOTTOMSYMBOL": null,
   "COLOUR": "red",
-  "REQUIRED": ["Mushroom","Mushroom","Insect"]
+  "REQUIRED": ["Mushroom","Mushroom","Insect"],
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |          |1\uD83D\uDCDC|        |    |",
+    "| \uD83D\uDCDC |           \uD83C\uDF44          |    |",
+    "|----+                       +----|",
+    "|                                 |",
+    "|----+                            |",
+    "|    |                            |",
+    "|    |         \uD83C\uDF44\uD83C\uDF44\uD83E\uDD8B             |",
+    "+---------------------------------+"
+  ]
 }

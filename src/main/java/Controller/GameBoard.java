@@ -1321,6 +1321,7 @@ public class GameBoard {
     void initialize() throws IOException {
 
         DraggableMaker draggableMaker = new DraggableMaker(this);
+
         CardPicker cardPicker = new CardPicker(this);
 
         DecksList = Arrays.asList(
@@ -1435,6 +1436,7 @@ public class GameBoard {
         //System.out.println(StartUrl);
         //System.out.println(boardMapper.readValue(new File("src/main/resources/json/" + url1.replace("jpg", "json")), CardJSON.class));
         CardJSON startingCard = boardMapper.readValue(new File("src/main/resources/json/" + StartUrl.replace("jpg", "json")), CardJSON.class);
+
         //initialize the personal board
         BoardManager.initializeBoard(startingCard);
 
