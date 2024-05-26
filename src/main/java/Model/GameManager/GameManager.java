@@ -27,6 +27,12 @@ public class GameManager {
     //To start a game
 
 
+    public int getCurrentPlayerIndex() {
+        return currentPlayerIndex;
+    }
+    public boolean getGameOver() {
+        return gameOver;
+    }
     //method to add a player with a unique name
     public void addPlayers() {
         //Scanner scanner = new Scanner(System.in);
