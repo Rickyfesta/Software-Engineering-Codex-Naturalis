@@ -7,5 +7,16 @@
   "LEFTSYMBOL": "Animal",
   "RIGHTSYMBOL": null,
   "BOTTOMSYMBOL": "",
-  "COLOUR": "blue"
+  "COLOUR": "blue",
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |                            |",
+    "| \uD83D\uDC3A |           \uD83D\uDC3A               |",
+    "|----+                            |",
+    "|                                 |",
+    "|----+                       +----|",
+    "| \uD83D\uDC3A |                       |    |",
+    "|    |                       |    |",
+    "+---------------------------------+"
+  ]
 }

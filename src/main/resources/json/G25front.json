@@ -8,5 +8,16 @@
   "RIGHTSYMBOL": null,
   "BOTTOMSYMBOL": "",
   "COLOUR": "blue",
-  "REQUIRED": ["Animal","Animal","Animal","Mushroom"]
+  "REQUIRED": ["Animal","Animal","Animal","Mushroom"],
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |          |2\uD83D\uDCD0|             |",
+    "|    |           \uD83D\uDC3A               |",
+    "|----+                            |",
+    "|                                 |",
+    "|----+                       +----|",
+    "|    |                       |    |",
+    "|    |        \uD83D\uDC3A\uD83D\uDC3A\uD83D\uDC3A\uD83C\uDF44      |    |",
+    "+---------------------------------+"
+  ]
 }

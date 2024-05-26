@@ -8,5 +8,16 @@
   "RIGHTSYMBOL": "Potion",
   "BOTTOMSYMBOL": null,
   "COLOUR": "blue",
-  "REQUIRED": ["Animal","Animal","Animal"]
+  "REQUIRED": ["Animal","Animal","Animal"],
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |          |3|          |    |",
+    "|    |          \uD83D\uDC3A           | \uD83E\uDED9 |",
+    "|----+                       +----|",
+    "|                                 |",
+    "|                                 |",
+    "|                                 |",
+    "|             \uD83D\uDC3A\uD83D\uDC3A\uD83D\uDC3A              |",
+    "+---------------------------------+"
+  ]
 }

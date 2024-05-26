@@ -8,5 +8,16 @@
   "RIGHTSYMBOL": null,
   "BOTTOMSYMBOL": null,
   "COLOUR": "blue",
-  "REQUIRED": ["Animal","Animal","Animal"]
+  "REQUIRED": ["Animal","Animal","Animal"],
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |          |3|               |",
+    "|    |          \uD83D\uDC3A                |",
+    "|----+                            |",
+    "|                                 |",
+    "|----+                            |",
+    "| \uD83D\uDCDC |                            |",
+    "|    |        \uD83D\uDC3A\uD83D\uDC3A\uD83D\uDC3A              |",
+    "+---------------------------------+"
+  ]
 }
