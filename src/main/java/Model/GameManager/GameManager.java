@@ -38,6 +38,14 @@ public class GameManager {
         return gameOver;
     }
 
+    public int getCurrentPlayerIndex() {
+        return currentPlayerIndex;
+    }
+    public boolean getGameOver() {
+        return gameOver;
+    }
+    //method to add a player with a unique name
+    
     public void addPlayers() {
         String playerName;
         do {
