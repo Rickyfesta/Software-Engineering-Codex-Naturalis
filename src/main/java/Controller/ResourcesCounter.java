@@ -19,6 +19,18 @@ public class ResourcesCounter {
     //TODO: For points to add later feather and potion and scroll
     //TODO: View for seeing how many points I have
 
+    public static int getFeather() {
+        return feather;
+    }
+
+    public static int getPotion() {
+        return potion;
+    }
+
+    public static int getScroll() {
+        return scroll;
+    }
+
     //Once I placed the card I get the resource it gives me
     public static void updateResources(CardJSON cardToRead, List<Text> resourceList){
         String[] symbols = getStrings(cardToRead);

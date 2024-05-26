@@ -12,13 +12,15 @@ import java.util.Map;
 import java.util.Objects;
 
 import static Controller.GameBoard.imageViewList;
+import static Controller.PointCounter.addPoint;
 import static Controller.ResourcesCounter.canPlaceCard;
 
 public class BoardManager {
     private static final Map<String, Point> Board = new HashMap<>(); // Map to track board
     //Want to do a list of the imageView already present on the board, so that if a card wants to be placed on one of them but it's not there it's rip.
     public static Map<String, Point> availableCorners = new HashMap<>();
-    static int i = 0;
+
+    static int occupiedCorner = 0;
     public static void initializeBoard(CardJSON startingCard, List<Text> resourceList){
         //Initialize the board: put everything inside of it, the availableCorners function will make me know if i can place on it.
         //TODO add the other missing cards
@@ -215,22 +217,27 @@ public class BoardManager {
                 availableCorners.put(wantToBePlaced.getID() +" bottomRight", new Point((int) (availableCorners.get(destination.getID() +" bottomRight").getX()+1), (int) availableCorners.get(destination.getID() +" bottomRight").getY()));
             }
             System.out.println("197 " +corner);
+
+            //Remove the corner which the card is being placed on
             switch (corner){
                 case "topLeft":
                     availableCorners.remove(destination.getID() + " topLeft");
+                    occupiedCorner++;
                     break;
                 case "topRight":
                     availableCorners.remove(destination.getID() + " topRight");
+                    occupiedCorner++;
                     break;
                 case "bottomLeft":
                     availableCorners.remove(destination.getID() + " bottomLeft");
+                    occupiedCorner++;
                     break;
                 case "bottomRight":
                     availableCorners.remove(destination.getID() + " bottomRight");
+                    occupiedCorner++;
                     break;
 
             }
-
         }else{
             System.out.println(" ");
             System.out.println("Hey so the destination is not starting");
@@ -342,22 +349,28 @@ public class BoardManager {
             if(bottomRight != null && availableCorners.get(destination.getID() + " bottomRight") != null){
                 availableCorners.put(wantToBePlaced.getID() +" bottomRight", new Point((int) (availableCorners.get(destination.getID() +" bottomRight").getX()+1), (int) availableCorners.get(destination.getID() +" bottomRight").getY()));
             }
+            //Remove the corner on which the card is being placed on
             switch (corner){
                 case "topLeft":
                     availableCorners.remove(destination.getID() + " topLeft");
+                    occupiedCorner++;
                     break;
                 case "topRight":
                     availableCorners.remove(destination.getID() + " topRight");
+                    occupiedCorner++;
                     break;
                 case "bottomLeft":
                     availableCorners.remove(destination.getID() + " bottomLeft");
+                    occupiedCorner++;
                     break;
                 case "bottomRight":
                     availableCorners.remove(destination.getID() + " bottomRight");
+                    occupiedCorner++;
                     break;
 
             }
         }
+        addPoint(wantToBePlaced, occupiedCorner);
         //System.out.println("324 " + availableCorners.get(destination.getID() + " topRight"));
         //System.out.println(Board.containsKey(destination));
         //System.out.println("I've secured the card here in those coordinates: " +Board.get(wantToBePlaced.getID()));

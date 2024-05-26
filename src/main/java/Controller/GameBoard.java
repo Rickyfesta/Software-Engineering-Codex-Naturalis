@@ -24,6 +24,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -1212,13 +1213,7 @@ public class GameBoard {
     private ImageView backgroundBoard;
 
     @FXML
-    private ImageView bluePawn0;
-
-    @FXML
     private AnchorPane commonBoardDecksContainer;
-
-    @FXML
-    private ImageView commonBoardIMG;
 
     @FXML
     private Text commonGoalText;
@@ -1226,8 +1221,7 @@ public class GameBoard {
     @FXML
     private ImageView copy;
 
-    @FXML
-    private ImageView greenPawn0;
+
 
     @FXML
     private ImageView handBg;
@@ -1243,9 +1237,6 @@ public class GameBoard {
 
     @FXML
     private Text personalGoalText;
-
-    @FXML
-    private ImageView redPawn0;
 
     @FXML
     private Button showBtn;
@@ -1271,11 +1262,6 @@ public class GameBoard {
     @FXML
     private Text featherNumber;
 
-
-
-
-    @FXML
-    private ImageView yellowPawn0;
     @FXML
     private ResourceBundle resources;
 
@@ -1287,7 +1273,10 @@ public class GameBoard {
     @FXML
     private AnchorPane handContainer;
 
-    public static String url1 = RandomCardFile.getRandomGXXFileName() ;
+    @FXML
+    private Text myPoints;
+
+    public static String url1 = RandomCardFile.getRandomGXXFileName();
 
     public static String url2 = RandomCardFile.getRandomXXFileName();
 
@@ -1301,6 +1290,8 @@ public class GameBoard {
     public static List<ImageView> DecksList;
     public static List<ImageView> imageViewList;
     public static List<Text> ResourcesList;
+
+    public static List<Text> MyPoints;
 
     public AnchorPane getAnchorPane() {
         return personalBoardContainer;
@@ -1321,10 +1312,8 @@ public class GameBoard {
             commonBoardDecksContainer.setLayoutX(0);
             showBtn.setLayoutX(655);
             showBtn.setText("<");
-            commonBoardIMG.setVisible(true);
             ResDeck.setVisible(true);
             GoldDeck.setVisible(true);
-            commonBoardIMG.setFitWidth(220);
             ResDeck.setFitWidth(215);
             GoldDeck.setFitWidth(215);
             //System.out.println("Right" + commonBoardDecksContainer.getPrefWidth());
@@ -1344,10 +1333,8 @@ public class GameBoard {
             commonBoardDecksContainer.setLayoutX(-1 * 650);
             showBtn.setLayoutX(0);
             showBtn.setText(">");
-            commonBoardIMG.setVisible(false);
             ResDeck.setVisible(false);
             GoldDeck.setVisible(false);
-            commonBoardIMG.setFitWidth(0);
             ResDeck.setFitWidth(0);
             GoldDeck.setFitWidth(0);
             personalBoardScroll.setPrefWidth(1400);
@@ -1361,6 +1348,10 @@ public class GameBoard {
 
         DraggableMaker draggableMaker = new DraggableMaker(this);
         CardPicker cardPicker = new CardPicker(this);
+
+        MyPoints = Collections.singletonList(
+                myPoints
+        );
 
         ResourcesList = Arrays.asList(
                 mushroomNumber, animalNumber, insectNumber, plantNumber,
@@ -1390,10 +1381,8 @@ public class GameBoard {
                 Left38, Left39, Left40
         );
 
-        //TODO VISUALIZE RESOURCES THAT I HAVE
         //TODO optimize useless operations
         commonBoardDecksContainer.setPrefWidth(0.0d);
-        commonBoardIMG.setVisible(false);
         ResDeck.setVisible(false);
         GoldDeck.setVisible(false);
 
@@ -1559,7 +1548,6 @@ public class GameBoard {
         assert Up1 != null : "fx:id=\"Up1\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert allContainer != null : "fx:id=\"allContainer\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert commonBoardDecksContainer != null : "fx:id=\"commonBoardDecksContainer\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert commonBoardIMG != null : "fx:id=\"commonBoardIMG\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert commonGoalText != null : "fx:id=\"commonGoalText\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert handBg != null : "fx:id=\"handBg\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert handContainer != null : "fx:id=\"handContainer\" was not injected: check your FXML file 'GameBoard.fxml'.";

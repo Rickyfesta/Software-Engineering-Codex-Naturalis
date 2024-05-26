@@ -441,12 +441,46 @@
                     <Image url="@img/backgroundDecks.jpg" />
                  </image>
          </ImageView>
-         <ImageView fx:id="commonBoardIMG" fitHeight="380.0" fitWidth="220.0" pickOnBounds="true">
-            <image>
-               <Image url="@img/plateau.jpg" />
-            </image>
-         </ImageView>
-
+         <Text layoutX="8.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Points:" wrappingWidth="172.0">
+            <font>
+               <Font name="Old English Text MT" size="31.0" />
+            </font>
+         </Text>
+         <Text fx:id="myPoints" layoutX="185.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="24.208984375">
+            <font>
+               <Font name="Old English Text MT" size="31.0" />
+            </font>
+         </Text>
+         <Text layoutX="8.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="user Points:" wrappingWidth="215.0">
+            <font>
+               <Font name="Old English Text MT" size="31.0" />
+            </font>
+         </Text>
+         <Text layoutX="195.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="24.208984375">
+            <font>
+               <Font name="Old English Text MT" size="31.0" />
+            </font>
+         </Text>
+         <Text layoutX="8.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="user Points:" wrappingWidth="172.0">
+            <font>
+               <Font name="Old English Text MT" size="31.0" />
+            </font>
+         </Text>
+         <Text layoutX="195.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="24.208984375">
+            <font>
+               <Font name="Old English Text MT" size="31.0" />
+            </font>
+         </Text>
+         <Text layoutX="8.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="user Points:" wrappingWidth="172.0">
+            <font>
+               <Font name="Old English Text MT" size="31.0" />
+            </font>
+         </Text>
+         <Text layoutX="195.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="24.208984375">
+            <font>
+               <Font name="Old English Text MT" size="31.0" />
+            </font>
+         </Text>
          <ImageView fx:id="ResDeck" fitHeight="94.0" fitWidth="215.0" layoutX="450.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
          <ImageView fx:id="GoldDeck" fitHeight="93.0" fitWidth="200.0" layoutX="236.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
          <ImageView fx:id="redPawn0" fitHeight="20.0" fitWidth="20.0" layoutX="40.0" layoutY="350.0" pickOnBounds="true" />
