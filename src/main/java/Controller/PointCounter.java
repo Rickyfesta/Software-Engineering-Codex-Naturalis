@@ -44,8 +44,7 @@ public class PointCounter {
                 System.out.println("Invalid input format.");
             }
         }
-        System.out.println("Player points: " + PointCounter);
+        //System.out.println("Player points: " + PointCounter);
         MyPoints.get(0).setText(String.valueOf(PointCounter));
-        //TODO update "myPoints"
     }
 }

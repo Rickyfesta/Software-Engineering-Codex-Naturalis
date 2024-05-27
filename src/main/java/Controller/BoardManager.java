@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static Controller.GameBoard.imageViewList;
 import static Controller.PointCounter.addPoint;
@@ -26,30 +28,48 @@ public class BoardManager {
         //TODO add the other missing cards
         for (ImageView imageView : imageViewList) {
             int x = 0, y = 0;
+            //System.out.println(imageView);
             if (imageView.getId().equals("StartingCard")) {
                 x = 0;
                 y = 0;
-            } else if (imageView.getId().startsWith("Left")) {
-                int n = Integer.parseInt(imageView.getId().substring(4));
-                x = -n;
-                y = 0;
-            } else if (imageView.getId().startsWith("Right")) {
-                int n = Integer.parseInt(imageView.getId().substring(5));
-                x = n;
-                y = 0;
-            } else if (imageView.getId().startsWith("Up")) {
-                int n = Integer.parseInt(imageView.getId().substring(2));
-                x = 0;
-                y = n;
-            } else if (imageView.getId().startsWith("Down")) {
-                int n = Integer.parseInt(imageView.getId().substring(4));
-                x = 0;
-                y = -n;
-            }
-            if (imageView.getId().equals("StartingCard")) {
-                Board.put(startingCard.getID(), new Point(x, y));
             }else{
-                Board.put(imageView.getId(), new Point(x, y));
+                String pattern = "(Left|Right|Up|Down)(\\d+)";
+
+                // Compile the pattern
+                Pattern compiledPattern = Pattern.compile(pattern);
+
+                // Create a matcher for the input string
+                Matcher matcher = compiledPattern.matcher(imageView.getId());
+                // Iterate over all matches
+                while (matcher.find()) {
+                    // Group 1 is the direction
+                    String direction = matcher.group(1);
+
+                    // Group 2 is the number
+                    int number = Integer.parseInt(matcher.group(2));
+
+                    // Update x and y based on direction
+                    switch (direction) {
+                        case "Left":
+                            x -= number;
+                            break;
+                        case "Right":
+                            x += number;
+                            break;
+                        case "Up":
+                            y += number;
+                            break;
+                        case "Down":
+                            y -= number;
+                            break;
+                    }
+                }
+                if (imageView.getId().equals("StartingCard")) {
+                    Board.put(startingCard.getID(), new Point(x, y));
+                }else{
+                    Board.put(imageView.getId(), new Point(x, y));
+                }
+
             }
             //System.out.println("Just putted in the board the following: " +Board.get((new Point(x,y))));
         }
@@ -57,10 +77,10 @@ public class BoardManager {
         ResourcesCounter.updateResources(startingCard, resourceList);
         //now i create for the starting card the coordinates of his corners, to be able to place a card on
         String id = startingCard.getID();
-        String topRight = startingCard.getRIGHTSYMBOL();
-        String bottomLeft = startingCard.getLEFTSYMBOL();
-        String topLeft = startingCard.getTOPSYMBOL();
-        String bottomRight = startingCard.getBOTTOMSYMBOL();
+        String topRight = startingCard.getTOPSYMBOL();
+        String bottomLeft = startingCard.getBOTTOMSYMBOL();
+        String topLeft = startingCard.getLEFTSYMBOL();
+        String bottomRight = startingCard.getRIGHTSYMBOL();
         /* System.out.println(topRight);
         System.out.println(bottomRight);
         System.out.println(topLeft);
@@ -70,7 +90,7 @@ public class BoardManager {
             Point topRightCoordinates = new Point(0,1);
             availableCorners.put(id +" topRight", topRightCoordinates);
             //id is in form S01 ecc
-            //System.out.println("Available Corners: " + id + "  " + availableCorners.get(id + " topRight"));
+            System.out.println("Available Corners: " + id + "  " + availableCorners.get(id + " topRight"));
             //System.out.println(availableCorners.get(id +" topRight"));
             //System.out.println("hello1");
         }
@@ -78,16 +98,19 @@ public class BoardManager {
             Point bottomRightCoordinates = new Point(1,0);
             availableCorners.put(id +" bottomRight", bottomRightCoordinates);
             //System.out.println("hello2");
+            System.out.println("Available Corners: " + id + "  " + availableCorners.get(id + " bottomRight"));
         }
         if(topLeft != null){
             Point topLeftCoordinates = new Point(-1,0);
             availableCorners.put(id +" topLeft", topLeftCoordinates);
             //System.out.println("hello3");
+            System.out.println("Available Corners: " + id + "  " + availableCorners.get(id + " topLeft"));
         }
         if(bottomLeft != null){
             Point bottomLeftCoordinates = new Point(0,-1);
             availableCorners.put(id +" bottomLeft", bottomLeftCoordinates);
             //System.out.println("hello4");
+            System.out.println("Available Corners: " + id + "  " + availableCorners.get(id + " bottomLeft"));
         }
         //System.out.println("Available Corners: " + id + "  " + availableCorners.get(id + " topRight"));
         //System.out.println(availableCorners.containsKey(id+ " topRight"));
@@ -165,7 +188,7 @@ public class BoardManager {
                         //
                         //System.out.println("149  " + availableCorners.get(destination.getID() + " topRight"));
                         System.out.println("I've secured the card here in those coordinates: " +Board.get(wantToBePlaced.getID()));
-                        System.out.println("150 " + availableCorners.get(destination.getID() + " topRight"));
+                        //System.out.println("150 " + availableCorners.get(destination.getID() + " topRight"));
                     }else{
                         //No loss of resources
                         Board.put(wantToBePlaced.getID(), coordinates);
@@ -203,20 +226,23 @@ public class BoardManager {
             String bottomLeft = wantToBePlaced.getBOTTOMSYMBOL();
             String bottomRight = wantToBePlaced.getRIGHTSYMBOL();
             //System.out.println(destination.getID());
-            if(topLeft != null && availableCorners.get(destination.getID() + " topLeft") != null){
-                availableCorners.put(wantToBePlaced.getID() +" topLeft", new Point((int) (availableCorners.get(destination.getID() +" topLeft").getX()-1), (int) availableCorners.get(destination.getID() +" topLeft").getY()));
+            if(topLeft != null && availableCorners.get(destination.getID() + " topLeft") != null && !corner.equals("bottomRight")){
+                availableCorners.put(wantToBePlaced.getID() +" topLeft", new Point((int) (availableCorners.get(destination.getID() + " " +corner).getX()-1), (int) availableCorners.get(destination.getID() + " " +corner).getY()));
+                System.out.println("231: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " topLeft"));
             }
-            if(topRight != null && availableCorners.get(destination.getID() + " topRight") != null){
-                availableCorners.put(wantToBePlaced.getID() +" topRight", new Point((int) (availableCorners.get(destination.getID() +" topRight").getX()), (int) availableCorners.get(destination.getID() +" topRight").getY()+1));
-                System.out.println("303: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " topRight"));
+            if(topRight != null && availableCorners.get(destination.getID() + " topRight") != null && !corner.equals("bottomLeft")){
+                availableCorners.put(wantToBePlaced.getID() +" topRight", new Point((int) (availableCorners.get(destination.getID() + " " +corner).getX()), (int) availableCorners.get(destination.getID() + " " +corner).getY()+1));
+                System.out.println("235: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " topRight"));
             }
-            if(bottomLeft != null && availableCorners.get(destination.getID() + " bottomLeft") != null){
-                availableCorners.put(wantToBePlaced.getID() +" bottomLeft", new Point((int) (availableCorners.get(destination.getID() +" bottomLeft").getX()), (int) availableCorners.get(destination.getID() +" bottomLeft").getY()-1));
+            if(bottomLeft != null && availableCorners.get(destination.getID() + " bottomLeft") != null && !corner.equals("topRight")){
+                availableCorners.put(wantToBePlaced.getID() +" bottomLeft", new Point((int) (availableCorners.get(destination.getID() + " " +corner).getX()), (int) availableCorners.get(destination.getID() + " " +corner).getY()-1));
+                System.out.println("239: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " bottomLeft"));
             }
-            if(bottomRight != null && availableCorners.get(destination.getID() + " bottomRight") != null){
-                availableCorners.put(wantToBePlaced.getID() +" bottomRight", new Point((int) (availableCorners.get(destination.getID() +" bottomRight").getX()+1), (int) availableCorners.get(destination.getID() +" bottomRight").getY()));
+            if(bottomRight != null && availableCorners.get(destination.getID() + " bottomRight") != null && !corner.equals("topLeft")){
+                availableCorners.put(wantToBePlaced.getID() +" bottomRight", new Point((int) (availableCorners.get(destination.getID() + " " +corner).getX()+1), (int) availableCorners.get(destination.getID()  + " " +corner).getY()));
+                System.out.println("243: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " bottomRight"));
             }
-            System.out.println("197 " +corner);
+            //System.out.println("197 " +corner);
 
             //Remove the corner which the card is being placed on
             switch (corner){
@@ -236,7 +262,6 @@ public class BoardManager {
                     availableCorners.remove(destination.getID() + " bottomRight");
                     occupiedCorner++;
                     break;
-
             }
         }else{
             System.out.println(" ");
@@ -336,18 +361,21 @@ public class BoardManager {
             String bottomLeft = wantToBePlaced.getBOTTOMSYMBOL();
             String bottomRight = wantToBePlaced.getRIGHTSYMBOL();
             //System.out.println(destination.getID());
-            if(topLeft != null && availableCorners.get(destination.getID() + " topLeft") != null){
-                availableCorners.put(wantToBePlaced.getID() +" topLeft", new Point((int) (availableCorners.get(destination.getID() +" topLeft").getX()-1), (int) availableCorners.get(destination.getID() +" topLeft").getY()));
+            if(topLeft != null && availableCorners.get(destination.getID() + " topLeft") != null && !corner.equals("bottomRight")){
+                availableCorners.put(wantToBePlaced.getID() +" topLeft", new Point((int) (availableCorners.get(destination.getID() + " " +corner).getX()-1), (int) availableCorners.get(destination.getID() + " " +corner).getY()));
+                System.out.println("366: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " bottomRight"));
             }
-            if(topRight != null && availableCorners.get(destination.getID() + " topRight") != null){
-                availableCorners.put(wantToBePlaced.getID() +" topRight", new Point((int) (availableCorners.get(destination.getID() +" topRight").getX()), (int) availableCorners.get(destination.getID() +" topRight").getY()+1));
-                System.out.println("303: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " topRight"));
+            if(topRight != null && availableCorners.get(destination.getID() + " topRight") != null && !corner.equals("bottomLeft")){
+                availableCorners.put(wantToBePlaced.getID() +" topRight", new Point((int) (availableCorners.get(destination.getID() + " " +corner).getX()), (int) availableCorners.get(destination.getID() + " " +corner).getY()+1));
+                System.out.println("369: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " topRight"));
             }
-            if(bottomLeft != null && availableCorners.get(destination.getID() + " bottomLeft") != null){
-                availableCorners.put(wantToBePlaced.getID() +" bottomLeft", new Point((int) (availableCorners.get(destination.getID() +" bottomLeft").getX()), (int) availableCorners.get(destination.getID() +" bottomLeft").getY()-1));
+            if(bottomLeft != null && availableCorners.get(destination.getID() + " bottomLeft") != null && !corner.equals("topRight")){
+                availableCorners.put(wantToBePlaced.getID() +" bottomLeft", new Point((int) (availableCorners.get(destination.getID() + " " +corner).getX()), (int) availableCorners.get(destination.getID() + " " +corner).getY()-1));
+                System.out.println("374: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " bottomLeft"));
             }
-            if(bottomRight != null && availableCorners.get(destination.getID() + " bottomRight") != null){
-                availableCorners.put(wantToBePlaced.getID() +" bottomRight", new Point((int) (availableCorners.get(destination.getID() +" bottomRight").getX()+1), (int) availableCorners.get(destination.getID() +" bottomRight").getY()));
+            if(bottomRight != null && availableCorners.get(destination.getID() + " bottomRight") != null && !corner.equals("topLeft")){
+                availableCorners.put(wantToBePlaced.getID() +" bottomRight", new Point((int) (availableCorners.get(destination.getID() + " " +corner).getX()+1), (int) availableCorners.get(destination.getID() + " " +corner).getY()));
+                System.out.println("378: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " bottomRight"));
             }
             //Remove the corner on which the card is being placed on
             switch (corner){
@@ -380,5 +408,4 @@ public class BoardManager {
     private static Point getCardPosition(CardJSON destination) {
         return Board.get(destination.getID());
     }
-
 }

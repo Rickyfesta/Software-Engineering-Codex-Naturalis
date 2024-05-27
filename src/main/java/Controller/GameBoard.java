@@ -22,94 +22,13 @@ import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.ResourceBundle;
 
 
 public class GameBoard {
 
-
-    @FXML
-    private ImageView Left1Up7;
-
-    @FXML
-    private ImageView Left1Up8;
-
-    @FXML
-    private ImageView Left1Up9;
-    @FXML
-    private ImageView Left2Down1;
-
-    @FXML
-    private ImageView Left2Down9;
-
-    @FXML
-    private ImageView Left2Up1;
-
-    @FXML
-    private ImageView Left2Up2;
-
-    @FXML
-    private ImageView Left2Up3;
-
-    @FXML
-    private ImageView Left2Up4;
-
-    @FXML
-    private ImageView Left2Up5;
-
-    @FXML
-    private ImageView Left2Up6;
-
-    @FXML
-    private ImageView Left2Up7;
-
-    @FXML
-    private ImageView Left2Up8;
-
-    @FXML
-    private ImageView Left2Up9;
-    @FXML
-    private ImageView Left3Down1;
-
-    @FXML
-    private ImageView Left3Down2;
-
-    @FXML
-    private ImageView Left3Down3;
-
-    @FXML
-    private ImageView Left3Down4;
-
-    @FXML
-    private ImageView Left3Down5;
-
-    @FXML
-    private ImageView Left3Down6;
-
-    @FXML
-    private ImageView Left3Down7;
-
-    @FXML
-    private ImageView Left3Down8;
-
-    @FXML
-    private ImageView Left3Up1;
-
-    @FXML
-    private ImageView Left3Up2;
-
-    @FXML
-    private ImageView Left3Up3;
-
-    @FXML
-    private ImageView Left3Up4;
-
-    @FXML
-    private ImageView Left3Up5;
 
     @FXML
     private ImageView CardHand1;
@@ -346,6 +265,15 @@ public class GameBoard {
     private ImageView Left1Up6;
 
     @FXML
+    private ImageView Left1Up7;
+
+    @FXML
+    private ImageView Left1Up8;
+
+    @FXML
+    private ImageView Left1Up9;
+
+    @FXML
     private ImageView Left2;
 
     @FXML
@@ -379,6 +307,9 @@ public class GameBoard {
     private ImageView Left29;
 
     @FXML
+    private ImageView Left2Down1;
+
+    @FXML
     private ImageView Left2Down2;
 
     @FXML
@@ -398,6 +329,36 @@ public class GameBoard {
 
     @FXML
     private ImageView Left2Down8;
+
+    @FXML
+    private ImageView Left2Down9;
+
+    @FXML
+    private ImageView Left2Up1;
+
+    @FXML
+    private ImageView Left2Up2;
+
+    @FXML
+    private ImageView Left2Up3;
+
+    @FXML
+    private ImageView Left2Up4;
+
+    @FXML
+    private ImageView Left2Up5;
+
+    @FXML
+    private ImageView Left2Up6;
+
+    @FXML
+    private ImageView Left2Up7;
+
+    @FXML
+    private ImageView Left2Up8;
+
+    @FXML
+    private ImageView Left2Up9;
 
     @FXML
     private ImageView Left3;
@@ -431,6 +392,45 @@ public class GameBoard {
 
     @FXML
     private ImageView Left39;
+
+    @FXML
+    private ImageView Left3Down1;
+
+    @FXML
+    private ImageView Left3Down2;
+
+    @FXML
+    private ImageView Left3Down3;
+
+    @FXML
+    private ImageView Left3Down4;
+
+    @FXML
+    private ImageView Left3Down5;
+
+    @FXML
+    private ImageView Left3Down6;
+
+    @FXML
+    private ImageView Left3Down7;
+
+    @FXML
+    private ImageView Left3Down8;
+
+    @FXML
+    private ImageView Left3Up1;
+
+    @FXML
+    private ImageView Left3Up2;
+
+    @FXML
+    private ImageView Left3Up3;
+
+    @FXML
+    private ImageView Left3Up4;
+
+    @FXML
+    private ImageView Left3Up5;
 
     @FXML
     private ImageView Left3Up6;
@@ -676,7 +676,7 @@ public class GameBoard {
     private ImageView Right19;
 
     @FXML
-    private ImageView Right1Dowm1;
+    private ImageView Right1Down1;
 
     @FXML
     private ImageView Right1Down10;
@@ -1210,6 +1210,18 @@ public class GameBoard {
     private ImageView Up9;
 
     @FXML
+    private Text ampNumber;
+
+    @FXML
+    private ImageView ampRes;
+
+    @FXML
+    private Text animalNumber;
+
+    @FXML
+    private ImageView animalRes;
+
+    @FXML
     private ImageView backgroundBoard;
 
     @FXML
@@ -1221,10 +1233,29 @@ public class GameBoard {
     @FXML
     private ImageView copy;
 
+    @FXML
+    private Text featherNumber;
 
+    @FXML
+    private ImageView featherRes;
 
     @FXML
     private ImageView handBg;
+
+    @FXML
+    private Text insectNumber;
+
+    @FXML
+    private ImageView insectRes;
+
+    @FXML
+    private Text mushroomNumber;
+
+    @FXML
+    private ImageView mushroomRes;
+
+    @FXML
+    private Text myPoints;
 
     @FXML
     private ImageView objbackground;
@@ -1239,42 +1270,23 @@ public class GameBoard {
     private Text personalGoalText;
 
     @FXML
-    private Button showBtn;
-
-    @FXML
-    private Text mushroomNumber;
-
-    @FXML
-    private Text animalNumber;
-
-    @FXML
     private Text plantNumber;
 
     @FXML
-    private Text insectNumber;
-
-    @FXML
-    private Text ampNumber;
+    private ImageView plantRes;
 
     @FXML
     private Text scrollNumber;
 
     @FXML
-    private Text featherNumber;
+    private ImageView scrollRes;
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
+    private Button showBtn;
     @FXML
     private Pane allContainer;
     @FXML
     private AnchorPane handContainer;
-
-    @FXML
-    private Text myPoints;
 
     public static String url1 = RandomCardFile.getRandomGXXFileName();
 
@@ -1363,22 +1375,40 @@ public class GameBoard {
         );
 
         imageViewList = Arrays.asList(
-                StartingCard ,Right1, Up1, Left1, Down1, Down2, Right2, Up2, Left2, Down3, Down4,
-                Down5, Down6, Down7, Down8, Down9, Down10, Down11, Down12, Down13, Down14,
-                Down15, Down16, Down17, Down18, Down19, Down20, Down21, Down22, Down23, Down24,
-                Down25, Down26, Down27, Down28, Down29, Down30, Down31, Down32, Down33, Down34,
-                Down35, Down36, Down37, Down38, Down39, Down40, Right3, Right4, Right5, Right6,
-                Right7, Right8, Right9, Right10, Right11, Right12, Right13, Right14, Right15, Right16,
-                Right17, Right18, Right19, Right20, Right21, Right22, Right23, Right24, Right25, Right26,
-                Right27, Right28, Right29, Right30, Right31, Right32, Right33, Right34, Right35, Right36,
-                Right37, Right38, Right39, Right40, Up3, Up4, Up5, Up6, Up7, Up8, Up9, Up10,
-                Up11, Up12, Up13, Up14, Up15, Up16, Up17, Up18, Up19, Up20, Up21, Up22,
-                Up23, Up24, Up25, Up26, Up27, Up28, Up29, Up30, Up31, Up32, Up33, Up34,
-                Up35, Up36, Up37, Up38, Up39, Up40, Left3, Left4, Left5, Left6, Left7,
-                Left8, Left9, Left10, Left11, Left12, Left13, Left14, Left15, Left16, Left17,
-                Left18, Left19, Left20, Left21, Left22, Left23, Left24, Left25, Left26, Left27,
-                Left28, Left29, Left30, Left31, Left32, Left33, Left34, Left35, Left36, Left37,
-                Left38, Left39, Left40
+                StartingCard,
+                Down1, Down10, Down11, Down12, Down13, Down14, Down15, Down16,
+                Down17, Down18, Down19, Down2, Down20, Down21, Down22, Down23, Down24, Down25, Down26, Down27, Down28, Down29, Down3,
+                Down30, Down31, Down32, Down33, Down34, Down35, Down36, Down37, Down38, Down39, Down4, Down40, Down5, Down6, Down7,
+                Down8, Down9, Left1, Left10, Left10Down1, Left10Up1, Left11, Left12, Left13, Left14,
+                Left15, Left16, Left17, Left18, Left19, Left1Down1, Left1Down10, Left1Down2, Left1Down3, Left1Down4, Left1Down5,
+                Left1Down6, Left1Down7, Left1Down8, Left1Down9, Left1Up1, Left1Up10, Left1Up2, Left1Up3, Left1Up4, Left1Up5, Left1Up6,
+                Left1Up7, Left1Up8, Left1Up9, Left2, Left20, Left21, Left22, Left23, Left24, Left25, Left26, Left27, Left28, Left29,
+                Left2Down1, Left2Down2, Left2Down3, Left2Down4, Left2Down5, Left2Down6, Left2Down7, Left2Down8, Left2Down9, Left2Up1,
+                Left2Up2, Left2Up3, Left2Up4, Left2Up5, Left2Up6, Left2Up7, Left2Up8, Left2Up9, Left3, Left30, Left31, Left32, Left33,
+                Left34, Left35, Left36, Left37, Left38, Left39, Left3Down1, Left3Down2, Left3Down3, Left3Down4, Left3Down5, Left3Down6,
+                Left3Down7, Left3Down8, Left3Up1, Left3Up2, Left3Up3, Left3Up4, Left3Up5, Left3Up6, Left3Up7, Left3Up8, Left4, Left40,
+                Left4Down1, Left4Down2, Left4Down3, Left4Down4, Left4Down5, Left4Down6, Left4Down7, Left4Up1, Left4Up2, Left4Up3,
+                Left4Up4, Left4Up5, Left4Up6, Left4Up7, Left5, Left5Down1, Left5Down2, Left5Down3, Left5Down4, Left5Down5, Left5Down6,
+                Left5Up1, Left5Up2, Left5Up3, Left5Up4, Left5Up5, Left5Up6, Left6, Left6Down1, Left6Down2, Left6Down3, Left6Down4,
+                Left6Down5, Left6Up1, Left6Up2, Left6Up3, Left6Up4, Left6Up5, Left7, Left7Down1, Left7Down2, Left7Down3, Left7Down4,
+                Left7Up1, Left7Up2, Left7Up3, Left7Up4, Left8, Left8Down1, Left8Down2, Left8Down3, Left8Up1, Left8Up2, Left8Up3, Left9,
+                Left9Down1, Left9Down2, Left9Up1, Left9Up2, Right1, Right10, Right10Down1,
+                Right10Up1, Right11, Right12, Right13, Right14, Right15, Right16, Right17, Right18, Right19, Right1Down1, Right1Down10,
+                Right1Down2, Right1Down3, Right1Down4, Right1Down5, Right1Down6, Right1Down7, Right1Down8, Right1Down9, Right1Up1,
+                Right1Up10, Right1Up2, Right1Up3, Right1Up4, Right1Up5, Right1Up6, Right1Up7, Right1Up8, Right1Up9, Right2, Right20,
+                Right21, Right22, Right23, Right24, Right25, Right26, Right27, Right28, Right29, Right2Down1, Right2Down2, Right2Down3,
+                Right2Down4, Right2Down5, Right2Down6, Right2Down7, Right2Down8, Right2Down9, Right2Up1, Right2Up2, Right2Up3,
+                Right2Up4, Right2Up5, Right2Up6, Right2Up7, Right2Up8, Right2Up9, Right3, Right30, Right31, Right32, Right33, Right34,
+                Right35, Right36, Right37, Right38, Right39, Right3Down1, Right3Down2, Right3Down3, Right3Down4, Right3Down5, Right3Down6,
+                Right3Down7, Right3Down8, Right3Up1, Right3Up2, Right3Up3, Right3Up4, Right3Up5, Right3Up6, Right3Up7, Right3Up8, Right4,
+                Right40, Right4Down1, Right4Down2, Right4Down3, Right4Down4, Right4Down5, Right4Down6, Right4Down7, Right4Up1, Right4Up2,
+                Right4Up3, Right4Up4, Right4Up5, Right4Up6, Right4Up7, Right5, Right5Down1, Right5Down2, Right5Down3, Right5Down4,
+                Right5Down5, Right5Down6, Right5Up1, Right5Up2, Right5Up3, Right5Up4, Right5Up5, Right5Up6, Right6, Right6Down1, Right6Down2,
+                Right6Down3, Right6Down4, Right6Down5, Right6Up1, Right6Up2, Right6Up3, Right6Up4, Right6Up5, Right7, Right7Down1,
+                Right7Down2, Right7Down3, Right7Down4, Right7Up1, Right7Up2, Right7Up3, Right7Up4, Right8, Right8Down1, Right8Down2,
+                Right8Down3, Right8Up1, Right8Up2, Right8Up3, Right9, Right9Down1, Right9Down2, Right9Up1, Right9Up2,
+                Up1, Up10, Up11, Up12, Up13, Up14, Up15, Up16, Up17, Up18, Up19, Up2, Up20, Up21, Up22, Up23, Up24, Up25, Up26, Up27,
+                Up28, Up29, Up3, Up30, Up31, Up32, Up33, Up34, Up35, Up36, Up37, Up38, Up39, Up4, Up40, Up5, Up6, Up7, Up8, Up9
         );
 
         //TODO optimize useless operations
@@ -1455,11 +1485,9 @@ public class GameBoard {
         CardJSON Card3 = boardMapper.readValue(new File("src/main/resources/json/" + url3.replace("jpg", "json")), CardJSON.class);
 
         //Here i make draggable all the cards inside my hand to make them placeable
-        draggableMaker.makeDraggable(CardHand1, personalBoardScroll, 508, 650, Card1, copy, personalBoardContainer, StartUrl, imageViewList, ResourcesList);
-        draggableMaker.makeDraggable(CardHand2, personalBoardScroll, 801, 650, Card2, copy, personalBoardContainer, StartUrl, imageViewList, ResourcesList);
-        draggableMaker.makeDraggable(CardHand3, personalBoardScroll, 1064, 650, Card3, copy, personalBoardContainer, StartUrl, imageViewList, ResourcesList);
-        draggableMaker.setInitialCardPosition(StartingCard, StartingCard.localToParent(0,0));
-        draggableMaker.setStartingCorners(StartingCard.localToParent(0,0), StartingCard.localToParent(0,0).subtract(-88, -46), StartingCard.localToParent(0,0).subtract(88, -46) , StartingCard.localToParent(0,0).subtract(-88, 46) , StartingCard.localToParent(0,0).subtract(88, 46) );
+        draggableMaker.makeDraggable(CardHand1, personalBoardScroll, 508, 650, copy, personalBoardContainer, StartUrl, imageViewList, ResourcesList);
+        draggableMaker.makeDraggable(CardHand2, personalBoardScroll, 801, 650, copy, personalBoardContainer, StartUrl, imageViewList, ResourcesList);
+        draggableMaker.makeDraggable(CardHand3, personalBoardScroll, 1064, 650, copy, personalBoardContainer, StartUrl, imageViewList, ResourcesList);
 
     //Flip the cards
         CardHand1.setOnMouseClicked(event -> {
