@@ -1,12 +1,13 @@
 package Client.CLI;
 
+import Model.Cards.CardJSON;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class CLIMapper {
-    public CLICard getCard(String args) {
+    public CardJSON getCard(String args) {
         ObjectMapper mapper = new ObjectMapper();
         try {
-            CLICard cardArt = mapper.readValue(CLIMapper.class.getResourceAsStream(args), CLICard.class);
+            CardJSON cardArt = mapper.readValue(CLIMapper.class.getResourceAsStream(args), CardJSON.class);
             //cardArt.getASCII().forEach(System.out::println);
             return cardArt;
         } catch (Exception e) {
