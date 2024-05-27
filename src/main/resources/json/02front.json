@@ -4,9 +4,9 @@
   "SYMBOL": null,
   "POINTS": "0",
   "TOPSYMBOL": "Mushroom",
-  "LEFTSYMBOL": null,
-  "RIGHTSYMBOL": "Mushroom",
-  "BOTTOMSYMBOL": "",
+  "LEFTSYMBOL": "Mushroom",
+  "RIGHTSYMBOL": "",
+  "BOTTOMSYMBOL": null,
   "COLOUR": "red",
   "ASCII": [
     "+---------------------------------+",

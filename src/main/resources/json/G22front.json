@@ -5,8 +5,8 @@
   "POINTS": "1 for each Scroll on board",
   "TOPSYMBOL": "",
   "LEFTSYMBOL": null,
-  "RIGHTSYMBOL": "",
-  "BOTTOMSYMBOL": "Scroll",
+  "RIGHTSYMBOL": "Scroll",
+  "BOTTOMSYMBOL": "",
   "COLOUR": "blue",
   "REQUIRED": ["Animal","Animal","Plant"],
   "ASCII": [

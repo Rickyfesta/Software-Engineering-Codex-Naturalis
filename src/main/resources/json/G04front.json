@@ -4,9 +4,9 @@
   "SYMBOL": null,
   "POINTS": "2 for each angle occupied",
   "TOPSYMBOL": "",
-  "LEFTSYMBOL": null,
+  "LEFTSYMBOL": "",
   "RIGHTSYMBOL": "",
-  "BOTTOMSYMBOL": "",
+  "BOTTOMSYMBOL": null,
   "COLOUR": "red",
   "REQUIRED": ["Mushroom","Mushroom","Mushroom","Animal"],
   "ASCII": [

@@ -3,10 +3,10 @@
   "CARDTYPE": "Gold",
   "SYMBOL": null,
   "POINTS": "5",
-  "TOPSYMBOL": null,
+  "TOPSYMBOL": "",
   "LEFTSYMBOL": null,
   "RIGHTSYMBOL": "",
-  "BOTTOMSYMBOL": "",
+  "BOTTOMSYMBOL": null,
   "COLOUR": "blue",
   "REQUIRED": ["Animal","Animal","Animal","Animal","Animal"],
   "ASCII": [

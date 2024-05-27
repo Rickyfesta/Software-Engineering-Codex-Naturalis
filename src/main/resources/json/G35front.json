@@ -5,8 +5,8 @@
   "POINTS": "2 for each angle occupied",
   "TOPSYMBOL": "",
   "LEFTSYMBOL": "",
-  "RIGHTSYMBOL": "",
-  "BOTTOMSYMBOL": null,
+  "RIGHTSYMBOL": null,
+  "BOTTOMSYMBOL": "",
   "COLOUR": "purple",
   "REQUIRED": ["Insect","Insect","Insect","Plant"],
   "ASCII": [

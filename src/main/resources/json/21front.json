@@ -4,9 +4,9 @@
   "SYMBOL": null,
   "POINTS": "0",
   "TOPSYMBOL": "Animal",
-  "LEFTSYMBOL": "",
-  "RIGHTSYMBOL": "Animal",
-  "BOTTOMSYMBOL": null,
+  "LEFTSYMBOL": "Animal",
+  "RIGHTSYMBOL": null,
+  "BOTTOMSYMBOL": "",
   "COLOUR": "blue",
   "ASCII": [
     "+---------------------------------+",

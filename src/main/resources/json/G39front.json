@@ -4,9 +4,9 @@
   "SYMBOL": null,
   "POINTS": "3",
   "TOPSYMBOL": null,
-  "LEFTSYMBOL": "Feather",
-  "RIGHTSYMBOL": null,
-  "BOTTOMSYMBOL": "",
+  "LEFTSYMBOL": null,
+  "RIGHTSYMBOL": "",
+  "BOTTOMSYMBOL": "Feather",
   "COLOUR": "purple",
   "REQUIRED": ["Insect","Insect","Insect"],
   "ASCII": [

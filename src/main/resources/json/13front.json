@@ -3,9 +3,9 @@
   "CARDTYPE": "Resource",
   "SYMBOL": null,
   "POINTS": "0",
-  "TOPSYMBOL": "",
-  "LEFTSYMBOL": "Plant",
-  "RIGHTSYMBOL": null,
+  "TOPSYMBOL": null,
+  "LEFTSYMBOL": "",
+  "RIGHTSYMBOL": "Plant",
   "BOTTOMSYMBOL": "Plant",
   "COLOUR": "green",
   "ASCII": [

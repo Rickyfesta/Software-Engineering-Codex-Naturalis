@@ -4,9 +4,9 @@
   "SYMBOL": null,
   "POINTS": "2 for each angle occupied",
   "TOPSYMBOL": "",
-  "LEFTSYMBOL": null,
+  "LEFTSYMBOL": "",
   "RIGHTSYMBOL": "",
-  "BOTTOMSYMBOL": "",
+  "BOTTOMSYMBOL": null,
   "COLOUR": "blue",
   "REQUIRED": ["Animal","Animal","Animal","Insect"],
   "ASCII": [

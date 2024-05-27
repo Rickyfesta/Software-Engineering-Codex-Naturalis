@@ -4,9 +4,9 @@
   "SYMBOL": null,
   "POINTS": "1",
   "TOPSYMBOL": "",
-  "LEFTSYMBOL": "Plant",
-  "RIGHTSYMBOL":"",
-  "BOTTOMSYMBOL": null,
+  "LEFTSYMBOL": "",
+  "RIGHTSYMBOL": null,
+  "BOTTOMSYMBOL": "Plant",
   "COLOUR": "green",
   "ASCII": [
     "+---------------------------------+",
