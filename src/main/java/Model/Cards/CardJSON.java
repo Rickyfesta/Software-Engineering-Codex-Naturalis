@@ -25,6 +25,8 @@ public class CardJSON {
     private String COLOUR;
     @JsonProperty("REQUIRED")
     private List<String> REQUIRED;
+    @JsonProperty("ASCII")
+    private List<String> ASCII;
     // Getters and setters for each field
     public String getID() {
         return ID;
@@ -97,6 +99,13 @@ public class CardJSON {
 
     public String getCOLOUR() {
         return COLOUR;
+    }
+    public List<String> getASCII() {
+        return ASCII;
+    }
+
+    public void setASCII(List<String> ASCII) {
+        this.ASCII = ASCII;
     }
 
     public void setCOLOUR(String COLOUR) {
