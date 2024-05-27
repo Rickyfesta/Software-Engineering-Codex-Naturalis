@@ -4,8 +4,19 @@
   "SYMBOL": "Plant + Animal + Mushroom",
   "POINTS": "0",
   "TOPSYMBOL": "",
-  "LEFTSYMBOL": null,
-  "RIGHTSYMBOL": "",
+  "LEFTSYMBOL": "",
+  "RIGHTSYMBOL": null,
   "BOTTOMSYMBOL": null,
-  "COLOUR": null
+  "COLOUR": null,
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |                       |    |",
+    "|    |                       |    |",
+    "|----+          |\uD83C\uDF31|         +----|",
+    "|               |\uD83D\uDC3A|              |",
+    "|----+          |\uD83C\uDF44|         +----|",
+    "|    |                       |    |",
+    "|    |                       |    |",
+    "+---------------------------------+"
+  ]
 }

@@ -3,9 +3,20 @@
   "CARDTYPE": "Resource",
   "SYMBOL": null,
   "POINTS": "0",
-  "TOPSYMBOL": "",
-  "LEFTSYMBOL": "Plant",
-  "RIGHTSYMBOL": null,
+  "TOPSYMBOL": null,
+  "LEFTSYMBOL": "",
+  "RIGHTSYMBOL": "Plant",
   "BOTTOMSYMBOL": "Plant",
-  "COLOUR": "green"
+  "COLOUR": "green",
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |                            |",
+    "|    |           \uD83C\uDF31               |",
+    "|----+                            |",
+    "|                                 |",
+    "|----+                       +----|",
+    "| \uD83C\uDF31 |                       | \uD83C\uDF31 |",
+    "|    |                       |    |",
+    "+---------------------------------+"
+  ]
 }

@@ -16,9 +16,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.awt.*;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -65,7 +67,7 @@ public class DraggableMaker {
         cornerPositions.put(cardCoordinates, new Point2D[][]{new Point2D[]{corner_topLeft, corner_bottomLeft}, new Point2D[]{corner_topRight, corner_bottomRight}});
     }
 
-    public void makeDraggable(Node HandCard, ScrollPane scrollPane, double initialX, double initialY, CardJSON cardToPlaceJSON, ImageView copy, AnchorPane personalBoardContainer, String startURL, List<ImageView> imageViewList) throws IOException {
+    public void makeDraggable(Node HandCard, ScrollPane scrollPane, double initialX, double initialY, CardJSON cardToPlaceJSON, ImageView copy, AnchorPane personalBoardContainer, String startURL, List<ImageView> imageViewList, List<Text> resourcesList) throws IOException {
         initialXMap.put(HandCard, initialX);
         initialYMap.put(HandCard, initialY);
         HandCard.setLayoutX(initialX);
@@ -128,6 +130,7 @@ public class DraggableMaker {
         });
 
         HandCard.setOnMouseReleased(event -> {
+
             //NEED TO HIDE THE RECTANGLES
             personalBoardContainer.getChildren().removeAll(topLeftCornerStartingCard, topRightCornerStartingCard, bottomLeftCornerStartingCard, bottomRightCornerStartingCard);
             // Check if the HandCard is over the scrollPane
@@ -183,11 +186,13 @@ public class DraggableMaker {
                                             String imageViewIHandCard = imageViewIdWrongURLHandCard.substring(imageViewIdWrongURLHandCard.lastIndexOf('/') +1).replace(".jpg", ".json");
                                             CardJSON HandCardJson;
                                             HandCardJson = boardMapper.readValue(new File("src/main/resources/json/" + imageViewIHandCard.replace("jpg", "json")), CardJSON.class);
-                                            if(!Place(realDestination, HandCardJson, intersectedCorner)){
+
+                                            if(!Place(realDestination, HandCardJson, intersectedCorner, resourcesList)){
                                                 returnToOriginalPosition(HandCard);
                                             }else{
                                                 ((ImageView) HandCard).setImage(null);
                                                 imageView.setImage(new Image("/" + imageViewIHandCard.replace("json", "jpg")));
+
                                                 System.out.println("169: Remember now need to pick another card");
                                                 returnToOriginalPosition(HandCard);
                                                 CardPicker.PickNewCard((ImageView) HandCard);
@@ -243,16 +248,18 @@ public class DraggableMaker {
                                                 CardJSON HandCardJson;
                                                 HandCardJson = boardMapper.readValue(new File("src/main/resources/json/" + imageViewIHandCard.replace("jpg", "json")), CardJSON.class);
 
+
                                                 String imageViewIdWrongURLDESTINATION = destination.getImage().getUrl();
                                                 String imageViewIdDESTINATION = imageViewIdWrongURLDESTINATION.substring(imageViewIdWrongURLDESTINATION.lastIndexOf('/') +1).replace(".jpg", ".json");
                                                 destinationJson = boardMapper.readValue(new File("src/main/resources/json/" + imageViewIdDESTINATION.replace("jpg", "json")), CardJSON.class);
-                                                if(!Place(destinationJson, HandCardJson, intersectedCorner)){
+                                                if(!Place(destinationJson, HandCardJson, intersectedCorner, resourcesList)){
                                                     returnToOriginalPosition(HandCard);
                                                 }else{
                                                     ((ImageView) HandCard).setImage(null);
                                                     imageView.setImage(new Image("/" + imageViewIHandCard.replace("json", "jpg")));
                                                     System.out.println("Remember now need to pick another card");
                                                     returnToOriginalPosition(HandCard);
+
                                                     CardPicker.PickNewCard((ImageView) HandCard);
                                                     //METHOD TO FREEZE
                                                 }
@@ -269,7 +276,7 @@ public class DraggableMaker {
                                                     String imageViewIdWrongURLDESTINATION = imageView.getImage().getUrl();
                                                     String imageViewIdDESTINATION = imageViewIdWrongURLDESTINATION.substring(imageViewIdWrongURLDESTINATION.lastIndexOf('/') +1).replace(".jpg", ".json");
                                                     destinationJson = boardMapper.readValue(new File("src/main/resources/json/" + imageViewIdDESTINATION.replace("jpg", "json")), CardJSON.class);
-                                                    if(!Place(destinationJson, HandCardJson, intersectedCorner)){
+                                                    if(!Place(destinationJson, HandCardJson, intersectedCorner, resourcesList)){
                                                         returnToOriginalPosition(HandCard);
                                                     }else{
                                                         ((ImageView) HandCard).setImage(null);
@@ -305,6 +312,38 @@ public class DraggableMaker {
         });
     }
 
+    public static String decrementDirection(String direction) {
+        // Extract the non-numeric part of the string
+        String textPart = direction.replaceAll("\\d", "");
+
+        // Extract the numeric part of the string
+        String numberPart = direction.replaceAll("\\D", "");
+
+        // Parse the numeric part to an integer
+        int number = Integer.parseInt(numberPart);
+
+        // Decrease the number by one
+        number--;
+
+        // Combine the text part and the decremented number
+        return textPart + number;
+    }
+
+    public static String extractLetters(String str) {
+        StringBuilder builder = new StringBuilder();
+        boolean digitFound = false;
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (Character.isDigit(ch)) {
+                digitFound = true;
+            } else if (!digitFound) {
+                builder.append(ch);
+            }
+        }
+        return builder.toString();
+    }
+
     private boolean TryToPlace(Node CardToPlace, ImageView destination, String corner) throws IOException {
         if(destination == null){
             System.out.println("wrong coordinates for destination");
@@ -316,6 +355,7 @@ public class DraggableMaker {
             String imageViewId = imageViewIdWrongURL.substring(imageViewIdWrongURL.lastIndexOf('/') +1).replace(".jpg", ".json");
             //Now I have the JSON of the destination to check if the corners are available , cover a resource ecc.
             String prefix = imageViewId.substring(0, 3); //to get which card i'm referring to using only imageviews
+
             for (Map.Entry<String, Point> entry : availableCorners.entrySet()) {
                 //If it has any corners free then it places it in one of those corners
                 if (entry.getKey().startsWith(prefix)) {
@@ -349,6 +389,7 @@ public class DraggableMaker {
 
     private ImageView identifyDestinationImageView(Node handCard, List<ImageView> imageViewList, AnchorPane anchorPane) throws IOException {
 
+
         // Ensure bounds are up-to-date
         handCard.applyCss();
         handCard.autosize();
@@ -369,6 +410,7 @@ public class DraggableMaker {
             Bounds imageViewBoundsInAnchorPane = anchorPane.sceneToLocal(imageViewBoundsInScene);
             // Check for intersection in the scene coordinate space
             if (handCardBoundsInAnchorPane.intersects(imageViewBoundsInAnchorPane)) {
+
                 System.out.println(" ");
                 System.out.println("347 : Intersection found " +imageView.getId());
                 return imageView;
@@ -383,6 +425,7 @@ public class DraggableMaker {
     private static String calculateIntersectedCorner(ImageView CardtoPlace, ImageView Destination, ImageView copy, AnchorPane allthings) {
         copy.setLayoutX(localX - 48.8);  //TO STUDY HOW ACCURATE NEED TO BE
         copy.setLayoutY(localY - 39); //TO STUDY HOW ACCURATE NEED TO BE
+
         //System.out.println(copy.getLayoutX() + " " + copy.getLayoutY());
         Bounds bounds1 = copy.getBoundsInParent();
         Bounds bounds2 = Destination.getBoundsInParent();
@@ -421,6 +464,7 @@ public class DraggableMaker {
         Rectangle bottomLeftCornerR = createBoundsRectangle(bottomLeftX, bottomLeftY, "bottomLeft");
         Rectangle bottomRightCornerR = createBoundsRectangle(bottomRightX, bottomRightY, "bottomRight");
         //System.out.println(allthings.getChildren());
+
         //allthings.getChildren().addAll(topLeftCornerR, topRightCornerR, bottomLeftCornerR, bottomRightCornerR);
 
         // Check which corner, if any, intersects with CardtoPlace
@@ -522,38 +566,6 @@ public class DraggableMaker {
                 return rect;
         }
         return null;
-    }
-
-    public static String extractLetters(String str) {
-        StringBuilder builder = new StringBuilder();
-        boolean digitFound = false;
-
-        for (int i = 0; i < str.length(); i++) {
-            char ch = str.charAt(i);
-            if (Character.isDigit(ch)) {
-                digitFound = true;
-            } else if (!digitFound) {
-                builder.append(ch);
-            }
-        }
-
-        return builder.toString();
-    }
-    public static String decrementDirection(String direction) {
-        // Extract the non-numeric part of the string
-        String textPart = direction.replaceAll("\\d", "");
-
-        // Extract the numeric part of the string
-        String numberPart = direction.replaceAll("\\D", "");
-
-        // Parse the numeric part to an integer
-        int number = Integer.parseInt(numberPart);
-
-        // Decrease the number by one
-        number--;
-
-        // Combine the text part and the decremented number
-        return textPart + number;
     }
 
 }

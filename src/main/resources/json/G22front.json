@@ -5,8 +5,19 @@
   "POINTS": "1 for each Scroll on board",
   "TOPSYMBOL": "",
   "LEFTSYMBOL": null,
-  "RIGHTSYMBOL": "",
-  "BOTTOMSYMBOL": "Scroll",
+  "RIGHTSYMBOL": "Scroll",
+  "BOTTOMSYMBOL": "",
   "COLOUR": "blue",
-  "REQUIRED": ["Animal","Animal","Plant"]
+  "REQUIRED": ["Animal","Animal","Plant"],
+  "ASCII": [
+    "+---------------------------------+",
+    "|               |1\uD83D\uDCDC|        |    |",
+    "|                \uD83D\uDC3A          |    |",
+    "|                            +----|",
+    "|                                 |",
+    "|----+                       +----|",
+    "|    |                       | \uD83D\uDCDC |",
+    "|    |         \uD83D\uDC3A\uD83D\uDC3A\uD83C\uDF31        |    |",
+    "+---------------------------------+"
+  ]
 }

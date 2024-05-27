@@ -3,9 +3,20 @@
   "CARDTYPE": "Starter",
   "SYMBOL": "Mushroom",
   "POINTS": "0",
-  "TOPSYMBOL": "Animal",
-  "LEFTSYMBOL": "",
-  "RIGHTSYMBOL": "",
-  "BOTTOMSYMBOL": "Mushroom",
-  "COLOUR": null
+  "TOPSYMBOL": "",
+  "LEFTSYMBOL": "Animal",
+  "RIGHTSYMBOL": "Mushroom",
+  "BOTTOMSYMBOL": "",
+  "COLOUR": null,
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |                       |    |",
+    "| \uD83D\uDC3A |                       |    |",
+    "|----+                       +----|",
+    "|               |\uD83C\uDF44|              |",
+    "|----+                       +----|",
+    "|    |                       | \uD83C\uDF44 |",
+    "|    |                       |    |",
+    "+---------------------------------+"
+  ]
 }

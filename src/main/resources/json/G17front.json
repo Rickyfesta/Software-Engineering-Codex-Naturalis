@@ -3,10 +3,21 @@
   "CARDTYPE": "Gold",
   "SYMBOL": null,
   "POINTS": "3",
-  "TOPSYMBOL":"",
-  "LEFTSYMBOL": "Feather",
+  "TOPSYMBOL": null,
+  "LEFTSYMBOL": "",
   "RIGHTSYMBOL": null,
-  "BOTTOMSYMBOL": null,
+  "BOTTOMSYMBOL": "Feather",
   "COLOUR": "green",
-  "REQUIRED": ["Plant","Plant","Plant"]
+  "REQUIRED": ["Plant","Plant","Plant"],
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |           |3|              |",
+    "|    |           \uD83C\uDF31               |",
+    "|----+                            |",
+    "|                                 |",
+    "|----+                            |",
+    "| \uD83E\uDEB6 |                            |",
+    "|    |         \uD83C\uDF31\uD83C\uDF31\uD83C\uDF31            |",
+    "+---------------------------------+"
+  ]
 }

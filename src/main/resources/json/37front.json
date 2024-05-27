@@ -3,9 +3,20 @@
   "CARDTYPE": "Resource",
   "SYMBOL": null,
   "POINTS": "0",
-  "TOPSYMBOL": "Insect",
-  "LEFTSYMBOL": "Potion",
-  "RIGHTSYMBOL": "Plant",
-  "BOTTOMSYMBOL": null,
-  "COLOUR": "purple"
+  "TOPSYMBOL": "Plant",
+  "LEFTSYMBOL": "Insect",
+  "RIGHTSYMBOL": null,
+  "BOTTOMSYMBOL": "Potion",
+  "COLOUR": "purple",
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |                       |    |",
+    "| \uD83E\uDD8B |           \uD83E\uDD8B          | \uD83C\uDF31 |",
+    "|----+                       +----|",
+    "|                                 |",
+    "|----+                            |",
+    "| \uD83E\uDED9 |                            |",
+    "|    |                            |",
+    "+---------------------------------+"
+  ]
 }

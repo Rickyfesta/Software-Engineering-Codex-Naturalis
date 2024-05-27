@@ -3,10 +3,21 @@
   "CARDTYPE": "Gold",
   "SYMBOL": null,
   "POINTS": "2 for each angle occupied",
-  "TOPSYMBOL": "",
+  "TOPSYMBOL": null,
   "LEFTSYMBOL": "",
-  "RIGHTSYMBOL": null,
+  "RIGHTSYMBOL": "",
   "BOTTOMSYMBOL": "",
   "COLOUR": "purple",
-  "REQUIRED": ["Insect","Insect","Insect","Mushroom"]
+  "REQUIRED": ["Insect","Insect","Insect","Mushroom"],
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |          |2\uD83D\uDCD0|             |",
+    "|    |           \uD83E\uDD8B               |",
+    "|----+                            |",
+    "|                                 |",
+    "|----+                       +----|",
+    "|    |                       |    |",
+    "|    |        \uD83E\uDD8B\uD83E\uDD8B\uD83E\uDD8B\uD83C\uDF44      |    |",
+    "+---------------------------------+"
+  ]
 }

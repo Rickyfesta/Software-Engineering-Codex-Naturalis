@@ -3,10 +3,21 @@
   "CARDTYPE": "Gold",
   "SYMBOL": null,
   "POINTS": "1 for each Scroll on board",
-  "TOPSYMBOL": "",
-  "LEFTSYMBOL": null,
-  "RIGHTSYMBOL": "Scroll",
-  "BOTTOMSYMBOL": "",
+  "TOPSYMBOL": "Scroll",
+  "LEFTSYMBOL": "",
+  "RIGHTSYMBOL": "",
+  "BOTTOMSYMBOL": null,
   "COLOUR": "green",
-  "REQUIRED": ["Plant","Plant","Mushroom"]
+  "REQUIRED": ["Plant","Plant","Mushroom"],
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |          |1\uD83D\uDCDC|        |    |",
+    "|    |           \uD83C\uDF31          | \uD83D\uDCDC |",
+    "|----+                       +----|",
+    "|                                 |",
+    "|                            +----|",
+    "|                            |    |",
+    "|              \uD83C\uDF31\uD83C\uDF31\uD83C\uDF44        |    |",
+    "+---------------------------------+"
+  ]
 }

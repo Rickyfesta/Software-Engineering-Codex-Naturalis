@@ -3,10 +3,21 @@
   "CARDTYPE": "Gold",
   "SYMBOL": null,
   "POINTS": "1 for each Scroll on board",
-  "TOPSYMBOL": "Scroll",
-  "LEFTSYMBOL": "",
-  "RIGHTSYMBOL": "",
-  "BOTTOMSYMBOL": null,
+  "TOPSYMBOL": "",
+  "LEFTSYMBOL": "Scroll",
+  "RIGHTSYMBOL": null,
+  "BOTTOMSYMBOL": "",
   "COLOUR": "red",
-  "REQUIRED": ["Mushroom","Mushroom","Insect"]
+  "REQUIRED": ["Mushroom","Mushroom","Insect"],
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |          |1\uD83D\uDCDC|        |    |",
+    "| \uD83D\uDCDC |           \uD83C\uDF44          |    |",
+    "|----+                       +----|",
+    "|                                 |",
+    "|----+                            |",
+    "|    |                            |",
+    "|    |         \uD83C\uDF44\uD83C\uDF44\uD83E\uDD8B             |",
+    "+---------------------------------+"
+  ]
 }

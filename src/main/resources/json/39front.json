@@ -4,8 +4,19 @@
   "SYMBOL": null,
   "POINTS": "1",
   "TOPSYMBOL": "",
-  "LEFTSYMBOL": null,
-  "RIGHTSYMBOL": "",
-  "BOTTOMSYMBOL": "Insect",
-  "COLOUR": "purple"
+  "LEFTSYMBOL": "",
+  "RIGHTSYMBOL": "Insect",
+  "BOTTOMSYMBOL": null,
+  "COLOUR": "purple",
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |           |1|         |    |",
+    "|    |           \uD83E\uDD8B          |    |",
+    "|----+                       +----|",
+    "|                                 |",
+    "|                            +----|",
+    "|                            | \uD83E\uDD8B |",
+    "|                            |    |",
+    "+---------------------------------+"
+  ]
 }

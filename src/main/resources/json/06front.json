@@ -3,9 +3,20 @@
   "CARDTYPE": "Resource",
   "SYMBOL": null,
   "POINTS": "0",
-  "TOPSYMBOL": "Potion",
-  "LEFTSYMBOL": null,
-  "RIGHTSYMBOL": "Mushroom",
-  "BOTTOMSYMBOL": "Animal",
-  "COLOUR": "red"
+  "TOPSYMBOL": "Mushroom",
+  "LEFTSYMBOL": "Potion",
+  "RIGHTSYMBOL": "Animal",
+  "BOTTOMSYMBOL": null,
+  "COLOUR": "red",
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |                       |    |",
+    "| \uD83E\uDED9 |           \uD83C\uDF44          | \uD83C\uDF44 |",
+    "|----+                       +----|",
+    "|                                 |",
+    "|                            +----|",
+    "|                            | \uD83D\uDC3A |",
+    "|                            |    |",
+    "+---------------------------------+"
+  ]
 }

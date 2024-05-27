@@ -3,10 +3,21 @@
   "CARDTYPE": "Gold",
   "SYMBOL": null,
   "POINTS": "3",
-  "TOPSYMBOL": null,
+  "TOPSYMBOL": "Potion",
   "LEFTSYMBOL": null,
-  "RIGHTSYMBOL": "Potion",
-  "BOTTOMSYMBOL": "",
+  "RIGHTSYMBOL": "",
+  "BOTTOMSYMBOL": null,
   "COLOUR": "green",
-  "REQUIRED": ["Plant","Plant","Plant"]
+  "REQUIRED": ["Plant","Plant","Plant"],
+  "ASCII": [
+    "+---------------------------------+",
+    "|               |3|          |    |",
+    "|               \uD83C\uDF31           | \uD83E\uDED9 |",
+    "|                            +----|",
+    "|                                 |",
+    "|                            +----|",
+    "|                            |    |",
+    "|             \uD83C\uDF31\uD83C\uDF31\uD83C\uDF31         |    |",
+    "+---------------------------------+"
+  ]
 }

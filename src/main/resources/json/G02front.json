@@ -3,10 +3,21 @@
   "CARDTYPE": "Gold",
   "SYMBOL": null,
   "POINTS": "1 for each Potion on board",
-  "TOPSYMBOL": "",
-  "LEFTSYMBOL": null,
-  "RIGHTSYMBOL": "Potion",
-  "BOTTOMSYMBOL": "",
+  "TOPSYMBOL": "Potion",
+  "LEFTSYMBOL": "",
+  "RIGHTSYMBOL": "",
+  "BOTTOMSYMBOL": null,
   "COLOUR": "red",
-  "REQUIRED": ["Mushroom","Mushroom","Plant"]
+  "REQUIRED": ["Mushroom","Mushroom","Plant"],
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |          |1\uD83E\uDED9|        |    |",
+    "|    |           \uD83C\uDF44          | \uD83E\uDED9 |",
+    "|----+                       +----|",
+    "|                                 |",
+    "|                            +----|",
+    "|                            |    |",
+    "|              \uD83C\uDF44\uD83C\uDF44\uD83C\uDF31        |    |",
+    "+---------------------------------+"
+  ]
 }

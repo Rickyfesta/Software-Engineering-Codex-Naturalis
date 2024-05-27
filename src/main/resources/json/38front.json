@@ -3,9 +3,20 @@
   "CARDTYPE": "Resource",
   "SYMBOL": null,
   "POINTS": "1",
-  "TOPSYMBOL": "Insect",
-  "LEFTSYMBOL": "",
-  "RIGHTSYMBOL": null,
+  "TOPSYMBOL": null,
+  "LEFTSYMBOL": "Insect",
+  "RIGHTSYMBOL": "",
   "BOTTOMSYMBOL": "",
-  "COLOUR": "purple"
+  "COLOUR": "purple",
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |           |1|              |",
+    "| \uD83E\uDD8B |           \uD83E\uDD8B               |",
+    "|----+                            |",
+    "|                                 |",
+    "|----+                       +----|",
+    "|    |                       |    |",
+    "|    |                       |    |",
+    "+---------------------------------+"
+  ]
 }

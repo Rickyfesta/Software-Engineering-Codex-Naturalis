@@ -3,10 +3,21 @@
   "CARDTYPE": "Gold",
   "SYMBOL": null,
   "POINTS": "1 for each Feather on board",
-  "TOPSYMBOL": null,
-  "LEFTSYMBOL": "",
-  "RIGHTSYMBOL": "",
-  "BOTTOMSYMBOL": "Feather",
+  "TOPSYMBOL": "",
+  "LEFTSYMBOL": null,
+  "RIGHTSYMBOL": "Feather",
+  "BOTTOMSYMBOL": "",
   "COLOUR": "red",
-  "REQUIRED": ["Mushroom","Mushroom","Animal"]
+  "REQUIRED": ["Mushroom","Mushroom","Animal"],
+  "ASCII": [
+    "+---------------------------------+",
+    "|               |1\uD83E\uDEB6|        |    |",
+    "|                \uD83C\uDF44          |    |",
+    "|                            +----|",
+    "|                                 |",
+    "|----+                       +----|",
+    "|    |                       | \uD83E\uDEB6 |",
+    "|    |         \uD83C\uDF44\uD83C\uDF44\uD83D\uDC3A        |    |",
+    "+---------------------------------+"
+  ]
 }

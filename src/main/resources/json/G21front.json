@@ -3,10 +3,21 @@
   "CARDTYPE": "Gold",
   "SYMBOL": null,
   "POINTS": "1 for each Potion on board",
-  "TOPSYMBOL": "Potion",
-  "LEFTSYMBOL": "",
-  "RIGHTSYMBOL": "",
-  "BOTTOMSYMBOL": null,
+  "TOPSYMBOL": "",
+  "LEFTSYMBOL": "Potion",
+  "RIGHTSYMBOL": null,
+  "BOTTOMSYMBOL": "",
   "COLOUR": "blue",
-  "REQUIRED": ["Animal","Animal","Insect"]
+  "REQUIRED": ["Animal","Animal","Insect"],
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |          |1\uD83E\uDED9|        |    |",
+    "| \uD83E\uDED9 |           \uD83D\uDC3A          |    |",
+    "|----+                       +----|",
+    "|                                 |",
+    "|----+                            |",
+    "|    |                            |",
+    "|    |         \uD83D\uDC3A\uD83D\uDC3A\uD83E\uDD8B             |",
+    "+---------------------------------+"
+  ]
 }

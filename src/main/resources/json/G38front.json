@@ -3,10 +3,21 @@
   "CARDTYPE": "Gold",
   "SYMBOL": null,
   "POINTS": "3",
-  "TOPSYMBOL": "",
-  "LEFTSYMBOL": null,
-  "RIGHTSYMBOL": "Scroll",
+  "TOPSYMBOL": "Scroll",
+  "LEFTSYMBOL": "",
+  "RIGHTSYMBOL": null,
   "BOTTOMSYMBOL": null,
   "COLOUR": "purple",
-  "REQUIRED": ["Insect","Insect","Insect"]
+  "REQUIRED": ["Insect","Insect","Insect"],
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |           |3|         |    |",
+    "|    |           \uD83E\uDD8B          | \uD83D\uDCDC |",
+    "|----+                       +----|",
+    "|                                 |",
+    "|                                 |",
+    "|                                 |",
+    "|              \uD83E\uDD8B\uD83E\uDD8B\uD83E\uDD8B            |",
+    "+---------------------------------+"
+  ]
 }

@@ -3,9 +3,20 @@
   "CARDTYPE": "Resource",
   "SYMBOL": null,
   "POINTS": "0",
-  "TOPSYMBOL": null,
-  "LEFTSYMBOL": "Animal",
-  "RIGHTSYMBOL": "",
+  "TOPSYMBOL": "",
+  "LEFTSYMBOL": null,
+  "RIGHTSYMBOL": "Animal",
   "BOTTOMSYMBOL": "Animal",
-  "COLOUR": "blue"
+  "COLOUR": "blue",
+  "ASCII": [
+    "+---------------------------------+",
+    "|                            |    |",
+    "|                \uD83D\uDC3A          |    |",
+    "|                            +----|",
+    "|                                 |",
+    "|----+                       +----|",
+    "| \uD83D\uDC3A |                       | \uD83D\uDC3A |",
+    "|    |                       |    |",
+    "+---------------------------------+"
+  ]
 }

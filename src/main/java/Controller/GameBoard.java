@@ -24,6 +24,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -32,667 +33,98 @@ public class GameBoard {
 
 
     @FXML
-    private ImageView CenterDown1;
+    private ImageView Left1Up7;
 
     @FXML
-    private ImageView CenterDown10;
+    private ImageView Left1Up8;
 
     @FXML
-    private ImageView CenterDown11;
-
-    @FXML
-    private ImageView CenterDown12;
-
-    @FXML
-    private ImageView CenterDown13;
-
-    @FXML
-    private ImageView CenterDown14;
-
-    @FXML
-    private ImageView CenterDown15;
-
-    @FXML
-    private ImageView CenterDown16;
-
-    @FXML
-    private ImageView CenterDown17;
-
-    @FXML
-    private ImageView CenterDown18;
-
-    @FXML
-    private ImageView CenterDown19;
-
-    @FXML
-    private ImageView CenterDown2;
-
-    @FXML
-    private ImageView CenterDown20;
-
-    @FXML
-    private ImageView CenterDown21;
-
-    @FXML
-    private ImageView CenterDown22;
-
-    @FXML
-    private ImageView CenterDown23;
-
-    @FXML
-    private ImageView CenterDown24;
-
-    @FXML
-    private ImageView CenterDown25;
-
-    @FXML
-    private ImageView CenterDown26;
-
-    @FXML
-    private ImageView CenterDown27;
-
-    @FXML
-    private ImageView CenterDown28;
-
-    @FXML
-    private ImageView CenterDown29;
-
-    @FXML
-    private ImageView CenterDown3;
-
-    @FXML
-    private ImageView CenterDown30;
-
-    @FXML
-    private ImageView CenterDown31;
-
-    @FXML
-    private ImageView CenterDown32;
-
-    @FXML
-    private ImageView CenterDown33;
-
-    @FXML
-    private ImageView CenterDown34;
-
-    @FXML
-    private ImageView CenterDown35;
-
-    @FXML
-    private ImageView CenterDown36;
-
-    @FXML
-    private ImageView CenterDown37;
-
-    @FXML
-    private ImageView CenterDown38;
-
-    @FXML
-    private ImageView CenterDown39;
-
-    @FXML
-    private ImageView CenterDown4;
-
-    @FXML
-    private ImageView CenterDown40;
-
-    @FXML
-    private ImageView CenterDown41;
-
-    @FXML
-    private ImageView CenterDown42;
-
-    @FXML
-    private ImageView CenterDown43;
-
-    @FXML
-    private ImageView CenterDown44;
-
-    @FXML
-    private ImageView CenterDown45;
-
-    @FXML
-    private ImageView CenterDown46;
-
-    @FXML
-    private ImageView CenterDown47;
-
-    @FXML
-    private ImageView CenterDown48;
-
-    @FXML
-    private ImageView CenterDown49;
-
-    @FXML
-    private ImageView CenterDown5;
-
-    @FXML
-    private ImageView CenterDown50;
-
-    @FXML
-    private ImageView CenterDown51;
-
-    @FXML
-    private ImageView CenterDown52;
-
-    @FXML
-    private ImageView CenterDown53;
-
-    @FXML
-    private ImageView CenterDown54;
-
-    @FXML
-    private ImageView CenterDown55;
-
-    @FXML
-    private ImageView CenterDown6;
-
-    @FXML
-    private ImageView CenterDown7;
-
-    @FXML
-    private ImageView CenterDown8;
-
-    @FXML
-    private ImageView CenterDown9;
-
-    @FXML
-    private ImageView CenterLeft1;
-
-    @FXML
-    private ImageView CenterLeft10;
-
-    @FXML
-    private ImageView CenterLeft11;
-
-    @FXML
-    private ImageView CenterLeft12;
-
-    @FXML
-    private ImageView CenterLeft13;
-
-    @FXML
-    private ImageView CenterLeft14;
-
-    @FXML
-    private ImageView CenterLeft15;
-
-    @FXML
-    private ImageView CenterLeft16;
-
-    @FXML
-    private ImageView CenterLeft17;
-
-    @FXML
-    private ImageView CenterLeft18;
-
-    @FXML
-    private ImageView CenterLeft19;
-
-    @FXML
-    private ImageView CenterLeft2;
-
-    @FXML
-    private ImageView CenterLeft20;
-
-    @FXML
-    private ImageView CenterLeft21;
-
-    @FXML
-    private ImageView CenterLeft22;
-
-    @FXML
-    private ImageView CenterLeft23;
-
-    @FXML
-    private ImageView CenterLeft24;
-
-    @FXML
-    private ImageView CenterLeft25;
-
-    @FXML
-    private ImageView CenterLeft26;
-
-    @FXML
-    private ImageView CenterLeft27;
-
-    @FXML
-    private ImageView CenterLeft28;
-
-    @FXML
-    private ImageView CenterLeft29;
-
-    @FXML
-    private ImageView CenterLeft3;
-
-    @FXML
-    private ImageView CenterLeft30;
-
-    @FXML
-    private ImageView CenterLeft31;
-
-    @FXML
-    private ImageView CenterLeft32;
-
-    @FXML
-    private ImageView CenterLeft33;
-
-    @FXML
-    private ImageView CenterLeft34;
-
-    @FXML
-    private ImageView CenterLeft35;
-
-    @FXML
-    private ImageView CenterLeft36;
-
-    @FXML
-    private ImageView CenterLeft37;
-
-    @FXML
-    private ImageView CenterLeft38;
-
-    @FXML
-    private ImageView CenterLeft39;
-
-    @FXML
-    private ImageView CenterLeft4;
-
-    @FXML
-    private ImageView CenterLeft40;
-
-    @FXML
-    private ImageView CenterLeft41;
-
-    @FXML
-    private ImageView CenterLeft42;
-
-    @FXML
-    private ImageView CenterLeft43;
-
-    @FXML
-    private ImageView CenterLeft44;
-
-    @FXML
-    private ImageView CenterLeft45;
-
-    @FXML
-    private ImageView CenterLeft46;
-
-    @FXML
-    private ImageView CenterLeft47;
-
-    @FXML
-    private ImageView CenterLeft48;
-
+    private ImageView Left1Up9;
     @FXML
-    private ImageView CenterLeft49;
+    private ImageView Left2Down1;
 
     @FXML
-    private ImageView CenterLeft5;
+    private ImageView Left2Down9;
 
     @FXML
-    private ImageView CenterLeft50;
+    private ImageView Left2Up1;
 
     @FXML
-    private ImageView CenterLeft51;
+    private ImageView Left2Up2;
 
     @FXML
-    private ImageView CenterLeft52;
+    private ImageView Left2Up3;
 
     @FXML
-    private ImageView CenterLeft53;
+    private ImageView Left2Up4;
 
     @FXML
-    private ImageView CenterLeft54;
+    private ImageView Left2Up5;
 
     @FXML
-    private ImageView CenterLeft55;
+    private ImageView Left2Up6;
 
     @FXML
-    private ImageView CenterLeft6;
+    private ImageView Left2Up7;
 
     @FXML
-    private ImageView CenterLeft7;
+    private ImageView Left2Up8;
 
     @FXML
-    private ImageView CenterLeft8;
-
-    @FXML
-    private ImageView CenterLeft9;
-
-    @FXML
-    private ImageView CenterRight1;
-
-    @FXML
-    private ImageView CenterRight10;
-
-    @FXML
-    private ImageView CenterRight11;
-
-    @FXML
-    private ImageView CenterRight12;
-
-    @FXML
-    private ImageView CenterRight13;
-
-    @FXML
-    private ImageView CenterRight14;
-
-    @FXML
-    private ImageView CenterRight15;
-
-    @FXML
-    private ImageView CenterRight16;
-
-    @FXML
-    private ImageView CenterRight17;
-
-    @FXML
-    private ImageView CenterRight18;
-
-    @FXML
-    private ImageView CenterRight19;
-
-    @FXML
-    private ImageView CenterRight2;
-
-    @FXML
-    private ImageView CenterRight20;
-
-    @FXML
-    private ImageView CenterRight21;
-
-    @FXML
-    private ImageView CenterRight22;
-
-    @FXML
-    private ImageView CenterRight23;
-
-    @FXML
-    private ImageView CenterRight24;
-
-    @FXML
-    private ImageView CenterRight25;
-
-    @FXML
-    private ImageView CenterRight26;
-
-    @FXML
-    private ImageView CenterRight27;
-
-    @FXML
-    private ImageView CenterRight28;
-
-    @FXML
-    private ImageView CenterRight29;
-
-    @FXML
-    private ImageView CenterRight3;
-
-    @FXML
-    private ImageView CenterRight30;
-
-    @FXML
-    private ImageView CenterRight31;
-
-    @FXML
-    private ImageView CenterRight32;
-
-    @FXML
-    private ImageView CenterRight33;
-
-    @FXML
-    private ImageView CenterRight34;
-
-    @FXML
-    private ImageView CenterRight35;
-
-    @FXML
-    private ImageView CenterRight36;
-
-    @FXML
-    private ImageView CenterRight37;
-
-    @FXML
-    private ImageView CenterRight38;
-
-    @FXML
-    private ImageView CenterRight39;
-
-    @FXML
-    private ImageView CenterRight4;
-
-    @FXML
-    private ImageView CenterRight40;
-
-    @FXML
-    private ImageView CenterRight41;
-
-    @FXML
-    private ImageView CenterRight42;
-
-    @FXML
-    private ImageView CenterRight43;
-
-    @FXML
-    private ImageView CenterRight44;
-
-    @FXML
-    private ImageView CenterRight45;
-
-    @FXML
-    private ImageView CenterRight46;
-
-    @FXML
-    private ImageView CenterRight47;
-
-    @FXML
-    private ImageView CenterRight48;
-
-    @FXML
-    private ImageView CenterRight49;
-
-    @FXML
-    private ImageView CenterRight5;
-
-    @FXML
-    private ImageView CenterRight50;
-
-    @FXML
-    private ImageView CenterRight51;
-
-    @FXML
-    private ImageView CenterRight52;
-
-    @FXML
-    private ImageView CenterRight53;
-
-    @FXML
-    private ImageView CenterRight54;
-
-    @FXML
-    private ImageView CenterRight55;
-
-    @FXML
-    private ImageView CenterRight6;
-
-    @FXML
-    private ImageView CenterRight7;
-
-    @FXML
-    private ImageView CenterRight8;
-
-    @FXML
-    private ImageView CenterRight9;
-
-    @FXML
-    private ImageView CenterUp1;
-
-    @FXML
-    private ImageView CenterUp10;
-
-    @FXML
-    private ImageView CenterUp11;
-
-    @FXML
-    private ImageView CenterUp12;
-
-    @FXML
-    private ImageView CenterUp13;
-
-    @FXML
-    private ImageView CenterUp14;
-
-    @FXML
-    private ImageView CenterUp15;
-
-    @FXML
-    private ImageView CenterUp16;
-
-    @FXML
-    private ImageView CenterUp17;
-
-    @FXML
-    private ImageView CenterUp18;
-
-    @FXML
-    private ImageView CenterUp19;
-
-    @FXML
-    private ImageView CenterUp2;
-
-    @FXML
-    private ImageView CenterUp20;
-
-    @FXML
-    private ImageView CenterUp21;
-
-    @FXML
-    private ImageView CenterUp22;
-
-    @FXML
-    private ImageView CenterUp23;
-
-    @FXML
-    private ImageView CenterUp24;
-
-    @FXML
-    private ImageView CenterUp25;
-
-    @FXML
-    private ImageView CenterUp26;
-
-    @FXML
-    private ImageView CenterUp27;
-
-    @FXML
-    private ImageView CenterUp28;
-
-    @FXML
-    private ImageView CenterUp29;
-
-    @FXML
-    private ImageView CenterUp3;
-
-    @FXML
-    private ImageView CenterUp30;
-
-    @FXML
-    private ImageView CenterUp31;
-
-    @FXML
-    private ImageView CenterUp32;
-
-    @FXML
-    private ImageView CenterUp33;
-
-    @FXML
-    private ImageView CenterUp34;
-
-    @FXML
-    private ImageView CenterUp35;
-
-    @FXML
-    private ImageView CenterUp36;
-
-    @FXML
-    private ImageView CenterUp37;
-
-    @FXML
-    private ImageView CenterUp38;
-
-    @FXML
-    private ImageView CenterUp39;
-
-    @FXML
-    private ImageView CenterUp4;
-
-    @FXML
-    private ImageView CenterUp40;
-
-    @FXML
-    private ImageView CenterUp41;
-
-    @FXML
-    private ImageView CenterUp42;
-
-    @FXML
-    private ImageView CenterUp43;
-
-    @FXML
-    private ImageView CenterUp44;
-
+    private ImageView Left2Up9;
     @FXML
-    private ImageView CenterUp45;
+    private ImageView Left3Down1;
 
     @FXML
-    private ImageView CenterUp46;
+    private ImageView Left3Down2;
 
     @FXML
-    private ImageView CenterUp47;
+    private ImageView Left3Down3;
 
     @FXML
-    private ImageView CenterUp48;
+    private ImageView Left3Down4;
 
     @FXML
-    private ImageView CenterUp49;
+    private ImageView Left3Down5;
 
     @FXML
-    private ImageView CenterUp5;
+    private ImageView Left3Down6;
 
     @FXML
-    private ImageView CenterUp50;
+    private ImageView Left3Down7;
 
     @FXML
-    private ImageView CenterUp51;
+    private ImageView Left3Down8;
 
     @FXML
-    private ImageView CenterUp52;
+    private ImageView Left3Up1;
 
     @FXML
-    private ImageView CenterUp53;
+    private ImageView Left3Up2;
 
     @FXML
-    private ImageView CenterUp54;
+    private ImageView Left3Up3;
 
     @FXML
-    private ImageView CenterUp55;
+    private ImageView Left3Up4;
 
     @FXML
-    private ImageView CenterUp6;
+    private ImageView Left3Up5;
 
     @FXML
-    private ImageView CenterUp7;
+    private ImageView CardHand1;
 
     @FXML
-    private ImageView CenterUp8;
+    private ImageView CardHand2;
 
     @FXML
-    private ImageView CenterUp9;
+    private ImageView CardHand3;
 
     @FXML
     private ImageView CommonObj;
+
+    @FXML
+    private ImageView DecksBG;
 
     @FXML
     private ImageView Down1;
@@ -818,10 +250,22 @@ public class GameBoard {
     private ImageView GoldDeck;
 
     @FXML
+    private ImageView GoldDeck1;
+
+    @FXML
+    private ImageView GoldDeck2;
+
+    @FXML
     private ImageView Left1;
 
     @FXML
     private ImageView Left10;
+
+    @FXML
+    private ImageView Left10Down1;
+
+    @FXML
+    private ImageView Left10Up1;
 
     @FXML
     private ImageView Left11;
@@ -849,6 +293,57 @@ public class GameBoard {
 
     @FXML
     private ImageView Left19;
+
+    @FXML
+    private ImageView Left1Down1;
+
+    @FXML
+    private ImageView Left1Down10;
+
+    @FXML
+    private ImageView Left1Down2;
+
+    @FXML
+    private ImageView Left1Down3;
+
+    @FXML
+    private ImageView Left1Down4;
+
+    @FXML
+    private ImageView Left1Down5;
+
+    @FXML
+    private ImageView Left1Down6;
+
+    @FXML
+    private ImageView Left1Down7;
+
+    @FXML
+    private ImageView Left1Down8;
+
+    @FXML
+    private ImageView Left1Down9;
+
+    @FXML
+    private ImageView Left1Up1;
+
+    @FXML
+    private ImageView Left1Up10;
+
+    @FXML
+    private ImageView Left1Up2;
+
+    @FXML
+    private ImageView Left1Up3;
+
+    @FXML
+    private ImageView Left1Up4;
+
+    @FXML
+    private ImageView Left1Up5;
+
+    @FXML
+    private ImageView Left1Up6;
 
     @FXML
     private ImageView Left2;
@@ -884,6 +379,27 @@ public class GameBoard {
     private ImageView Left29;
 
     @FXML
+    private ImageView Left2Down2;
+
+    @FXML
+    private ImageView Left2Down3;
+
+    @FXML
+    private ImageView Left2Down4;
+
+    @FXML
+    private ImageView Left2Down5;
+
+    @FXML
+    private ImageView Left2Down6;
+
+    @FXML
+    private ImageView Left2Down7;
+
+    @FXML
+    private ImageView Left2Down8;
+
+    @FXML
     private ImageView Left3;
 
     @FXML
@@ -917,25 +433,196 @@ public class GameBoard {
     private ImageView Left39;
 
     @FXML
+    private ImageView Left3Up6;
+
+    @FXML
+    private ImageView Left3Up7;
+
+    @FXML
+    private ImageView Left3Up8;
+
+    @FXML
     private ImageView Left4;
 
     @FXML
     private ImageView Left40;
 
     @FXML
+    private ImageView Left4Down1;
+
+    @FXML
+    private ImageView Left4Down2;
+
+    @FXML
+    private ImageView Left4Down3;
+
+    @FXML
+    private ImageView Left4Down4;
+
+    @FXML
+    private ImageView Left4Down5;
+
+    @FXML
+    private ImageView Left4Down6;
+
+    @FXML
+    private ImageView Left4Down7;
+
+    @FXML
+    private ImageView Left4Up1;
+
+    @FXML
+    private ImageView Left4Up2;
+
+    @FXML
+    private ImageView Left4Up3;
+
+    @FXML
+    private ImageView Left4Up4;
+
+    @FXML
+    private ImageView Left4Up5;
+
+    @FXML
+    private ImageView Left4Up6;
+
+    @FXML
+    private ImageView Left4Up7;
+
+    @FXML
     private ImageView Left5;
+
+    @FXML
+    private ImageView Left5Down1;
+
+    @FXML
+    private ImageView Left5Down2;
+
+    @FXML
+    private ImageView Left5Down3;
+
+    @FXML
+    private ImageView Left5Down4;
+
+    @FXML
+    private ImageView Left5Down5;
+
+    @FXML
+    private ImageView Left5Down6;
+
+    @FXML
+    private ImageView Left5Up1;
+
+    @FXML
+    private ImageView Left5Up2;
+
+    @FXML
+    private ImageView Left5Up3;
+
+    @FXML
+    private ImageView Left5Up4;
+
+    @FXML
+    private ImageView Left5Up5;
+
+    @FXML
+    private ImageView Left5Up6;
 
     @FXML
     private ImageView Left6;
 
     @FXML
+    private ImageView Left6Down1;
+
+    @FXML
+    private ImageView Left6Down2;
+
+    @FXML
+    private ImageView Left6Down3;
+
+    @FXML
+    private ImageView Left6Down4;
+
+    @FXML
+    private ImageView Left6Down5;
+
+    @FXML
+    private ImageView Left6Up1;
+
+    @FXML
+    private ImageView Left6Up2;
+
+    @FXML
+    private ImageView Left6Up3;
+
+    @FXML
+    private ImageView Left6Up4;
+
+    @FXML
+    private ImageView Left6Up5;
+
+    @FXML
     private ImageView Left7;
+
+    @FXML
+    private ImageView Left7Down1;
+
+    @FXML
+    private ImageView Left7Down2;
+
+    @FXML
+    private ImageView Left7Down3;
+
+    @FXML
+    private ImageView Left7Down4;
+
+    @FXML
+    private ImageView Left7Up1;
+
+    @FXML
+    private ImageView Left7Up2;
+
+    @FXML
+    private ImageView Left7Up3;
+
+    @FXML
+    private ImageView Left7Up4;
 
     @FXML
     private ImageView Left8;
 
     @FXML
+    private ImageView Left8Down1;
+
+    @FXML
+    private ImageView Left8Down2;
+
+    @FXML
+    private ImageView Left8Down3;
+
+    @FXML
+    private ImageView Left8Up1;
+
+    @FXML
+    private ImageView Left8Up2;
+
+    @FXML
+    private ImageView Left8Up3;
+
+    @FXML
     private ImageView Left9;
+
+    @FXML
+    private ImageView Left9Down1;
+
+    @FXML
+    private ImageView Left9Down2;
+
+    @FXML
+    private ImageView Left9Up1;
+
+    @FXML
+    private ImageView Left9Up2;
 
     @FXML
     private ImageView PersonalObj;
@@ -944,10 +631,22 @@ public class GameBoard {
     private ImageView ResDeck;
 
     @FXML
+    private ImageView ResDeck2;
+
+    @FXML
+    private ImageView ResDeck3;
+
+    @FXML
     private ImageView Right1;
 
     @FXML
     private ImageView Right10;
+
+    @FXML
+    private ImageView Right10Down1;
+
+    @FXML
+    private ImageView Right10Up1;
 
     @FXML
     private ImageView Right11;
@@ -975,6 +674,66 @@ public class GameBoard {
 
     @FXML
     private ImageView Right19;
+
+    @FXML
+    private ImageView Right1Dowm1;
+
+    @FXML
+    private ImageView Right1Down10;
+
+    @FXML
+    private ImageView Right1Down2;
+
+    @FXML
+    private ImageView Right1Down3;
+
+    @FXML
+    private ImageView Right1Down4;
+
+    @FXML
+    private ImageView Right1Down5;
+
+    @FXML
+    private ImageView Right1Down6;
+
+    @FXML
+    private ImageView Right1Down7;
+
+    @FXML
+    private ImageView Right1Down8;
+
+    @FXML
+    private ImageView Right1Down9;
+
+    @FXML
+    private ImageView Right1Up1;
+
+    @FXML
+    private ImageView Right1Up10;
+
+    @FXML
+    private ImageView Right1Up2;
+
+    @FXML
+    private ImageView Right1Up3;
+
+    @FXML
+    private ImageView Right1Up4;
+
+    @FXML
+    private ImageView Right1Up5;
+
+    @FXML
+    private ImageView Right1Up6;
+
+    @FXML
+    private ImageView Right1Up7;
+
+    @FXML
+    private ImageView Right1Up8;
+
+    @FXML
+    private ImageView Right1Up9;
 
     @FXML
     private ImageView Right2;
@@ -1010,6 +769,60 @@ public class GameBoard {
     private ImageView Right29;
 
     @FXML
+    private ImageView Right2Down1;
+
+    @FXML
+    private ImageView Right2Down2;
+
+    @FXML
+    private ImageView Right2Down3;
+
+    @FXML
+    private ImageView Right2Down4;
+
+    @FXML
+    private ImageView Right2Down5;
+
+    @FXML
+    private ImageView Right2Down6;
+
+    @FXML
+    private ImageView Right2Down7;
+
+    @FXML
+    private ImageView Right2Down8;
+
+    @FXML
+    private ImageView Right2Down9;
+
+    @FXML
+    private ImageView Right2Up1;
+
+    @FXML
+    private ImageView Right2Up2;
+
+    @FXML
+    private ImageView Right2Up3;
+
+    @FXML
+    private ImageView Right2Up4;
+
+    @FXML
+    private ImageView Right2Up5;
+
+    @FXML
+    private ImageView Right2Up6;
+
+    @FXML
+    private ImageView Right2Up7;
+
+    @FXML
+    private ImageView Right2Up8;
+
+    @FXML
+    private ImageView Right2Up9;
+
+    @FXML
     private ImageView Right3;
 
     @FXML
@@ -1043,25 +856,235 @@ public class GameBoard {
     private ImageView Right39;
 
     @FXML
+    private ImageView Right3Down1;
+
+    @FXML
+    private ImageView Right3Down2;
+
+    @FXML
+    private ImageView Right3Down3;
+
+    @FXML
+    private ImageView Right3Down4;
+
+    @FXML
+    private ImageView Right3Down5;
+
+    @FXML
+    private ImageView Right3Down6;
+
+    @FXML
+    private ImageView Right3Down7;
+
+    @FXML
+    private ImageView Right3Down8;
+
+    @FXML
+    private ImageView Right3Up1;
+
+    @FXML
+    private ImageView Right3Up2;
+
+    @FXML
+    private ImageView Right3Up3;
+
+    @FXML
+    private ImageView Right3Up4;
+
+    @FXML
+    private ImageView Right3Up5;
+
+    @FXML
+    private ImageView Right3Up6;
+
+    @FXML
+    private ImageView Right3Up7;
+
+    @FXML
+    private ImageView Right3Up8;
+
+    @FXML
     private ImageView Right4;
 
     @FXML
     private ImageView Right40;
 
     @FXML
+    private ImageView Right4Down1;
+
+    @FXML
+    private ImageView Right4Down2;
+
+    @FXML
+    private ImageView Right4Down3;
+
+    @FXML
+    private ImageView Right4Down4;
+
+    @FXML
+    private ImageView Right4Down5;
+
+    @FXML
+    private ImageView Right4Down6;
+
+    @FXML
+    private ImageView Right4Down7;
+
+    @FXML
+    private ImageView Right4Up1;
+
+    @FXML
+    private ImageView Right4Up2;
+
+    @FXML
+    private ImageView Right4Up3;
+
+    @FXML
+    private ImageView Right4Up4;
+
+    @FXML
+    private ImageView Right4Up5;
+
+    @FXML
+    private ImageView Right4Up6;
+
+    @FXML
+    private ImageView Right4Up7;
+
+    @FXML
     private ImageView Right5;
+
+    @FXML
+    private ImageView Right5Down1;
+
+    @FXML
+    private ImageView Right5Down2;
+
+    @FXML
+    private ImageView Right5Down3;
+
+    @FXML
+    private ImageView Right5Down4;
+
+    @FXML
+    private ImageView Right5Down5;
+
+    @FXML
+    private ImageView Right5Down6;
+
+    @FXML
+    private ImageView Right5Up1;
+
+    @FXML
+    private ImageView Right5Up2;
+
+    @FXML
+    private ImageView Right5Up3;
+
+    @FXML
+    private ImageView Right5Up4;
+
+    @FXML
+    private ImageView Right5Up5;
+
+    @FXML
+    private ImageView Right5Up6;
 
     @FXML
     private ImageView Right6;
 
     @FXML
+    private ImageView Right6Down1;
+
+    @FXML
+    private ImageView Right6Down2;
+
+    @FXML
+    private ImageView Right6Down3;
+
+    @FXML
+    private ImageView Right6Down4;
+
+    @FXML
+    private ImageView Right6Down5;
+
+    @FXML
+    private ImageView Right6Up1;
+
+    @FXML
+    private ImageView Right6Up2;
+
+    @FXML
+    private ImageView Right6Up3;
+
+    @FXML
+    private ImageView Right6Up4;
+
+    @FXML
+    private ImageView Right6Up5;
+
+    @FXML
     private ImageView Right7;
+
+    @FXML
+    private ImageView Right7Down1;
+
+    @FXML
+    private ImageView Right7Down2;
+
+    @FXML
+    private ImageView Right7Down3;
+
+    @FXML
+    private ImageView Right7Down4;
+
+    @FXML
+    private ImageView Right7Up1;
+
+    @FXML
+    private ImageView Right7Up2;
+
+    @FXML
+    private ImageView Right7Up3;
+
+    @FXML
+    private ImageView Right7Up4;
 
     @FXML
     private ImageView Right8;
 
     @FXML
+    private ImageView Right8Down1;
+
+    @FXML
+    private ImageView Right8Down2;
+
+    @FXML
+    private ImageView Right8Down3;
+
+    @FXML
+    private ImageView Right8Up1;
+
+    @FXML
+    private ImageView Right8Up2;
+
+    @FXML
+    private ImageView Right8Up3;
+
+    @FXML
     private ImageView Right9;
+
+    @FXML
+    private ImageView Right9Down1;
+
+    @FXML
+    private ImageView Right9Down2;
+
+    @FXML
+    private ImageView Right9Up1;
+
+    @FXML
+    private ImageView Right9Up2;
 
     @FXML
     private ImageView StartingCard;
@@ -1185,52 +1208,26 @@ public class GameBoard {
 
     @FXML
     private ImageView Up9;
-    
-    @FXML
-    private ResourceBundle resources;
 
     @FXML
-    private URL location;
-
-    @FXML
-    private ImageView CardHand1;
-
-    @FXML
-    private ImageView ResDeck3;
-
-    @FXML
-    private ImageView CardHand2;
-
-    @FXML
-    private ImageView CardHand3;
-    
+    private ImageView backgroundBoard;
 
     @FXML
     private AnchorPane commonBoardDecksContainer;
 
     @FXML
-    private ImageView commonBoardIMG;
-
-    @FXML
     private Text commonGoalText;
 
     @FXML
+    private ImageView copy;
+
+
+
+    @FXML
     private ImageView handBg;
-    @FXML
-    private Pane allContainer;
-    @FXML
-    private AnchorPane handContainer;
 
     @FXML
     private ImageView objbackground;
-    @FXML
-    private ImageView GoldDeck1;
-    @FXML
-    private ImageView GoldDeck2;
-
-    @FXML
-    private ImageView ResDeck2;
-
 
     @FXML
     private AnchorPane personalBoardContainer;
@@ -1244,10 +1241,42 @@ public class GameBoard {
     @FXML
     private Button showBtn;
 
+    @FXML
+    private Text mushroomNumber;
 
-    private double scaleValue = 1.0;
+    @FXML
+    private Text animalNumber;
 
-    public static String url1 = RandomCardFile.getRandomGXXFileName() ;
+    @FXML
+    private Text plantNumber;
+
+    @FXML
+    private Text insectNumber;
+
+    @FXML
+    private Text ampNumber;
+
+    @FXML
+    private Text scrollNumber;
+
+    @FXML
+    private Text featherNumber;
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private Pane allContainer;
+    @FXML
+    private AnchorPane handContainer;
+
+    @FXML
+    private Text myPoints;
+
+    public static String url1 = RandomCardFile.getRandomGXXFileName();
 
     public static String url2 = RandomCardFile.getRandomXXFileName();
 
@@ -1260,9 +1289,10 @@ public class GameBoard {
 
     public static List<ImageView> DecksList;
     public static List<ImageView> imageViewList;
+    public static List<Text> ResourcesList;
 
-    @FXML
-    private ImageView copy;
+    public static List<Text> MyPoints;
+
     public AnchorPane getAnchorPane() {
         return personalBoardContainer;
     }
@@ -1282,10 +1312,8 @@ public class GameBoard {
             commonBoardDecksContainer.setLayoutX(0);
             showBtn.setLayoutX(655);
             showBtn.setText("<");
-            commonBoardIMG.setVisible(true);
             ResDeck.setVisible(true);
             GoldDeck.setVisible(true);
-            commonBoardIMG.setFitWidth(220);
             ResDeck.setFitWidth(215);
             GoldDeck.setFitWidth(215);
             //System.out.println("Right" + commonBoardDecksContainer.getPrefWidth());
@@ -1305,10 +1333,8 @@ public class GameBoard {
             commonBoardDecksContainer.setLayoutX(-1 * 650);
             showBtn.setLayoutX(0);
             showBtn.setText(">");
-            commonBoardIMG.setVisible(false);
             ResDeck.setVisible(false);
             GoldDeck.setVisible(false);
-            commonBoardIMG.setFitWidth(0);
             ResDeck.setFitWidth(0);
             GoldDeck.setFitWidth(0);
             personalBoardScroll.setPrefWidth(1400);
@@ -1322,6 +1348,15 @@ public class GameBoard {
 
         DraggableMaker draggableMaker = new DraggableMaker(this);
         CardPicker cardPicker = new CardPicker(this);
+
+        MyPoints = Collections.singletonList(
+                myPoints
+        );
+
+        ResourcesList = Arrays.asList(
+                mushroomNumber, animalNumber, insectNumber, plantNumber,
+                ampNumber, featherNumber, scrollNumber
+        );
 
         DecksList = Arrays.asList(
                 ResDeck, ResDeck2, ResDeck3, GoldDeck, GoldDeck1, GoldDeck2
@@ -1343,35 +1378,15 @@ public class GameBoard {
                 Left8, Left9, Left10, Left11, Left12, Left13, Left14, Left15, Left16, Left17,
                 Left18, Left19, Left20, Left21, Left22, Left23, Left24, Left25, Left26, Left27,
                 Left28, Left29, Left30, Left31, Left32, Left33, Left34, Left35, Left36, Left37,
-                Left38, Left39, Left40, CenterDown1, CenterDown2, CenterDown3, CenterDown4, CenterDown5, CenterDown6, CenterDown7,
-                CenterDown8, CenterDown9, CenterDown10, CenterDown11, CenterDown12, CenterDown13, CenterDown14, CenterDown15, CenterDown16,
-                CenterDown17, CenterDown18, CenterDown19, CenterDown20, CenterDown21, CenterDown22, CenterDown23, CenterDown24, CenterDown25,
-                CenterDown26, CenterDown27, CenterDown28, CenterDown29, CenterDown30, CenterDown31, CenterDown32, CenterDown33, CenterDown34,
-                CenterDown35, CenterDown36, CenterDown37, CenterDown38, CenterDown39, CenterDown40, CenterRight1, CenterRight2, CenterRight3,
-                CenterRight4, CenterRight5, CenterRight6, CenterRight7, CenterRight8, CenterRight9, CenterRight10, CenterRight11, CenterRight12,
-                CenterRight13, CenterRight14, CenterRight15, CenterRight16, CenterRight17, CenterRight18, CenterRight19, CenterRight20, CenterRight21,
-                CenterRight22, CenterRight23, CenterRight24, CenterRight25, CenterRight26, CenterRight27, CenterRight28, CenterRight29, CenterRight30,
-                CenterRight31, CenterRight32, CenterRight33, CenterRight34, CenterRight35, CenterRight36, CenterRight37, CenterRight38, CenterRight39,
-                CenterRight40, CenterRight41, CenterRight42, CenterRight43, CenterRight44, CenterRight45, CenterRight46, CenterRight47, CenterRight48,
-                CenterRight49, CenterRight50, CenterRight51, CenterRight52, CenterRight53, CenterRight54, CenterRight55, CenterLeft1, CenterLeft2,
-                CenterLeft3, CenterLeft4, CenterLeft5, CenterLeft6, CenterLeft7, CenterLeft8, CenterLeft9, CenterLeft10, CenterLeft11, CenterLeft12,
-                CenterLeft13, CenterLeft14, CenterLeft15, CenterLeft16, CenterLeft17, CenterLeft18, CenterLeft19, CenterLeft20, CenterLeft21,
-                CenterLeft22, CenterLeft23, CenterLeft24, CenterLeft25, CenterLeft26, CenterLeft27, CenterLeft28, CenterLeft29, CenterLeft30,
-                CenterLeft31, CenterLeft32, CenterLeft33, CenterLeft34, CenterLeft35, CenterLeft36, CenterLeft37, CenterLeft38, CenterLeft39,
-                CenterLeft40, CenterLeft41, CenterLeft42, CenterLeft43, CenterLeft44, CenterLeft45, CenterLeft46, CenterLeft47, CenterLeft48,
-                CenterLeft49, CenterLeft50, CenterLeft51, CenterLeft52, CenterLeft53, CenterLeft54, CenterLeft55, CenterUp1, CenterUp2,
-                CenterUp3, CenterUp4, CenterUp5, CenterUp6, CenterUp7, CenterUp8, CenterUp9, CenterUp10, CenterUp11, CenterUp12,
-                CenterUp13, CenterUp14, CenterUp15, CenterUp16, CenterUp17, CenterUp18, CenterUp19, CenterUp20, CenterUp21, CenterUp22,
-                CenterUp23, CenterUp24, CenterUp25, CenterUp26, CenterUp27, CenterUp28, CenterUp29, CenterUp30, CenterUp31, CenterUp32,
-                CenterUp33, CenterUp34, CenterUp35, CenterUp36, CenterUp37, CenterUp38, CenterUp39, CenterUp40
+                Left38, Left39, Left40
         );
 
-        //TODO VISUALIZE RESOURCES THAT I HAVE
         //TODO optimize useless operations
         commonBoardDecksContainer.setPrefWidth(0.0d);
-        commonBoardIMG.setVisible(false);
         ResDeck.setVisible(false);
         GoldDeck.setVisible(false);
+
+
         // Handle scroll events on the ScrollPane
         /* personalBoardScroll.addEventFilter(ScrollEvent.SCROLL, event -> {
             if (event.isControlDown()) {
@@ -1420,32 +1435,29 @@ public class GameBoard {
 
 
         // Set CommonBoard into the placeholder
-        //System.out.println("/cards/cardsimg/" + RandomCardFile.getRandomGXXFileName());
-        //System.out.println(CardHand1);
         CardHand1.setImage(new Image("/" + url1));
         CardHand2.setImage(new Image("/" + url2));
         CardHand3.setImage(new Image("/" + url3));
-        //System.out.println(Down1);
-        //Left1.setImage(new Image("/" + url3));
-        //System.out.println(url1);
+
 
         //deserialize all the cards
         ObjectMapper boardMapper = new ObjectMapper();
         boardMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        //System.out.println(StartUrl);
-        //System.out.println(boardMapper.readValue(new File("src/main/resources/json/" + url1.replace("jpg", "json")), CardJSON.class));
         CardJSON startingCard = boardMapper.readValue(new File("src/main/resources/json/" + StartUrl.replace("jpg", "json")), CardJSON.class);
+
+
         //initialize the personal board
-        BoardManager.initializeBoard(startingCard);
+        BoardManager.initializeBoard(startingCard, ResourcesList);
+
 
         CardJSON Card1 = boardMapper.readValue(new File("src/main/resources/json/" + url1.replace("jpg", "json")), CardJSON.class);
         CardJSON Card2 = boardMapper.readValue(new File("src/main/resources/json/" + url2.replace("jpg", "json")), CardJSON.class);
         CardJSON Card3 = boardMapper.readValue(new File("src/main/resources/json/" + url3.replace("jpg", "json")), CardJSON.class);
 
         //Here i make draggable all the cards inside my hand to make them placeable
-        draggableMaker.makeDraggable(CardHand1, personalBoardScroll, 508, 650, Card1, copy, personalBoardContainer, StartUrl, imageViewList);
-        draggableMaker.makeDraggable(CardHand2, personalBoardScroll, 801, 650, Card2, copy, personalBoardContainer, StartUrl, imageViewList);
-        draggableMaker.makeDraggable(CardHand3, personalBoardScroll, 1064, 650, Card3, copy, personalBoardContainer, StartUrl, imageViewList);
+        draggableMaker.makeDraggable(CardHand1, personalBoardScroll, 508, 650, Card1, copy, personalBoardContainer, StartUrl, imageViewList, ResourcesList);
+        draggableMaker.makeDraggable(CardHand2, personalBoardScroll, 801, 650, Card2, copy, personalBoardContainer, StartUrl, imageViewList, ResourcesList);
+        draggableMaker.makeDraggable(CardHand3, personalBoardScroll, 1064, 650, Card3, copy, personalBoardContainer, StartUrl, imageViewList, ResourcesList);
         draggableMaker.setInitialCardPosition(StartingCard, StartingCard.localToParent(0,0));
         draggableMaker.setStartingCorners(StartingCard.localToParent(0,0), StartingCard.localToParent(0,0).subtract(-88, -46), StartingCard.localToParent(0,0).subtract(88, -46) , StartingCard.localToParent(0,0).subtract(-88, 46) , StartingCard.localToParent(0,0).subtract(88, 46) );
 
@@ -1536,7 +1548,6 @@ public class GameBoard {
         assert Up1 != null : "fx:id=\"Up1\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert allContainer != null : "fx:id=\"allContainer\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert commonBoardDecksContainer != null : "fx:id=\"commonBoardDecksContainer\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert commonBoardIMG != null : "fx:id=\"commonBoardIMG\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert commonGoalText != null : "fx:id=\"commonGoalText\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert handBg != null : "fx:id=\"handBg\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert handContainer != null : "fx:id=\"handContainer\" was not injected: check your FXML file 'GameBoard.fxml'.";

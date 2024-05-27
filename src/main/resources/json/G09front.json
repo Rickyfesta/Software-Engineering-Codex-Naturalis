@@ -3,10 +3,21 @@
   "CARDTYPE": "Gold",
   "SYMBOL": null,
   "POINTS": "3",
-  "TOPSYMBOL": null,
+  "TOPSYMBOL": "Scroll",
   "LEFTSYMBOL": null,
-  "RIGHTSYMBOL": "Scroll",
-  "BOTTOMSYMBOL": "",
+  "RIGHTSYMBOL": "",
+  "BOTTOMSYMBOL": null,
   "COLOUR": "red",
-  "REQUIRED": ["Mushroom","Mushroom","Mushroom"]
+  "REQUIRED": ["Mushroom","Mushroom","Mushroom"],
+  "ASCII": [
+    "+---------------------------------+",
+    "|                |3|         |    |",
+    "|                \uD83C\uDF44          | \uD83D\uDCDC |",
+    "|                            +----|",
+    "|                                 |",
+    "|                            +----|",
+    "|                            |    |",
+    "|              \uD83C\uDF44\uD83C\uDF44\uD83C\uDF44        |    |",
+    "+---------------------------------+"
+  ]
 }

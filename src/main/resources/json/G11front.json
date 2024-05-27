@@ -3,11 +3,21 @@
   "CARDTYPE": "Gold",
   "SYMBOL": null,
   "POINTS": "1 for each Feather on board",
-  "TOPSYMBOL": "Feather",
-  "LEFTSYMBOL": "",
-  "RIGHTSYMBOL": "",
-  "BOTTOMSYMBOL": null,
+  "TOPSYMBOL": "",
+  "LEFTSYMBOL": "Feather",
+  "RIGHTSYMBOL": null,
+  "BOTTOMSYMBOL": "",
   "COLOUR": "green",
   "REQUIRED": ["Plant","Plant","Insect"],
-  "CENTER": null
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |          |1\uD83E\uDEB6|        |    |",
+    "| \uD83E\uDEB6 |           \uD83C\uDF31          |    |",
+    "|----+                       +----|",
+    "|                                 |",
+    "|----+                            |",
+    "|    |                            |",
+    "|    |         \uD83C\uDF31\uD83C\uDF31\uD83E\uDD8B             |",
+    "+---------------------------------+"
+  ]
 }

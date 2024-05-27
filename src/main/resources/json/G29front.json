@@ -3,10 +3,21 @@
   "CARDTYPE": "Gold",
   "SYMBOL": null,
   "POINTS": "3",
-  "TOPSYMBOL": null,
+  "TOPSYMBOL": "",
   "LEFTSYMBOL": null,
-  "RIGHTSYMBOL": "",
-  "BOTTOMSYMBOL": "Feather",
+  "RIGHTSYMBOL": "Feather",
+  "BOTTOMSYMBOL": null,
   "COLOUR": "blue",
-  "REQUIRED": ["Animal","Animal","Animal"]
+  "REQUIRED": ["Animal","Animal","Animal"],
+  "ASCII": [
+    "+---------------------------------+",
+    "|               |3|          |    |",
+    "|               \uD83D\uDC3A           |    |",
+    "|                            +----|",
+    "|                                 |",
+    "|                            +----|",
+    "|                            | \uD83E\uDEB6 |",
+    "|             \uD83D\uDC3A\uD83D\uDC3A\uD83D\uDC3A        |    |",
+    "+---------------------------------+"
+  ]
 }

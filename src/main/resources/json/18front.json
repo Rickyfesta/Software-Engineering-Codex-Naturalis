@@ -4,8 +4,19 @@
   "SYMBOL": null,
   "POINTS": "1",
   "TOPSYMBOL": "",
-  "LEFTSYMBOL": "Plant",
-  "RIGHTSYMBOL":"",
-  "BOTTOMSYMBOL": null,
-  "COLOUR": "green"
+  "LEFTSYMBOL": "",
+  "RIGHTSYMBOL": null,
+  "BOTTOMSYMBOL": "Plant",
+  "COLOUR": "green",
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |           |1|         |    |",
+    "|    |           \uD83C\uDF31          |    |",
+    "|----+                       +----|",
+    "|                                 |",
+    "|----+                            |",
+    "| \uD83C\uDF31 |                            |",
+    "|    |                            |",
+    "+---------------------------------+"
+  ]
 }

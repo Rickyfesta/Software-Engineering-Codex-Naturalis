@@ -3,9 +3,20 @@
   "CARDTYPE": "Resource",
   "SYMBOL": null,
   "POINTS": "1",
-  "TOPSYMBOL": "",
+  "TOPSYMBOL": "Mushroom",
   "LEFTSYMBOL": "",
-  "RIGHTSYMBOL": "Mushroom",
-  "BOTTOMSYMBOL": null,
-  "COLOUR": "red"
+  "RIGHTSYMBOL": null,
+  "BOTTOMSYMBOL": "",
+  "COLOUR": "red",
+  "ASCII": [
+    "+---------------------------------+",
+    "|    |           |1|         |    |",
+    "|    |           \uD83C\uDF44          | \uD83C\uDF44 |",
+    "|----+                       +----|",
+    "|                                 |",
+    "|----+                            |",
+    "|    |                            |",
+    "|    |                            |",
+    "+---------------------------------+"
+  ]
 }

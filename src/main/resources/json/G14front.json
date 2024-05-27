@@ -3,10 +3,21 @@
   "CARDTYPE": "Gold",
   "SYMBOL": null,
   "POINTS": "2 for each angle occupied",
-  "TOPSYMBOL": null,
-  "LEFTSYMBOL": "",
+  "TOPSYMBOL": "",
+  "LEFTSYMBOL": null,
   "RIGHTSYMBOL": "",
   "BOTTOMSYMBOL": "",
   "COLOUR": "green",
-  "REQUIRED": ["Plant","Plant","Plant","Insect"]
+  "REQUIRED": ["Plant","Plant","Plant","Insect"],
+  "ASCII": [
+    "+---------------------------------+",
+    "|               |2\uD83D\uDCD0|        |    |",
+    "|                \uD83C\uDF31          |    |",
+    "|                            +----|",
+    "|                                 |",
+    "|----+                       +----|",
+    "|    |                       |    |",
+    "|    |        \uD83C\uDF31\uD83C\uDF31\uD83C\uDF31\uD83E\uDD8B      |    |",
+    "+---------------------------------+"
+  ]
 }
