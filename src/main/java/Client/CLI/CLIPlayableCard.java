@@ -6,7 +6,7 @@ import Model.Cards.RandomCardFile;
 import java.util.ArrayList;
 import java.util.List;
 
-    public class CLIPlayableCard {
+    public class  CLIPlayableCard {
         private List<CardJSON> cardList;
         private static CLIMapper mapper = new CLIMapper();
 

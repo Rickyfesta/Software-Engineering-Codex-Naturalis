@@ -25,6 +25,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static Controller.BoardManager.Place;
 import static Controller.BoardManager.availableCorners;
@@ -78,6 +80,7 @@ public class DraggableMaker {
             originalParent = (Pane) HandCard.getParent(); // Save original parent
             if (mouseEvent.getButton() == MouseButton.PRIMARY) {
                 //NEED TO SHOW THE RECTANGLES
+                /*
                 if (startingCardJSON.getLEFTSYMBOL() != null) {
                     personalBoardContainer.getChildren().addAll(topLeftCornerStartingCard);
                 }
@@ -90,6 +93,8 @@ public class DraggableMaker {
                 if (startingCardJSON.getTOPSYMBOL() != null) {
                     personalBoardContainer.getChildren().addAll(topRightCornerStartingCard);
                 }
+
+                 */
             }
         });
 
@@ -113,7 +118,7 @@ public class DraggableMaker {
 
         HandCard.setOnMouseReleased(event -> {
             //NEED TO HIDE THE RECTANGLES
-            personalBoardContainer.getChildren().removeAll(topLeftCornerStartingCard, topRightCornerStartingCard, bottomLeftCornerStartingCard, bottomRightCornerStartingCard);
+            //personalBoardContainer.getChildren().removeAll(topLeftCornerStartingCard, topRightCornerStartingCard, bottomLeftCornerStartingCard, bottomRightCornerStartingCard);
             // Check if the HandCard is over the scrollPane
             if (isOverScrollPane(HandCard, scrollPane)) {
                 HandCard.prefWidth(150);
@@ -125,69 +130,141 @@ public class DraggableMaker {
                             trustCorner = true;
                         }
                         String intersectedCorner = calculateIntersectedCorner(destination, copy);  //STEP 3: Calculate the corner of interest
-                        if(!trustCorner){ //STEP 4a: Not on starting card
-                            System.out.println("131 Id destination card: " + destination.getId());
-                            System.out.println("132 interested corner of destination card: " +intersectedCorner);
+                        if(!trustCorner) { //STEP 4a: Not on starting card
+                            System.out.println("134 Id destination card: " + destination.getId());
+                            System.out.println("135 interested corner of destination card: " + intersectedCorner);
                             String idCard = extractLetters(destination.getId());
                             String availableId;
                             CardJSON realDestination = null;
-                            if(destination.getId().equals(idCard +"1")){ //If i'm on one of the starting card neighbour i pass as the id the id of the starting card
-                                availableId = startingCardJSON.getID();
+                            if (destination.getId().equals(idCard + "1") && destination.getImage() == null) { //If i'm on one of the starting card neighbour i pass as the id the id of the starting card
                                 realDestination = startingCardJSON;
-                            }else{
-                                availableId = decrementDirection(destination.getId());
-                                System.out.println("141 effective bonding card: " + availableId);
-                                for(ImageView imageView : imageViewList){
-                                    if(Objects.equals(imageView.getId(), availableId)){
-                                        if(imageView.getImage() != null){
-                                            String StrangeURLDestinationS = imageView.getImage().getUrl();
-                                            String secondURL = StrangeURLDestinationS.substring(StrangeURLDestinationS.lastIndexOf('/') +1).replace(".jpg", ".json");
-                                            realDestination = boardMapper.readValue(new File("src/main/resources/json/" + secondURL.replace("jpg", "json")), CardJSON.class);
+                                System.out.println("Since it was null i got the starting card as destination");
+                                for (ImageView imageView : imageViewList) {
+                                    if (Objects.equals(imageView.getId(), "StartingCard")) {
+                                        System.out.println("143: Found corresponding");
+                                        destination = imageView;
+                                    }
+                                }
+                            } else {
+                                if(destination.getImage() == null){
+                                    availableId = decrementDirection(destination.getId());
+                                    System.out.println("145 effective bonding card: " + availableId);
+                                    if(!availableId.endsWith("1")){ //Isn't a neighbour of starting
+                                        for (ImageView imageView : imageViewList) {
+                                            if (Objects.equals(imageView.getId(), availableId)) {
+                                                System.out.println("149: Found corresponding");
+                                                realDestination = getCardJSON(HandCard, boardMapper, realDestination, imageView);
+                                            }
                                         }
-                                        else {
-                                            returnToOriginalPosition(HandCard);
-                                            resetNodeSize(HandCard);
+                                    }else{
+                                        for (ImageView imageView : imageViewList) {
+                                            if (Objects.equals(imageView.getId(), availableId)) {
+                                                System.out.println("156: Found corresponding");
+                                                System.out.println(availableId);
+                                                realDestination = getCardJSON(HandCard, boardMapper, realDestination, imageView);
+                                            }
                                         }
                                     }
+                                }else{ //Since my destination is not null, this means it's already the correct destination, and i don't need to decrement it.
+                                    availableId = destination.getId();
+                                    System.out.println("164 effective bonding card: " + availableId);
+                                    for (ImageView imageView : imageViewList) {
+                                        if (Objects.equals(imageView.getId(), availableId)) {
+                                            System.out.println(" 167: Found corresponding " + imageView);
+                                            System.out.println(availableId);
+                                            realDestination = getCardJSON(HandCard, boardMapper, realDestination, imageView);
+                                        }
+                                    }
+
                                 }
                             }
                             //System.out.println("166 " +availableCorners.get(new Point(0,2)));
                             for (Map.Entry<String, Point> entry : availableCorners.entrySet()) {
-                                //If it has any corners free then it places it in one of those corners
                                 if (entry.getKey() != null) {
-                                    System.out.println("Not null: " +entry.getKey());
+                                    System.out.println("Not null: " + entry.getKey());
                                 }
                             }
-                            System.out.println("163 availableId:  " + availableId);
-                            if(!availableCorners.containsKey(availableId+ " " +intersectedCorner)){ //If it's not in the available corner map, the user just dragged it randomly
-                                System.out.println("164: Corner not available...");
+                            if (realDestination == null){
                                 returnToOriginalPosition(HandCard);
                                 resetNodeSize(HandCard);
                             }else{
-                                //System.out.println("160");
-                                if(TryToPlace(HandCard, destination, intersectedCorner)){
-                                    for (ImageView imageView : imageViewList) {
-                                        if(imageView == destination){
-                                            String imageViewIdWrongURLHandCard = ((ImageView) HandCard).getImage().getUrl();
-                                            String imageViewIHandCard = imageViewIdWrongURLHandCard.substring(imageViewIdWrongURLHandCard.lastIndexOf('/') +1).replace(".jpg", ".json");
-                                            CardJSON HandCardJson;
-                                            HandCardJson = boardMapper.readValue(new File("src/main/resources/json/" + imageViewIHandCard.replace("jpg", "json")), CardJSON.class);
+                                System.out.println("185:  "+realDestination.getID());
+                                if (!availableCorners.containsKey(realDestination.getID() + " " + intersectedCorner)) { //If it's not in the available corner map, the user just dragged it randomly
+                                    System.out.println("186: Corner not available...");
+                                    returnToOriginalPosition(HandCard);
+                                    resetNodeSize(HandCard);
+                                } else {
+                                    String StrangeURLDestination = destination.getImage().getUrl();
+                                    String secondURL = StrangeURLDestination.substring(StrangeURLDestination.lastIndexOf('/') +1).replace(".jpg", ".json");
+                                    CardJSON destinationJson = boardMapper.readValue(new File("src/main/resources/json/" + secondURL.replace("jpg", "json")), CardJSON.class);
 
-                                            if(!Place(realDestination, HandCardJson, intersectedCorner, resourcesList)){
-                                                returnToOriginalPosition(HandCard);
-                                            }else{
-                                                ((ImageView) HandCard).setImage(null);
-                                                imageView.setImage(new Image("/" + imageViewIHandCard.replace("json", "jpg")));
+                                    //System.out.println("160");
+                                    if (TryToPlace(HandCard, destination, intersectedCorner)) {
+                                        String correctDestination = null;
+                                        switch (Objects.requireNonNull(intersectedCorner)){
+                                            case "topRight":
+                                                correctDestination = "Up" +numberUp;
+                                                numberUp++;
+                                                correctDestinationImg.setId(correctDestination);
+                                                break;
+                                            case "topLeft":
+                                                correctDestination = "Left" + numberLeft;
+                                                numberLeft++;
+                                                correctDestinationImg.setId(correctDestination);
+                                                break;
+                                            case "bottomRight":
+                                                correctDestination = "Right" + numberRight;
+                                                numberRight++;
+                                                correctDestinationImg.setId(correctDestination);
+                                                break;
+                                            case "bottomLeft":
+                                                correctDestination = "Down" + numberDown;
+                                                numberDown++;
+                                                correctDestinationImg.setId(correctDestination);
+                                                break;
+                                        }
+                                        for (ImageView imageView : imageViewList) {
+                                            if(Objects.equals(imageView.getId(), correctDestinationImg.getId())) {
+                                                String imageViewIdWrongURLHandCard = ((ImageView) HandCard).getImage().getUrl();
+                                                String imageViewIHandCard = imageViewIdWrongURLHandCard.substring(imageViewIdWrongURLHandCard.lastIndexOf('/') + 1).replace(".jpg", ".json");
+                                                CardJSON HandCardJson;
+                                                HandCardJson = boardMapper.readValue(new File("src/main/resources/json/" + imageViewIHandCard.replace("jpg", "json")), CardJSON.class);
 
-                                                System.out.println("183: Remember now need to pick another card");
-                                                returnToOriginalPosition(HandCard);
-                                                CardPicker.PickNewCard((ImageView) HandCard);
-                                                //METHOD TO FREEZE
+
+                                                String imageViewIdWrongURLDESTINATION = destination.getImage().getUrl();
+                                                String imageViewIdDESTINATION = imageViewIdWrongURLDESTINATION.substring(imageViewIdWrongURLDESTINATION.lastIndexOf('/') + 1).replace(".jpg", ".json");
+                                                destinationJson = boardMapper.readValue(new File("src/main/resources/json/" + imageViewIdDESTINATION.replace("jpg", "json")), CardJSON.class);
+                                                if (!Place(destinationJson, HandCardJson, intersectedCorner, resourcesList)) {
+                                                    switch (intersectedCorner) {
+                                                        case "topRight":
+                                                            numberUp--;
+                                                            break;
+                                                        case "topLeft":
+                                                            numberLeft--;
+                                                            break;
+                                                        case "bottomRight":
+                                                            numberRight--;
+                                                            break;
+                                                        case "bottomLeft":
+                                                            numberDown--;
+                                                            break;
+                                                    }
+                                                    returnToOriginalPosition(HandCard);
+                                                } else {
+                                                    ((ImageView) HandCard).setImage(null);
+                                                    imageView.setImage(new Image("/" + imageViewIHandCard.replace("json", "jpg")));
+                                                    System.out.println("Remember now need to pick another card");
+                                                    returnToOriginalPosition(HandCard);
+
+                                                    CardPicker.PickNewCard((ImageView) HandCard);
+                                                    //METHOD TO FREEZE
+                                                }
                                             }
                                         }
-                                    }
 
+                                    }
                                 }
+                                System.out.println("215 realDestination ID:  " + realDestination.getID());
                             }
                         } //if I don't want to trust corner (putted on starting card)
                         else{
@@ -197,7 +274,7 @@ public class DraggableMaker {
                             //System.out.println(destinationJson.getID() + " "+ intersectedCorner);
                             //System.out.println(availableCorners.containsKey(destination.getId()+ " " +intersectedCorner));
                             if(!availableCorners.containsKey(destinationJson.getID()+ " " + intersectedCorner)){ //If it's not in the available corner map, the user just dragged it randomly
-                                System.out.println("185: Corner not available...");
+                                System.out.println("225: Corner not available...");
                                 returnToOriginalPosition(HandCard);
                                 resetNodeSize(HandCard);
                             }else{
@@ -226,7 +303,7 @@ public class DraggableMaker {
                                                 correctDestinationImg.setId(correctDestination);
                                                 break;
                                         } //need to correct because i got as destination the startingCard
-                                        System.out.println("230 corrected destination: " +correctDestination);
+                                        System.out.println("254 corrected destination: " +correctDestination);
                                         for (ImageView imageView : imageViewList) {
                                             if(Objects.equals(imageView.getId(), correctDestinationImg.getId())){
                                                 String imageViewIdWrongURLHandCard = ((ImageView) HandCard).getImage().getUrl();
@@ -314,22 +391,43 @@ public class DraggableMaker {
         });
     }
 
-    //TODO fix for the composed imageView
+    private CardJSON getCardJSON(Node HandCard, ObjectMapper boardMapper, CardJSON realDestination, ImageView imageView) throws IOException {
+        if (imageView.getImage() != null) {
+            System.out.println("His image view ain't null");
+            String StrangeURLDestinationS = imageView.getImage().getUrl();
+            String secondURL = StrangeURLDestinationS.substring(StrangeURLDestinationS.lastIndexOf('/') + 1).replace(".jpg", ".json");
+            realDestination = boardMapper.readValue(new File("src/main/resources/json/" + secondURL.replace("jpg", "json")), CardJSON.class);
+        } else {
+            returnToOriginalPosition(HandCard);
+            resetNodeSize(HandCard);
+        }
+        return realDestination;
+    }
+
     public static String decrementDirection(String direction) {
-        // Extract the non-numeric part of the string
-        String textPart = direction.replaceAll("\\d", "");
+        // Regular expression pattern to match directions followed by numbers
+        String pattern = "(Left|Right|Up|Down)(\\d+)";
+        Pattern compiledPattern = Pattern.compile(pattern);
+        Matcher matcher = compiledPattern.matcher(direction);
 
-        // Extract the numeric part of the string
-        String numberPart = direction.replaceAll("\\D", "");
+        StringBuilder result = new StringBuilder();
+        boolean decrementDone = false;
 
-        // Parse the numeric part to an integer
-        int number = Integer.parseInt(numberPart);
+        while (matcher.find()) {
+            String textPart = matcher.group(1);  // Direction part
+            int number = Integer.parseInt(matcher.group(2));  // Number part
 
-        // Decrease the number by one
-        number--;
+            if (!decrementDone) {
+                number--;  // Decrease the first number we find by one
+                decrementDone = true;
+            }
 
-        // Combine the text part and the decremented number
-        return textPart + number;
+            if (number > 0) {
+                result.append(textPart).append(number);
+            }
+        }
+
+        return result.toString();
     }
 
     public static String extractLetters(String str) {
