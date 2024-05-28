@@ -34,42 +34,42 @@
       <ImageView fx:id="Left2" fitHeight="80.0" fitWidth="150.0" layoutX="1824.0" layoutY="1908.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="Down3" fitHeight="80.0" fitWidth="150.0" layoutX="1736.0" layoutY="2138.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="Down4" fitHeight="80.0" fitWidth="150.0" layoutX="1648.0" layoutY="2184.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down5" fitHeight="80.0" fitWidth="150.0" layoutX="1560.0" layoutY="2194.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down6" fitHeight="80.0" fitWidth="150.0" layoutX="1472.0" layoutY="2240.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down7" fitHeight="80.0" fitWidth="150.0" layoutX="1384.0" layoutY="2286.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down8" fitHeight="80.0" fitWidth="150.0" layoutX="1296.0" layoutY="2332.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down9" fitHeight="80.0" fitWidth="150.0" layoutX="1208.0" layoutY="2378.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down10" fitHeight="80.0" fitWidth="150.0" layoutX="1120.0" layoutY="2424.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down11" fitHeight="80.0" fitWidth="150.0" layoutX="1032.0" layoutY="2470.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down12" fitHeight="80.0" fitWidth="150.0" layoutX="944.0" layoutY="2516.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down13" fitHeight="80.0" fitWidth="150.0" layoutX="856.0" layoutY="2562.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down14" fitHeight="80.0" fitWidth="150.0" layoutX="768.0" layoutY="2608.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down15" fitHeight="80.0" fitWidth="150.0" layoutX="680.0" layoutY="2654.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down16" fitHeight="80.0" fitWidth="150.0" layoutX="592.0" layoutY="2700.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down17" fitHeight="80.0" fitWidth="150.0" layoutX="504.0" layoutY="2746.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down18" fitHeight="80.0" fitWidth="150.0" layoutX="416.0" layoutY="2792.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down19" fitHeight="80.0" fitWidth="150.0" layoutX="328.0" layoutY="2838.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down20" fitHeight="80.0" fitWidth="150.0" layoutX="240.0" layoutY="2884.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down21" fitHeight="80.0" fitWidth="150.0" layoutX="152.0" layoutY="2930.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down22" fitHeight="80.0" fitWidth="150.0" layoutX="64.0" layoutY="2976.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down23" fitHeight="80.0" fitWidth="150.0" layoutX="-24.0" layoutY="3022.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down24" fitHeight="80.0" fitWidth="150.0" layoutX="-112.0" layoutY="3068.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down25" fitHeight="80.0" fitWidth="150.0" layoutX="-200.0" layoutY="3114.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down26" fitHeight="80.0" fitWidth="150.0" layoutX="-288.0" layoutY="3160.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down27" fitHeight="80.0" fitWidth="150.0" layoutX="-376.0" layoutY="3206.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down28" fitHeight="80.0" fitWidth="150.0" layoutX="-464.0" layoutY="3252.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down29" fitHeight="80.0" fitWidth="150.0" layoutX="-552.0" layoutY="3298.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down30" fitHeight="80.0" fitWidth="150.0" layoutX="-640.0" layoutY="3344.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down5" fitHeight="80.0" fitWidth="150.0" layoutX="1560.0" layoutY="2230.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down6" fitHeight="80.0" fitWidth="150.0" layoutX="1472.0" layoutY="2276.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down7" fitHeight="80.0" fitWidth="150.0" layoutX="1384.0" layoutY="2322.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down8" fitHeight="80.0" fitWidth="150.0" layoutX="1296.0" layoutY="2368.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down9" fitHeight="80.0" fitWidth="150.0" layoutX="1208.0" layoutY="2414.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down10" fitHeight="80.0" fitWidth="150.0" layoutX="1120.0" layoutY="2460.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down11" fitHeight="80.0" fitWidth="150.0" layoutX="1032.0" layoutY="2506.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down12" fitHeight="80.0" fitWidth="150.0" layoutX="944.0" layoutY="2552.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down13" fitHeight="80.0" fitWidth="150.0" layoutX="856.0" layoutY="2598.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down14" fitHeight="80.0" fitWidth="150.0" layoutX="768.0" layoutY="2644.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down15" fitHeight="80.0" fitWidth="150.0" layoutX="680.0" layoutY="2690.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down16" fitHeight="80.0" fitWidth="150.0" layoutX="592.0" layoutY="2736.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down17" fitHeight="80.0" fitWidth="150.0" layoutX="504.0" layoutY="2782.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down18" fitHeight="80.0" fitWidth="150.0" layoutX="416.0" layoutY="2828.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down19" fitHeight="80.0" fitWidth="150.0" layoutX="328.0" layoutY="2874.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down20" fitHeight="80.0" fitWidth="150.0" layoutX="240.0" layoutY="2920.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down21" fitHeight="80.0" fitWidth="150.0" layoutX="152.0" layoutY="2966.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down22" fitHeight="80.0" fitWidth="150.0" layoutX="64.0" layoutY="3012.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down23" fitHeight="80.0" fitWidth="150.0" layoutX="-24.0" layoutY="3058.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down24" fitHeight="80.0" fitWidth="150.0" layoutX="-112.0" layoutY="3104.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down25" fitHeight="80.0" fitWidth="150.0" layoutX="-200.0" layoutY="3150.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down26" fitHeight="80.0" fitWidth="150.0" layoutX="-288.0" layoutY="3196.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down27" fitHeight="80.0" fitWidth="150.0" layoutX="-376.0" layoutY="3242.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down28" fitHeight="80.0" fitWidth="150.0" layoutX="-464.0" layoutY="3288.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down29" fitHeight="80.0" fitWidth="150.0" layoutX="-552.0" layoutY="3334.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down30" fitHeight="80.0" fitWidth="150.0" layoutX="-640.0" layoutY="3380.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="Down31" fitHeight="80.0" fitWidth="150.0" layoutX="-728.0" layoutY="3390.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down32" fitHeight="80.0" fitWidth="150.0" layoutX="-816.0" layoutY="3436.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down33" fitHeight="80.0" fitWidth="150.0" layoutX="-904.0" layoutY="3482.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down34" fitHeight="80.0" fitWidth="150.0" layoutX="-992.0" layoutY="3528.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down35" fitHeight="80.0" fitWidth="150.0" layoutX="-1080.0" layoutY="3574.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down36" fitHeight="80.0" fitWidth="150.0" layoutX="-1168.0" layoutY="3620.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down37" fitHeight="80.0" fitWidth="150.0" layoutX="-1256.0" layoutY="3666.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down38" fitHeight="80.0" fitWidth="150.0" layoutX="-1344.0" layoutY="3712.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down39" fitHeight="80.0" fitWidth="150.0" layoutX="-1432.0" layoutY="3758.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="Down40" fitHeight="80.0" fitWidth="150.0" layoutX="-1520.0" layoutY="3804.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down32" fitHeight="80.0" fitWidth="150.0" layoutX="-816.0" layoutY="3426.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down33" fitHeight="80.0" fitWidth="150.0" layoutX="-904.0" layoutY="3472.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down34" fitHeight="80.0" fitWidth="150.0" layoutX="-992.0" layoutY="3518.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down35" fitHeight="80.0" fitWidth="150.0" layoutX="-1080.0" layoutY="3564.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down36" fitHeight="80.0" fitWidth="150.0" layoutX="-1168.0" layoutY="3610.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down37" fitHeight="80.0" fitWidth="150.0" layoutX="-1256.0" layoutY="3656.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down38" fitHeight="80.0" fitWidth="150.0" layoutX="-1344.0" layoutY="3702.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down39" fitHeight="80.0" fitWidth="150.0" layoutX="-1432.0" layoutY="3748.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Down40" fitHeight="80.0" fitWidth="150.0" layoutX="-1520.0" layoutY="3794.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="Right3" fitHeight="80.0" fitWidth="150.0" layoutX="2264.0" layoutY="2138.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="Right4" fitHeight="80.0" fitWidth="150.0" layoutX="2352.0" layoutY="2184.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="Right5" fitHeight="80.0" fitWidth="150.0" layoutX="2440.0" layoutY="2230.0" pickOnBounds="true" preserveRatio="true" />
