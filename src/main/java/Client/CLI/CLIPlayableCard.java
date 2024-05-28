@@ -22,12 +22,14 @@ import java.util.List;
         public void setStarterCard(CardJSON clicard, String cardFileName) {
             cardList.set(0, clicard); // Set the starter card at position 0
             cardFileNames.add(cardFileName); // Track the card file name
+            //cardFileNames.set(0, cardFileName); // Track the card file name (overwrite the previous value at index 0
         }
 
         public void setHandCard(int position, CardJSON clicard, String cardFileName) {
             if (position >= 1 && position <= 3) {
                 cardList.set(position, clicard); // Set the hand card at the given position (1-3)
                 cardFileNames.add(cardFileName);
+                cardFileNames.set(position, cardFileName);
             } else {
                 System.out.println("Invalid hand card position. Must be between 1 and 3.");
             }
@@ -36,6 +38,7 @@ import java.util.List;
             if (position >= 4 && position <= 7) {
                 cardList.set(position, clicard);// Set the drawable card at the given position (4-7)
                 cardFileNames.add(cardFileName);
+                cardFileNames.set(position, cardFileName);
             } else {
                 System.out.println("Invalid drawable card position. Must be between 4 and 7.");
             }
@@ -43,12 +46,22 @@ import java.util.List;
         }
         public void useCLICard(int position) {
             if (position >= 0 && position < cardList.size() && cardList.get(position) != null) {
-                cardList.remove(position); // Remove the card from the specified position
-                cardList.add(null); // Maintain the size of the list by adding a null value
+               // cardList.remove(position); // Remove the card from the specified position
+                cardList.set(position, null); // Set the card at the specified position to null
+                //cardList.add(null); // Maintain the size of the list by adding a null value
+                cardFileNames.set(position, null); // Remove the card file name from the list
             } else {
                 System.out.println("Invalid card position or card already used.");
             }
         }
+        public List<CardJSON> getCardList() {
+            return cardList;
+        }
+
+        public List<String> getCardFileNames() {
+            return cardFileNames;
+        }
+
         public List<String> showCards() {
             for (int i = 0; i < cardList.size(); i++) {
                 CardJSON clicard = cardList.get(i);
@@ -95,7 +108,6 @@ import java.util.List;
             manager.setDrawableCard(7, drawableCard4, card7);
             System.out.println("Initial card list:");
             manager.showCards();
-
         }
     }
 
