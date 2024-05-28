@@ -11,24 +11,25 @@ public class CLIPlayableCardTest extends TestCase {
         @BeforeEach
         public void setUp() {
             cliPlayableCard = new CLIPlayableCard();
+            card= new CLICard();
         }
 
         @Test
         public void testSetStarterCard() {
             cliPlayableCard.setStarterCard(card);
-            assertNotNull(cliPlayableCard.showCards().get(0));
+            assertEquals(card, cliPlayableCard.showCards().get(0));
         }
 
         @Test
         public void testSetHandCard() {
             cliPlayableCard.setHandCard(1, card);
-            assertNotNull(cliPlayableCard.showCards().get(1));
+            assertEquals(card, cliPlayableCard.showCards().get(1));
         }
 
         @Test
         public void testSetDrawableCard() {
             cliPlayableCard.setDrawableCard(4, card);
-            assertNotNull(cliPlayableCard.showCards().get(4));
+            assertEquals(card, cliPlayableCard.showCards().get(4));
         }
 
         @Test
@@ -37,5 +38,20 @@ public class CLIPlayableCardTest extends TestCase {
             cliPlayableCard.useCLICard(0);
             assertNull(cliPlayableCard.showCards().get(0));
         }
+         @Test
+         public void settingHandCardAtInvalidPositionDoesNotChangeCards() {
+            cliPlayableCard.setHandCard(0, card);
+            assertNull(cliPlayableCard.showCards().get(0));
+        }
+         @Test
+         public void settingDrawableCardAtInvalidPositionDoesNotChangeCards() {
+            cliPlayableCard.setDrawableCard(3, card);
+            assertNull(cliPlayableCard.showCards().get(3));
+         }
+         @Test
+         public void usingCardAtInvalidPositionDoesNotChangeCards() {
+            cliPlayableCard.useCLICard(8);
+            assertNull(cliPlayableCard.showCards().get(8));
+         }
     }
 
