@@ -9,7 +9,7 @@ import java.util.List;
     public class  CLIPlayableCard {
         private List<CardJSON> cardList;
         private static CLIMapper mapper = new CLIMapper();
-        private List<String> cardFileNames;
+        public static List<String> cardFileNames;
 
         public CLIPlayableCard() {
             cardList = new ArrayList<>(8); // Initialize with a size of 4
@@ -63,7 +63,11 @@ import java.util.List;
             return cardFileNames;
         }
 
-        public static void main(String[] args) {
+        public static List<String> getCardFileNames() {
+            return cardFileNames;
+        }
+
+        public static void setUpHand() {
             CLIPlayableCard manager = new CLIPlayableCard();
             String card1 = RandomCardFile.getRandomSXXFileName().replace("jpg", "json");
             String card2 = RandomCardFile.getRandomXXFileName().replace("jpg", "json");
