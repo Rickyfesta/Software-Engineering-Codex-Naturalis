@@ -1,10 +1,14 @@
 package Controller;
 
+import Model.Cards.CardJSON;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.animation.ScaleTransition;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,9 +25,12 @@ public class FlippableMaker {
 
 
     private final Map<ImageView, Boolean> flippedState = new HashMap<>();
+    private final Map<ImageView, String> ids = new HashMap<>();
+
 
     public void flipCard(ImageView cardImageView, String cardColor, String type, String url) {
         flippedState.putIfAbsent(cardImageView, false); // Initialize the flipped state if not already done
+        //System.out.println(url); URL IS ID
 
         ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(300), cardImageView);
         scaleTransition.setFromX(1.0);
@@ -31,10 +38,14 @@ public class FlippableMaker {
         scaleTransition.setOnFinished(event -> {
             // Update the card's image after the first half of the flip
             if(type.equalsIgnoreCase("Gold")){
-                cardImageView.setImage(getGImageForColor(cardImageView, cardColor, url));
+                ids.putIfAbsent(cardImageView, url);
+                System.out.println("Hey this is the url: " + ids.get(cardImageView));
+                cardImageView.setImage(getGImageForColor(cardImageView, cardColor, ids.get(cardImageView)));
             }
             else{
-                cardImageView.setImage(getImageForColor(cardImageView, cardColor, url));
+                ids.putIfAbsent(cardImageView, url.replaceFirst("0", ""));
+                System.out.println("Hey this is the url: " + ids.get(cardImageView));
+                cardImageView.setImage(getImageForColor(cardImageView, cardColor, ids.get(cardImageView)));
             }
             // Reverse the ScaleTransition to complete the flip
             ScaleTransition reverseTransition = new ScaleTransition(Duration.millis(300), cardImageView);
@@ -46,38 +57,69 @@ public class FlippableMaker {
 
     }
 
-    private Image getGImageForColor(ImageView cardImageView,String color, String url) {
+    private Image getGImageForColor(ImageView cardImageView, String color, String url) {
+        System.out.println("this url : " +url);
         boolean isFlipped = flippedState.get(cardImageView);
         flippedState.put(cardImageView, !isFlipped);
-        switch (color.toLowerCase()) {
-            case "red":
-                return new Image(isFlipped ? "/" + url : GRED_IMAGE);
-            case "blue":
-                return new Image(isFlipped ? "/" + url : GBLUE_IMAGE);
-            case "green":
-                return new Image(isFlipped ? "/" + url : GGREEN_IMAGE);
-            case "purple":
-                return new Image(isFlipped ? "/" + url : GPURPLE_IMAGE);
-            default:
-                throw new IllegalArgumentException("Invalid card color: " + color);
+        System.out.println(isFlipped);
+        if (isFlipped) {
+            System.out.println("this url : " +url);
+            System.out.println(fetchImageUrlFromJson(url, cardImageView));
+            return new Image("/" +fetchImageUrlFromJson(url, cardImageView) + "front.jpg");
+        } else {
+            switch (color.toLowerCase()) {
+                case "red":
+                    return new Image(GRED_IMAGE);
+                case "blue":
+                    return new Image(GBLUE_IMAGE);
+                case "green":
+                    return new Image(GGREEN_IMAGE);
+                case "purple":
+                    return new Image(GPURPLE_IMAGE);
+                default:
+                    throw new IllegalArgumentException("Invalid card color: " + color);
+            }
         }
     }
 
-    private Image getImageForColor(ImageView cardImageView,String color, String url) {
+
+
+    private Image getImageForColor(ImageView cardImageView, String color, String url) {
         boolean isFlipped = flippedState.get(cardImageView);
         flippedState.put(cardImageView, !isFlipped);
+        if (isFlipped) {
+            System.out.println(fetchImageUrlFromJson(url, cardImageView));
+            return new Image("/" +fetchImageUrlFromJson(url, cardImageView).replaceFirst("0", "") + "front.jpg");
+        } else {
+            switch (color.toLowerCase()) {
+                case "red":
+                    return new Image(RED_IMAGE);
+                case "blue":
+                    return new Image(BLUE_IMAGE);
+                case "green":
+                    return new Image(GREEN_IMAGE);
+                case "purple":
+                    return new Image(PURPLE_IMAGE);
+                default:
+                    throw new IllegalArgumentException("Invalid card color: " + color);
+            }
+        }
+    }
 
-        switch (color.toLowerCase()) {
-            case "red":
-                return new Image(isFlipped ? "/" + url : RED_IMAGE);
-            case "blue":
-                return new Image(isFlipped ? "/" + url : BLUE_IMAGE);
-            case "green":
-                return new Image(isFlipped ? "/" + url : GREEN_IMAGE);
-            case "purple":
-                return new Image(isFlipped ? "/" + url : PURPLE_IMAGE);
-            default:
-                throw new IllegalArgumentException("Invalid card color: " + color);
+    private String fetchImageUrlFromJson(String url, ImageView imgView) {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            //url = url +"front.jpg";
+            //System.out.println("src/main/resources/json/" + url);
+            CardJSON card = objectMapper.readValue(new File("src/main/resources/json/" + url + "front.json"), CardJSON.class);
+            if(card.getID() == null){
+                card.setID(ids.get(imgView));
+            }
+            return card.getID();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 

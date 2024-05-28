@@ -1490,6 +1490,7 @@ public class GameBoard {
         draggableMaker.makeDraggable(CardHand3, personalBoardScroll, 1064, 650, copy, personalBoardContainer, StartUrl, imageViewList, ResourcesList);
 
     //Flip the cards
+        /*
         CardHand1.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.SECONDARY) {
                 try{
@@ -1538,6 +1539,8 @@ public class GameBoard {
             }
         });
 
+
+         */
 
         CommonObj.setImage(new Image("/" + RandomCardFile.getRandomOXXFileName()));
         GoldDeck.setImage(new Image("/" + RandomCardFile.getRandomGXXFileName()));
