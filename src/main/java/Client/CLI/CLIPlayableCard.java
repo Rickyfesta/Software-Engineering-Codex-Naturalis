@@ -83,7 +83,7 @@ import java.util.List;
         }
          /*@ ensures \result != null;
       @*/
-        public List<String> getCardFileNames() {
+        public static List<String> getCardFileNames() {
             return cardFileNames;
         }
         /*@ ensures \result != null;

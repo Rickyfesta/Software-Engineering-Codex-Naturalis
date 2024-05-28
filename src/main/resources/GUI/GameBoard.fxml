@@ -446,7 +446,7 @@
                <Font name="Old English Text MT" size="31.0" />
             </font>
          </Text>
-         <Text fx:id="myPoints" layoutX="185.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="24.208984375">
+         <Text fx:id="myPoints" layoutX="185.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="50.0">
             <font>
                <Font name="Old English Text MT" size="31.0" />
             </font>
@@ -456,7 +456,7 @@
                <Font name="Old English Text MT" size="31.0" />
             </font>
          </Text>
-         <Text layoutX="195.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="24.208984375">
+         <Text layoutX="195.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="50">
             <font>
                <Font name="Old English Text MT" size="31.0" />
             </font>
@@ -466,7 +466,7 @@
                <Font name="Old English Text MT" size="31.0" />
             </font>
          </Text>
-         <Text layoutX="195.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="24.208984375">
+         <Text layoutX="195.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="50">
             <font>
                <Font name="Old English Text MT" size="31.0" />
             </font>
@@ -476,7 +476,7 @@
                <Font name="Old English Text MT" size="31.0" />
             </font>
          </Text>
-         <Text layoutX="195.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="24.208984375">
+         <Text layoutX="195.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="50">
             <font>
                <Font name="Old English Text MT" size="31.0" />
             </font>

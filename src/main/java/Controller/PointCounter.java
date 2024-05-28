@@ -38,6 +38,7 @@ public class PointCounter {
                         break;
                     case "a": //It's 2 points for each angle that the card occupies
                         PointCounter += 2*occupiedCorner;
+                        System.out.println("POINT COUNTER 41: Occupied Corner of the card " + occupiedCorner);
                         break;
                 }
             } else {

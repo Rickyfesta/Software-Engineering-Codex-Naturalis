@@ -1297,8 +1297,6 @@ public class GameBoard {
 
     public static String StartUrl = RandomCardFile.getRandomSXXFileName();
 
-    FlippableMaker flippableMaker = new FlippableMaker();
-
     public static List<ImageView> DecksList;
     public static List<ImageView> imageViewList;
     public static List<Text> ResourcesList;
@@ -1479,68 +1477,15 @@ public class GameBoard {
         //initialize the personal board
         BoardManager.initializeBoard(startingCard, ResourcesList);
 
-
+/*
         CardJSON Card1 = boardMapper.readValue(new File("src/main/resources/json/" + url1.replace("jpg", "json")), CardJSON.class);
         CardJSON Card2 = boardMapper.readValue(new File("src/main/resources/json/" + url2.replace("jpg", "json")), CardJSON.class);
         CardJSON Card3 = boardMapper.readValue(new File("src/main/resources/json/" + url3.replace("jpg", "json")), CardJSON.class);
-
+ */
         //Here i make draggable all the cards inside my hand to make them placeable
         draggableMaker.makeDraggable(CardHand1, personalBoardScroll, 508, 650, copy, personalBoardContainer, StartUrl, imageViewList, ResourcesList);
         draggableMaker.makeDraggable(CardHand2, personalBoardScroll, 801, 650, copy, personalBoardContainer, StartUrl, imageViewList, ResourcesList);
         draggableMaker.makeDraggable(CardHand3, personalBoardScroll, 1064, 650, copy, personalBoardContainer, StartUrl, imageViewList, ResourcesList);
-
-    //Flip the cards
-        /*
-        CardHand1.setOnMouseClicked(event -> {
-            if (event.getButton() == MouseButton.SECONDARY) {
-                try{
-                    ObjectMapper objectMapper = new ObjectMapper();
-                    objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-                    CardJSON card = objectMapper.readValue(new File("src/main/resources/json/" + url1.replace("jpg", "json")), CardJSON.class);
-                    //System.out.println(card.getID());
-                    //System.out.println(card.getCOLOUR());
-                    String cardColor = card.getCOLOUR();
-                    String cardType = card.getCARDTYPE();
-                    //System.out.println(cardType);
-                    flippableMaker.flipCard(CardHand1, cardColor, cardType, url1);
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-
-        });
-
-        CardHand2.setOnMouseClicked(event -> {
-            if (event.getButton() == MouseButton.SECONDARY) {
-                try{
-                    ObjectMapper objectMapper = new ObjectMapper();
-                    objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-                    CardJSON card = objectMapper.readValue(new File("src/main/resources/json/" + url2.replace("jpg", "json")), CardJSON.class);
-                    String cardColor = card.getCOLOUR();
-                    String cardType = card.getCARDTYPE();
-                    flippableMaker.flipCard(CardHand2, cardColor, cardType, url2);
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-        });
-        CardHand3.setOnMouseClicked(event -> {
-            if (event.getButton() == MouseButton.SECONDARY) {
-                try{
-                    ObjectMapper objectMapper = new ObjectMapper();
-                    objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-                    CardJSON card = objectMapper.readValue(new File("src/main/resources/json/" + url3.replace("jpg", "json")), CardJSON.class);
-                    String cardColor = card.getCOLOUR();
-                    String cardType = card.getCARDTYPE();
-                    flippableMaker.flipCard(CardHand3, cardColor, cardType, url3);
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-        });
-
-
-         */
 
         CommonObj.setImage(new Image("/" + RandomCardFile.getRandomOXXFileName()));
         GoldDeck.setImage(new Image("/" + RandomCardFile.getRandomGXXFileName()));
