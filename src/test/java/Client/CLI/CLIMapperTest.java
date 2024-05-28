@@ -1,28 +1,30 @@
 package Client.CLI;
 
-import junit.framework.TestCase;
+import Model.Cards.CardJSON;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-public class CLIMapperTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.*;
 
+public class CLIMapperTest {
+
+    @Test
     public void testGetCard() {
         CLIMapper mapper = new CLIMapper();
-        ArrayList<CLICard> cardList = new ArrayList<>(3);
+        ArrayList<CardJSON> cardList = new ArrayList<>(3);
+        ArrayList<String> cardIds = new ArrayList<>(3);
 
-        ArrayList<CLICard> cardid = new ArrayList<>(3);
+        cardIds.add("01front.json");
+        cardIds.add("02front.json");
+        cardIds.add("03front.json");
 
-        cardid.add(mapper.getCard("/CLI/CLI01front"));
-        cardid.add(mapper.getCard("/CLI/CLI02front"));
-        cardid.add(mapper.getCard("/CLI/CLI03front"));
-
-        for (int i = 0; i < 3; i++) {
-            cardList.add(mapper.getCard("/CLI/" + cardid.get(i)));
+        for (String cardId : cardIds) {
+            cardList.add(mapper.getCard(cardId));
         }
 
-        for(CLICard id: cardid) {
-            assertEquals(id, mapper.getCard("/CLI/" + id));
+        for (int i = 0; i < cardIds.size(); i++) {
+            assertEquals(cardList.get(i), mapper.getCard(cardIds.get(i)));
         }
-
     }
 }
