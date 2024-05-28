@@ -22,7 +22,8 @@ public class CardSymbolProcessor {
 
     public static void main(String[] args) {
         // Example usage
-        String cardFilePath = "/json/01front.json";
+        CLIPlayableCard CLIPlayableCard = new CLIPlayableCard();
+        String cardFilePath = Client.CLI.CLIPlayableCard.getCardFileNames().get(0);
         processCardSymbols(cardFilePath);
     }
 }
