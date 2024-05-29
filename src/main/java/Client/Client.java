@@ -1,25 +1,23 @@
 package Client;
 
-import Client.CLI.CLIClient;
 import Client.GUI.GUIClient;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class Client {
-    public static Socket socket;
-    public static BufferedReader bufferedReader;
-    public static BufferedWriter bufferedWriter;
-    public static String username;
+import static java.lang.System.exit;
 
-    /**@ ensures username != null;
-      */
-    public static void resetUsername(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Choose another client username \n");
-        Client.username = scanner.nextLine();
-    }
+public class Client {
+    private final Socket socket;
+    private final BufferedReader bufferedReader;
+    private final PrintWriter bufferedWriter;
+    private final String username;
+
+
     /**@ requires socket != null;
       @ requires username != null;
       @ ensures this.socket == socket;
@@ -30,67 +28,44 @@ public class Client {
     public Client(Socket socket, String username) throws IOException {
         this.socket = socket;
         this.username = username;
-        this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+        this.bufferedWriter = new PrintWriter((socket.getOutputStream()), true);
         this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-
+        listenForMessage();
     }
     /**@ requires socket != null;
       @ requires bufferedWriter != null;
       @ requires username != null;
       */
 
-    public void sendMessage(){
-        try{
-            bufferedWriter.write(username);
-            bufferedWriter.newLine();
-            bufferedWriter.flush();
-
-            Scanner scanner = new Scanner(System.in);
-            while(socket.isConnected()){
-                String messageToSend = scanner.nextLine();
-                bufferedWriter.write(messageToSend);
-                bufferedWriter.newLine();
-                bufferedWriter.flush();
-            }
-        } catch(IOException e){
-            closeEverything(socket, bufferedReader, bufferedWriter);
-        }
+    public void sendMessage(String toSend){
+        bufferedWriter.println(toSend);
     }
     /**@ requires socket != null;
       @ requires bufferedReader != null;
       */
 
     public void listenForMessage(){
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                String msgFromGroupChat;
-
-                while(socket.isConnected()){
-                    try{
-                        msgFromGroupChat = bufferedReader.readLine();
-                        System.out.println(msgFromGroupChat);
-                    }catch (IOException e){
+        new Thread(() -> {
+            String msgFromGroupChat;
+                try{
+                    msgFromGroupChat = bufferedReader.readLine();
+                    if(msgFromGroupChat.equals("Login Failed")){
                         closeEverything(socket, bufferedReader, bufferedWriter);
                     }
+                }catch (IOException e){
+                    closeEverything(socket, bufferedReader, bufferedWriter);
                 }
-            }
         }).start();
     }
      /**@ requires socket != null || bufferedReader != null || bufferedWriter != null;
       */
 
-    public static void closeEverything(Socket socket, BufferedReader bufferedReader, BufferedWriter bufferedWriter){
+    public static void closeEverything(Socket socket, BufferedReader bufferedReader, PrintWriter bufferedWriter){
         try{
-            if(bufferedReader != null){
                 bufferedReader.close();
-            }
-            if(bufferedWriter != null){
                 bufferedWriter.close();
-            }
-            if(socket != null){
                 socket.close();
-            }
+                exit(0);
         } catch(IOException e){
             e.printStackTrace();
         }
@@ -101,16 +76,20 @@ public class Client {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your username for the group chat: ");
         String username = scanner.nextLine();
-        Socket socket = new Socket("localhost", 1234);
+        Socket socket = new Socket("localhost", 60000);
         Client client = new Client(socket, username);
-        System.out.println("Connected to the server");
+        client.sendMessage(username);
+        if(socket.isConnected()){
+            System.out.println("Connected to server!");
+        }
+        //System.out.println("Connected to the server");
         System.out.println("Choose if you want to play on cli or gui: ");
         String interfaceClient = scanner.nextLine();
            if (interfaceClient.equalsIgnoreCase("CLI")){
                 System.out.println("Connecting to the server...");
                 client.connectToServer(true);
-                client.listenForMessage();
-                client.sendMessage();
+                //client.listenForMessage();
+                //client.sendMessage();
             }
             else if (interfaceClient.equalsIgnoreCase("GUI")) {
                 try{
@@ -121,22 +100,19 @@ public class Client {
 
                 System.out.println("Connecting to the server...");
                 client.connectToServer(false);
-                client.listenForMessage();
-                client.sendMessage();
+                //client.listenForMessage();
+                //client.sendMessage();
 
             }
             else{
                 System.out.println("Invalid parameter, you have to write GUI or CLI !");
-                System.exit(0);
+                exit(0);
             }
         }
-        /**@ requires cli == true || cli == false;
-      */
-
 
     private static void connectToServer(boolean cli) {
             if(cli){
-                CLIClient.start();
+                //CLIClient.start();
 
             }
             else{

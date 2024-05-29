@@ -1,9 +1,6 @@
 package Client.CLI;
 
-import Client.Client;
-
 import java.util.List;
-import java.util.Scanner;
 
 
 
@@ -15,18 +12,13 @@ public class CLIClient {
       @ ensures MenuOption.getQuit() != null;
       */
 
+    /*
     public static void start() {
         Scanner scanner = new Scanner(System.in);
         System.out.println(MenuOption.getTitle());
         System.out.println(MenuOption.getStart());
         System.out.println(MenuOption.getQuit());
         String choice = scanner.nextLine();
-
-        /**@ ensures choice.equalsIgnoreCase("Start") ||
-          @         choice.equalsIgnoreCase("Start Game") ||
-          @         choice.equalsIgnoreCase("quit");
-          */
-
         if(choice.equalsIgnoreCase("Start") || choice.equalsIgnoreCase("Start Game")){
             //Start a game
         }
@@ -35,4 +27,6 @@ public class CLIClient {
             Client.closeEverything(Client.socket, Client.bufferedReader, Client.bufferedWriter);
         }
     }
+    */
+
 }

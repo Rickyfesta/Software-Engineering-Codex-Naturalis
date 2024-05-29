@@ -1,13 +1,18 @@
 package Controller;
 
+import Server.Server;
+
 import java.io.*;
 import java.net.Socket;
 
 //handles the connections between clients and server
 
 public class ClientHandler implements Runnable {
-    private Socket socket;
     private ClientDisconnectListener listener;
+
+    private final Socket socket;
+    private final BufferedReader bufferedReader;
+    private final PrintWriter bufferedWriter;
 
     public interface ClientDisconnectListener {
         void onClientDisconnect();
@@ -18,44 +23,60 @@ public class ClientHandler implements Runnable {
       @ ensures this.listener == listener;
       */
 
-    public ClientHandler(Socket socket, ClientDisconnectListener listener) {
+    public ClientHandler(Socket socket, ClientDisconnectListener listener) throws IOException {
         this.socket = socket;
         this.listener = listener;
+        this.bufferedWriter = new PrintWriter((socket.getOutputStream()), true);
+        this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
     }
-    public static void makeTurn(String currentPlayer) {
+
+    public static void closeEverything(Socket socket, BufferedReader bufferedReader, PrintWriter bufferedWriter){
+        try{
+            bufferedReader.close();
+            bufferedWriter.close();
+            socket.close();
+
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
+
 
     @Override
     public void run() {
-        /**@ ensures socket != null;
-          @ ensures listener != null;
-          */
-        try (InputStream input = socket.getInputStream();
-             BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-             OutputStream output = socket.getOutputStream();
-             PrintWriter writer = new PrintWriter(output, true)) {
-
-            // Listening for client
-            String line;
-            while ((line = reader.readLine()) != null) {
+        try{
+            while(!login()){
+                //System.out.println("Login failed");
+                closeEverything(socket, bufferedReader, bufferedWriter);
+                return;
             }
-        } catch (IOException ex) {
-            System.out.println("Error in ClientHandler: " + ex.getMessage());
-        } finally {
-            listener.onClientDisconnect(); // Notify server about the disconnection
-            closeResources();
+        }catch(IOException e){
+            throw new RuntimeException(e);
         }
     }
-     /**@ ensures socket != null;
-      */
 
-    private void closeResources() {
+    public boolean login() throws IOException{
         try {
-            socket.close();
-        } catch (IOException e) {
-            System.out.println("Failed to close socket");
+            String received = bufferedReader.readLine();
+            for(String nick : Server.getNicknames()){
+                if(nick.equals(received)){
+                    //System.out.println("cannot use this nickname");
+                    sendMessageToClient("Login Failed");
+                    return false;
+                }
+            }
+            Server.getNicknames().add(received);
+        }catch (IOException e) {
+            throw new RuntimeException(e);
         }
+        sendMessageToClient("Connected!");
+        return true;
     }
+
+    private void sendMessageToClient(String s) {
+        bufferedWriter.println(s);
+    }
+
 }
 
 
