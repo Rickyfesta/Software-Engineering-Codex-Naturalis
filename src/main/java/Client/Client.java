@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import static java.lang.System.exit;
@@ -16,6 +17,7 @@ public class Client {
     private final BufferedReader bufferedReader;
     private final PrintWriter bufferedWriter;
     private final String username;
+    private final ArrayList<String> messages = new ArrayList<>();
 
 
     /**@ requires socket != null;
@@ -49,6 +51,7 @@ public class Client {
             String msgFromGroupChat;
                 try{
                     msgFromGroupChat = bufferedReader.readLine();
+                    messages.add(msgFromGroupChat);
                     if(msgFromGroupChat.equals("Login Failed")){
                         closeEverything(socket, bufferedReader, bufferedWriter);
                     }
@@ -59,8 +62,17 @@ public class Client {
     }
      /**@ requires socket != null || bufferedReader != null || bufferedWriter != null;
       */
+    public String checkForMSG(){
+        while(messages.isEmpty()){
+            //TODO thread sleep
+        }
+        String result = messages.get(0);
+        messages.remove(0);
+        return result;
+    }
 
-    public static void closeEverything(Socket socket, BufferedReader bufferedReader, PrintWriter bufferedWriter){
+
+    public void closeEverything(Socket socket, BufferedReader bufferedReader, PrintWriter bufferedWriter){
         try{
                 bufferedReader.close();
                 bufferedWriter.close();
@@ -79,9 +91,12 @@ public class Client {
         Socket socket = new Socket("localhost", 60000);
         Client client = new Client(socket, username);
         client.sendMessage(username);
-        if(socket.isConnected()){
-            System.out.println("Connected to server!");
+
+        if(client.checkForMSG().equals("Login Failed")){
+            System.out.println("Connection failed");
+            return;
         }
+        System.out.println("Connected to Server!");
         //System.out.println("Connected to the server");
         System.out.println("Choose if you want to play on cli or gui: ");
         String interfaceClient = scanner.nextLine();
