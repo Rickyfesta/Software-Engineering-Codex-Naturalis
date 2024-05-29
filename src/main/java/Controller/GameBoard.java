@@ -1309,6 +1309,9 @@ public class GameBoard {
         return personalBoardContainer;
     }
     @FXML
+     /**@ requires event != null;
+      @ ensures commonBoardDecksContainer.getPrefWidth() == 0 || commonBoardDecksContainer.getPrefWidth() == 800;
+      */
     public void showBoardandCards(MouseEvent event) {
         if ((event.getButton() == MouseButton.PRIMARY || event.getButton() == MouseButton.SECONDARY)  && commonBoardDecksContainer.getPrefWidth() == 0){ // Only expand if it's collapsed
             commonBoardDecksContainer.setPrefWidth(800.0d);
@@ -1356,6 +1359,11 @@ public class GameBoard {
         //System.out.println("Left" + commonBoardDecksContainer.getPrefWidth());
     }
     @FXML
+   /**@ ensures ResourcesList.size() == 7;
+      @ ensures DecksList.size() == 6;
+      @ ensures imageViewList.size() == 212;
+      @ ensures MyPoints.size() == 1;
+      */
     void initialize() throws IOException {
 
         DraggableMaker draggableMaker = new DraggableMaker(this);
