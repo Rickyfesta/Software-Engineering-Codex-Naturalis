@@ -27,6 +27,7 @@ public class RandomCardFile {
     }
 
     // Method to generate a random "XXfront.json" file name
+    /**@ ensures \result != null && \result.length() == 11; */
     public static String getRandomXXFileName() {
         String number = generateRandomNumber();
         //System.out.println(number + "front.json");
@@ -34,29 +35,36 @@ public class RandomCardFile {
     }
 
     // Method to generate a random "GXXfront.json" file name
+    /**@ ensures \result != null && \result.length() == 12; */
     public static String getRandomGXXFileName() {
         String number = generateRandomNumber();
         return "G" + number + "front.jpg";
     }
 
     // Method to generate a random "OXXfront.json" file name
+    /**@ ensures \result != null && \result.length() == 12; */
     public static String getRandomOXXFileName() {
         String number = generateRandomNumberO();
         return "O" + number + "front.jpg";
     }
     // Method to generate a random "SXXfront.json" file name
+    /**@ ensures \result != null && \result.length() == 12; */
     public static String getRandomSXXFileName() {
         String number = generateRandomNumber1();
         String back = "S" + number + "back.jpg";
         return "S" + number + "front.jpg";
     }
     //file takes the random number and return back
+    /**@ requires back != null;
+      @ ensures \result != null && \result.equals(back.replace("front", "back"));
+      */
     public static String getRandomSXXFileNameBack(String back) {
         return back.replace("front", "back");
     }
 
 
     // Helper method to generate a random two-digit number
+    /**@ ensures \result != null && \result.length() == 2; */
     private static String generateRandomNumber() {
         Random random = new Random();
         int cardNumber;  // Generates a number from 1 to 20
@@ -65,12 +73,14 @@ public class RandomCardFile {
     }
 
     // Helper method to generate a random two-digit number
+    /**@ ensures \result != null && \result.length() == 2; */
     private static String generateRandomNumberO() {
         Random random = new Random();
         int cardNumber;  // Generates a number from 1 to 20
             cardNumber = 1 + random.nextInt(16);  // Generates a number from 1 to 40
         return String.format("%02d", cardNumber);  // Formats the number as two digits
     }
+    /**@ ensures \result != null && \result.length() == 2; */
     private static String generateRandomNumber1() {
         Random random = new Random();
         int cardNumber;// Generates a number from 1 to 20
@@ -78,6 +88,9 @@ public class RandomCardFile {
         return String.format("%02d", cardNumber);  // Formats the number as two digits
     }
     // Determines the associated back file based on the card number from the front file
+    /**@ requires frontFileName != null;
+      @ ensures \result != null && (\result.equals("MushroomBack.jpg") || \result.equals("PlantBack.jpg") || \result.equals("AnimalBack.jpg") || \result.equals("InsectBack.jpg"));
+      */
     public static String getAssociatedBackFileName(String frontFileName) {
         // Extract the number from the filename
         int cardNumber = Integer.parseInt(frontFileName.substring(0, 2));
@@ -99,6 +112,9 @@ public class RandomCardFile {
     }
 
     // Determines the associated back file based on the card number from the front file
+     /**@ requires frontFileName != null;
+      @ ensures \result != null && (\result.equals("GMushroomBack.jpg") || \result.equals("GPlantBack.jpg") || \result.equals("GAnimalBack.jpg") || \result.equals("GInsectBack.jpg"));
+      */
     public static String getAssociatedGBackFileName(String frontFileName) {
         // Extract the number from the filename
         //System.out.println(Integer.parseInt(frontFileName.substring(1, 3)));
@@ -121,6 +137,9 @@ public class RandomCardFile {
     }
 
     // Determines the associated back file based on the card number from the front file
+     /**@ requires frontFileName != null;
+      @ ensures \result != null && \result.equals("OBack.jpg");
+      */
     public static String getAssociatedOBackFileName(String frontFileName) {
         // Extract the number from the filename
         //System.out.println(Integer.parseInt(frontFileName.substring(1, 3)));
