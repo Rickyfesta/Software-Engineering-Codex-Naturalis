@@ -37,6 +37,42 @@ public class Card {
         this.symbol = null;
 
     }
+    // Getters
+    public String getColor() {
+        return color;
+    }
+
+    public String getTop() {
+        return top;
+    }
+
+    public String getLeft() {
+        return left;
+    }
+
+    public String getRight() {
+        return right;
+    }
+
+    public String getBottom() {
+        return bottom;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public boolean isFlipped() {
+        return isFlipped;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
     //If corner playable then allows to be covered by other cards
     //TODO: Needs to be called when card is picked up
     /**@ ensures \result == (corner != null);
