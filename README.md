@@ -5,7 +5,6 @@
 
 * Matrundola Tony David - tonydavid.matrundola@mail.polimi.it
 * Festa Riccardo - riccardo2.festa@mail.polimi.it
-* Cepi Giuseppepìo - giuseppepio.cepi@mail.polimi.it
 * Altomari Giulio Giovanni - giuliogiovanni.altomari@mail.polimi.it
 
 ## About
