@@ -42,6 +42,7 @@ public class ServerController {
     }
 
     public void startGame() throws JsonProcessingException {
+
         ClientHandler.broadcastMessage("Game is starting!");
         ClientHandler.broadcastMessage(cg1.getID());
         ClientHandler.broadcastMessage(cg2.getID());
@@ -53,6 +54,7 @@ public class ServerController {
             clientHandler.sendMessageToClient(personalGoaldeck.get(2*i).getID());
             clientHandler.sendMessageToClient(personalGoaldeck.get(2*i+1).getID());
         }
+        ClientHandler.broadcastMessage("Start");
 
     }
 

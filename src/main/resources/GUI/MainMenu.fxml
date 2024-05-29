@@ -6,17 +6,60 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="1300.0" stylesheets="@css/MainMenu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.GUI.MainMenu">
+<AnchorPane opacity="0.95" prefHeight="750.0" prefWidth="1300.0" stylesheets="@css/MainMenu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.GUI.MainMenu">
    <children>
-      <ImageView fitHeight="750.0" fitWidth="1300.0" pickOnBounds="true">
+      <ImageView fitHeight="750.0" fitWidth="582.0" opacity="0.9" pickOnBounds="true">
          <image>
-            <Image url="@img/Mainbg.png" />
+            <Image url="@../../../../../../Downloads/brownback.jpg" />
+         </image></ImageView>
+      <ImageView fitHeight="142.0" fitWidth="131.0" layoutX="232.0" layoutY="518.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Downloads/Publisher.png" />
          </image>
       </ImageView>
-      <Text layoutX="426.0" layoutY="137.0" opacity="0.57" strokeType="OUTSIDE" strokeWidth="0.0" text="███████████" underline="true">
+      <ImageView fitHeight="247.0" fitWidth="257.0" layoutX="174.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Codex_scatola+ombra.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="750.0" fitWidth="723.0" layoutX="581.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../../../../Documents/woodback.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="262.0" layoutX="701.0" layoutY="342.0" opacity="0.25" strokeType="OUTSIDE" strokeWidth="3.0" width="474.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke></Rectangle>
+      <Text fill="WHITE" layoutX="792.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WELCOME TO CODEX NATURALIS " wrappingWidth="290.78582763671875">
+         <font>
+            <Font name="Britannic Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="728.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codex Naturalis">
+         <font>
+            <Font name="Old English Text MT" size="61.0" />
+         </font>
+      </Text>
+      <Text fontSmoothingType="LCD" layoutX="732.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codex Naturalis" underline="true">
          <font>
             <Font name="Old English Text MT" size="61.0" />
          </font>
@@ -37,32 +80,15 @@
             </LinearGradient>
          </fill>
       </Text>
-      <Text layoutX="440.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codex Naturalis">
+      <Text fill="WHITE" layoutX="745.0" layoutY="555.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Waiting fot other players to join" wrappingWidth="386.9367332458496">
          <font>
-            <Font name="Old English Text MT" size="61.0" />
+            <Font name="Old English Text MT" size="30.0" />
+         </font></Text>
+      <Text fx:id="welcomeField" layoutX="728.0" layoutY="478.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="420.47705078125">
+         <font>
+            <Font size="30.0" />
          </font>
       </Text>
-      <Text fontSmoothingType="LCD" layoutX="446.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codex Naturalis" underline="true">
-         <font>
-            <Font name="Old English Text MT" size="61.0" />
-         </font>
-         <fill>
-            <LinearGradient endX="1.0" endY="1.0" startX="0.5037878927859394">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.7684210538864136" green="0.5898343324661255" blue="0.05407407507300377" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="0.3176470696926117" green="0.24313725531101227" blue="0.0235294122248888" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Text>
-      <Text layoutX="586.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Waiting fot other players to join" wrappingWidth="140.5367088317871" />
+      <Line endX="340.5999755859375" layoutX="802.0" layoutY="402.0" startX="-65.800048828125" stroke="WHITE" />
    </children>
 </AnchorPane>
