@@ -12,6 +12,11 @@ public class ClientHandler implements Runnable {
     public interface ClientDisconnectListener {
         void onClientDisconnect();
     }
+    /**@ requires socket != null;
+      @ requires listener != null;
+      @ ensures this.socket == socket;
+      @ ensures this.listener == listener;
+      */
 
     public ClientHandler(Socket socket, ClientDisconnectListener listener) {
         this.socket = socket;
@@ -22,6 +27,9 @@ public class ClientHandler implements Runnable {
 
     @Override
     public void run() {
+        /**@ ensures socket != null;
+          @ ensures listener != null;
+          */
         try (InputStream input = socket.getInputStream();
              BufferedReader reader = new BufferedReader(new InputStreamReader(input));
              OutputStream output = socket.getOutputStream();
@@ -38,6 +46,8 @@ public class ClientHandler implements Runnable {
             closeResources();
         }
     }
+     /**@ ensures socket != null;
+      */
 
     private void closeResources() {
         try {

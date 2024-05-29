@@ -11,9 +11,9 @@ import java.util.List;
         private static CLIMapper mapper = new CLIMapper();
         public static List<String> cardFileNames;
 
-         /*@ ensures cardList != null;
+         /**@ ensures cardList != null;
       @ ensures cardFileNames != null;
-      @*/
+      */
         public CLIPlayableCard() {
             cardList = new ArrayList<>(8); // Initialize with a size of 4
             for (int i = 0; i < 8; i++) {
@@ -21,22 +21,22 @@ import java.util.List;
             }
             cardFileNames = new ArrayList<>();
         }
-        /*@ requires clicard != null;
+        /**@ requires clicard != null;
       @ requires cardFileName != null;
       @ ensures cardList.get(0) == clicard;
       @ ensures cardFileNames.contains(cardFileName);
-      @*/
+      */
         public void setStarterCard(CardJSON clicard, String cardFileName) {
             cardList.set(0, clicard); // Set the starter card at position 0
             cardFileNames.add(cardFileName); // Track the card file name
             //cardFileNames.set(0, cardFileName); // Track the card file name (overwrite the previous value at index 0
         }
-        /*@ requires clicard != null;
+        /**@ requires clicard != null;
       @ requires cardFileName != null;
       @ requires position >= 1 && position <= 3;
       @ ensures cardList.get(position) == clicard;
       @ ensures cardFileNames.get(position).equals(cardFileName);
-      @*/
+      */
         public void setHandCard(int position, CardJSON clicard, String cardFileName) {
             if (position >= 1 && position <= 3) {
                 cardList.set(position, clicard); // Set the hand card at the given position (1-3)
@@ -46,12 +46,12 @@ import java.util.List;
                 System.out.println("Invalid hand card position. Must be between 1 and 3.");
             }
         }
-        /*@ requires clicard != null;
+        /**@ requires clicard != null;
       @ requires cardFileName != null;
       @ requires position >= 4 && position <= 7;
       @ ensures cardList.get(position) == clicard;
       @ ensures cardFileNames.get(position).equals(cardFileName);
-      @*/
+      */
         public void setDrawableCard(int position, CardJSON clicard, String cardFileName) {
             if (position >= 4 && position <= 7) {
                 cardList.set(position, clicard);// Set the drawable card at the given position (4-7)
@@ -62,10 +62,10 @@ import java.util.List;
             }
 
         }
-        /*@ requires position >= 0 && position < cardList.size();
+        /**@ requires position >= 0 && position < cardList.size();
      @ ensures cardList.get(position) == null;
      @ ensures cardFileNames.get(position) == null;
-     @*/
+     */
         public void useCLICard(int position) {
             if (position >= 0 && position < cardList.size() && cardList.get(position) != null) {
                // cardList.remove(position); // Remove the card from the specified position
@@ -76,18 +76,18 @@ import java.util.List;
                 System.out.println("Invalid card position or card already used.");
             }
         }
-        /*@ ensures \result != null;
-      @*/
+        /**@ ensures \result != null;
+      */
         public List<CardJSON> getCardList() {
             return cardList;
         }
-         /*@ ensures \result != null;
-      @*/
+         /**@ ensures \result != null;
+      */
         public List<String> getCardFileNames() {
             return cardFileNames;
         }
-        /*@ ensures \result != null;
-      @*/
+        /**@ ensures \result != null;
+      */
         public List<String> showCards() {
             for (int i = 0; i < cardList.size(); i++) {
                 CardJSON clicard = cardList.get(i);

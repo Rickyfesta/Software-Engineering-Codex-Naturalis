@@ -9,11 +9,11 @@ import java.util.Scanner;
 
 public class CLIClient {
     private List<MenuOption> playerTurnMenu, opponentTurnMenu;
-    /*@ ensures scanner != null;
+    /**@ ensures scanner != null;
       @ ensures MenuOption.getTitle() != null;
       @ ensures MenuOption.getStart() != null;
       @ ensures MenuOption.getQuit() != null;
-      @*/
+      */
 
     public static void start() {
         Scanner scanner = new Scanner(System.in);
@@ -22,10 +22,11 @@ public class CLIClient {
         System.out.println(MenuOption.getQuit());
         String choice = scanner.nextLine();
 
-        /*@ ensures choice.equalsIgnoreCase("Start") ||
+        /**@ ensures choice.equalsIgnoreCase("Start") ||
           @         choice.equalsIgnoreCase("Start Game") ||
           @         choice.equalsIgnoreCase("quit");
-          @*/
+          */
+
         if(choice.equalsIgnoreCase("Start") || choice.equalsIgnoreCase("Start Game")){
             //Start a game
         }

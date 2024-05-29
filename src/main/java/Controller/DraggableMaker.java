@@ -49,9 +49,25 @@ public class DraggableMaker {
 
     static boolean trustCorner = false;
     ImageView correctDestinationImg = new ImageView();
+
+    /**@ requires gameBoard != null;
+     @ ensures this.gameBoard == gameBoard;
+     */
     public DraggableMaker(GameBoard gameBoard) {
         this.gameBoard = gameBoard;
     }
+    /**@ requires HandCard != null;
+      @ requires scrollPane != null;
+      @ requires copy != null;
+      @ requires personalBoardContainer != null;
+      @ requires startURL != null;
+      @ requires imageViewList != null;
+      @ requires resourcesList != null;
+      @ ensures HandCard.getLayoutX() == initialX;
+      @ ensures HandCard.getLayoutY() == initialY;
+      @ ensures initialXMap.containsKey(HandCard);
+      @ ensures initialYMap.containsKey(HandCard);
+      */
 
     public void makeDraggable(Node HandCard, ScrollPane scrollPane, double initialX, double initialY, ImageView copy, AnchorPane personalBoardContainer, String startURL, List<ImageView> imageViewList, List<Text> resourcesList) throws IOException {
         initialXMap.put(HandCard, initialX);
@@ -473,6 +489,9 @@ public class DraggableMaker {
         }
         return builder.toString();
     }
+    /**@ requires CardToPlace != null;
+     @ ensures \result == true <==> (\forall Map.Entry<String, Point> entry; entry.getKey().startsWith(prefix) && entry.getKey().endsWith(corner));
+     */
 
     private boolean TryToPlace(Node CardToPlace, ImageView destination, String corner) throws IOException {
         if(destination == null){
@@ -610,9 +629,17 @@ public class DraggableMaker {
         }
         return null; // No intersection with any corner
     }
+    /**@ requires HandCard != null;
+     @ requires scrollPane != null;
+     @ ensures \result == (\old(scrollPane.getBoundsInParent().intersects(HandCard.getBoundsInParent())));
+     */
     private boolean isOverScrollPane(Node HandCard, ScrollPane scrollPane) {
         return scrollPane.getBoundsInParent().intersects(HandCard.getBoundsInParent());
     }
+    /**@ requires HandCard != null;
+     @ ensures HandCard.getLayoutX() == \old(HandCard.getLayoutX());
+     @ ensures HandCard.getLayoutY() == \old(HandCard.getLayoutY());
+     */
 
     private void returnToOriginalPosition(Node node) {
         if (!originalParent.equals(node.getParent())) {
@@ -623,11 +650,20 @@ public class DraggableMaker {
         node.setLayoutY(initialYMap.get(node)); // Return to initial Y position
 
     }
+    /**@ requires HandCard != null;
+     @ ensures HandCard.getScaleX() == 1.0;
+     @ ensures HandCard.getScaleY() == 1.0;
+     */
 
     private void resetNodeSize(Node node) {
         node.setScaleX(1.0);
         node.setScaleY(1.0);
     }
+    /**@ requires x >= 0;
+     @ requires y >= 0;
+     @ requires corner != null;
+     @ ensures \result != null;
+     */
 
     private static Rectangle createBoundsRectangle(double x, double y, String corner) {
         Rectangle rect;
@@ -663,6 +699,11 @@ public class DraggableMaker {
         }
         return null;
     }
+    /**@ requires x >= 0;
+     @ requires y >= 0;
+     @ requires corner != null;
+     @ ensures \result != null;
+     */
 
     private static Rectangle createBoundsRectangleForStartingCard(double x, double y, String corner) {
         Rectangle rect;

@@ -5,9 +5,9 @@ import Model.Cards.CardJSON;
 public class CardSymbolProcessor {
     private static CLIMapper mapper = new CLIMapper();
 
-    /*@ requires cardFilePath != null;
+    /**@ requires cardFilePath != null;
      @ ensures (\result == null) || (card != null);
-     @*/
+     */
     public static void processCardSymbols(String cardFilePath) {
         CardJSON card = mapper.getCard(cardFilePath);
         if (card != null) {

@@ -11,14 +11,14 @@ import java.util.List;
 public class CardPicker {
 
     static List<ImageView> StartDecksList;
-    /*@ requires gameBoard != null;
+    /**@ requires gameBoard != null;
       @ ensures StartDecksList == null;
-      @*/
+      */
     public CardPicker(GameBoard gameBoard) {
     }
-     /*@ requires handCard != null;
+     /**@ requires handCard != null;
       @ ensures (\forall ImageView imageView; StartDecksList.contains(imageView); imageView.getOnMouseClicked() != null);
-      @*/
+      */
 
     public static void PickNewCard(ImageView handCard) {
         //Here i make pickable the cards of the decks.
@@ -48,12 +48,12 @@ public class CardPicker {
             });
             }
         }
-        /*@ requires CardToPick != null;
+        /**@ requires CardToPick != null;
       @ requires decksList != null;
       @ ensures StartDecksList == decksList;
       @ ensures CardToPick.getOnMouseEntered() != null;
       @ ensures CardToPick.getOnMouseExited() != null;
-      @*/
+      */
 
     public void makePickable(ImageView CardToPick, List<ImageView> decksList) {
         StartDecksList = decksList;
@@ -68,9 +68,9 @@ public class CardPicker {
         CardToPick.setOnMouseEntered(event -> hoverTransition.playFromStart());
         CardToPick.setOnMouseExited(event -> exitTransition.playFromStart());
     }
-    /*@ requires filePath != null;
+    /**@ requires filePath != null;
       @ ensures \result != null;
-      @*/
+      */
 
     private static String extractFileName(String filePath) {
         if (filePath != null && !filePath.isEmpty()) {
