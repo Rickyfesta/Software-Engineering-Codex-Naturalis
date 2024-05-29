@@ -44,7 +44,7 @@ public class ClientHandler implements Runnable {
                 closeEverything(socket, bufferedReader, bufferedWriter);
                 return;
             }
-            System.out.println("Player connected. Total players: " + Server.getPlayerCount());
+            //System.out.println("Player connected. Total players: " + Server.getPlayerCount());
         }catch(IOException e){
             throw new RuntimeException(e);
         }
@@ -81,18 +81,30 @@ public class ClientHandler implements Runnable {
             if(nick.equals(received)){
                 //System.out.println("cannot use this nickname");
                 sendMessageToClient("Login Failed");
+                Server.getClients().remove(this);
                 return false;
             }
         }
         Server.getNicknames().add(received);
         sendMessageToClient("Connected!");
-        Server.getPlayerCount().incrementAndGet();
+        System.out.println("A new player has just connected - count: " + Server.getPlayerCount().incrementAndGet());
+        System.out.println("COUNT " + Server.getPlayerCount().get());
+        if(Server.getPlayerCount().get() == 1){
+            sendMessageToClient("Enter player number:");
+            int playerNumber = Integer.parseInt(checkForMSG());
+            Server.setMinPlayers(playerNumber);
+            System.out.println(Server.getMinPlayers());
+        }
         return true;
     }
 
     public String checkForMSG(){
         while(messages.isEmpty()){
-            //TODO thread sleep
+            try {
+                Thread.sleep(250);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
         String result = messages.get(0);
         messages.remove(0);

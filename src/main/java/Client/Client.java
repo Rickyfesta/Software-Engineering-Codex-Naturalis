@@ -32,7 +32,7 @@ public class Client {
         this.username = username;
         this.bufferedWriter = new PrintWriter((socket.getOutputStream()), true);
         this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        listenForMessage();
+        this.listenForMessage();
     }
     /**@ requires socket != null;
       @ requires bufferedWriter != null;
@@ -47,27 +47,37 @@ public class Client {
       */
 
     public void listenForMessage(){
-        new Thread(() -> {
+        Thread t = new Thread(() -> {
             String msgFromGroupChat;
                 try{
-                    msgFromGroupChat = bufferedReader.readLine();
-                    messages.add(msgFromGroupChat);
-                    if(msgFromGroupChat.equals("Login Failed")){
-                        closeEverything(socket, bufferedReader, bufferedWriter);
+                    while(socket.isConnected()){
+                        msgFromGroupChat = bufferedReader.readLine();
+                        messages.add(msgFromGroupChat);
+                        Thread.sleep(250);
                     }
                 }catch (IOException e){
                     closeEverything(socket, bufferedReader, bufferedWriter);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
                 }
-        }).start();
+        });
+        t.start();
     }
      /**@ requires socket != null || bufferedReader != null || bufferedWriter != null;
       */
     public String checkForMSG(){
         while(messages.isEmpty()){
             //TODO thread sleep
+            try {
+                Thread.sleep(250);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
         String result = messages.get(0);
         messages.remove(0);
+        System.out.println("MESSAGE: " + result);
+        System.out.println("LEFT: " + messages);
         return result;
     }
 
@@ -98,6 +108,28 @@ public class Client {
         }
         System.out.println("Connected to Server!");
         //System.out.println("Connected to the server");
+
+        String rec = client.checkForMSG();
+        if(rec.equals("Enter player number:")){
+            int number = 0;
+            while(number > 4 || number <2 ){
+                try{
+                    System.out.println("Enter player number: ");
+                    number = Integer.parseInt(scanner.nextLine());
+                }catch(IllegalArgumentException e){
+                    System.out.println("Error");
+                    client.closeEverything(socket, client.bufferedReader, client.bufferedWriter);
+                    return;
+                }
+            }
+            client.sendMessage(String.valueOf(number));
+
+        }
+
+
+
+
+
         System.out.println("Choose if you want to play on cli or gui: ");
         String interfaceClient = scanner.nextLine();
            if (interfaceClient.equalsIgnoreCase("CLI")){

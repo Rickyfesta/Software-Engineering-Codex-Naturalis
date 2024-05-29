@@ -11,20 +11,31 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Server {
     private static ServerSocket serverSocket;
-    private static final int MIN_PLAYERS = 2;
-    private static final int MAX_PLAYERS = 4;
+    private static int MIN_PLAYERS = 4;
+    private static int MAX_PLAYERS = 4;
     private static AtomicInteger playerCount = new AtomicInteger(0);
     private static ArrayList<String> nicknames = new ArrayList<>();
     private static ArrayList<ClientHandler> clientHandlers = new ArrayList<>();
 
     private static List<Socket> clients = new ArrayList<>();
 
+    public static int getMinPlayers() {
+        return MIN_PLAYERS;
+    }
+
+    public static void setMinPlayers(int minPlayers) {
+        MIN_PLAYERS = minPlayers;
+    }
 
     public Server(ServerSocket serverSocket) {
         this.serverSocket = serverSocket;
     }
     // SERVER needs to know the username
 
+
+    public static List<Socket> getClients() {
+        return clients;
+    }
 
     public static ArrayList<String> getNicknames() {
         return nicknames;
@@ -39,20 +50,23 @@ public class Server {
             System.out.println("Server is listening on port " + 60000);
             ClientHandler clientHandler;
             while (true) {
-                if (playerCount.get() >= MIN_PLAYERS) {
-                    System.out.println("Minimum players reached. Start game?");
+                if (clients.size() >= MIN_PLAYERS) {
+                    System.out.println("Game is about to start.");
+                    break;
                 }
                 Socket clientSocket = serverSocket.accept();
                 clients.add(clientSocket);
                 clientHandler = new ClientHandler(clientSocket, Server::closeServerSocket);
                 new Thread(clientHandler).start();
                 //System.out.println(getNicknames());
-
             }
         } catch (IOException e) {
             System.out.println("Server exception: " + e.getMessage());
             Server.closeServerSocket();
         }
+
+
+
     }
 
 
