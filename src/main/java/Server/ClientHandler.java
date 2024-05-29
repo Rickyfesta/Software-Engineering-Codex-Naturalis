@@ -1,6 +1,4 @@
-package Controller;
-
-import Server.Server;
+package Server;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -60,6 +58,13 @@ public class ClientHandler implements Runnable {
         }
     }
 
+    public static void broadcastMessage(String message){
+        for(ClientHandler client: Server.getClientHandlers()){
+            client.sendMessageToClient(message);
+        }
+    }
+
+
     public void listenForMessage(){
         new Thread(() -> {
             String msgFromGroupChat;
@@ -73,6 +78,7 @@ public class ClientHandler implements Runnable {
             }
         }).start();
     }
+
 
     public boolean login() throws IOException{
         String received = checkForMSG();
@@ -111,7 +117,7 @@ public class ClientHandler implements Runnable {
         return result;
     }
 
-    private void sendMessageToClient(String s) {
+    public void sendMessageToClient(String s) {
         bufferedWriter.println(s);
     }
 

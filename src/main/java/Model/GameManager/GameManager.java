@@ -5,7 +5,7 @@ import Client.CLI.CLIMapper;
 import Client.CLI.CLIPlayableCard;
 import Client.CLI.RandomCLICardPicker;
 import Client.Client;
-import Controller.ClientHandler;
+import Server.ClientHandler;
 import Model.Board.PersonalBoard.PersonalBoard;
 
 import java.util.ArrayList;
