@@ -21,6 +21,15 @@ public class UsernameScene {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    /**
+     * Handles the submit action.
+     *
+     * @param event The action event triggered by the submit action.
+     * @throws IOException If an I/O error occurs during loading the FXML.
+     * @requires event != null;
+     * @ensures stage.getScene().getRoot() == root;
+     */
+
 
     @FXML
     void submitAction(ActionEvent event) throws IOException {

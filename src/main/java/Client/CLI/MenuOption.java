@@ -37,11 +37,11 @@ public class MenuOption {
      * @param title Name of the option
      * @param action Code called by the option, if selected
      */
-    /*@ requires title != null;
+    /**@ requires title != null;
       @ requires action != null;
       @ ensures this.title.equals(title);
       @ ensures this.action == action;
-      @*/
+      */
     public MenuOption(String title, Runnable action) {
         this.title = title;
         this.action = action;
@@ -51,18 +51,18 @@ public class MenuOption {
      * Gets the title attribute
      * @return Returns title value
      */
-    /*@ ensures \result != null;
-      @*/
+    /**@ ensures \result != null;
+      */
     public static String getTitle() {
         return title;
     }
-    /*@ ensures \result != null;
-      @*/
+    /**o@ ensures \result != null;
+      */
     public static String getStart() {
         return startGame;
     }
-    /*@ ensures \result != null;
-      @*/
+    /**@ ensures \result != null;
+      */
     public static String getQuit() {
         return quit;
     }
@@ -71,8 +71,8 @@ public class MenuOption {
      * Gets the action attribute
      * @return Returns action value
      */
-    /*@ ensures \result != null;
-      @*/
+    /**@ ensures \result != null;
+      */
     public Runnable getAction() {
         return action;
     }

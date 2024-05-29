@@ -23,16 +23,13 @@ public class BoardManager {
     public static Map<String, Point> availableCorners = new HashMap<>();
 //For the points
 
-
-    /**
-     * @ requires startingCard != null;
-     * @ requires resourceList != null;
-     * @ ensures Board != null;
-     * @ ensures availableCorners != null;
-     * @ ensures occupiedCorner == 0;
-     * @ ensures \forall ImageView imageView; imageViewList.contains(imageView);
-     * @ ensures \forall String id; availableCorners.containsKey(id) ==> availableCorners.get(id) != null;
-     * @
+    /**@ requires startingCard != null;
+     @ requires resourceList != null;
+     @ ensures Board != null;
+     @ ensures availableCorners != null;
+     @ ensures occupiedCorner == 0;
+     @ ensures \forall ImageView imageView; imageViewList.contains(imageView);
+     @ ensures \forall String id; availableCorners.containsKey(id) ==> availableCorners.get(id) != null;
      */
     public static void initializeBoard(CardJSON startingCard, List<Text> resourceList){
         //Initialize the board: put everything inside of it, the availableCorners function will make me know if i can place on it.
@@ -130,19 +127,17 @@ public class BoardManager {
 
     static Point coordinates = new Point(0,0);
 
-    /**
-     * @ requires destination != null;
-     * @ requires wantToBePlaced != null;
-     * @ requires corner != null;
-     * @ requires resourcesList != null;
-     * @ ensures Board.containsKey(wantToBePlaced.getID());
-     * @ ensures availableCorners.containsKey(wantToBePlaced.getID() + " topLeft") == (wantToBePlaced.getLEFTSYMBOL() != null && !corner.equals("bottomRight"));
-     * @ ensures availableCorners.containsKey(wantToBePlaced.getID() + " topRight") == (wantToBePlaced.getTOPSYMBOL() != null && !corner.equals("bottomLeft"));
-     * @ ensures availableCorners.containsKey(wantToBePlaced.getID() + " bottomLeft") == (wantToBePlaced.getBOTTOMSYMBOL() != null && !corner.equals("topRight"));
-     * @ ensures availableCorners.containsKey(wantToBePlaced.getID() + " bottomRight") == (wantToBePlaced.getRIGHTSYMBOL() != null && !corner.equals("topLeft"));
-     * @ ensures addPoint(wantToBePlaced, occupiedCorner);
-     * @
-     */
+    /**@ requires destination != null;
+      @ requires wantToBePlaced != null;
+      @ requires corner != null;
+      @ requires resourcesList != null;
+      @ ensures Board.containsKey(wantToBePlaced.getID());
+      @ ensures availableCorners.containsKey(wantToBePlaced.getID() + " topLeft") == (wantToBePlaced.getLEFTSYMBOL() != null && !corner.equals("bottomRight"));
+      @ ensures availableCorners.containsKey(wantToBePlaced.getID() + " topRight") == (wantToBePlaced.getTOPSYMBOL() != null && !corner.equals("bottomLeft"));
+      @ ensures availableCorners.containsKey(wantToBePlaced.getID() + " bottomLeft") == (wantToBePlaced.getBOTTOMSYMBOL() != null && !corner.equals("topRight"));
+      @ ensures availableCorners.containsKey(wantToBePlaced.getID() + " bottomRight") == (wantToBePlaced.getRIGHTSYMBOL() != null && !corner.equals("topLeft"));
+      @ ensures addPoint(wantToBePlaced, occupiedCorner);
+      */
     public static boolean Place(CardJSON destination, CardJSON wantToBePlaced, String corner, List<Text> resourcesList){
         int occupiedCorner = 0;
 
@@ -371,8 +366,8 @@ public class BoardManager {
         return false;
     }
 
-    /*@ ensures Board.containsKey(destination.getID()) ==> \result != null;
-      @*/
+    /**@ ensures Board.containsKey(destination.getID()) ==> \result != null;
+      */
 
     //If i pass starting card, everything is ok, but if i don't pass starting card trouble starts.
     private static Point getCardPosition(CardJSON destination) {

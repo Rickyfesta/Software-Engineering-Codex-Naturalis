@@ -26,6 +26,19 @@ public class FlippableMaker {
 
     private final Map<ImageView, Boolean> flippedState = new HashMap<>();
     private final Map<ImageView, String> ids = new HashMap<>();
+    /**
+     * Flips the card image view.
+     *
+     * @param cardImageView The image view of the card to flip.
+     * @param cardColor The color of the card.
+     * @param type The type of the card (e.g., "Gold").
+     * @param url The URL of the card image.
+     * @requires cardImageView != null
+     * @requires cardColor != null
+     * @requires type != null
+     * @requires url != null
+     * @ensures flippedState.containsKey(cardImageView)
+     */
 
 
     public void flipCard(ImageView cardImageView, String cardColor, String type, String url) {
@@ -56,6 +69,18 @@ public class FlippableMaker {
         scaleTransition.play();
 
     }
+    /**
+     * Gets the image for a gold card based on its color.
+     *
+     * @param cardImageView The image view of the card.
+     * @param color The color of the card.
+     * @param url The URL of the card image.
+     * @requires cardImageView != null
+     * @requires color != null
+     * @requires url != null
+     * @ensures \result != null
+     * @return The image of the card.
+     */
 
     private Image getGImageForColor(ImageView cardImageView, String color, String url) {
         //System.out.println("this url : " +url);
@@ -81,6 +106,18 @@ public class FlippableMaker {
             }
         }
     }
+    /**
+     * Gets the image for a card based on its color.
+     *
+     * @param cardImageView The image view of the card.
+     * @param color The color of the card.
+     * @param url The URL of the card image.
+     * @requires cardImageView != null
+     * @requires color != null
+     * @requires url != null
+     * @ensures \result != null
+     * @return The image of the card.
+     */
 
 
 
@@ -105,6 +142,16 @@ public class FlippableMaker {
             }
         }
     }
+    /**
+     * Fetches the image URL from a JSON file.
+     *
+     * @param url The URL of the card image.
+     * @param imgView The image view of the card.
+     * @requires url != null
+     * @requires imgView != null
+     * @ensures \result != null
+     * @return The image URL from the JSON file.
+     */
 
     private String fetchImageUrlFromJson(String url, ImageView imgView) {
         try {
