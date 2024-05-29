@@ -32,6 +32,7 @@
 | Persistence             | :warning:  |
 | Multiple games          | :warning:  |
 | Resilience              | :warning:  |
+| Chat                    | :warning:  |
 
 </td></tr>
 </table>

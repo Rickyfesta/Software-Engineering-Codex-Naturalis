@@ -22,7 +22,6 @@ public class BoardManager {
     //Want to do a list of the imageView already present on the board, so that if a card wants to be placed on one of them but it's not there it's rip.
     public static Map<String, Point> availableCorners = new HashMap<>();
 //For the points
-    static int occupiedCorner = 0;
 
     /**@ requires startingCard != null;
      @ requires resourceList != null;
@@ -34,6 +33,7 @@ public class BoardManager {
      */
     public static void initializeBoard(CardJSON startingCard, List<Text> resourceList){
         //Initialize the board: put everything inside of it, the availableCorners function will make me know if i can place on it.
+
         for (ImageView imageView : imageViewList) {
             int x = 0, y = 0;
             //System.out.println(imageView);
@@ -139,8 +139,9 @@ public class BoardManager {
       @ ensures addPoint(wantToBePlaced, occupiedCorner);
       */
     public static boolean Place(CardJSON destination, CardJSON wantToBePlaced, String corner, List<Text> resourcesList){
+        int occupiedCorner = 0;
 
-        System.out.println("This is the destination card " +destination.getID());
+        System.out.println("BOARD MANAGER 143: This is the destination card " +destination.getID());
 
         if(destination.getID().startsWith("S")){//I'm on the starting card
             //Here everything is ok
@@ -178,27 +179,27 @@ public class BoardManager {
             //System.out.println(destination.getID());
             if(topLeft != null && !corner.equals("bottomRight")){
                 availableCorners.put(wantToBePlaced.getID() +" topLeft", new Point((int) (availableCorners.get(destination.getID() + " " +corner).getX()-1), (int) availableCorners.get(destination.getID() + " " +corner).getY()));
-                System.out.println("231: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " topLeft"));
+                System.out.println("BOARD MANAGER 181: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " topLeft"));
             }
             if(topRight != null && !corner.equals("bottomLeft")){
                 availableCorners.put(wantToBePlaced.getID() +" topRight", new Point((int) (availableCorners.get(destination.getID() + " " +corner).getX()), (int) availableCorners.get(destination.getID() + " " +corner).getY()+1));
-                System.out.println("235: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " topRight"));
+                System.out.println("BOARD MANAGER 185: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " topRight"));
             }
             if(bottomLeft != null && !corner.equals("topRight")){
                 availableCorners.put(wantToBePlaced.getID() +" bottomLeft", new Point((int) (availableCorners.get(destination.getID() + " " +corner).getX()), (int) availableCorners.get(destination.getID() + " " +corner).getY()-1));
-                System.out.println("239: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " bottomLeft"));
+                System.out.println("BOARD MANAGER 189: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " bottomLeft"));
             }
             if(bottomRight != null  && !corner.equals("topLeft")){
                 availableCorners.put(wantToBePlaced.getID() +" bottomRight", new Point((int) (availableCorners.get(destination.getID() + " " +corner).getX()+1), (int) availableCorners.get(destination.getID()  + " " +corner).getY()));
-                System.out.println("243: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " bottomRight"));
+                System.out.println("BOARD MANAGER 193: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " bottomRight"));
             }
             //System.out.println("197 " +corner);
 
             //Remove the corner which the card is being placed on
-            removeCorners(destination, corner);
+            occupiedCorner = removeCorners(destination, corner, occupiedCorner);
         }else{
             System.out.println(" ");
-            System.out.println("Hey so the destination is not starting");
+            System.out.println("BOARD MANAGER 201: Hey so the destination is not starting");
             //System.out.println(destination.getID());
             switch (corner){
                 case "topLeft":
@@ -221,7 +222,7 @@ public class BoardManager {
                     break;
                 case "bottomRight":
                     coordinates = getCardPosition(destination);
-                    System.out.println("Those are the coordinates; " +coordinates);
+                    //System.out.println("Those are the coordinates; " +coordinates);
                     //System.out.println(Board.get(coordinates)); //This gives out null
                     if (PlacingBottomRight(destination, wantToBePlaced, corner, resourcesList, coordinates))
                         return false;
@@ -236,22 +237,22 @@ public class BoardManager {
             //System.out.println(destination.getID());
             if(topLeft != null && !corner.equals("bottomRight")){
                 availableCorners.put(wantToBePlaced.getID() +" topLeft", new Point((int) (availableCorners.get(destination.getID() + " " +corner).getX()-1), (int) availableCorners.get(destination.getID() + " " +corner).getY()));
-                System.out.println("366: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " bottomRight"));
+                System.out.println("BOARD MANAGER 239: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " bottomRight"));
             }
             if(topRight != null && !corner.equals("bottomLeft")){
                 availableCorners.put(wantToBePlaced.getID() +" topRight", new Point((int) (availableCorners.get(destination.getID() + " " +corner).getX()), (int) availableCorners.get(destination.getID() + " " +corner).getY()+1));
-                System.out.println("369: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " topRight"));
+                System.out.println("BOARD MANAGER 243: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " topRight"));
             }
             if(bottomLeft != null && !corner.equals("topRight")){
                 availableCorners.put(wantToBePlaced.getID() +" bottomLeft", new Point((int) (availableCorners.get(destination.getID() + " " +corner).getX()), (int) availableCorners.get(destination.getID() + " " +corner).getY()-1));
-                System.out.println("374: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " bottomLeft"));
+                System.out.println("BOARD MANAGER 247: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " bottomLeft"));
             }
             if(bottomRight != null && !corner.equals("topLeft")){
                 availableCorners.put(wantToBePlaced.getID() +" bottomRight", new Point((int) (availableCorners.get(destination.getID() + " " +corner).getX()+1), (int) availableCorners.get(destination.getID() + " " +corner).getY()));
-                System.out.println("378: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " bottomRight"));
+                System.out.println("BOARD MANAGER 251: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " bottomRight"));
             }
             //Remove the corner on which the card is being placed on
-            removeCorners(destination, corner);
+            occupiedCorner = removeCorners(destination, corner, occupiedCorner);
         }
         addPoint(wantToBePlaced, occupiedCorner);
         //System.out.println("324 " + availableCorners.get(destination.getID() + " topRight"));
@@ -267,20 +268,20 @@ public class BoardManager {
             if(!canPlaceCard(wantToBePlaced, losingRes, resourcesList)){
                 return true;
             }
-            System.out.println("I'm the guy: " + corner);
+            System.out.println("BOARD MANAGER 270: I'm the guy: " + corner);
             if(Board.containsKey(coordinates)){
-                System.out.println("He already has some here");
+                System.out.println("BOARD MANAGER 272:" + corner + "already has some here");
                 return true;
             }
             // Update the placement status
             Board.put(wantToBePlaced.getID(), coordinates);
             //availableCorners.remove(destination.getID() + " topLeft");
-            System.out.println("I've secured the card here in those coordinates: " +Board.get(wantToBePlaced.getID()));
+            System.out.println("BOARD MANAGER 278: I've secured the card here in those coordinates: " +Board.get(wantToBePlaced.getID()));
         }
         return false;
     }
 
-    private static void removeCorners(CardJSON destination, String corner) {
+    private static int removeCorners(CardJSON destination, String corner, int occupiedCorner) {
         switch (corner){
             case "topLeft":
                 availableCorners.remove(destination.getID() + " topLeft");
@@ -300,6 +301,7 @@ public class BoardManager {
                 break;
 
         }
+        return occupiedCorner;
     }
 
     private static boolean placingBottomLeft(CardJSON destination, CardJSON wantToBePlaced, String corner, List<Text> resourcesList, Point coordinates) {
@@ -309,15 +311,15 @@ public class BoardManager {
             if(!canPlaceCard(wantToBePlaced, losingRes, resourcesList)){
                 return true;
             }
-            System.out.println("I'm the guy: " +corner);
+            System.out.println("BOARD MANAGER 312: I'm the guy: " +corner);
             if(Board.containsKey(coordinates)){
-                System.out.println("He already has some here");
+                System.out.println("BOARD MANAGER 314:" + corner + " already has some here");
                 return false;
             }
             // Update the placement status
             Board.put(wantToBePlaced.getID(), coordinates);
             //availableCorners.remove(destination.getID() + " bottomLeft");
-            System.out.println("I've secured the card here in those coordinates: " +Board.get(wantToBePlaced.getID()));
+            System.out.println("BOARD MANAGER 320: I've secured the card here in those coordinates: " +Board.get(wantToBePlaced.getID()));
 
         }
         return false;
@@ -329,15 +331,15 @@ public class BoardManager {
             if(!canPlaceCard(wantToBePlaced, losingRes, resourcesList)){
                 return true;
             }
-            System.out.println("I'm the guy: " +corner);
+            System.out.println("BOARD MANAGER 332: I'm the guy: " +corner);
             if(Board.containsKey(coordinates)){
-                System.out.println("He already has some here");
+                System.out.println("BOARD MANAGER 334: "+ corner + " already has some here");
                 return false;
             }
             // Update the placement status
             Board.put(wantToBePlaced.getID(), coordinates);
             //availableCorners.remove(destination.getID() + " topRight");
-            System.out.println("I've secured the card here in those coordinates: " +Board.get(wantToBePlaced.getID()));
+            System.out.println("BOARD MANAGER 340: I've secured the card here in those coordinates: " +Board.get(wantToBePlaced.getID()));
 
 
         }
@@ -350,15 +352,15 @@ public class BoardManager {
             if(!canPlaceCard(wantToBePlaced, losingRes, resourcesList)){
                 return true;
             }
-            System.out.println("I'm the guy: " +corner);
+            System.out.println("BOARD MANAGER 353: I'm the guy: " +corner);
             // Update the placement status
             if(Board.containsKey(coordinates)){
-                System.out.println("He already has some here");
+                System.out.println("BOARD MANAGER 356:" + corner + " already has some here");
                 return false;
             }
             Board.put(wantToBePlaced.getID(), coordinates);
             //availableCorners.remove(destination.getID() + " bottomRight");
-            System.out.println("I've secured the card here in those coordinates: " +Board.get(wantToBePlaced.getID()));
+            System.out.println("BOARD MANAGER 361: I've secured the card here in those coordinates: " +Board.get(wantToBePlaced.getID()));
 
         }
         return false;

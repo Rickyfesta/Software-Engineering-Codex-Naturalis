@@ -52,12 +52,12 @@ public class FlippableMaker {
             // Update the card's image after the first half of the flip
             if(type.equalsIgnoreCase("Gold")){
                 ids.putIfAbsent(cardImageView, url);
-                System.out.println("Hey this is the url: " + ids.get(cardImageView));
+                //System.out.println("Hey this is the url: " + ids.get(cardImageView));
                 cardImageView.setImage(getGImageForColor(cardImageView, cardColor, ids.get(cardImageView)));
             }
             else{
                 ids.putIfAbsent(cardImageView, url.replaceFirst("0", ""));
-                System.out.println("Hey this is the url: " + ids.get(cardImageView));
+                //System.out.println("Hey this is the url: " + ids.get(cardImageView));
                 cardImageView.setImage(getImageForColor(cardImageView, cardColor, ids.get(cardImageView)));
             }
             // Reverse the ScaleTransition to complete the flip
@@ -83,13 +83,13 @@ public class FlippableMaker {
      */
 
     private Image getGImageForColor(ImageView cardImageView, String color, String url) {
-        System.out.println("this url : " +url);
+        //System.out.println("this url : " +url);
         boolean isFlipped = flippedState.get(cardImageView);
         flippedState.put(cardImageView, !isFlipped);
-        System.out.println(isFlipped);
+        //System.out.println(isFlipped);
         if (isFlipped) {
-            System.out.println("this url : " +url);
-            System.out.println(fetchImageUrlFromJson(url, cardImageView));
+            //System.out.println("this url : " +url);
+            //System.out.println(fetchImageUrlFromJson(url, cardImageView));
             return new Image("/" +fetchImageUrlFromJson(url, cardImageView) + "front.jpg");
         } else {
             switch (color.toLowerCase()) {
@@ -125,7 +125,7 @@ public class FlippableMaker {
         boolean isFlipped = flippedState.get(cardImageView);
         flippedState.put(cardImageView, !isFlipped);
         if (isFlipped) {
-            System.out.println(fetchImageUrlFromJson(url, cardImageView));
+            //System.out.println(fetchImageUrlFromJson(url, cardImageView));
             return new Image("/" +fetchImageUrlFromJson(url, cardImageView).replaceFirst("0", "") + "front.jpg");
         } else {
             switch (color.toLowerCase()) {

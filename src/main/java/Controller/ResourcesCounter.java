@@ -18,20 +18,24 @@ public class ResourcesCounter {
 
     //TODO: For points to add later feather and potion and scroll
     //TODO: View for seeing how many points I have
-
+    /**@ ensures \result >= 0; */
     public static int getFeather() {
         return feather;
     }
-
+    /**@ ensures \result >= 0; */
     public static int getPotion() {
         return potion;
     }
-
+    /**@ ensures \result >= 0; */
     public static int getScroll() {
         return scroll;
     }
 
     //Once I placed the card I get the resource it gives me
+    /**@ requires cardToRead != null;
+      @ requires resourceList != null;
+      @ ensures resourceList.size() >= 7;
+      */
     public static void updateResources(CardJSON cardToRead, List<Text> resourceList){
         String[] symbols = getStrings(cardToRead);
         for (String symbol : symbols) {
@@ -78,6 +82,12 @@ public class ResourcesCounter {
     }
 
     //update the count
+    /**@ requires cardToPlace != null;
+      @ requires resourceList != null;
+      @ ensures resourceList.size() >= 7;
+      @ ensures (\result == false) ==> (\exists String resource; cardToPlace.getREQUIRED().contains(resource); !hasEnoughResource(resource.toLowerCase(), requiredCount.get(resource.toLowerCase())));
+      @ ensures (\result == true) ==> (\forall String resource; cardToPlace.getREQUIRED().contains(resource); hasEnoughResource(resource.toLowerCase(), requiredCount.get(resource.toLowerCase())));
+      */
     private static void updateResourceCount(String symbol) {
         if (symbol.contains("animal")) {
             animals++;
@@ -197,7 +207,13 @@ public class ResourcesCounter {
         }
         return true; //Can place card so actually place it there
     }
-
+    /**@ requires resource != null;
+         @ ensures \result == (resource.equals("animal") ? animals >= requiredCount
+                 : resource.equals("plant") ? plants >= requiredCount
+                 : resource.equals("mushroom") ? mushrooms >= requiredCount
+                 : resource.equals("insect") ? insects >= requiredCount
+                 : false);
+         */
     private static boolean hasEnoughResource(String resource, int requiredCount) {
         switch (resource) {
             case "animal":
@@ -213,7 +229,16 @@ public class ResourcesCounter {
         }
     }
 
-
+    /**@ requires cardToRead != null;
+         @ ensures \result.length == 7;
+         @ ensures \result[0] == cardToRead.getLEFTSYMBOL();
+         @ ensures \result[1] == cardToRead.getRIGHTSYMBOL();
+         @ ensures \result[2] == cardToRead.getTOPSYMBOL();
+         @ ensures \result[3] == cardToRead.getBOTTOMSYMBOL();
+         @ ensures \result[4] == (cardToRead.getSYMBOL() != null ? cardToRead.getSYMBOL().split(" \\+ ")[0] : null);
+         @ ensures \result[5] == (cardToRead.getSYMBOL() != null && cardToRead.getSYMBOL().split(" \\+ ").length > 1 ? cardToRead.getSYMBOL().split(" \\+ ")[1] : null);
+         @ ensures \result[6] == (cardToRead.getSYMBOL() != null && cardToRead.getSYMBOL().split(" \\+ ").length > 2 ? cardToRead.getSYMBOL().split(" \\+ ")[2] : null);
+         */
     private static String[] getStrings(CardJSON cardToRead) {
         String[] parts = cardToRead.getSYMBOL() != null ? cardToRead.getSYMBOL().split(" \\+ ") : new String[0];
         String part1 = parts.length > 0 ? parts[0] : null;

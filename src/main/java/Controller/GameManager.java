@@ -12,6 +12,8 @@ import static Controller.GameBoard.StartUrl;
 public class GameManager {
 
     //See the starting card and see where i can place other card
+     /**@ ensures \result == true || \result == false;
+      */
     public void startGame() throws IOException {
         //get the starting card for the player
         ObjectMapper boardMapper = new ObjectMapper();

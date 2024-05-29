@@ -84,6 +84,9 @@ import java.util.List;
          /**@ ensures \result != null;
       */
         public List<String> getCardFileNames() {
+         /*@ ensures \result != null;
+      @*/
+        public static List<String> getCardFileNames() {
             return cardFileNames;
         }
         /**@ ensures \result != null;
