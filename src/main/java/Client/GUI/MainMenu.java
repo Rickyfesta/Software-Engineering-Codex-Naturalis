@@ -36,7 +36,7 @@ public class MainMenu {
     private Parent root;
     @FXML
     void playNewGame(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/GUI/ChoosePlayers.fxml")));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/GUI/StarterCardScene.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -44,11 +44,6 @@ public class MainMenu {
 
     @FXML
     void quitGame(ActionEvent event) {
-
-    }
-
-    @FXML
-    void reconnect(ActionEvent event) {
 
     }
 

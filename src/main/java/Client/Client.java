@@ -54,6 +54,10 @@ public class Client {
                 try{
                     while(socket.isConnected()){
                         msgFromGroupChat = bufferedReader.readLine();
+                        if(msgFromGroupChat.equals("Start")){
+                            GUIClient.changeToStarterScene();
+                            continue;
+                        }
                         messages.add(msgFromGroupChat);
                         Thread.sleep(250);
                     }
@@ -168,43 +172,15 @@ public class Client {
         client.virtualModel.setPg2(mapper.readValue(new File("src/main/resources/json/"+ rec +"front.json"), CardJSON.class));
         System.out.println(client.virtualModel.getPg2().getID());
 
+        //Launching GUI
+        GUIClient.launchGui();
+        //Server sends a broadcast so that the scene changes
 
 
-        System.out.println("Choose if you want to play on cli or gui: ");
-        String interfaceClient = scanner.nextLine();
-           if (interfaceClient.equalsIgnoreCase("CLI")){
-                System.out.println("Connecting to the server...");
-                client.connectToServer(true);
-                //client.listenForMessage();
-                //client.sendMessage();
-            }
-            else if (interfaceClient.equalsIgnoreCase("GUI")) {
-                try{
-                    new Thread(() -> GUIClient.main(null));
-                }catch(Exception e){
-                    System.out.println("Something went wrong SHIT");
-                }
 
-                System.out.println("Connecting to the server...");
-                client.connectToServer(false);
-                //client.listenForMessage();
-                //client.sendMessage();
 
-            }
-            else{
-                System.out.println("Invalid parameter, you have to write GUI or CLI !");
-                exit(0);
-            }
+
         }
 
-    private static void connectToServer(boolean cli) {
-            if(cli){
-                //CLIClient.start();
-
-            }
-            else{
-                GUIClient.main(null);
-            }
-    }
 }
 
