@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GameBoard">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.GUI.SceneControllers.GameBoard">
    <ScrollPane fx:id="personalBoardScroll" hvalue="0.32" layoutX="1.0" layoutY="-3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="600.0" prefWidth="1400.0" vvalue="0.32">
    
    <AnchorPane fx:id="personalBoardContainer" prefHeight="6000.0" prefWidth="6000.0" BorderPane.alignment="CENTER">
@@ -413,7 +413,7 @@
          <Image url="@img/bgHand.jpg" />
       </image>
    </ImageView>
-   <ImageView fx:id="objbackground" fitHeight="200.0" fitWidth="500.0" layoutY="600.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fx:id="objbackground" fitHeight="196.0" fitWidth="482.0" layoutY="601.0" pickOnBounds="true">
       <image>
          <Image url="@img/P-Cobj.jpg" />
       </image>
@@ -421,14 +421,14 @@
    <ImageView fx:id="CardHand1" fitHeight="120.0" fitWidth="215.0" layoutX="510.0" layoutY="650.0" pickOnBounds="true" preserveRatio="true" />
    <ImageView fx:id="CardHand2" fitHeight="120.0" fitWidth="215.0" layoutX="810.0" layoutY="650.0" pickOnBounds="true" preserveRatio="true" />
    <ImageView fx:id="CardHand3" fitHeight="120.0" fitWidth="215.0" layoutX="1110.0" layoutY="650.0" pickOnBounds="true" preserveRatio="true" />
-   <ImageView fx:id="CommonObj" fitHeight="98.0" fitWidth="172.0" layoutX="158.0" layoutY="601.0" pickOnBounds="true" preserveRatio="true" />
-   <ImageView fx:id="PersonalObj" fitHeight="98.0" fitWidth="126.0" layoutX="150.0" layoutY="691.0" pickOnBounds="true" preserveRatio="true" />
-   <Text fx:id="commonGoalText" fill="WHITE" layoutY="657.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Common Goal" wrappingWidth="126.13668823242176">
+   <ImageView fx:id="CommonObj1" fitHeight="80.0" fitWidth="172.0" layoutX="137.0" layoutY="600.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="PersonalObj" fitHeight="98.0" fitWidth="190.0" layoutX="195.0" layoutY="691.0" pickOnBounds="true" preserveRatio="true" />
+   <Text fx:id="commonGoalText" fill="WHITE" layoutY="657.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Common Goals" wrappingWidth="126.13668823242176">
       <font>
          <Font name="Old English Text MT" size="20.0" />
       </font>
    </Text>
-   <Text fx:id="personalGoalText" fill="WHITE" layoutX="-4.0" layoutY="749.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Goals" wrappingWidth="133.33670043945312">
+   <Text fx:id="personalGoalText" fill="WHITE" layoutX="-4.0" layoutY="749.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Goal" wrappingWidth="133.33670043945312">
       <font>
          <Font name="Old English Text MT" size="20.0" />
       </font>
@@ -565,4 +565,5 @@
       </children>
    </AnchorPane>
    <Button fx:id="showBtn" layoutY="300.0" mnemonicParsing="false" onMouseClicked="#showBoardandCards" text="&gt;" />
+   <ImageView fx:id="CommonObj2" fitHeight="80.0" fitWidth="172.0" layoutX="309.0" layoutY="600.0" pickOnBounds="true" preserveRatio="true" />
 </Pane>

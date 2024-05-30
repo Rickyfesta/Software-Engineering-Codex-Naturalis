@@ -1,5 +1,7 @@
 package Controller;
 
+import Client.Client;
+import Client.GUI.SceneControllers.GameBoard;
 import Model.Cards.CardJSON;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -85,7 +87,7 @@ public class DraggableMaker {
         ObjectMapper boardMapper = new ObjectMapper();
         boardMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         CardJSON startingCardJSON;
-        startingCardJSON = boardMapper.readValue(new File("src/main/resources/json/" + startURL.replace("jpg", "json")), CardJSON.class);
+        startingCardJSON = Client.getVirtualModel().getChosenStarter();
 
 
         HandCard.setOnMouseClicked(event -> {

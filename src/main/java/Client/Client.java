@@ -3,6 +3,7 @@ package Client;
 import Client.GUI.GUIClient;
 import Client.GUI.VirtualModel;
 import Model.Cards.CardJSON;
+import Model.Cards.PlayerHand;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.*;
@@ -155,29 +156,39 @@ public class Client {
         //Get resources deck
         rec = client.checkForMSG();
         Client.virtualModel.setResourceDeck(mapper.readValue(rec, ArrayList.class));
-        System.out.println(client.virtualModel.getResourceDeck().size());
+        System.out.println(Client.virtualModel.getResourceDeck().size());
 
         //Get gold deck
         rec = client.checkForMSG();
         Client.virtualModel.setGoldDeck(mapper.readValue(rec, ArrayList.class));
-        System.out.println(client.virtualModel.getGoldDeck().size());
+        System.out.println(Client.virtualModel.getGoldDeck().size());
 
         //Get starter card
         rec = client.checkForMSG();
         Client.virtualModel.setStarterFront(mapper.readValue(new File("src/main/resources/json/"+ rec +"front.json"), CardJSON.class));
-        System.out.println(client.virtualModel.getStarterFront().getID());
+        System.out.println(Client.virtualModel.getStarterFront().getID());
 
         //Starting Back
         Client.virtualModel.setStarterBack(mapper.readValue(new File("src/main/resources/json/"+ rec +"back.json"), CardJSON.class));
-        System.out.println(client.virtualModel.getStarterBack().getID());
+        System.out.println(Client.virtualModel.getStarterBack().getID());
 
         //2 Personal goals
         rec = client.checkForMSG();
         Client.virtualModel.setPg1(mapper.readValue(new File("src/main/resources/json/"+ rec +"front.json"), CardJSON.class));
-        System.out.println(client.virtualModel.getPg1().getID());
+        System.out.println(Client.virtualModel.getPg1().getID());
         rec = client.checkForMSG();
         Client.virtualModel.setPg2(mapper.readValue(new File("src/main/resources/json/"+ rec +"front.json"), CardJSON.class));
-        System.out.println(client.virtualModel.getPg2().getID());
+        System.out.println(Client.virtualModel.getPg2().getID());
+
+        //get hand
+        rec = client.checkForMSG();
+        Client.virtualModel.setHand(mapper.readValue(rec, PlayerHand.class));
+        System.out.println("FIRST"  + Client.virtualModel.getHand().getCardOne().getID());
+        System.out.println("SECOND" + Client.virtualModel.getHand().getCardTwo().getID());
+        System.out.println("THIRD" + Client.virtualModel.getHand().getCardThree().getID());
+
+
+
 
         //Launching GUI
         GUIClient.launchGui();
