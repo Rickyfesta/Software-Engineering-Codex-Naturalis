@@ -18,20 +18,20 @@
 
 | Functionality     |  Status    |
 |:------------------|:----------:|
-| Basic Rules       | :warning:  |
-| Complete Rules    | :warning:  |
-| Socket            | :warning:  |
-| CLI               | :warning:  |
-| GUI               | :warning:  |
+| Basic Rules       | :white_check_mark:  |
+| Complete Rules    | :white_check_mark:  |
+| Socket            | :white_check_mark:  |
+| CLI               | :x:  |
+| GUI               | :white_check_mark:  |
 
 </td><td>
 
 | Advanced Functionality  |   Status   |
 |:------------------------|:----------:|
-| Persistence             | :warning:  |
-| Multiple games          | :warning:  |
-| Resilience              | :warning:  |
-| Chat                    | :warning:  |
+| Persistence             | :x:  |
+| Multiple games          | :x:  |
+| Resilience              | :x:  |
+| Chat                    | :x:  |
 
 </td></tr>
 </table>
@@ -43,11 +43,11 @@
 
 | Requisiti                                       |Voto Massimo|Realizzazione|
 |:------------------------------------------------|:----------:|:-----------:|
-| Regole semplificate + comunicazione + CLI       |     18     |  :warning:  |
-| Regole complete + comunicazione + CLI           |     21     |  :warning:  |
-| Regole complete + comunicazione + GUI           |     24     |  :warning:  |
-| Regole complete + comunicazione + GUI +1FA      |     27     |  :warning:  |
-| Regole complete + comunicazione + CLI + GUI +1FA| 30 / 30L   |  :warning:  |
+| Regole semplificate + comunicazione + CLI       |     18     |  :white_check_mark:  |
+| Regole complete + comunicazione + CLI           |     21     |  :white_check_mark:  |
+| Regole complete + comunicazione + GUI           |     24     |  :white_check_mark:  |
+| Regole complete + comunicazione + GUI +1FA      |     27     |  :x:  |
+| Regole complete + comunicazione + CLI + GUI +1FA| 30 / 30L   |  :x:  |
 
 
   
