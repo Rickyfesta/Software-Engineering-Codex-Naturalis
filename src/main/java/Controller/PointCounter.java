@@ -5,7 +5,7 @@ import Model.Cards.CardJSON;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static Controller.GameBoard.MyPoints;
+import static Client.GUI.SceneControllers.GameBoard.MyPoints;
 import static Controller.ResourcesCounter.*;
 
 public class PointCounter {

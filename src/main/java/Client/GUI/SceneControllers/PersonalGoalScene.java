@@ -39,7 +39,7 @@ public class PersonalGoalScene implements Initializable {
     public void selectFirstGoal(Event event){
         if(!clicked){
             clicked = true;
-            Client.getVirtualModel().setChosenStarter(Client.getVirtualModel().getPg1());
+            Client.getVirtualModel().setPersonalGoal(Client.getVirtualModel().getPg1());
             Client.sendMessage("first");
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -60,7 +60,7 @@ public class PersonalGoalScene implements Initializable {
     public void selectSecondGoal(Event event){
         if(!clicked){
             clicked = true;
-            Client.getVirtualModel().setChosenStarter(Client.getVirtualModel().getPg2());
+            Client.getVirtualModel().setPersonalGoal(Client.getVirtualModel().getPg2());
             Client.sendMessage("second");
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

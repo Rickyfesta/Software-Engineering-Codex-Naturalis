@@ -1,7 +1,6 @@
 package Client.GUI.SceneControllers;
 
 import Client.Client;
-import javafx.animation.PauseTransition;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +12,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -44,7 +42,6 @@ public class StarterCardScene implements Initializable {
             clicked = true;
             Client.getVirtualModel().setChosenStarter(Client.getVirtualModel().getStarterFront());
             Client.sendMessage("front");
-            PauseTransition wait = new PauseTransition(Duration.seconds(1));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 Parent root;
                 try {

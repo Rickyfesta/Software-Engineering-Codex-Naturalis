@@ -67,7 +67,7 @@ public class GUIClient extends Application {
             MainMenu.setResizable(false);
             MainMenu.setTitle("Codex Naturalis");
             stage = MainMenu;
-            URL url = getClass().getResource("/Images/icon.jpg");
+            URL url = getClass().getResource("/GUI/img/icon.jpg");
             Image img = new Image (url.toString());
             MainMenu.getIcons().add(img);
             MainMenu.show();

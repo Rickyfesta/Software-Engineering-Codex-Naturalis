@@ -1,7 +1,7 @@
 package Controller;
 
 /*
-import static Controller.GameBoard.StartUrl;
+import static Client.GUI.SceneControllers.GameBoard.StartUrl;
 
 public class GameManager {
 

@@ -27,6 +27,11 @@ public class CardJSON {
     private List<String> REQUIRED;
     @JsonProperty("ASCII")
     private List<String> ASCII;
+
+    public CardJSON (){
+
+    }
+
     // Getters and setters for each field
     /**@ ensures \result != null; */
     public String getID() {

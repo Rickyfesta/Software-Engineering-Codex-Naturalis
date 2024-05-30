@@ -53,6 +53,7 @@ public class ServerController {
             clientHandler.sendMessageToClient(startingChoices.get(i).getID());
             clientHandler.sendMessageToClient(personalGoalDeck.get(2*i).getID());
             clientHandler.sendMessageToClient(personalGoalDeck.get(2*i+1).getID());
+            clientHandler.sendMessageToClient(mapper.writeValueAsString(hands.get(i)));
         }
         ClientHandler.broadcastMessage("Start");
 
@@ -71,16 +72,14 @@ public class ServerController {
 
             System.out.println("choice " + i);
         }
-
         //Choosing personal goal
         for(int i = 0; i < Server.getNumPlayers(); i++){
             String rec = Server.getClientHandlers().get(i).checkForMSG();
             if(rec.equals("first")){
-                chosenGoal.add(personalGoalDeck.get(i));
-                personalGoalDeck.remove(i);
+                chosenGoal.add(personalGoalDeck.get(2*i));
             }
             else if(rec.equals("second")){
-                chosenGoal.add(personalGoalDeck.get(i));
+                chosenGoal.add(personalGoalDeck.get(2*i +1));
             }
             System.out.println("choice " + i);
         }

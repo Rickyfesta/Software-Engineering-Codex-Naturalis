@@ -1,5 +1,8 @@
-package Controller;
+package Client.GUI.SceneControllers;
 
+import Client.Client;
+import Controller.CardPicker;
+import Controller.DraggableMaker;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -7,6 +10,7 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -16,6 +20,7 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -34,7 +39,10 @@ public class GameBoard {
     private ImageView CardHand3;
 
     @FXML
-    private ImageView CommonObj;
+    private ImageView CommonObj1;
+
+    @FXML
+    private ImageView CommonObj2;
 
     @FXML
     private ImageView DecksBG;
@@ -1291,9 +1299,6 @@ public class GameBoard {
         return personalBoardContainer;
     }
     @FXML
-     /**@ requires event != null;
-      @ ensures commonBoardDecksContainer.getPrefWidth() == 0 || commonBoardDecksContainer.getPrefWidth() == 800;
-      */
     public void showBoardandCards(MouseEvent event) {
         if ((event.getButton() == MouseButton.PRIMARY || event.getButton() == MouseButton.SECONDARY)  && commonBoardDecksContainer.getPrefWidth() == 0){ // Only expand if it's collapsed
             commonBoardDecksContainer.setPrefWidth(800.0d);
@@ -1341,11 +1346,6 @@ public class GameBoard {
         //System.out.println("Left" + commonBoardDecksContainer.getPrefWidth());
     }
     @FXML
-   /**@ ensures ResourcesList.size() == 7;
-      @ ensures DecksList.size() == 6;
-      @ ensures imageViewList.size() == 212;
-      @ ensures MyPoints.size() == 1;
-      */
     void initialize() throws IOException {
 
         DraggableMaker draggableMaker = new DraggableMaker(this);
@@ -1407,56 +1407,9 @@ public class GameBoard {
         GoldDeck.setVisible(false);
 
 
-        // Handle scroll events on the ScrollPane
-        /* personalBoardScroll.addEventFilter(ScrollEvent.SCROLL, event -> {
-            if (event.isControlDown()) {
-                double deltaY = event.getDeltaY();
-                final double zoomFactor = 1.4; // Consider adjusting this value
-                final double minScale = 0.5; // Adjust minimum scale as needed
-                final double maxScale = 2.0; // Maximum scale
-
-                // Capture the current viewport dimensions
-                double scrollHValue = personalBoardScroll.getHvalue();
-                double scrollVValue = personalBoardScroll.getVvalue();
-                double viewportWidth = personalBoardScroll.getViewportBounds().getWidth();
-                double viewportHeight = personalBoardScroll.getViewportBounds().getHeight();
-                double contentWidth = personalBoardScroll.getContent().getBoundsInLocal().getWidth();
-                double contentHeight = personalBoardScroll.getContent().getBoundsInLocal().getHeight();
-                double viewportCenterX = (scrollHValue * (contentWidth - viewportWidth)) + viewportWidth / 2;
-                double viewportCenterY = (scrollVValue * (contentHeight - viewportHeight)) + viewportHeight / 2;
-
-                if (deltaY < 0) {
-                    scaleValue /= zoomFactor;
-                } else {
-                    scaleValue *= zoomFactor;
-                }
-
-                // Limit the zoom level
-                scaleValue = Math.min(maxScale, Math.max(minScale, scaleValue));
-
-                // Apply the scale transformation to the content
-                personalBoardScroll.getContent().setScaleX(scaleValue);
-                personalBoardScroll.getContent().setScaleY(scaleValue);
-
-                // Adjust scroll values to keep the zoom centered
-                contentWidth = personalBoardScroll.getContent().getBoundsInLocal().getWidth();
-                contentHeight = personalBoardScroll.getContent().getBoundsInLocal().getHeight();
-                double newScrollHValue = (viewportCenterX - viewportWidth / 2) / (contentWidth - viewportWidth);
-                double newScrollVValue = (viewportCenterY - viewportHeight / 2) / (contentHeight - viewportHeight);
-
-                personalBoardScroll.setHvalue(newScrollHValue);
-                personalBoardScroll.setVvalue(newScrollVValue);
-
-                event.consume();
-            }
-        });
-
-         */
-
-
-        //CardHand1.setImage(new Image("/GUI/Images" + Client.getVirtualModel().getHand().getCardOne().getID()));
-        //CardHand2.setImage(new Image("/GUI/Images" + Client.getVirtualModel().getHand().getCardTwo().getID()));
-        //CardHand3.setImage(new Image("/GUI/Images" + Client.getVirtualModel().getHand().getCardThree().getID()));
+        //CardHand1.setImage(new Image("/GUI/Images/" + Client.getVirtualModel().getHand().getCardOne().getID()));
+        //CardHand2.setImage(new Image("/GUI/Images/" + Client.getVirtualModel().getHand().getCardTwo().getID()));
+        //CardHand3.setImage(new Image("/GUI/Images/" + Client.getVirtualModel().getHand().getCardThree().getID()));
 
 
         //deserialize all the cards
@@ -1469,22 +1422,52 @@ public class GameBoard {
         CardJSON Card2 = boardMapper.readValue(new File("src/main/resources/json/" + url2.replace("jpg", "json")), CardJSON.class);
         CardJSON Card3 = boardMapper.readValue(new File("src/main/resources/json/" + url3.replace("jpg", "json")), CardJSON.class);
  */
+
+        String id1 = Client.getVirtualModel().getPersonalGoal().getID();
+        String id2 = Client.getVirtualModel().getCg1().getID();
+        String id3 = Client.getVirtualModel().getCg2().getID();
+
+        URL url1 = getClass().getResource("/Images/" + id1 + "front.jpg");
+        URL url2 = getClass().getResource("/Images/" + id2 + "front.jpg");
+        URL url3 = getClass().getResource("/Images/" + id3 + "front.jpg");
+        PersonalObj.setImage(new Image(url1.toString()));
+        CommonObj1.setImage(new Image(url2.toString()));
+        CommonObj2.setImage(new Image(url3.toString()));
+
+
+        String CardHand1s = Client.getVirtualModel().getHand().getCardOne().getID().replaceFirst("0", "");
+        String CardHand2s = Client.getVirtualModel().getHand().getCardTwo().getID().replaceFirst("0", "");
+        String CardHand3s = Client.getVirtualModel().getHand().getCardThree().getID();
+
+        URL HandUrl1 = getClass().getResource("/Images/" + CardHand1s + "front.jpg");
+        URL HandUrl2 = getClass().getResource("/Images/" + CardHand2s + "front.jpg");
+        URL HandUrl3 = getClass().getResource("/Images/" + CardHand3s + "front.jpg");
+        CardHand3.setImage(new Image(HandUrl1.toString()));
+        CardHand2.setImage(new Image(HandUrl2.toString()));
+        CardHand1.setImage(new Image(HandUrl3.toString()));
+
+        String Start = Client.getVirtualModel().getChosenStarter().getID();
+
+        URL Starturl = getClass().getResource("/Images/"+ Start);
+        StartingCard.setImage(new Image(Starturl.toString()));
+
         //Here i make draggable all the cards inside my hand to make them placeable
-        //draggableMaker.makeDraggable(CardHand1, personalBoardScroll, 508, 650, copy, personalBoardContainer, StartUrl, imageViewList, ResourcesList);
-        //draggableMaker.makeDraggable(CardHand2, personalBoardScroll, 801, 650, copy, personalBoardContainer, StartUrl, imageViewList, ResourcesList);
-        //draggableMaker.makeDraggable(CardHand3, personalBoardScroll, 1064, 650, copy, personalBoardContainer, StartUrl, imageViewList, ResourcesList);
-/*
-        CommonObj.setImage(new Image("/" + RandomCardFile.getRandomOXXFileName()));
+        draggableMaker.makeDraggable(CardHand1, personalBoardScroll, 508, 650, copy, personalBoardContainer, Starturl.toString(), imageViewList, ResourcesList);
+        draggableMaker.makeDraggable(CardHand2, personalBoardScroll, 801, 650, copy, personalBoardContainer, Starturl.toString(), imageViewList, ResourcesList);
+        draggableMaker.makeDraggable(CardHand3, personalBoardScroll, 1064, 650, copy, personalBoardContainer, Starturl.toString(), imageViewList, ResourcesList);
+
+
+
+        /*
         GoldDeck.setImage(new Image("/" + RandomCardFile.getRandomGXXFileName()));
         GoldDeck1.setImage(new Image("/" + RandomCardFile.getRandomGXXFileName()));
         GoldDeck2.setImage(new Image("/" + RandomCardFile.getRandomGXXFileName()));
-        PersonalObj.setImage(new Image("/" + RandomCardFile.getRandomOXXFileName()));
+
         ResDeck.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
         ResDeck2.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
         ResDeck3.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
-
- */
-        //StartingCard.setImage(new Image("/" + StartUrl));
+         */
+         //StartingCard.setImage(new Image("/" + StartUrl));
 
         //Make the cards pickable from deck
         cardPicker.makePickable(ResDeck, DecksList);
@@ -1498,7 +1481,8 @@ public class GameBoard {
         assert CardHand1 != null : "fx:id=\"CardHand1\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert CardHand2 != null : "fx:id=\"CardHand2\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert CardHand3 != null : "fx:id=\"CardHand3\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert CommonObj != null : "fx:id=\"CommonObj\" was not injected: check your FXML file 'GameBoard.fxml'.";
+        assert CommonObj1 != null : "fx:id=\"CommonObj\" was not injected: check your FXML file 'GameBoard.fxml'.";
+        assert CommonObj2 != null : "fx:id=\"CommonObj\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert Down1 != null : "fx:id=\"Down1\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert GoldDeck != null : "fx:id=\"GoldDeck\" was not injected: check your FXML file 'GameBoard.fxml'.";
         assert GoldDeck1 != null : "fx:id=\"GoldDeck1\" was not injected: check your FXML file 'GameBoard.fxml'.";

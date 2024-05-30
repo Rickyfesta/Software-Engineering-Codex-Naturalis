@@ -15,21 +15,21 @@
    <children>
       <ImageView fitHeight="750.0" fitWidth="582.0" opacity="0.9" pickOnBounds="true">
          <image>
-            <Image url="@../Images/brownback.jpg" />
+            <Image url="@img/brownback.jpg" />
          </image></ImageView>
       <ImageView fitHeight="142.0" fitWidth="131.0" layoutX="232.0" layoutY="518.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Images/Publisher.png" />
+            <Image url="@img/Publisher.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="247.0" fitWidth="257.0" layoutX="174.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Images/Codex_scatola+ombra.png" />
+            <Image url="@img/Codex_scatola+ombra.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="750.0" fitWidth="723.0" layoutX="581.0" pickOnBounds="true">
          <image>
-            <Image url="@../Images/woodback.jpg" />
+            <Image url="@img/woodback.jpg" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="262.0" layoutX="701.0" layoutY="342.0" opacity="0.25" strokeType="OUTSIDE" strokeWidth="3.0" width="474.0">
