@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Random;
 
 public class ServerController {
@@ -169,14 +170,24 @@ public class ServerController {
 
     private void generateCommonGoals() throws IOException {
         path1 =  RandomCardFile.getRandomOXXFileName().replace("jpg","json");
-        cg1 = mapper.readValue(new File("src/main/resources/json/" + path1), CardJSON.class);
         path2 =  RandomCardFile.getRandomOXXFileName().replace("jpg","json");
-        cg2 = mapper.readValue(new File("src/main/resources/json/" + path2), CardJSON.class);
+        if(!Objects.equals(path1, path2)){
+            cg1 = mapper.readValue(new File("src/main/resources/json/" + path1), CardJSON.class);
+            cg2 = mapper.readValue(new File("src/main/resources/json/" + path2), CardJSON.class);
+        }else{
+            while(Objects.equals(path1, path2)){
+                path1 =  RandomCardFile.getRandomOXXFileName().replace("jpg","json");
+                path2 =  RandomCardFile.getRandomOXXFileName().replace("jpg","json");
+            }
+            cg1 = mapper.readValue(new File("src/main/resources/json/" + path1), CardJSON.class);
+            cg2 = mapper.readValue(new File("src/main/resources/json/" + path2), CardJSON.class);
+        }
+
 
     }
 
     public void turn() {
-        for(int i = 0; i < Server.getNumPlayers(); i++){
+        for(int i = 0; i < Server.getNumPlayers(); i++) {
             System.out.println("Player number " + i);
             ClientHandler current = Server.getClientHandlers().get(i);
             current.sendMessageToClient("Your turn");
@@ -239,6 +250,9 @@ public class ServerController {
                 i = 0;
 
             //if not win
+            if(Objects.equals(current.checkForMSG(), "Win")){
+
+            }
             current.sendMessageToClient("Done");
         }
     }

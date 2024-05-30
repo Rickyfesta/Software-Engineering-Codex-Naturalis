@@ -1,7 +1,7 @@
-package Controller;
+package Client.GUI.SceneControllers;
 
 import Client.Client;
-import Client.GUI.SceneControllers.GameBoard;
+import Controller.CardPicker;
 import Model.Cards.CardJSON;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -23,6 +23,7 @@ import javafx.util.Duration;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -157,7 +158,7 @@ public class DraggableMaker {
             //NEED TO HIDE THE RECTANGLES
             //personalBoardContainer.getChildren().removeAll(topLeftCornerStartingCard, topRightCornerStartingCard, bottomLeftCornerStartingCard, bottomRightCornerStartingCard);
             // Check if the HandCard is over the scrollPane
-            if (isOverScrollPane(HandCard, scrollPane)) {
+            if (isOverScrollPane(HandCard, scrollPane)){
                 HandCard.prefWidth(150);
                 HandCard.prefHeight(80);
                 try { //STEP 1 Identify the destination
@@ -288,6 +289,7 @@ public class DraggableMaker {
                                                     }
                                                     returnToOriginalPosition(HandCard);
                                                 } else {
+
                                                     ((ImageView) HandCard).setImage(null);
                                                     imageView.setImage(new Image("/" + imageViewIHandCard.replace("json", "jpg")));
                                                     //System.out.println("Remember now need to pick another card");
@@ -342,11 +344,13 @@ public class DraggableMaker {
                                                     correctDestinationImg.setId(correctDestination);
                                                     break;
                                             } //need to correct because i got as destination the startingCard
-                                            System.out.println("327 corrected destination: " +correctDestination);
+                                            //System.out.println("327 corrected destination: " +correctDestination);
                                             for (ImageView imageView : imageViewList) {
                                                 if(Objects.equals(imageView.getId(), correctDestinationImg.getId())){
                                                     String imageViewIdWrongURLHandCard = ((ImageView) HandCard).getImage().getUrl();
+                                                    //System.out.println(imageViewIdWrongURLHandCard);
                                                     String imageViewIHandCard = imageViewIdWrongURLHandCard.substring(imageViewIdWrongURLHandCard.lastIndexOf('/') +1).replace(".jpg", ".json");
+                                                    //System.out.println(imageViewIHandCard);
                                                     CardJSON HandCardJson;
                                                     HandCardJson = boardMapper.readValue(new File("src/main/resources/json/" + imageViewIHandCard.replace("jpg", "json")), CardJSON.class);
 
@@ -371,11 +375,15 @@ public class DraggableMaker {
                                                         }
                                                         returnToOriginalPosition(HandCard);
                                                     }else{
+
+                                                        String Start = ((ImageView) HandCard).getImage().getUrl().substring(imageViewIdWrongURLHandCard.lastIndexOf('/') + 1);
+                                                        URL cardUURL = getClass().getResource("/Images/"+ Start);
+                                                        //System.out.println("/src/main/resources/Images/" + Start);
+                                                        //System.out.println(System.getProperty("user.dir"));
+                                                        imageView.setImage(new Image(cardUURL.toString()));
                                                         ((ImageView) HandCard).setImage(null);
-                                                        imageView.setImage(new Image("/" + imageViewIHandCard.replace("json", "jpg")));
                                                         //System.out.println("Remember now need to pick another card");
                                                         returnToOriginalPosition(HandCard);
-
                                                         CardPicker.PickNewCard((ImageView) HandCard);
                                                         //METHOD TO FREEZE
                                                     }
@@ -395,10 +403,12 @@ public class DraggableMaker {
                                                         if(!Place(destinationJson, HandCardJson, intersectedCorner, resourcesList)){
                                                             returnToOriginalPosition(HandCard);
                                                         }else{
+                                                            String Start = ((ImageView) HandCard).getImage().getUrl().substring(imageViewIdWrongURLHandCard.lastIndexOf('/') + 1);
+                                                            URL cardUURL = getClass().getResource("/Images/"+ Start);
+                                                            //System.out.println("/src/main/resources/Images/" + Start);
+                                                            //System.out.println(System.getProperty("user.dir"));
+                                                            imageView.setImage(new Image(cardUURL.toString()));
                                                             ((ImageView) HandCard).setImage(null);
-                                                            imageView.setImage(new Image("/" + imageViewIHandCard.replace("json", "jpg")));
-                                                            //System.out.println("Remember now need to pick another card");
-                                                            returnToOriginalPosition(HandCard);
                                                             CardPicker.PickNewCard((ImageView) HandCard);
 
                                                             //METHOD TO FREEZE
@@ -551,7 +561,7 @@ public class DraggableMaker {
             if (handCardBoundsInAnchorPane.intersects(imageViewBoundsInAnchorPane)) {
 
                 System.out.println(" ");
-                System.out.println("534 : Method IDdes.IMGV : Intersection found " +imageView.getId());
+                //System.out.println("534 : Method IDdes.IMGV : Intersection found " +imageView.getId());
                 return imageView;
                 //DONE: JUST NEED TO SEE IF INTERACTS WITH AN IMAGE VIEW.
             }
@@ -729,6 +739,15 @@ public class DraggableMaker {
         }
         return null;
     }
+
+
+
+
+    /**@ requires PlacedCard != null;
+     @ requires occupiedCorner >= 0;
+     @ ensures PointCounter >= 0;
+     */
+
 
 }
 

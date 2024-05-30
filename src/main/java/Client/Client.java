@@ -207,6 +207,7 @@ public class Client {
         System.out.println("SECOND" + Client.virtualModel.getHand().getCardTwo().getID());
         System.out.println("THIRD" + Client.virtualModel.getHand().getCardThree().getID());
 
+
         //Launching GUI
         GUIClient.launchGui();
         //Server sends a broadcast so that the scene changes

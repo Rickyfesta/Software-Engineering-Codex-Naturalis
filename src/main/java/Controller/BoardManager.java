@@ -13,14 +13,15 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static Client.GUI.SceneControllers.GameBoard.MyPoints;
 import static Client.GUI.SceneControllers.GameBoard.imageViewList;
-import static Controller.PointCounter.addPoint;
-import static Controller.ResourcesCounter.canPlaceCard;
 
 public class BoardManager {
     public static Map<String, Point> Board = new HashMap<>(); // Map to track board
     //Want to do a list of the imageView already present on the board, so that if a card wants to be placed on one of them but it's not there it's rip.
     public static Map<String, Point> availableCorners = new HashMap<>();
+
+    static int PointCounter = 0;
 
 //For the points
 
@@ -84,8 +85,8 @@ public class BoardManager {
             //System.out.println("Just putted in the board the following: " +Board.get((new Point(x,y))));
         }
         //System.out.println("Here's what is on the starting position of the board: " +Board.get(target));
-        ResourcesCounter.updateResources(startingCard, resourceList);
         //now i create for the starting card the coordinates of his corners, to be able to place a card on
+        updateResources(startingCard, resourceList);
         String id = startingCard.getID();
         String topRight = startingCard.getTOPSYMBOL();
         String bottomLeft = startingCard.getBOTTOMSYMBOL();
@@ -100,7 +101,7 @@ public class BoardManager {
             Point topRightCoordinates = new Point(0,1);
             availableCorners.put(id +" topRight", topRightCoordinates);
             //id is in form S01 ecc
-            System.out.println("Available Corners: " + id + "  " + availableCorners.get(id + " topRight"));
+            //System.out.println("Available Corners: " + id + "  " + availableCorners.get(id + " topRight"));
             //System.out.println(availableCorners.get(id +" topRight"));
             //System.out.println("hello1");
         }
@@ -108,19 +109,19 @@ public class BoardManager {
             Point bottomRightCoordinates = new Point(1,0);
             availableCorners.put(id +" bottomRight", bottomRightCoordinates);
             //System.out.println("hello2");
-            System.out.println("Available Corners: " + id + "  " + availableCorners.get(id + " bottomRight"));
+            //System.out.println("Available Corners: " + id + "  " + availableCorners.get(id + " bottomRight"));
         }
         if(topLeft != null){
             Point topLeftCoordinates = new Point(-1,0);
             availableCorners.put(id +" topLeft", topLeftCoordinates);
             //System.out.println("hello3");
-            System.out.println("Available Corners: " + id + "  " + availableCorners.get(id + " topLeft"));
+            //System.out.println("Available Corners: " + id + "  " + availableCorners.get(id + " topLeft"));
         }
         if(bottomLeft != null){
             Point bottomLeftCoordinates = new Point(0,-1);
             availableCorners.put(id +" bottomLeft", bottomLeftCoordinates);
             //System.out.println("hello4");
-            System.out.println("Available Corners: " + id + "  " + availableCorners.get(id + " bottomLeft"));
+            //System.out.println("Available Corners: " + id + "  " + availableCorners.get(id + " bottomLeft"));
         }
         //System.out.println("Available Corners: " + id + "  " + availableCorners.get(id + " topRight"));
         //System.out.println(availableCorners.containsKey(id+ " topRight"));
@@ -143,7 +144,7 @@ public class BoardManager {
     public static boolean Place(CardJSON destination, CardJSON wantToBePlaced, String corner, List<Text> resourcesList){
         int occupiedCorner = 0;
 
-        System.out.println("BOARD MANAGER 143: This is the destination card " +destination.getID());
+        //System.out.println("BOARD MANAGER 143: This is the destination card " +destination.getID());
 
         if(destination.getID().startsWith("S")){//I'm on the starting card
             //Here everything is ok
@@ -181,19 +182,19 @@ public class BoardManager {
             //System.out.println(destination.getID());
             if(topLeft != null && !corner.equals("bottomRight")){
                 availableCorners.put(wantToBePlaced.getID() +" topLeft", new Point((int) (availableCorners.get(destination.getID() + " " +corner).getX()-1), (int) availableCorners.get(destination.getID() + " " +corner).getY()));
-                System.out.println("BOARD MANAGER 181: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " topLeft"));
+                //System.out.println("BOARD MANAGER 181: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " topLeft"));
             }
             if(topRight != null && !corner.equals("bottomLeft")){
                 availableCorners.put(wantToBePlaced.getID() +" topRight", new Point((int) (availableCorners.get(destination.getID() + " " +corner).getX()), (int) availableCorners.get(destination.getID() + " " +corner).getY()+1));
-                System.out.println("BOARD MANAGER 185: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " topRight"));
+                //System.out.println("BOARD MANAGER 185: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " topRight"));
             }
             if(bottomLeft != null && !corner.equals("topRight")){
                 availableCorners.put(wantToBePlaced.getID() +" bottomLeft", new Point((int) (availableCorners.get(destination.getID() + " " +corner).getX()), (int) availableCorners.get(destination.getID() + " " +corner).getY()-1));
-                System.out.println("BOARD MANAGER 189: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " bottomLeft"));
+                //System.out.println("BOARD MANAGER 189: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " bottomLeft"));
             }
             if(bottomRight != null  && !corner.equals("topLeft")){
                 availableCorners.put(wantToBePlaced.getID() +" bottomRight", new Point((int) (availableCorners.get(destination.getID() + " " +corner).getX()+1), (int) availableCorners.get(destination.getID()  + " " +corner).getY()));
-                System.out.println("BOARD MANAGER 193: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " bottomRight"));
+                //System.out.println("BOARD MANAGER 193: Just created a new corner here: " +availableCorners.get(wantToBePlaced.getID() + " bottomRight"));
             }
             //System.out.println("197 " +corner);
 
@@ -333,15 +334,15 @@ public class BoardManager {
             if(!canPlaceCard(wantToBePlaced, losingRes, resourcesList)){
                 return true;
             }
-            System.out.println("BOARD MANAGER 332: I'm the guy: " +corner);
+            //System.out.println("BOARD MANAGER 332: I'm the guy: " +corner);
             if(Board.containsKey(coordinates)){
-                System.out.println("BOARD MANAGER 334: "+ corner + " already has some here");
+                //System.out.println("BOARD MANAGER 334: "+ corner + " already has some here");
                 return false;
             }
             // Update the placement status
             Board.put(wantToBePlaced.getID(), coordinates);
             //availableCorners.remove(destination.getID() + " topRight");
-            System.out.println("BOARD MANAGER 340: I've secured the card here in those coordinates: " +Board.get(wantToBePlaced.getID()));
+            //System.out.println("BOARD MANAGER 340: I've secured the card here in those coordinates: " +Board.get(wantToBePlaced.getID()));
 
 
         }
@@ -371,8 +372,282 @@ public class BoardManager {
     /**@ ensures Board.containsKey(destination.getID()) ==> \result != null;
       */
 
+    private static int mushrooms = 0;
+    private static int insects = 0;
+    private static int animals = 0;
+    private static int plants = 0;
+    private static int potion = 0;
+    private static int feather = 0;
+    private static int scroll = 0;
+
+    public static void updateResources(CardJSON cardToRead, List<Text> resourceList){
+        String[] symbols = getStrings(cardToRead);
+        for (String symbol : symbols) {
+            //System.out.println(symbol);
+            if(symbol !=null ){
+                switch (symbol){
+                    case "Animal":
+                        //System.out.println("Updating animals");
+                        animals++;
+                        //System.out.println(animals);
+                        resourceList.get(1).setText(String.valueOf(animals));
+                        break;
+                    case "Plant":
+                        plants++;
+                        //System.out.println("Updating Plants");
+                        //System.out.println(plants);
+                        resourceList.get(3).setText(String.valueOf(plants));
+                        break;
+                    case "Insect":
+                        insects++;
+                        //System.out.println("Updating insects");
+                        resourceList.get(2).setText(String.valueOf(insects));
+                        break;
+                    case "Mushroom":
+                        mushrooms++;
+                        //System.out.println("Updating mushrooms");
+                        resourceList.get(0).setText(String.valueOf(mushrooms));
+                        break;
+                    case "Potion":
+                        potion++;
+                        resourceList.get(4).setText(String.valueOf(potion));
+                        break;
+                    case "Scroll":
+                        scroll++;
+                        resourceList.get(6).setText(String.valueOf(scroll));
+                        break;
+                    case "Feather":
+                        feather++;
+                        resourceList.get(4).setText(String.valueOf(feather));
+                        break;
+                }
+            }
+        }
+    }
+
+    /**@ ensures \result >= 0; */
+    public static int getFeather() {
+        return feather;
+    }
+    /**@ ensures \result >= 0; */
+    public static int getPotion() {
+        return potion;
+    }
+    /**@ ensures \result >= 0; */
+    public static int getScroll() {
+        return scroll;
+    }
+
+    public static void addPoint(CardJSON PlacedCard, int occupiedCorner){
+        if (PlacedCard.getPOINTS().matches("\\d+")) {
+            // Input is a single number
+            PointCounter += Integer.parseInt(PlacedCard.getPOINTS());
+        } else {
+            Pattern pattern = Pattern.compile("(\\d+)\\s+for each\\s+(\\w)");
+            Matcher matcher = pattern.matcher(PlacedCard.getPOINTS());
+
+            if (matcher.find()) {
+                int number = Integer.parseInt(matcher.group(1));
+                String letter = String.valueOf(matcher.group(2).charAt(0));
+
+                switch (letter.toLowerCase()){
+                    case "p":
+                        int Potion = getPotion();
+                        PointCounter += Potion*number;
+                        break;
+                    case "f":
+                        int Feather = getFeather();
+                        PointCounter += Feather*number;
+                        break;
+                    case "s":
+                        int Scroll = getScroll();
+                        PointCounter += Scroll*number;
+                        break;
+                    case "a": //It's 2 points for each angle that the card occupies
+                        PointCounter += 2*occupiedCorner;
+                        System.out.println("POINT COUNTER 41: Occupied Corner of the card " + occupiedCorner);
+                        break;
+                }
+            } else {
+                System.out.println("Invalid input format.");
+            }
+        }
+        //System.out.println("Player points: " + PointCounter);
+        MyPoints.get(0).setText(String.valueOf(PointCounter));
+    }
+
     //If i pass starting card, everything is ok, but if i don't pass starting card trouble starts.
     private static Point getCardPosition(CardJSON destination) {
         return Board.get(destination.getID());
+    }
+
+
+
+
+    private static void updateResourceCount(String symbol) {
+        if (symbol.contains("animal")) {
+            animals++;
+        }
+        if (symbol.contains("insect")) {
+            insects++;
+        }
+        if (symbol.contains("plant")) {
+            plants++;
+        }
+        if (symbol.contains("mushroom")) {
+            mushrooms++;
+        }
+    }
+
+    //Check if I have enough resources
+    public static boolean canPlaceCard(CardJSON cardToPlace, String losingRes, List<Text> resourceList) {
+        List<String> requiredResources = cardToPlace.getREQUIRED();
+        //System.out.println(cardToPlace.getREQUIRED());
+        Map<String, Integer> requiredCount = new HashMap<>();
+        //System.out.println("88: Checking for requirements");
+        if(requiredResources!= null){
+            //System.out.println("89: This card has some requirements");
+            // Count occurrences of each required resource
+            for (String resource : requiredResources) {
+                resource = resource.toLowerCase();
+                requiredCount.put(resource, requiredCount.getOrDefault(resource, 0) + 1);
+            }
+
+            // Check if available resources meet the required counts
+            for (Map.Entry<String, Integer> entry : requiredCount.entrySet()) {
+                String resource = entry.getKey();
+                int count = entry.getValue();
+                if (!hasEnoughResource(resource, count)) {
+                    return false; //Cannot place card so need to teleport it to the hand
+                }
+            }
+        }
+        if(losingRes!=null){
+            switch (losingRes){
+                case "Animal":
+                    //System.out.println("Updating animals");
+                    animals--;
+                    //System.out.println(animals);
+                    resourceList.get(1).setText(String.valueOf(animals));
+                    break;
+                case "Plant":
+                    plants--;
+                    //System.out.println("Updating Plants");
+                    //System.out.println(plants);
+                    resourceList.get(3).setText(String.valueOf(plants));
+                    break;
+                case "Insect":
+                    insects--;
+                    //System.out.println("Updating insects");
+                    resourceList.get(2).setText(String.valueOf(insects));
+                    break;
+                case "Mushroom":
+                    mushrooms--;
+                    //System.out.println("Updating mushrooms");
+                    resourceList.get(0).setText(String.valueOf(mushrooms));
+                    break;
+                case "Potion":
+                    potion--;
+                    resourceList.get(4).setText(String.valueOf(potion));
+                    break;
+                case "Scroll":
+                    scroll--;
+                    resourceList.get(6).setText(String.valueOf(scroll));
+                    break;
+                case "Feather":
+                    feather--;
+                    resourceList.get(4).setText(String.valueOf(feather));
+                    break;
+            }
+        }
+        String[] symbolsToAdd = getStrings(cardToPlace);
+        for (String symbol : symbolsToAdd) {
+            if(symbol !=null ){
+                switch (symbol){
+                    case "Animal":
+                        //System.out.println("Updating animals");
+                        animals++;
+                        //System.out.println(animals);
+                        resourceList.get(1).setText(String.valueOf(animals));
+                        break;
+                    case "Plant":
+                        plants++;
+                        //System.out.println("Updating Plants");
+                        //System.out.println(plants);
+                        resourceList.get(3).setText(String.valueOf(plants));
+                        break;
+                    case "Insect":
+                        insects++;
+                        //System.out.println("Updating insects");
+                        resourceList.get(2).setText(String.valueOf(insects));
+                        break;
+                    case "Mushroom":
+                        mushrooms++;
+                        //System.out.println("Updating mushrooms");
+                        resourceList.get(0).setText(String.valueOf(mushrooms));
+                        break;
+                    case "Potion":
+                        potion++;
+                        resourceList.get(4).setText(String.valueOf(potion));
+                        break;
+                    case "Scroll":
+                        scroll++;
+                        resourceList.get(6).setText(String.valueOf(scroll));
+                        break;
+                    case "Feather":
+                        feather++;
+                        resourceList.get(4).setText(String.valueOf(feather));
+                        break;
+                }
+            }
+        }
+        return true; //Can place card so actually place it there
+    }
+    /**@ requires resource != null;
+     @ ensures \result == (resource.equals("animal") ? animals >= requiredCount
+     : resource.equals("plant") ? plants >= requiredCount
+     : resource.equals("mushroom") ? mushrooms >= requiredCount
+     : resource.equals("insect") ? insects >= requiredCount
+     : false);
+     */
+    private static boolean hasEnoughResource(String resource, int requiredCount) {
+        switch (resource) {
+            case "animal":
+                return animals >= requiredCount;
+            case "plant":
+                return plants >= requiredCount;
+            case "mushroom":
+                return mushrooms >= requiredCount;
+            case "insect":
+                return insects >= requiredCount;
+            default:
+                return false; // Unknown resource
+        }
+    }
+
+    /**@ requires cardToRead != null;
+     @ ensures \result.length == 7;
+     @ ensures \result[0] == cardToRead.getLEFTSYMBOL();
+     @ ensures \result[1] == cardToRead.getRIGHTSYMBOL();
+     @ ensures \result[2] == cardToRead.getTOPSYMBOL();
+     @ ensures \result[3] == cardToRead.getBOTTOMSYMBOL();
+     @ ensures \result[4] == (cardToRead.getSYMBOL() != null ? cardToRead.getSYMBOL().split(" \\+ ")[0] : null);
+     @ ensures \result[5] == (cardToRead.getSYMBOL() != null && cardToRead.getSYMBOL().split(" \\+ ").length > 1 ? cardToRead.getSYMBOL().split(" \\+ ")[1] : null);
+     @ ensures \result[6] == (cardToRead.getSYMBOL() != null && cardToRead.getSYMBOL().split(" \\+ ").length > 2 ? cardToRead.getSYMBOL().split(" \\+ ")[2] : null);
+     */
+    private static String[] getStrings(CardJSON cardToRead) {
+        String[] parts = cardToRead.getSYMBOL() != null ? cardToRead.getSYMBOL().split(" \\+ ") : new String[0];
+        String part1 = parts.length > 0 ? parts[0] : null;
+        String part2 = parts.length > 1 ? parts[1] : null;
+        String part3 = parts.length > 2 ? parts[2] : null;
+        return new String[]{
+                cardToRead.getLEFTSYMBOL(),
+                cardToRead.getRIGHTSYMBOL(),
+                cardToRead.getTOPSYMBOL(),
+                cardToRead.getBOTTOMSYMBOL(),
+                part1,
+                part2,
+                part3
+        };
     }
 }
