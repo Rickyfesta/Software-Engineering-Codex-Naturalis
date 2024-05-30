@@ -92,7 +92,6 @@ public class VirtualModel {
     public ArrayList<CardJSON> getGoldDeck() {
         return goldDeck;
     }
-
     public void setGoldDeck(ArrayList<CardJSON> goldDeck) {
         this.goldDeck = goldDeck;
     }

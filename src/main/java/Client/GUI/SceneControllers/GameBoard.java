@@ -1,8 +1,8 @@
 package Client.GUI.SceneControllers;
 
 import Client.Client;
+import Controller.BoardManager;
 import Controller.CardPicker;
-import Controller.DraggableMaker;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -24,6 +24,7 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 
 public class GameBoard {
@@ -1304,8 +1305,6 @@ public class GameBoard {
             clicked = true;
             Client.sendMessage("first");
 
-            CardHand2.setOpacity(0.5);
-            CardHand3.setOpacity(0.5);
         }
     }
 
@@ -1315,8 +1314,6 @@ public class GameBoard {
             clicked = true;
             Client.sendMessage("second");
 
-            CardHand1.setOpacity(0.5);
-            CardHand3.setOpacity(0.5);
         }
     }
 
@@ -1326,8 +1323,6 @@ public class GameBoard {
             clicked = true;
             Client.sendMessage("third");
 
-            CardHand1.setOpacity(0.5);
-            CardHand2.setOpacity(0.5);
         }
     }
 
@@ -1443,11 +1438,6 @@ public class GameBoard {
         GoldDeck.setVisible(false);
 
 
-        //CardHand1.setImage(new Image("/GUI/Images/" + Client.getVirtualModel().getHand().getCardOne().getID()));
-        //CardHand2.setImage(new Image("/GUI/Images/" + Client.getVirtualModel().getHand().getCardTwo().getID()));
-        //CardHand3.setImage(new Image("/GUI/Images/" + Client.getVirtualModel().getHand().getCardThree().getID()));
-
-
         //deserialize all the cards
 
         //initialize the personal board
@@ -1487,23 +1477,49 @@ public class GameBoard {
         URL Starturl = getClass().getResource("/Images/"+ Start + ".jpg");
         StartingCard.setImage(new Image(Starturl.toString()));
 
-        //Here i make draggable all the cards inside my hand to make them placeable
-        draggableMaker.makeDraggable(CardHand1, personalBoardScroll, 508, 650, copy, personalBoardContainer, Starturl.toString(), imageViewList, ResourcesList);
-        draggableMaker.makeDraggable(CardHand2, personalBoardScroll, 801, 650, copy, personalBoardContainer, Starturl.toString(), imageViewList, ResourcesList);
-        draggableMaker.makeDraggable(CardHand3, personalBoardScroll, 1064, 650, copy, personalBoardContainer, Starturl.toString(), imageViewList, ResourcesList);
+        BoardManager.initializeBoard(Client.getVirtualModel().getChosenStarter(), MyPoints);
+        //ResourcesCounter.updateResources(Client.getVirtualModel().getChosenStarter(), MyPoints);
+        Random rand = new Random();
+
+        //ArrayList<CardJSON> goldDeck = Client.getVirtualModel().getGoldDeck();
+
+
+        //String GoldId1 = goldDeck.getFirst().getID();
+        //String GoldId2 = Client.getVirtualModel().getCardG().getID();
+        //String GoldId3 = Client.getVirtualModel().getCardG().getID();
+
+        //URL GoldURL1 = getClass().getResource("/Images/" + GoldId1 + "front.jpg");
+        //URL GoldURL2 = getClass().getResource("/Images/" + GoldId2 + "front.jpg");
+        //URL GoldURL3 = getClass().getResource("/Images/" + GoldId3 + "front.jpg");
+        //GoldDeck.setImage(new Image(GoldURL1.toString()));
+        //GoldDeck1.setImage(new Image(GoldURL2.toString()));
+        //GoldDeck2.setImage(new Image(GoldURL3.toString()));
+/*
+        String ResId1 = Client.getVirtualModel().getCardR().getID();
+        String ResId2 = Client.getVirtualModel().getCardR().getID();
+        String ResId3 = Client.getVirtualModel().getCardR().getID();
+        URL ResURL1 = getClass().getResource("/Images/" + ResId1 + "front.jpg");
+        URL ResURL2 = getClass().getResource("/Images/" + ResId2 + "front.jpg");
+        URL ResURL3 = getClass().getResource("/Images/" + ResId3 + "front.jpg");
+        ResDeck.setImage(new Image("/Images/" + ResURL1 + "front.jpg"));
+        ResDeck2.setImage(new Image("/Images/" + ResURL2 + "front.jpg"));
+        ResDeck3.setImage(new Image("/Images/" + ResURL3 + "front.jpg"));
+ */
+
+
+        if(Client.isTurn()){
+            //Here i make draggable all the cards inside my hand to make them placeable
+            draggableMaker.makeDraggable(CardHand1, personalBoardScroll, 508, 650, copy, personalBoardContainer, Starturl.toString(), imageViewList, ResourcesList);
+            draggableMaker.makeDraggable(CardHand2, personalBoardScroll, 801, 650, copy, personalBoardContainer, Starturl.toString(), imageViewList, ResourcesList);
+            draggableMaker.makeDraggable(CardHand3, personalBoardScroll, 1064, 650, copy, personalBoardContainer, Starturl.toString(), imageViewList, ResourcesList);
+
+        }
 
 
 
-        /*
-        GoldDeck.setImage(new Image("/" + RandomCardFile.getRandomGXXFileName()));
-        GoldDeck1.setImage(new Image("/" + RandomCardFile.getRandomGXXFileName()));
-        GoldDeck2.setImage(new Image("/" + RandomCardFile.getRandomGXXFileName()));
 
-        ResDeck.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
-        ResDeck2.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
-        ResDeck3.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
-         */
-         //StartingCard.setImage(new Image("/" + StartUrl));
+
+        //StartingCard.setImage(new Image("/" + StartUrl));
 
         //Make the cards pickable from deck
         cardPicker.makePickable(ResDeck, DecksList);

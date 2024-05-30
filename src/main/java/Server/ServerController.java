@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Random;
 
 public class ServerController {
@@ -55,7 +56,6 @@ public class ServerController {
             clientHandler.sendMessageToClient(personalGoalDeck.get(2*i+1).getID());
             clientHandler.sendMessageToClient(mapper.writeValueAsString(hands.get(i)));
         }
-        ClientHandler.broadcastMessage("Start");
 
         for(int i = 0; i < Server.getNumPlayers(); i++){
             //if "front" receive --> continue;
@@ -85,6 +85,8 @@ public class ServerController {
             }
             System.out.println("choice " + i);
         }
+
+        ClientHandler.broadcastMessage("Start");
 
 
     }
@@ -168,16 +170,90 @@ public class ServerController {
 
     private void generateCommonGoals() throws IOException {
         path1 =  RandomCardFile.getRandomOXXFileName().replace("jpg","json");
-        cg1 = mapper.readValue(new File("src/main/resources/json/" + path1), CardJSON.class);
         path2 =  RandomCardFile.getRandomOXXFileName().replace("jpg","json");
-        cg2 = mapper.readValue(new File("src/main/resources/json/" + path2), CardJSON.class);
+        if(!Objects.equals(path1, path2)){
+            cg1 = mapper.readValue(new File("src/main/resources/json/" + path1), CardJSON.class);
+            cg2 = mapper.readValue(new File("src/main/resources/json/" + path2), CardJSON.class);
+        }else{
+            while(Objects.equals(path1, path2)){
+                path1 =  RandomCardFile.getRandomOXXFileName().replace("jpg","json");
+                path2 =  RandomCardFile.getRandomOXXFileName().replace("jpg","json");
+            }
+            cg1 = mapper.readValue(new File("src/main/resources/json/" + path1), CardJSON.class);
+            cg2 = mapper.readValue(new File("src/main/resources/json/" + path2), CardJSON.class);
+        }
+
 
     }
 
     public void turn() {
-        for(int i = 0; i < Server.getNumPlayers(); i++){
+        for(int i = 0; i < Server.getNumPlayers(); i++) {
             System.out.println("Player number " + i);
-                Server.getClientHandlers().get(i).sendMessageToClient("Your turn");
+            ClientHandler current = Server.getClientHandlers().get(i);
+            current.sendMessageToClient("Your turn");
+            String handChoice = current.checkForMSG();
+            int cardToReplace = 0;
+
+            if(handChoice.equals("first")){
+                this.hands.get(i).setCardOne(null);
+                cardToReplace = 1;
+            }
+            else if(handChoice.equals("second")){
+                this.hands.get(i).setCardTwo(null);
+                cardToReplace = 2;
+            }
+            else if(handChoice.equals("third")){
+                this.hands.get(i).setCardThree(null);
+                cardToReplace = 3;
+            }
+
+            String choice = current.checkForMSG();
+            CardJSON cardToPick = null;
+            //id of card to pick
+            if(choice.contains("G")){
+                for(CardJSON goldCard: goldDeck) {
+                    if (goldCard.getID().equals(choice)){
+                        cardToPick = goldCard;
+                        goldDeck.remove(goldCard);
+                        break;
+                    }
+                }
+            }
+            else{
+                for(CardJSON resourceCard: resourceDeck) {
+                    if (resourceCard.getID().equals(choice)){
+                        cardToPick = resourceCard;
+                        resourceDeck.remove(resourceCard);
+                        break;
+                    }
+                }
+            }
+
+            switch (cardToReplace){
+                case 1: {
+                    hands.get(i).setCardOne(cardToPick);
+                    break;
+                }
+                case 2: {
+                    hands.get(i).setCardTwo(cardToPick);
+                    break;
+                }
+                case 3: {
+                    hands.get(i).setCardThree(cardToPick);
+                    break;
+                }
+
+                default: break;
+            }
+
+            if(i == Server.getNumPlayers()-1)
+                i = 0;
+
+            //if not win
+            if(Objects.equals(current.checkForMSG(), "Win")){
+
+            }
+            current.sendMessageToClient("Done");
         }
     }
 }

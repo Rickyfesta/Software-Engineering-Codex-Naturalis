@@ -1,85 +1,14 @@
 package Controller;
 
-import Model.Cards.CardJSON;
-import javafx.scene.text.Text;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 public class ResourcesCounter {
-    private static int mushrooms = 0;
-    private static int insects = 0;
-    private static int animals = 0;
-    private static int plants = 0;
-    private static int potion = 0;
-    private static int feather = 0;
-    private static int scroll = 0;
 
-    //TODO: For points to add later feather and potion and scroll
-    //TODO: View for seeing how many points I have
-    /**@ ensures \result >= 0; */
-    public static int getFeather() {
-        return feather;
-    }
-    /**@ ensures \result >= 0; */
-    public static int getPotion() {
-        return potion;
-    }
-    /**@ ensures \result >= 0; */
-    public static int getScroll() {
-        return scroll;
-    }
 
     //Once I placed the card I get the resource it gives me
     /**@ requires cardToRead != null;
       @ requires resourceList != null;
       @ ensures resourceList.size() >= 7;
       */
-    public static void updateResources(CardJSON cardToRead, List<Text> resourceList){
-        String[] symbols = getStrings(cardToRead);
-        for (String symbol : symbols) {
-            //System.out.println(symbol);
-            if(symbol !=null ){
-                switch (symbol){
-                    case "Animal":
-                        //System.out.println("Updating animals");
-                        animals++;
-                        //System.out.println(animals);
-                        resourceList.get(1).setText(String.valueOf(animals));
-                        break;
-                    case "Plant":
-                        plants++;
-                        //System.out.println("Updating Plants");
-                        //System.out.println(plants);
-                        resourceList.get(3).setText(String.valueOf(plants));
-                        break;
-                    case "Insect":
-                        insects++;
-                        //System.out.println("Updating insects");
-                        resourceList.get(2).setText(String.valueOf(insects));
-                        break;
-                    case "Mushroom":
-                        mushrooms++;
-                       //System.out.println("Updating mushrooms");
-                        resourceList.get(0).setText(String.valueOf(mushrooms));
-                        break;
-                    case "Potion":
-                        potion++;
-                        resourceList.get(4).setText(String.valueOf(potion));
-                        break;
-                    case "Scroll":
-                        scroll++;
-                        resourceList.get(6).setText(String.valueOf(scroll));
-                        break;
-                    case "Feather":
-                        feather++;
-                        resourceList.get(4).setText(String.valueOf(feather));
-                        break;
-                }
-            }
-        }
-    }
+
 
     //update the count
     /**@ requires cardToPlace != null;

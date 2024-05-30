@@ -1,4 +1,4 @@
-package Controller;
+package Client.GUI.SceneControllers;
 
 import Model.Cards.CardJSON;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 import java.io.File;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -88,19 +89,22 @@ public class FlippableMaker {
         flippedState.put(cardImageView, !isFlipped);
         //System.out.println(isFlipped);
         if (isFlipped) {
-            //System.out.println("this url : " +url);
-            //System.out.println(fetchImageUrlFromJson(url, cardImageView));
-            return new Image("/" +fetchImageUrlFromJson(url, cardImageView) + "front.jpg");
+            URL cardURL = getClass().getResource("/Images/"+fetchImageUrlFromJson(url, cardImageView) + "front.jpg");
+            return new Image(cardURL.toString());
         } else {
             switch (color.toLowerCase()) {
                 case "red":
-                    return new Image(GRED_IMAGE);
+                    URL gredURL = getClass().getResource(GRED_IMAGE);
+                    return new Image(gredURL.toString());
                 case "blue":
-                    return new Image(GBLUE_IMAGE);
+                    URL gblueURL = getClass().getResource(GBLUE_IMAGE);
+                    return new Image(gblueURL.toString());
                 case "green":
-                    return new Image(GGREEN_IMAGE);
+                    URL ggreenURL = getClass().getResource(GGREEN_IMAGE);
+                    return new Image(ggreenURL.toString());
                 case "purple":
-                    return new Image(GPURPLE_IMAGE);
+                    URL gpurpleURL = getClass().getResource(GPURPLE_IMAGE);
+                    return new Image(gpurpleURL.toString());
                 default:
                     throw new IllegalArgumentException("Invalid card color: " + color);
             }
@@ -126,17 +130,22 @@ public class FlippableMaker {
         flippedState.put(cardImageView, !isFlipped);
         if (isFlipped) {
             //System.out.println(fetchImageUrlFromJson(url, cardImageView));
-            return new Image("/" +fetchImageUrlFromJson(url, cardImageView).replaceFirst("0", "") + "front.jpg");
+            URL cardURL = getClass().getResource("/Images/"+fetchImageUrlFromJson(url, cardImageView).replaceFirst("0", "") + "front.jpg");
+            return new Image(cardURL.toString());
         } else {
             switch (color.toLowerCase()) {
                 case "red":
-                    return new Image(RED_IMAGE);
+                    URL redURL = getClass().getResource(RED_IMAGE);
+                    return new Image(redURL.toString());
                 case "blue":
-                    return new Image(BLUE_IMAGE);
+                    URL blueURL = getClass().getResource(BLUE_IMAGE);
+                    return new Image(blueURL.toString());
                 case "green":
-                    return new Image(GREEN_IMAGE);
+                    URL greenURL = getClass().getResource(GREEN_IMAGE);
+                    return new Image(greenURL.toString());
                 case "purple":
-                    return new Image(PURPLE_IMAGE);
+                    URL purpleURL = getClass().getResource(PURPLE_IMAGE);
+                    return new Image(purpleURL.toString());
                 default:
                     throw new IllegalArgumentException("Invalid card color: " + color);
             }
