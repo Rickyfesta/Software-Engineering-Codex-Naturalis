@@ -80,7 +80,7 @@
             </LinearGradient>
          </fill>
       </Text>
-      <Text fill="WHITE" layoutX="745.0" layoutY="555.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Waiting fot other players to join" wrappingWidth="386.9367332458496">
+      <Text fill="WHITE" layoutX="745.0" layoutY="555.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Waiting for other players to join" wrappingWidth="386.9367332458496">
          <font>
             <Font name="Old English Text MT" size="30.0" />
          </font></Text>
