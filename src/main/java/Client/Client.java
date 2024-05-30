@@ -21,7 +21,7 @@ public class Client {
     private final ArrayList<String> messages = new ArrayList<>();
     private static VirtualModel virtualModel = new VirtualModel();
     private static ObjectMapper mapper = new ObjectMapper();
-    private static boolean turn = false;
+    private static boolean turn = true;
 
     public static VirtualModel getVirtualModel() {
         return virtualModel;
@@ -59,7 +59,8 @@ public class Client {
       */
 
     public static void sendMessage(String toSend){
-        bufferedWriter.println(toSend);
+        if(isTurn())
+            bufferedWriter.println(toSend);
     }
     /**@ requires socket != null;
       @ requires bufferedReader != null;
@@ -71,10 +72,18 @@ public class Client {
                 try{
                     while(socket.isConnected()){
                         msgFromGroupChat = bufferedReader.readLine();
-                        if(msgFromGroupChat.equals("Your turn")){
-                            System.out.println("Your turn");
-                            this.setTurn(true);
+                        if(msgFromGroupChat.equals("Start")){
+                            setTurn(false);
                             continue;
+                        }
+                        else if(msgFromGroupChat.equals("Your turn")){
+                            System.out.println("Your turn");
+                            setTurn(true);
+                            continue;
+                        }
+                        else if(msgFromGroupChat.equals("Done")){
+                            System.out.println("Done");
+                            setTurn(false);
                         }
                         messages.add(msgFromGroupChat);
                         Thread.sleep(250);
@@ -124,7 +133,7 @@ public class Client {
         String username = scanner.nextLine();
         Socket socket = new Socket("localhost", 60000);
         Client client = new Client(socket, username);
-        client.sendMessage(username);
+        Client.sendMessage(username);
 
         if(client.checkForMSG().equals("Login Failed")){
             System.out.println("Connection failed");
