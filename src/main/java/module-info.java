@@ -18,4 +18,6 @@ module IS24.LB09 {
     exports Model.Cards to com.fasterxml.jackson.databind;
     exports Server;
     opens Server;
+    exports Client.GUI.SceneControllers;
+    opens Client.GUI.SceneControllers;
 }

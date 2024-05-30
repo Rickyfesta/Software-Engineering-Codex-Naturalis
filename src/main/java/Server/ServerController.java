@@ -72,6 +72,22 @@ public class ServerController {
             System.out.println("choice " + i);
         }
 
+        for(int i = 0; i < Server.getNumPlayers(); i++){
+            //if "front" receive --> continue;
+            //else change to back with the same ID
+            String rec = Server.getClientHandlers().get(i).checkForMSG();
+            if(rec.equals("front")){
+                chosenStarter.add(startingChoices.get(i));
+            }
+            else if(rec.equals("back")){
+                String id = this.startingChoices.get(i).getID();
+                CardJSON card = mapper.readValue(new File("src/main/resources/json/" + id + "back.json"), CardJSON.class);
+                startingChoices.add(card);
+            }
+
+            System.out.println("choice " + i);
+        }
+
 
     }
 //to create two separate hands
