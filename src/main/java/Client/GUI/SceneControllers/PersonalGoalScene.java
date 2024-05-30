@@ -1,7 +1,6 @@
 package Client.GUI.SceneControllers;
 
 import Client.Client;
-import javafx.animation.PauseTransition;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,9 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,32 +19,33 @@ import java.util.ResourceBundle;
 
 public class PersonalGoalScene implements Initializable {
     @FXML
-    private ImageView starterCardBack;
+    private ResourceBundle resources;
 
     @FXML
-    private ImageView starterCardFront;
+    private URL location;
+
+
 
     @FXML
-    private Text id;
+    private ImageView personalGoal1;
 
-
+    @FXML
+    private ImageView personalGoal2;
     static FXMLLoader loader = new FXMLLoader();
     public static Stage stage;
-
-
     private static boolean clicked = false;
 
     @FXML
     public void selectFirstGoal(Event event){
         if(!clicked){
             clicked = true;
-            Client.getVirtualModel().setChosenStarter(Client.getVirtualModel().getStarterFront());
-            Client.sendMessage("front");
-            PauseTransition wait = new PauseTransition(Duration.seconds(1));
+            Client.getVirtualModel().setChosenStarter(Client.getVirtualModel().getPg1());
+            Client.sendMessage("first");
+
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Parent root;
             try {
-                root = FXMLLoader.load(getClass().getResource("/GUI/PersonalGoalScene.fxml"));
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/GUI/GameBoard.fxml")));
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
@@ -62,13 +60,13 @@ public class PersonalGoalScene implements Initializable {
     public void selectSecondGoal(Event event){
         if(!clicked){
             clicked = true;
-            Client.getVirtualModel().setChosenStarter(Client.getVirtualModel().getStarterBack());
-            Client.sendMessage("back");
+            Client.getVirtualModel().setChosenStarter(Client.getVirtualModel().getPg2());
+            Client.sendMessage("second");
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Parent root;
             try {
-                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/GUI/PersonalGoalScene.fxml")));
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/GUI/GameBoard.fxml")));
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
@@ -80,10 +78,11 @@ public class PersonalGoalScene implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String id = Client.getVirtualModel().getStarterFront().getID();
+        String id = Client.getVirtualModel().getPg1().getID();
         URL imageURL = getClass().getResource("/Images/" + id + "front.jpg");
-        starterCardFront.setImage(new Image(imageURL.toString()));
-        imageURL = getClass().getResource("/Images/" + id + "back.jpg");
-        starterCardBack.setImage(new Image(imageURL.toString()));
+        personalGoal1.setImage(new Image(imageURL.toString()));
+        id = Client.getVirtualModel().getPg2().getID();
+        imageURL = getClass().getResource("/Images/" + id + "front.jpg");
+        personalGoal2.setImage(new Image(imageURL.toString()));
     }
 }

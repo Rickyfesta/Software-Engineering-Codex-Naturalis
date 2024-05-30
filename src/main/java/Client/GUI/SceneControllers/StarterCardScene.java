@@ -48,7 +48,7 @@ public class StarterCardScene implements Initializable {
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 Parent root;
                 try {
-                    root = FXMLLoader.load(getClass().getResource("/GUI/PersonalGoalScene.fxml"));
+                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/GUI/PersonalGoalScene.fxml")));
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }

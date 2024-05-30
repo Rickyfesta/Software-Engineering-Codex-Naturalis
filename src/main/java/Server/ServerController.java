@@ -21,12 +21,12 @@ public class ServerController {
     private ArrayList<CardJSON> resourceDeck = new ArrayList<>();
     private ArrayList<CardJSON> goldDeck = new ArrayList<>();
 
-    private ArrayList<CardJSON> personalGoldDeck = new ArrayList<>();
-
+    private ArrayList<CardJSON> personalGoalDeck = new ArrayList<>();
     private ArrayList<CardJSON> startingChoices = new ArrayList<>();
     private ObjectMapper mapper = new ObjectMapper();
     private ArrayList<PlayerHand> hands = new ArrayList<>();
     private ArrayList<CardJSON> chosenStarter = new ArrayList<>();
+    private ArrayList<CardJSON> chosenGoal = new ArrayList<>();
 
 
     public void initializeGame() throws IOException {
@@ -51,8 +51,8 @@ public class ServerController {
         for(int i = 0; i<Server.getPlayerCount().get(); i++){
             ClientHandler clientHandler = Server.getClientHandlers().get(i);
             clientHandler.sendMessageToClient(startingChoices.get(i).getID());
-            clientHandler.sendMessageToClient(personalGoldDeck.get(2*i).getID());
-            clientHandler.sendMessageToClient(personalGoldDeck.get(2*i+1).getID());
+            clientHandler.sendMessageToClient(personalGoalDeck.get(2*i).getID());
+            clientHandler.sendMessageToClient(personalGoalDeck.get(2*i+1).getID());
         }
         ClientHandler.broadcastMessage("Start");
 
@@ -66,25 +66,22 @@ public class ServerController {
             else if(rec.equals("back")){
                 String id = this.startingChoices.get(i).getID();
                 CardJSON card = mapper.readValue(new File("src/main/resources/json/" + id + "back.json"), CardJSON.class);
-                startingChoices.add(card);
+                chosenStarter.add(card);
             }
 
             System.out.println("choice " + i);
         }
 
+        //Choosing personal goal
         for(int i = 0; i < Server.getNumPlayers(); i++){
-            //if "front" receive --> continue;
-            //else change to back with the same ID
             String rec = Server.getClientHandlers().get(i).checkForMSG();
-            if(rec.equals("front")){
-                chosenStarter.add(startingChoices.get(i));
+            if(rec.equals("first")){
+                chosenGoal.add(personalGoalDeck.get(i));
+                personalGoalDeck.remove(i);
             }
-            else if(rec.equals("back")){
-                String id = this.startingChoices.get(i).getID();
-                CardJSON card = mapper.readValue(new File("src/main/resources/json/" + id + "back.json"), CardJSON.class);
-                startingChoices.add(card);
+            else if(rec.equals("second")){
+                chosenGoal.add(personalGoalDeck.get(i));
             }
-
             System.out.println("choice " + i);
         }
 
@@ -92,7 +89,6 @@ public class ServerController {
     }
 //to create two separate hands
     private void assignCard() {
-
         for(int i =0; i<Server.getPlayerCount().get(); i++){
             Random rand = new Random();
             hands.add(new PlayerHand());
@@ -118,7 +114,7 @@ public class ServerController {
             }
             else{
                 generatedPaths.add(pathX);
-                personalGoldDeck.add(mapper.readValue(new File("src/main/resources/json/" + pathX), CardJSON.class));
+                personalGoalDeck.add(mapper.readValue(new File("src/main/resources/json/" + pathX), CardJSON.class));
             }
         }
     }

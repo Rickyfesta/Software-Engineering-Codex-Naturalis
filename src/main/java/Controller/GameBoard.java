@@ -1,9 +1,5 @@
 package Controller;
 
-import Model.Cards.CardJSON;
-import Model.Cards.RandomCardFile;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -11,7 +7,6 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -20,7 +15,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
@@ -1287,16 +1281,6 @@ public class GameBoard {
     private Pane allContainer;
     @FXML
     private AnchorPane handContainer;
-
-    public static String url1 = RandomCardFile.getRandomGXXFileName();
-
-    public static String url2 = RandomCardFile.getRandomXXFileName();
-
-    public static String url3 = RandomCardFile.getRandomXXFileName();
-
-
-    public static String StartUrl = RandomCardFile.getRandomSXXFileName();
-
     public static List<ImageView> DecksList;
     public static List<ImageView> imageViewList;
     public static List<Text> ResourcesList;
@@ -1470,20 +1454,15 @@ public class GameBoard {
          */
 
 
-        // Set CommonBoard into the placeholder
-        CardHand1.setImage(new Image("/" + url1));
-        CardHand2.setImage(new Image("/" + url2));
-        CardHand3.setImage(new Image("/" + url3));
+        //CardHand1.setImage(new Image("/GUI/Images" + Client.getVirtualModel().getHand().getCardOne().getID()));
+        //CardHand2.setImage(new Image("/GUI/Images" + Client.getVirtualModel().getHand().getCardTwo().getID()));
+        //CardHand3.setImage(new Image("/GUI/Images" + Client.getVirtualModel().getHand().getCardThree().getID()));
 
 
         //deserialize all the cards
-        ObjectMapper boardMapper = new ObjectMapper();
-        boardMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        CardJSON startingCard = boardMapper.readValue(new File("src/main/resources/json/" + StartUrl.replace("jpg", "json")), CardJSON.class);
-
 
         //initialize the personal board
-        BoardManager.initializeBoard(startingCard, ResourcesList);
+        //BoardManager.initializeBoard(startingCard, ResourcesList);
 
 /*
         CardJSON Card1 = boardMapper.readValue(new File("src/main/resources/json/" + url1.replace("jpg", "json")), CardJSON.class);
@@ -1491,10 +1470,10 @@ public class GameBoard {
         CardJSON Card3 = boardMapper.readValue(new File("src/main/resources/json/" + url3.replace("jpg", "json")), CardJSON.class);
  */
         //Here i make draggable all the cards inside my hand to make them placeable
-        draggableMaker.makeDraggable(CardHand1, personalBoardScroll, 508, 650, copy, personalBoardContainer, StartUrl, imageViewList, ResourcesList);
-        draggableMaker.makeDraggable(CardHand2, personalBoardScroll, 801, 650, copy, personalBoardContainer, StartUrl, imageViewList, ResourcesList);
-        draggableMaker.makeDraggable(CardHand3, personalBoardScroll, 1064, 650, copy, personalBoardContainer, StartUrl, imageViewList, ResourcesList);
-
+        //draggableMaker.makeDraggable(CardHand1, personalBoardScroll, 508, 650, copy, personalBoardContainer, StartUrl, imageViewList, ResourcesList);
+        //draggableMaker.makeDraggable(CardHand2, personalBoardScroll, 801, 650, copy, personalBoardContainer, StartUrl, imageViewList, ResourcesList);
+        //draggableMaker.makeDraggable(CardHand3, personalBoardScroll, 1064, 650, copy, personalBoardContainer, StartUrl, imageViewList, ResourcesList);
+/*
         CommonObj.setImage(new Image("/" + RandomCardFile.getRandomOXXFileName()));
         GoldDeck.setImage(new Image("/" + RandomCardFile.getRandomGXXFileName()));
         GoldDeck1.setImage(new Image("/" + RandomCardFile.getRandomGXXFileName()));
@@ -1503,7 +1482,9 @@ public class GameBoard {
         ResDeck.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
         ResDeck2.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
         ResDeck3.setImage(new Image("/" + RandomCardFile.getRandomXXFileName()));
-        StartingCard.setImage(new Image("/" + StartUrl));
+
+ */
+        //StartingCard.setImage(new Image("/" + StartUrl));
 
         //Make the cards pickable from deck
         cardPicker.makePickable(ResDeck, DecksList);
