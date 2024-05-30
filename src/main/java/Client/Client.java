@@ -179,6 +179,7 @@ public class Client {
         System.out.println(Client.virtualModel.getStarterFront().getID());
 
         //Starting Back
+        rec.replace("front", "back");
         Client.virtualModel.setStarterBack(mapper.readValue(new File("src/main/resources/json/"+ rec +".json"), CardJSON.class));
         System.out.println(Client.virtualModel.getStarterBack().getID());
 

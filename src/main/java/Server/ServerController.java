@@ -62,11 +62,13 @@ public class ServerController {
             //else change to back with the same ID
             String rec = Server.getClientHandlers().get(i).checkForMSG();
             if(rec.equals("front")){
-                chosenStarter.add(startingChoices.get(i));
+                String id = this.startingChoices.get(i).getID();
+                CardJSON card = mapper.readValue(new File("src/main/resources/json/" + id + ".json"), CardJSON.class);
+                chosenStarter.add(card);
             }
             else if(rec.equals("back")){
                 String id = this.startingChoices.get(i).getID();
-                CardJSON card = mapper.readValue(new File("src/main/resources/json/" + id + "back.json"), CardJSON.class);
+                CardJSON card = mapper.readValue(new File("src/main/resources/json/" + id + ".json"), CardJSON.class);
                 chosenStarter.add(card);
             }
 
