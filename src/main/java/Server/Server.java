@@ -70,7 +70,6 @@ public class Server {
         ServerController serverController = new ServerController();
         serverController.initializeGame();
         serverController.startGame();
-
         serverController.turn();
 
     }

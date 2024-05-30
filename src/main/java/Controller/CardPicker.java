@@ -1,5 +1,6 @@
 package Controller;
 
+import Client.GUI.SceneControllers.GameBoard;
 import Model.Cards.RandomCardFile;
 import javafx.animation.ScaleTransition;
 import javafx.scene.image.Image;

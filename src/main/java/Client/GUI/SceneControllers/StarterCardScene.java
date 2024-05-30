@@ -1,93 +1,87 @@
 package Client.GUI.SceneControllers;
 
-import javafx.animation.PauseTransition;
-import javafx.application.Platform;
+import Client.Client;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 
-public class StarterCardScene {
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
+public class StarterCardScene implements Initializable {
     @FXML
     private ImageView starterCardBack;
 
     @FXML
     private ImageView starterCardFront;
 
+    @FXML
+    private Text id;
+
 
     static FXMLLoader loader = new FXMLLoader();
     public static Stage stage;
 
 
-    public static void changeToObjectScreen() {
-        PauseTransition wait = new PauseTransition(Duration.seconds(1));
-        wait.setOnFinished((e) -> Platform.runLater(() ->{
-            try {
-                Parent root = loader.load(StarterSceneController.class.getResource("/GUI/PersonalGoalScene.fxml")); //scene
+    private static boolean clicked = false;
+
+    @FXML
+    public void selectStarterFront(Event event){
+        if(!clicked){
+            clicked = true;
+            Client.getVirtualModel().setChosenStarter(Client.getVirtualModel().getStarterFront());
+            Client.sendMessage("front");
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Parent root;
+                try {
+                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/GUI/PersonalGoalScene.fxml")));
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        }));
+
+        }
     }
 
     @FXML
-    void initialize(Stage PersonalGoalScene) {
-        //starterCardFront.setImage(new Image());
-        //starterCardBack.setImage(new Image());
+    public void selectStarterBack(Event event){
+        if(!clicked){
+            clicked = true;
+            Client.getVirtualModel().setChosenStarter(Client.getVirtualModel().getStarterBack());
+            Client.sendMessage("back");
 
-        starterCardFront.setOnMouseClicked(event -> {
-            if (event.getButton() == MouseButton.PRIMARY) {
-                try{
-
-
-                }catch (Exception e){
-                    e.printStackTrace();
+               stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+               Parent root;
+                try {
+                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/GUI/PersonalGoalScene.fxml")));
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
                 }
-            }
-        });
-
-        starterCardBack.setOnMouseClicked(event -> {
-            if (event.getButton() == MouseButton.PRIMARY) {
-                try{
-
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-
-        });
-
-        try {
-            // Load the FXML file
-            URL fxmlLocation = getClass().getResource("/GUI/PersonalGoalScene.fxml");
-            loader = new FXMLLoader(fxmlLocation);
-            Parent parent = loader.load();
-            Scene scene = new Scene(parent, 1300, 750);
-            PersonalGoalScene.setScene(scene);
-        } catch(Exception e) {
-            e.printStackTrace();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
         }
+    }
 
-        assert starterCardBack != null : "fx:id=\"starterCardBack\" was not injected: check your FXML file 'StarterCardScene.fxml'.";
-        assert starterCardFront != null : "fx:id=\"starterCardFront\" was not injected: check your FXML file 'StarterCardScene.fxml'.";
-
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        String id = Client.getVirtualModel().getStarterFront().getID();
+        URL imageURL = getClass().getResource("/Images/" + id + "front.jpg");
+        starterCardFront.setImage(new Image(imageURL.toString()));
+        imageURL = getClass().getResource("/Images/" + id + "back.jpg");
+        starterCardBack.setImage(new Image(imageURL.toString()));
     }
 }
