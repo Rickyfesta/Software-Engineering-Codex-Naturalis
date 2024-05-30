@@ -88,7 +88,7 @@ public class ResourcesCounter {
       @ ensures (\result == false) ==> (\exists String resource; cardToPlace.getREQUIRED().contains(resource); !hasEnoughResource(resource.toLowerCase(), requiredCount.get(resource.toLowerCase())));
       @ ensures (\result == true) ==> (\forall String resource; cardToPlace.getREQUIRED().contains(resource); hasEnoughResource(resource.toLowerCase(), requiredCount.get(resource.toLowerCase())));
       */
-    private static void updateResourceCount(String symbol) {
+    public static void updateResourceCount(String symbol) {
         if (symbol.contains("animal")) {
             animals++;
         }
@@ -214,7 +214,7 @@ public class ResourcesCounter {
                  : resource.equals("insect") ? insects >= requiredCount
                  : false);
          */
-    private static boolean hasEnoughResource(String resource, int requiredCount) {
+    public static boolean hasEnoughResource(String resource, int requiredCount) {
         switch (resource) {
             case "animal":
                 return animals >= requiredCount;
