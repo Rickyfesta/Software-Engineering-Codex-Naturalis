@@ -9,20 +9,19 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Server {
     private static ServerSocket serverSocket;
-    private static int MIN_PLAYERS = 4;
-    private static int MAX_PLAYERS = 4;
+    private static int NUM_PLAYERS = 4;
     private static AtomicInteger playerCount = new AtomicInteger(0);
     private static ArrayList<String> nicknames = new ArrayList<>();
     private static ArrayList<ClientHandler> clientHandlers = new ArrayList<>();
 
     private static List<Socket> clients = new ArrayList<>();
 
-    public static int getMinPlayers() {
-        return MIN_PLAYERS;
+    public static int getNumPlayers() {
+        return NUM_PLAYERS;
     }
 
-    public static void setMinPlayers(int minPlayers) {
-        MIN_PLAYERS = minPlayers;
+    public static void setNumPlayers(int numPlayers) {
+        NUM_PLAYERS = numPlayers;
     }
 
     public Server(ServerSocket serverSocket) {
@@ -52,7 +51,7 @@ public class Server {
             System.out.println("Server is listening on port " + 60000);
             ClientHandler clientHandler;
             while (true) {
-                if (clients.size() >= MIN_PLAYERS) {
+                if (clients.size() >= NUM_PLAYERS) {
                     System.out.println("Game is about to start.");
                     break;
                 }
@@ -72,7 +71,7 @@ public class Server {
         serverController.initializeGame();
         serverController.startGame();
 
-
+        serverController.turn();
 
     }
 

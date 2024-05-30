@@ -25,11 +25,11 @@ public class GUIClient extends Application {
 
     //From waiting scene to Starter Card Choice Scene
     public static void changeToStarterScene() {
-        PauseTransition wait = new PauseTransition(Duration.seconds(1));
+        /*PauseTransition wait = new PauseTransition(Duration.seconds(1));
         wait.setOnFinished((e) ->{
             Platform.runLater(() ->{
                 try {
-                    Parent root = loader.load(StarterSceneController.class.getResource("/GUI/UsernameScene.fxml")); //scene
+                    Parent root = FXMLLoader.load(StarterSceneController.class.getResource("/GUI/UsernameScene.fxml")); //scene
                     Scene scene = new Scene(root);
                     stage.setScene(scene);
                     stage.show();
@@ -37,14 +37,27 @@ public class GUIClient extends Application {
                     throw new RuntimeException(ex);
                 }
             }) ;
-        } );
+        } );*/
+        Platform.runLater(() -> {
+            PauseTransition wait = new PauseTransition(Duration.seconds(1));
+            wait.setOnFinished((e) -> {
+                try {
+                    Parent root = FXMLLoader.load(StarterSceneController.class.getResource("/GUI/UsernameScene.fxml")); //scene
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            });
+        });
     }
 
     @Override
     public void start(Stage MainMenu) {
         try {
             // Load the FXML file
-            URL fxmlLocation = getClass().getResource("/GUI/MainMenu.fxml");
+            URL fxmlLocation = getClass().getResource("/GUI/StarterCardScene.fxml");
             //System.out.println(getClass().getResource("/fxml/MainMenu.fxml"));
             loader = new FXMLLoader(fxmlLocation);
             //System.out.println(loader);
@@ -54,7 +67,8 @@ public class GUIClient extends Application {
             MainMenu.setResizable(false);
             MainMenu.setTitle("Codex Naturalis");
             stage = MainMenu;
-            Image img = new Image ("icon.jpg");
+            URL url = getClass().getResource("/Images/icon.jpg");
+            Image img = new Image (url.toString());
             MainMenu.getIcons().add(img);
             MainMenu.show();
             //PersonalHand.start();

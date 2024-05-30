@@ -10,6 +10,17 @@ public class VirtualModel {
     private CardJSON cg1;
     private CardJSON cg2;
     private ArrayList<CardJSON> resourceDeck;
+    private CardJSON starterFront;
+    private CardJSON starterBack;
+    private CardJSON chosenStarter;
+
+    public CardJSON getChosenStarter() {
+        return chosenStarter;
+    }
+
+    public void setChosenStarter(CardJSON chosenStarter) {
+        this.chosenStarter = chosenStarter;
+    }
 
     public CardJSON getPg1() {
         return pg1;
@@ -46,8 +57,6 @@ public class VirtualModel {
         this.starterBack = starterBack;
     }
 
-    private CardJSON starterFront;
-    private CardJSON starterBack;
     public PlayerHand getHand() {
         return hand;
     }
