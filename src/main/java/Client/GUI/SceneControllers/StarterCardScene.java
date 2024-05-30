@@ -79,9 +79,16 @@ public class StarterCardScene implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String id = Client.getVirtualModel().getStarterFront().getID();
-        URL imageURL = getClass().getResource("/Images/" + id + "front.jpg");
-        starterCardFront.setImage(new Image(imageURL.toString()));
-        imageURL = getClass().getResource("/Images/" + id + "back.jpg");
-        starterCardBack.setImage(new Image(imageURL.toString()));
+        if(id.contains("front")){
+            URL imageURL = getClass().getResource("/Images/" + id + ".jpg");
+            starterCardFront.setImage(new Image(imageURL.toString()));
+            imageURL = getClass().getResource("/Images/" + id.replace("front", "back") + ".jpg");
+            starterCardBack.setImage(new Image(imageURL.toString()));
+        } else if (id.contains("back")) {
+            URL imageURL = getClass().getResource("/Images/" + id.replace("back", "front") + ".jpg");
+            starterCardFront.setImage(new Image(imageURL.toString()));
+            imageURL = getClass().getResource("/Images/" + id + ".jpg");
+            starterCardBack.setImage(new Image(imageURL.toString()));
+        }
     }
 }

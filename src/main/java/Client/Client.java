@@ -165,11 +165,12 @@ public class Client {
 
         //Get starter card
         rec = client.checkForMSG();
-        Client.virtualModel.setStarterFront(mapper.readValue(new File("src/main/resources/json/"+ rec +"front.json"), CardJSON.class));
+        Client.virtualModel.setStarterFront(mapper.readValue(new File("src/main/resources/json/"+ rec +".json"), CardJSON.class));
         System.out.println(Client.virtualModel.getStarterFront().getID());
 
         //Starting Back
-        Client.virtualModel.setStarterBack(mapper.readValue(new File("src/main/resources/json/"+ rec +"back.json"), CardJSON.class));
+        rec.replace("front", "back");
+        Client.virtualModel.setStarterBack(mapper.readValue(new File("src/main/resources/json/"+ rec +".json"), CardJSON.class));
         System.out.println(Client.virtualModel.getStarterBack().getID());
 
         //2 Personal goals

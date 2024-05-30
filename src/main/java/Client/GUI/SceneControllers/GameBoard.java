@@ -1448,7 +1448,7 @@ public class GameBoard {
 
         String Start = Client.getVirtualModel().getChosenStarter().getID();
 
-        URL Starturl = getClass().getResource("/Images/"+ Start);
+        URL Starturl = getClass().getResource("/Images/"+ Start + ".jpg");
         StartingCard.setImage(new Image(Starturl.toString()));
 
         //Here i make draggable all the cards inside my hand to make them placeable
