@@ -1,7 +1,5 @@
 package Server;
 
-import Controller.ClientHandler;
-
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -37,6 +35,10 @@ public class Server {
         return clients;
     }
 
+    public static ArrayList<ClientHandler> getClientHandlers() {
+        return clientHandlers;
+    }
+
     public static ArrayList<String> getNicknames() {
         return nicknames;
     }
@@ -57,6 +59,7 @@ public class Server {
                 Socket clientSocket = serverSocket.accept();
                 clients.add(clientSocket);
                 clientHandler = new ClientHandler(clientSocket, Server::closeServerSocket);
+                clientHandlers.add(clientHandler);
                 new Thread(clientHandler).start();
                 //System.out.println(getNicknames());
             }
@@ -64,6 +67,10 @@ public class Server {
             System.out.println("Server exception: " + e.getMessage());
             Server.closeServerSocket();
         }
+
+        ServerController serverController = new ServerController();
+        serverController.initializeGame();
+        serverController.startGame();
 
 
 

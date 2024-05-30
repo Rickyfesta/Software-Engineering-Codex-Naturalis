@@ -413,24 +413,24 @@
          <Image url="@img/bgHand.jpg" />
       </image>
    </ImageView>
-   <ImageView fx:id="objbackground" fitHeight="200.0" fitWidth="395.0" layoutY="600.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fx:id="objbackground" fitHeight="200.0" fitWidth="500.0" layoutY="600.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@img/P-Cobj.jpg" />
       </image>
    </ImageView>
-   <ImageView fx:id="CardHand1" fitHeight="120.0" fitWidth="215.0" layoutX="400.0" layoutY="650.0" pickOnBounds="true" preserveRatio="true" />
-   <ImageView fx:id="CardHand2" fitHeight="120.0" fitWidth="215.0" layoutX="750.0" layoutY="650.0" pickOnBounds="true" preserveRatio="true" />
-   <ImageView fx:id="CardHand3" fitHeight="120.0" fitWidth="215.0" layoutX="1000.0" layoutY="650.0" pickOnBounds="true" preserveRatio="true" />
-   <ImageView fx:id="CommonObj" fitHeight="97.0" fitWidth="179.0" layoutY="600.0" pickOnBounds="true" preserveRatio="true" />
-   <ImageView fx:id="PersonalObj" fitHeight="98.0" fitWidth="172.0" layoutX="4.0" layoutY="692.0" pickOnBounds="true" preserveRatio="true" />
-   <Text fx:id="commonGoalText" fill="WHITE" layoutX="200.0" layoutY="630.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Common Goal" wrappingWidth="134.13668823242188">
+   <ImageView fx:id="CardHand1" fitHeight="120.0" fitWidth="215.0" layoutX="510.0" layoutY="650.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="CardHand2" fitHeight="120.0" fitWidth="215.0" layoutX="810.0" layoutY="650.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="CardHand3" fitHeight="120.0" fitWidth="215.0" layoutX="1110.0" layoutY="650.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="CommonObj" fitHeight="98.0" fitWidth="172.0" layoutX="158.0" layoutY="601.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="PersonalObj" fitHeight="98.0" fitWidth="126.0" layoutX="150.0" layoutY="691.0" pickOnBounds="true" preserveRatio="true" />
+   <Text fx:id="commonGoalText" fill="WHITE" layoutY="657.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Common Goal" wrappingWidth="126.13668823242176">
       <font>
-         <Font size="20.0" />
+         <Font name="Old English Text MT" size="20.0" />
       </font>
    </Text>
-   <Text fx:id="personalGoalText" fill="WHITE" layoutX="204.0" layoutY="749.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Goal" wrappingWidth="126.13668823242188">
+   <Text fx:id="personalGoalText" fill="WHITE" layoutX="-4.0" layoutY="749.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Goals" wrappingWidth="133.33670043945312">
       <font>
-         <Font size="20.0" />
+         <Font name="Old English Text MT" size="20.0" />
       </font>
    </Text>
 
