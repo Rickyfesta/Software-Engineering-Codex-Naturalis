@@ -97,14 +97,14 @@ public class RandomCardFile {
 
         // Return the corresponding back file
         if (cardNumber >= 1 && cardNumber <= 10) {
-            return "MushroomBack.jpg";
+            return "Images/MushroomBack.jpg";
         } else if (cardNumber >= 11 && cardNumber <= 20) {
-            return "PlantBack.jpg";
+            return "Images/PlantBack.jpg";
         } else if (cardNumber >= 21 && cardNumber <= 30) {
             // Handle unexpected card number, if necessary
-            return "AnimalBack.jpg";
+            return "Images/AnimalBack.jpg";
         } else if (cardNumber >= 31 && cardNumber <= 40) {
-            return "InsectBack.jpg";
+            return "Images/InsectBack.jpg";
         } else {
             return null;  // Invalid card number
 
@@ -122,14 +122,14 @@ public class RandomCardFile {
 
         // Return the corresponding back file
         if (cardNumber >= 1 && cardNumber <= 10) {
-            return "GMushroomBack.jpg";
+            return "Images/GMushroomBack.jpg";
         } else if (cardNumber >= 11 && cardNumber <= 20) {
-            return "GPlantBack.jpg";
+            return "Images/GPlantBack.jpg";
         } else if (cardNumber >= 21 && cardNumber <= 30) {
             // Handle unexpected card number, if necessary
-            return "GAnimalBack.jpg";
+            return "Images/GAnimalBack.jpg";
         } else if (cardNumber >= 31 && cardNumber <= 40) {
-            return "GInsectBack.jpg";
+            return "Images/GInsectBack.jpg";
         } else {
             return null;  // Invalid card number
 
@@ -146,7 +146,7 @@ public class RandomCardFile {
         int cardNumber = Integer.parseInt(frontFileName.substring(1, 3));
 
         // Return the corresponding back file
-        return "OBack.jpg";
+        return "Images/OBack.jpg";
     }
 
 }

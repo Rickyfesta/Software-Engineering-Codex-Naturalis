@@ -14,14 +14,14 @@ import java.util.Map;
 
 public class FlippableMaker {
 
-    private static final String RED_IMAGE = "/MushroomBack.jpg";
-    private static final String BLUE_IMAGE = "/AnimalBack.jpg";
-    private static final String GREEN_IMAGE = "/PlantBack.jpg";
-    private static final String PURPLE_IMAGE = "/InsectBack.jpg";
-    private static final String GRED_IMAGE = "/GMushroomBack.jpg";
-    private static final String GBLUE_IMAGE = "/GAnimalBack.jpg";
-    private static final String GGREEN_IMAGE = "/GPlantBack.jpg";
-    private static final String GPURPLE_IMAGE = "/GInsectBack.jpg";
+    private static final String RED_IMAGE = "/Images/MushroomBack.jpg";
+    private static final String BLUE_IMAGE = "/Images/AnimalBack.jpg";
+    private static final String GREEN_IMAGE = "/Images/PlantBack.jpg";
+    private static final String PURPLE_IMAGE = "/Images/InsectBack.jpg";
+    private static final String GRED_IMAGE = "/Images/GMushroomBack.jpg";
+    private static final String GBLUE_IMAGE = "/Images/GAnimalBack.jpg";
+    private static final String GGREEN_IMAGE = "/Images/GPlantBack.jpg";
+    private static final String GPURPLE_IMAGE = "/Images/GInsectBack.jpg";
 
 
     private final Map<ImageView, Boolean> flippedState = new HashMap<>();

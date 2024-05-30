@@ -3,7 +3,6 @@ package Server;
 import Model.Cards.CardJSON;
 import Model.Cards.PlayerHand;
 import Model.Cards.RandomCardFile;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -22,11 +21,12 @@ public class ServerController {
     private ArrayList<CardJSON> resourceDeck = new ArrayList<>();
     private ArrayList<CardJSON> goldDeck = new ArrayList<>();
 
-    private ArrayList<CardJSON> personalGoaldeck = new ArrayList<>();
+    private ArrayList<CardJSON> personalGoldDeck = new ArrayList<>();
 
     private ArrayList<CardJSON> startingChoices = new ArrayList<>();
     private ObjectMapper mapper = new ObjectMapper();
     private ArrayList<PlayerHand> hands = new ArrayList<>();
+    private ArrayList<CardJSON> chosenStarter = new ArrayList<>();
 
 
     public void initializeGame() throws IOException {
@@ -41,7 +41,7 @@ public class ServerController {
 
     }
 
-    public void startGame() throws JsonProcessingException {
+    public void startGame() throws IOException {
 
         ClientHandler.broadcastMessage("Game is starting!");
         ClientHandler.broadcastMessage(cg1.getID());
@@ -51,13 +51,30 @@ public class ServerController {
         for(int i = 0; i<Server.getPlayerCount().get(); i++){
             ClientHandler clientHandler = Server.getClientHandlers().get(i);
             clientHandler.sendMessageToClient(startingChoices.get(i).getID());
-            clientHandler.sendMessageToClient(personalGoaldeck.get(2*i).getID());
-            clientHandler.sendMessageToClient(personalGoaldeck.get(2*i+1).getID());
+            clientHandler.sendMessageToClient(personalGoldDeck.get(2*i).getID());
+            clientHandler.sendMessageToClient(personalGoldDeck.get(2*i+1).getID());
         }
         ClientHandler.broadcastMessage("Start");
 
-    }
+        for(int i = 0; i < Server.getNumPlayers(); i++){
+            //if "front" receive --> continue;
+            //else change to back with the same ID
+            String rec = Server.getClientHandlers().get(i).checkForMSG();
+            if(rec.equals("front")){
+                chosenStarter.add(startingChoices.get(i));
+            }
+            else if(rec.equals("back")){
+                String id = this.startingChoices.get(i).getID();
+                CardJSON card = mapper.readValue(new File("src/main/resources/json/" + id + "back.json"), CardJSON.class);
+                startingChoices.add(card);
+            }
 
+            System.out.println("choice " + i);
+        }
+
+
+    }
+//to create two separate hands
     private void assignCard() {
 
         for(int i =0; i<Server.getPlayerCount().get(); i++){
@@ -85,7 +102,7 @@ public class ServerController {
             }
             else{
                 generatedPaths.add(pathX);
-                personalGoaldeck.add(mapper.readValue(new File("src/main/resources/json/" + pathX), CardJSON.class));
+                personalGoldDeck.add(mapper.readValue(new File("src/main/resources/json/" + pathX), CardJSON.class));
             }
         }
     }
@@ -142,5 +159,12 @@ public class ServerController {
         path2 =  RandomCardFile.getRandomOXXFileName().replace("jpg","json");
         cg2 = mapper.readValue(new File("src/main/resources/json/" + path2), CardJSON.class);
 
+    }
+
+    public void turn() {
+        for(int i = 0; i < Server.getNumPlayers(); i++){
+            System.out.println("Player number " + i);
+
+        }
     }
 }

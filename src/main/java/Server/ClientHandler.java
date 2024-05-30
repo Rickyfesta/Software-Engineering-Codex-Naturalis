@@ -98,8 +98,8 @@ public class ClientHandler implements Runnable {
         if(Server.getPlayerCount().get() == 1){
             sendMessageToClient("Enter player number:");
             int playerNumber = Integer.parseInt(checkForMSG());
-            Server.setMinPlayers(playerNumber);
-            System.out.println(Server.getMinPlayers());
+            Server.setNumPlayers(playerNumber);
+            System.out.println(Server.getNumPlayers());
         }
         return true;
     }

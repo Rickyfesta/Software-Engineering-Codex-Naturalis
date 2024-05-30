@@ -13,14 +13,21 @@ import java.util.Scanner;
 import static java.lang.System.exit;
 
 public class Client {
-    private final Socket socket;
-    private final BufferedReader bufferedReader;
-    private final PrintWriter bufferedWriter;
+    private static Socket socket;
+    private static BufferedReader bufferedReader;
+    private static PrintWriter bufferedWriter;
     private final String username;
     private final ArrayList<String> messages = new ArrayList<>();
-    private VirtualModel virtualModel = new VirtualModel();
+    private static VirtualModel virtualModel = new VirtualModel();
     private static ObjectMapper mapper = new ObjectMapper();
 
+    public static VirtualModel getVirtualModel() {
+        return virtualModel;
+    }
+
+    public static void setVirtualModel(VirtualModel virtualModel) {
+        Client.virtualModel = virtualModel;
+    }
 
     /**@ requires socket != null;
       @ requires username != null;
@@ -30,10 +37,10 @@ public class Client {
       @ ensures this.bufferedReader != null;
       */
     public Client(Socket socket, String username) throws IOException {
-        this.socket = socket;
+        Client.socket = socket;
         this.username = username;
-        this.bufferedWriter = new PrintWriter((socket.getOutputStream()), true);
-        this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        Client.bufferedWriter = new PrintWriter((socket.getOutputStream()), true);
+        Client.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         this.listenForMessage();
     }
     /**@ requires socket != null;
@@ -41,7 +48,7 @@ public class Client {
       @ requires username != null;
       */
 
-    public void sendMessage(String toSend){
+    public static void sendMessage(String toSend){
         bufferedWriter.println(toSend);
     }
     /**@ requires socket != null;
@@ -54,10 +61,10 @@ public class Client {
                 try{
                     while(socket.isConnected()){
                         msgFromGroupChat = bufferedReader.readLine();
-                        if(msgFromGroupChat.equals("Start")){
-                            GUIClient.changeToStarterScene();
-                            continue;
-                        }
+                        //if(msgFromGroupChat.equals("Start")){
+                          //  GUIClient.changeToStarterScene();
+                            //continue;
+                        //}
                         messages.add(msgFromGroupChat);
                         Thread.sleep(250);
                     }
@@ -140,36 +147,36 @@ public class Client {
         //2 Common Goals
         rec = client.checkForMSG();
         System.out.println(rec);
-        client.virtualModel.setCg1(mapper.readValue(new File("src/main/resources/json/" + rec +"front.json"), CardJSON.class));
+        Client.virtualModel.setCg1(mapper.readValue(new File("src/main/resources/json/" + rec +"front.json"), CardJSON.class));
         rec = client.checkForMSG();
         System.out.println(rec);
-        client.virtualModel.setCg2(mapper.readValue(new File("src/main/resources/json/" + rec +"front.json"), CardJSON.class));
+        Client.virtualModel.setCg2(mapper.readValue(new File("src/main/resources/json/" + rec +"front.json"), CardJSON.class));
 
         //Get resources deck
         rec = client.checkForMSG();
-        client.virtualModel.setResourceDeck(mapper.readValue(rec, ArrayList.class));
+        Client.virtualModel.setResourceDeck(mapper.readValue(rec, ArrayList.class));
         System.out.println(client.virtualModel.getResourceDeck().size());
 
         //Get gold deck
         rec = client.checkForMSG();
-        client.virtualModel.setGoldDeck(mapper.readValue(rec, ArrayList.class));
+        Client.virtualModel.setGoldDeck(mapper.readValue(rec, ArrayList.class));
         System.out.println(client.virtualModel.getGoldDeck().size());
 
         //Get starter card
         rec = client.checkForMSG();
-        client.virtualModel.setStarterFront(mapper.readValue(new File("src/main/resources/json/"+ rec +"front.json"), CardJSON.class));
+        Client.virtualModel.setStarterFront(mapper.readValue(new File("src/main/resources/json/"+ rec +"front.json"), CardJSON.class));
         System.out.println(client.virtualModel.getStarterFront().getID());
 
         //Starting Back
-        client.virtualModel.setStarterBack(mapper.readValue(new File("src/main/resources/json/"+ rec +"back.json"), CardJSON.class));
+        Client.virtualModel.setStarterBack(mapper.readValue(new File("src/main/resources/json/"+ rec +"back.json"), CardJSON.class));
         System.out.println(client.virtualModel.getStarterBack().getID());
 
         //2 Personal goals
         rec = client.checkForMSG();
-        client.virtualModel.setPg1(mapper.readValue(new File("src/main/resources/json/"+ rec +"front.json"), CardJSON.class));
+        Client.virtualModel.setPg1(mapper.readValue(new File("src/main/resources/json/"+ rec +"front.json"), CardJSON.class));
         System.out.println(client.virtualModel.getPg1().getID());
         rec = client.checkForMSG();
-        client.virtualModel.setPg2(mapper.readValue(new File("src/main/resources/json/"+ rec +"front.json"), CardJSON.class));
+        Client.virtualModel.setPg2(mapper.readValue(new File("src/main/resources/json/"+ rec +"front.json"), CardJSON.class));
         System.out.println(client.virtualModel.getPg2().getID());
 
         //Launching GUI
