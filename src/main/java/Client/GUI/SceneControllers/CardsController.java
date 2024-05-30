@@ -34,7 +34,7 @@ import java.util.regex.Pattern;
 import static Controller.BoardManager.Place;
 import static Controller.BoardManager.availableCorners;
 
-public class DraggableMaker {
+public class CardsController {
     private final GameBoard gameBoard;
     private double mouseAnchorX;
     private double mouseAnchorY;
@@ -56,7 +56,7 @@ public class DraggableMaker {
     /**@ requires gameBoard != null;
      @ ensures this.gameBoard == gameBoard;
      */
-    public DraggableMaker(GameBoard gameBoard) {
+    public CardsController(GameBoard gameBoard) {
         this.gameBoard = gameBoard;
     }
     /**@ requires HandCard != null;

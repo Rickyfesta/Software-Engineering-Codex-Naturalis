@@ -251,7 +251,7 @@ public class ServerController {
 
             //if not win
             if(Objects.equals(current.checkForMSG(), "Win")){
-
+                current.sendMessageToClient("Die");
             }
             current.sendMessageToClient("Done");
         }

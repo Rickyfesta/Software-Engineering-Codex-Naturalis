@@ -3,11 +3,17 @@ package Client.GUI.SceneControllers;
 import Client.Client;
 import Controller.BoardManager;
 import Controller.CardPicker;
+import Model.Cards.CardJSON;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -17,14 +23,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 
 public class GameBoard {
@@ -1298,6 +1302,9 @@ public class GameBoard {
 
     private boolean clicked = false;
 
+    String rec;
+    Client client;
+
 
     @FXML
     public void selectHandCard1(MouseEvent event){
@@ -1325,6 +1332,9 @@ public class GameBoard {
 
         }
     }
+
+    static FXMLLoader loader = new FXMLLoader();
+    public static Stage stage;
 
     public AnchorPane getAnchorPane() {
         return personalBoardContainer;
@@ -1379,7 +1389,7 @@ public class GameBoard {
     @FXML
     void initialize() throws IOException {
 
-        DraggableMaker draggableMaker = new DraggableMaker(this);
+        CardsController cardsController = new CardsController(this);
         CardPicker cardPicker = new CardPicker(this);
 
         MyPoints = Collections.singletonList(
@@ -1436,6 +1446,8 @@ public class GameBoard {
         commonBoardDecksContainer.setPrefWidth(0.0d);
         ResDeck.setVisible(false);
         GoldDeck.setVisible(false);
+        ObjectMapper boardMapper = new ObjectMapper();
+        boardMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
 
         //deserialize all the cards
@@ -1477,23 +1489,32 @@ public class GameBoard {
         URL Starturl = getClass().getResource("/Images/"+ Start + ".jpg");
         StartingCard.setImage(new Image(Starturl.toString()));
 
-        BoardManager.initializeBoard(Client.getVirtualModel().getChosenStarter(), MyPoints);
+        BoardManager.initializeBoard(Client.getVirtualModel().getChosenStarter(), ResourcesList);
         //ResourcesCounter.updateResources(Client.getVirtualModel().getChosenStarter(), MyPoints);
         Random rand = new Random();
 
-        //ArrayList<CardJSON> goldDeck = Client.getVirtualModel().getGoldDeck();
+        ArrayList<CardJSON> goldDeck = Client.getVirtualModel().getGoldDeck();
+        for(int i = 0; i<goldDeck.size(); i++){
+            System.out.println(goldDeck.getClass());
+            //String sos = goldDeck.get(i).getID();
+        }
+        /*
+        CardJSON gold1 = goldDeck.get(rand.nextInt(40));
+        CardJSON gold2 = goldDeck.get(rand.nextInt(40));
+        CardJSON gold3 = goldDeck.get(rand.nextInt(40));
+
+        String GoldId1 = gold1.getID();
+        String GoldId2 = gold2.getID();
+        String GoldId3 = gold3.getID();
+
+        URL GoldURL1 = getClass().getResource("/Images/" + GoldId1 + "front.jpg");
+        URL GoldURL2 = getClass().getResource("/Images/" + GoldId2 + "front.jpg");
+        URL GoldURL3 = getClass().getResource("/Images/" + GoldId3 + "front.jpg");
+        GoldDeck.setImage(new Image(GoldURL1.toString()));
+        GoldDeck1.setImage(new Image(GoldURL2.toString()));
+        GoldDeck2.setImage(new Image(GoldURL3.toString()));
 
 
-        //String GoldId1 = goldDeck.getFirst().getID();
-        //String GoldId2 = Client.getVirtualModel().getCardG().getID();
-        //String GoldId3 = Client.getVirtualModel().getCardG().getID();
-
-        //URL GoldURL1 = getClass().getResource("/Images/" + GoldId1 + "front.jpg");
-        //URL GoldURL2 = getClass().getResource("/Images/" + GoldId2 + "front.jpg");
-        //URL GoldURL3 = getClass().getResource("/Images/" + GoldId3 + "front.jpg");
-        //GoldDeck.setImage(new Image(GoldURL1.toString()));
-        //GoldDeck1.setImage(new Image(GoldURL2.toString()));
-        //GoldDeck2.setImage(new Image(GoldURL3.toString()));
 /*
         String ResId1 = Client.getVirtualModel().getCardR().getID();
         String ResId2 = Client.getVirtualModel().getCardR().getID();
@@ -1506,13 +1527,30 @@ public class GameBoard {
         ResDeck3.setImage(new Image("/Images/" + ResURL3 + "front.jpg"));
  */
 
-
+        rec = client.checkForMSG();
         if(Client.isTurn()){
             //Here i make draggable all the cards inside my hand to make them placeable
-            draggableMaker.makeDraggable(CardHand1, personalBoardScroll, 508, 650, copy, personalBoardContainer, Starturl.toString(), imageViewList, ResourcesList);
-            draggableMaker.makeDraggable(CardHand2, personalBoardScroll, 801, 650, copy, personalBoardContainer, Starturl.toString(), imageViewList, ResourcesList);
-            draggableMaker.makeDraggable(CardHand3, personalBoardScroll, 1064, 650, copy, personalBoardContainer, Starturl.toString(), imageViewList, ResourcesList);
-
+            cardsController.makeDraggable(CardHand1, personalBoardScroll, 508, 650, copy, personalBoardContainer, Starturl.toString(), imageViewList, ResourcesList);
+            cardsController.makeDraggable(CardHand2, personalBoardScroll, 801, 650, copy, personalBoardContainer, Starturl.toString(), imageViewList, ResourcesList);
+            cardsController.makeDraggable(CardHand3, personalBoardScroll, 1064, 650, copy, personalBoardContainer, Starturl.toString(), imageViewList, ResourcesList);
+            cardPicker.makePickable(ResDeck, DecksList);
+            cardPicker.makePickable(ResDeck2, DecksList);
+            cardPicker.makePickable(ResDeck3, DecksList);
+            cardPicker.makePickable(GoldDeck, DecksList);
+            cardPicker.makePickable(GoldDeck1, DecksList);
+            cardPicker.makePickable(GoldDeck2, DecksList);
+            if(Integer.parseInt(MyPoints.get(0).getText()) >= 20){
+                Client.sendMessage("win");
+                Parent root;
+                try {
+                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/GUI/WinnerScene.fxml")));
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }
         }
 
 
@@ -1522,12 +1560,7 @@ public class GameBoard {
         //StartingCard.setImage(new Image("/" + StartUrl));
 
         //Make the cards pickable from deck
-        cardPicker.makePickable(ResDeck, DecksList);
-        cardPicker.makePickable(ResDeck2, DecksList);
-        cardPicker.makePickable(ResDeck3, DecksList);
-        cardPicker.makePickable(GoldDeck, DecksList);
-        cardPicker.makePickable(GoldDeck1, DecksList);
-        cardPicker.makePickable(GoldDeck2, DecksList);
+
 
 
         assert CardHand1 != null : "fx:id=\"CardHand1\" was not injected: check your FXML file 'GameBoard.fxml'.";
