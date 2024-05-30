@@ -1295,6 +1295,42 @@ public class GameBoard {
 
     public static List<Text> MyPoints;
 
+    private boolean clicked = false;
+
+
+    @FXML
+    public void selectHandCard1(MouseEvent event){
+        if(!clicked) {
+            clicked = true;
+            Client.sendMessage("first");
+
+            CardHand2.setOpacity(0.5);
+            CardHand3.setOpacity(0.5);
+        }
+    }
+
+    @FXML
+    public void selectHandCard2(MouseEvent event){
+        if(!clicked) {
+            clicked = true;
+            Client.sendMessage("second");
+
+            CardHand1.setOpacity(0.5);
+            CardHand3.setOpacity(0.5);
+        }
+    }
+
+    @FXML
+    public void selectHandCard3(MouseEvent event){
+        if(!clicked) {
+            clicked = true;
+            Client.sendMessage("third");
+
+            CardHand1.setOpacity(0.5);
+            CardHand2.setOpacity(0.5);
+        }
+    }
+
     public AnchorPane getAnchorPane() {
         return personalBoardContainer;
     }
