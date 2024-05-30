@@ -21,6 +21,7 @@ public class Client {
     private final ArrayList<String> messages = new ArrayList<>();
     private static VirtualModel virtualModel = new VirtualModel();
     private static ObjectMapper mapper = new ObjectMapper();
+    private static boolean turn = false;
 
     public static VirtualModel getVirtualModel() {
         return virtualModel;
@@ -28,6 +29,14 @@ public class Client {
 
     public static void setVirtualModel(VirtualModel virtualModel) {
         Client.virtualModel = virtualModel;
+    }
+
+    public static boolean isTurn() {
+        return turn;
+    }
+
+    public static void setTurn(boolean turn) {
+        Client.turn = turn;
     }
 
     /**@ requires socket != null;
@@ -62,10 +71,11 @@ public class Client {
                 try{
                     while(socket.isConnected()){
                         msgFromGroupChat = bufferedReader.readLine();
-                        //if(msgFromGroupChat.equals("Start")){
-                          //  GUIClient.changeToStarterScene();
-                            //continue;
-                        //}
+                        if(msgFromGroupChat.equals("Your turn")){
+                            System.out.println("Your turn");
+                            this.setTurn(true);
+                            continue;
+                        }
                         messages.add(msgFromGroupChat);
                         Thread.sleep(250);
                     }
@@ -188,17 +198,9 @@ public class Client {
         System.out.println("SECOND" + Client.virtualModel.getHand().getCardTwo().getID());
         System.out.println("THIRD" + Client.virtualModel.getHand().getCardThree().getID());
 
-
-
-
         //Launching GUI
         GUIClient.launchGui();
         //Server sends a broadcast so that the scene changes
-
-
-
-
-
         }
 
 }

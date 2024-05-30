@@ -177,7 +177,7 @@ public class ServerController {
     public void turn() {
         for(int i = 0; i < Server.getNumPlayers(); i++){
             System.out.println("Player number " + i);
-
+                Server.getClientHandlers().get(i).sendMessageToClient("Your turn");
         }
     }
 }

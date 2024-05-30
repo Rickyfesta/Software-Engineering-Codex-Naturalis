@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="750.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.WinnerScene">
+   <children>
+      <ImageView fitHeight="750.0" fitWidth="1300.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Images/woodback.jpg" />
+         </image></ImageView>
+      <ImageView fitHeight="301.0" fitWidth="287.0" layoutX="506.0" layoutY="449.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/cartoonTrophy.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1041.0" layoutY="543.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Publisher.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="191.0" fitWidth="159.0" layoutX="289.0" layoutY="411.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/trumpet.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="181.0" fitWidth="159.0" layoutX="843.0" layoutY="411.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/trumpet.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="443.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME ENDED " textAlignment="CENTER" wrappingWidth="413.268798828125">
+         <font>
+            <Font size="64.0" />
+         </font>
+      </Text>
+      <Text layoutX="498.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The winner is " textAlignment="CENTER">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Text>
+      <Text fx:id="winnerField" layoutX="556.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="187.20001220703125">
+         <font>
+            <Font size="64.0" />
+         </font>
+      </Text>
+      <Text fontSmoothingType="LCD" layoutX="448.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME ENDED" underline="true">
+         <font>
+            <Font size="64.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0" startX="0.5037878927859394">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.7684210538864136" green="0.5898343324661255" blue="0.05407407507300377" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.3176470696926117" green="0.24313725531101227" blue="0.0235294122248888" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+      <Text fontSmoothingType="LCD" layoutX="502.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The winner is " underline="true">
+         <font>
+            <Font size="50.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0" startX="0.5037878927859394">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.7684210538864136" green="0.5898343324661255" blue="0.05407407507300377" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.3176470696926117" green="0.24313725531101227" blue="0.0235294122248888" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+   </children>
+</AnchorPane>
