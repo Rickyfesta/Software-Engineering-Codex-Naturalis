@@ -188,12 +188,6 @@ public class GameBoard {
     private ImageView Left10;
 
     @FXML
-    private ImageView Left10Down1;
-
-    @FXML
-    private ImageView Left10Up1;
-
-    @FXML
     private ImageView Left11;
 
     @FXML
@@ -224,9 +218,6 @@ public class GameBoard {
     private ImageView Left1Down1;
 
     @FXML
-    private ImageView Left1Down10;
-
-    @FXML
     private ImageView Left1Down2;
 
     @FXML
@@ -253,8 +244,6 @@ public class GameBoard {
     @FXML
     private ImageView Left1Up1;
 
-    @FXML
-    private ImageView Left1Up10;
 
     @FXML
     private ImageView Left1Up2;
@@ -338,9 +327,6 @@ public class GameBoard {
     private ImageView Left2Down8;
 
     @FXML
-    private ImageView Left2Down9;
-
-    @FXML
     private ImageView Left2Up1;
 
     @FXML
@@ -364,8 +350,6 @@ public class GameBoard {
     @FXML
     private ImageView Left2Up8;
 
-    @FXML
-    private ImageView Left2Up9;
 
     @FXML
     private ImageView Left3;
@@ -422,9 +406,6 @@ public class GameBoard {
     private ImageView Left3Down7;
 
     @FXML
-    private ImageView Left3Down8;
-
-    @FXML
     private ImageView Left3Up1;
 
     @FXML
@@ -444,9 +425,6 @@ public class GameBoard {
 
     @FXML
     private ImageView Left3Up7;
-
-    @FXML
-    private ImageView Left3Up8;
 
     @FXML
     private ImageView Left4;
@@ -473,9 +451,6 @@ public class GameBoard {
     private ImageView Left4Down6;
 
     @FXML
-    private ImageView Left4Down7;
-
-    @FXML
     private ImageView Left4Up1;
 
     @FXML
@@ -492,9 +467,6 @@ public class GameBoard {
 
     @FXML
     private ImageView Left4Up6;
-
-    @FXML
-    private ImageView Left4Up7;
 
     @FXML
     private ImageView Left5;
@@ -515,9 +487,6 @@ public class GameBoard {
     private ImageView Left5Down5;
 
     @FXML
-    private ImageView Left5Down6;
-
-    @FXML
     private ImageView Left5Up1;
 
     @FXML
@@ -531,9 +500,6 @@ public class GameBoard {
 
     @FXML
     private ImageView Left5Up5;
-
-    @FXML
-    private ImageView Left5Up6;
 
     @FXML
     private ImageView Left6;
@@ -551,9 +517,6 @@ public class GameBoard {
     private ImageView Left6Down4;
 
     @FXML
-    private ImageView Left6Down5;
-
-    @FXML
     private ImageView Left6Up1;
 
     @FXML
@@ -564,9 +527,6 @@ public class GameBoard {
 
     @FXML
     private ImageView Left6Up4;
-
-    @FXML
-    private ImageView Left6Up5;
 
     @FXML
     private ImageView Left7;
@@ -581,9 +541,6 @@ public class GameBoard {
     private ImageView Left7Down3;
 
     @FXML
-    private ImageView Left7Down4;
-
-    @FXML
     private ImageView Left7Up1;
 
     @FXML
@@ -591,9 +548,6 @@ public class GameBoard {
 
     @FXML
     private ImageView Left7Up3;
-
-    @FXML
-    private ImageView Left7Up4;
 
     @FXML
     private ImageView Left8;
@@ -605,16 +559,10 @@ public class GameBoard {
     private ImageView Left8Down2;
 
     @FXML
-    private ImageView Left8Down3;
-
-    @FXML
     private ImageView Left8Up1;
 
     @FXML
     private ImageView Left8Up2;
-
-    @FXML
-    private ImageView Left8Up3;
 
     @FXML
     private ImageView Left9;
@@ -623,13 +571,7 @@ public class GameBoard {
     private ImageView Left9Down1;
 
     @FXML
-    private ImageView Left9Down2;
-
-    @FXML
     private ImageView Left9Up1;
-
-    @FXML
-    private ImageView Left9Up2;
 
     @FXML
     private ImageView PersonalObj;
@@ -649,11 +591,6 @@ public class GameBoard {
     @FXML
     private ImageView Right10;
 
-    @FXML
-    private ImageView Right10Down1;
-
-    @FXML
-    private ImageView Right10Up1;
 
     @FXML
     private ImageView Right11;
@@ -686,9 +623,6 @@ public class GameBoard {
     private ImageView Right1Down1;
 
     @FXML
-    private ImageView Right1Down10;
-
-    @FXML
     private ImageView Right1Down2;
 
     @FXML
@@ -715,8 +649,6 @@ public class GameBoard {
     @FXML
     private ImageView Right1Up1;
 
-    @FXML
-    private ImageView Right1Up10;
 
     @FXML
     private ImageView Right1Up2;
@@ -799,8 +731,6 @@ public class GameBoard {
     @FXML
     private ImageView Right2Down8;
 
-    @FXML
-    private ImageView Right2Down9;
 
     @FXML
     private ImageView Right2Up1;
@@ -826,8 +756,6 @@ public class GameBoard {
     @FXML
     private ImageView Right2Up8;
 
-    @FXML
-    private ImageView Right2Up9;
 
     @FXML
     private ImageView Right3;
@@ -884,9 +812,6 @@ public class GameBoard {
     private ImageView Right3Down7;
 
     @FXML
-    private ImageView Right3Down8;
-
-    @FXML
     private ImageView Right3Up1;
 
     @FXML
@@ -907,8 +832,6 @@ public class GameBoard {
     @FXML
     private ImageView Right3Up7;
 
-    @FXML
-    private ImageView Right3Up8;
 
     @FXML
     private ImageView Right4;
@@ -935,9 +858,6 @@ public class GameBoard {
     private ImageView Right4Down6;
 
     @FXML
-    private ImageView Right4Down7;
-
-    @FXML
     private ImageView Right4Up1;
 
     @FXML
@@ -955,8 +875,6 @@ public class GameBoard {
     @FXML
     private ImageView Right4Up6;
 
-    @FXML
-    private ImageView Right4Up7;
 
     @FXML
     private ImageView Right5;
@@ -977,9 +895,6 @@ public class GameBoard {
     private ImageView Right5Down5;
 
     @FXML
-    private ImageView Right5Down6;
-
-    @FXML
     private ImageView Right5Up1;
 
     @FXML
@@ -994,8 +909,6 @@ public class GameBoard {
     @FXML
     private ImageView Right5Up5;
 
-    @FXML
-    private ImageView Right5Up6;
 
     @FXML
     private ImageView Right6;
@@ -1013,9 +926,6 @@ public class GameBoard {
     private ImageView Right6Down4;
 
     @FXML
-    private ImageView Right6Down5;
-
-    @FXML
     private ImageView Right6Up1;
 
     @FXML
@@ -1027,8 +937,6 @@ public class GameBoard {
     @FXML
     private ImageView Right6Up4;
 
-    @FXML
-    private ImageView Right6Up5;
 
     @FXML
     private ImageView Right7;
@@ -1043,9 +951,6 @@ public class GameBoard {
     private ImageView Right7Down3;
 
     @FXML
-    private ImageView Right7Down4;
-
-    @FXML
     private ImageView Right7Up1;
 
     @FXML
@@ -1053,9 +958,6 @@ public class GameBoard {
 
     @FXML
     private ImageView Right7Up3;
-
-    @FXML
-    private ImageView Right7Up4;
 
     @FXML
     private ImageView Right8;
@@ -1067,16 +969,11 @@ public class GameBoard {
     private ImageView Right8Down2;
 
     @FXML
-    private ImageView Right8Down3;
-
-    @FXML
     private ImageView Right8Up1;
 
     @FXML
     private ImageView Right8Up2;
 
-    @FXML
-    private ImageView Right8Up3;
 
     @FXML
     private ImageView Right9;
@@ -1085,13 +982,7 @@ public class GameBoard {
     private ImageView Right9Down1;
 
     @FXML
-    private ImageView Right9Down2;
-
-    @FXML
     private ImageView Right9Up1;
-
-    @FXML
-    private ImageView Right9Up2;
 
     @FXML
     private ImageView StartingCard;
@@ -1410,34 +1301,34 @@ public class GameBoard {
                 Down1, Down10, Down11, Down12, Down13, Down14, Down15, Down16,
                 Down17, Down18, Down19, Down2, Down20, Down21, Down22, Down23, Down24, Down25, Down26, Down27, Down28, Down29, Down3,
                 Down30, Down31, Down32, Down33, Down34, Down35, Down36, Down37, Down38, Down39, Down4, Down40, Down5, Down6, Down7,
-                Down8, Down9, Left1, Left10, Left10Down1, Left10Up1, Left11, Left12, Left13, Left14,
-                Left15, Left16, Left17, Left18, Left19, Left1Down1, Left1Down10, Left1Down2, Left1Down3, Left1Down4, Left1Down5,
-                Left1Down6, Left1Down7, Left1Down8, Left1Down9, Left1Up1, Left1Up10, Left1Up2, Left1Up3, Left1Up4, Left1Up5, Left1Up6,
+                Down8, Down9, Left1, Left10,  Left11, Left12, Left13, Left14,
+                Left15, Left16, Left17, Left18, Left19, Left1Down1,  Left1Down2, Left1Down3, Left1Down4, Left1Down5,
+                Left1Down6, Left1Down7, Left1Down8, Left1Down9, Left1Up1,  Left1Up2, Left1Up3, Left1Up4, Left1Up5, Left1Up6,
                 Left1Up7, Left1Up8, Left1Up9, Left2, Left20, Left21, Left22, Left23, Left24, Left25, Left26, Left27, Left28, Left29,
-                Left2Down1, Left2Down2, Left2Down3, Left2Down4, Left2Down5, Left2Down6, Left2Down7, Left2Down8, Left2Down9, Left2Up1,
-                Left2Up2, Left2Up3, Left2Up4, Left2Up5, Left2Up6, Left2Up7, Left2Up8, Left2Up9, Left3, Left30, Left31, Left32, Left33,
+                Left2Down1, Left2Down2, Left2Down3, Left2Down4, Left2Down5, Left2Down6, Left2Down7, Left2Down8,  Left2Up1,
+                Left2Up2, Left2Up3, Left2Up4, Left2Up5, Left2Up6, Left2Up7, Left2Up8,  Left3, Left30, Left31, Left32, Left33,
                 Left34, Left35, Left36, Left37, Left38, Left39, Left3Down1, Left3Down2, Left3Down3, Left3Down4, Left3Down5, Left3Down6,
-                Left3Down7, Left3Down8, Left3Up1, Left3Up2, Left3Up3, Left3Up4, Left3Up5, Left3Up6, Left3Up7, Left3Up8, Left4, Left40,
-                Left4Down1, Left4Down2, Left4Down3, Left4Down4, Left4Down5, Left4Down6, Left4Down7, Left4Up1, Left4Up2, Left4Up3,
-                Left4Up4, Left4Up5, Left4Up6, Left4Up7, Left5, Left5Down1, Left5Down2, Left5Down3, Left5Down4, Left5Down5, Left5Down6,
-                Left5Up1, Left5Up2, Left5Up3, Left5Up4, Left5Up5, Left5Up6, Left6, Left6Down1, Left6Down2, Left6Down3, Left6Down4,
-                Left6Down5, Left6Up1, Left6Up2, Left6Up3, Left6Up4, Left6Up5, Left7, Left7Down1, Left7Down2, Left7Down3, Left7Down4,
-                Left7Up1, Left7Up2, Left7Up3, Left7Up4, Left8, Left8Down1, Left8Down2, Left8Down3, Left8Up1, Left8Up2, Left8Up3, Left9,
-                Left9Down1, Left9Down2, Left9Up1, Left9Up2, Right1, Right10, Right10Down1,
-                Right10Up1, Right11, Right12, Right13, Right14, Right15, Right16, Right17, Right18, Right19, Right1Down1, Right1Down10,
+                Left3Down7,  Left3Up1, Left3Up2, Left3Up3, Left3Up4, Left3Up5, Left3Up6, Left3Up7,  Left4, Left40,
+                Left4Down1, Left4Down2, Left4Down3, Left4Down4, Left4Down5, Left4Down6,  Left4Up1, Left4Up2, Left4Up3,
+                Left4Up4, Left4Up5, Left4Up6,  Left5, Left5Down1, Left5Down2, Left5Down3, Left5Down4, Left5Down5,
+                Left5Up1, Left5Up2, Left5Up3, Left5Up4, Left5Up5,  Left6, Left6Down1, Left6Down2, Left6Down3, Left6Down4,
+                 Left6Up1, Left6Up2, Left6Up3, Left6Up4,  Left7, Left7Down1, Left7Down2, Left7Down3,
+                Left7Up1, Left7Up2, Left7Up3,  Left8, Left8Down1, Left8Down2,  Left8Up1, Left8Up2,  Left9,
+                Left9Down1,  Left9Up1,  Right1, Right10, Right11, Right12, Right13, Right14, Right15, Right16, Right17, Right18, Right19, Right1Down1,
+                Left9Down1, Left9Up1,  Right1, Right10, Right11, Right12, Right13, Right14, Right15, Right16, Right17, Right18, Right19, Right1Down1,
                 Right1Down2, Right1Down3, Right1Down4, Right1Down5, Right1Down6, Right1Down7, Right1Down8, Right1Down9, Right1Up1,
-                Right1Up10, Right1Up2, Right1Up3, Right1Up4, Right1Up5, Right1Up6, Right1Up7, Right1Up8, Right1Up9, Right2, Right20,
+                Right1Up2, Right1Up3, Right1Up4, Right1Up5, Right1Up6, Right1Up7, Right1Up8, Right1Up9, Right2, Right20,
                 Right21, Right22, Right23, Right24, Right25, Right26, Right27, Right28, Right29, Right2Down1, Right2Down2, Right2Down3,
-                Right2Down4, Right2Down5, Right2Down6, Right2Down7, Right2Down8, Right2Down9, Right2Up1, Right2Up2, Right2Up3,
-                Right2Up4, Right2Up5, Right2Up6, Right2Up7, Right2Up8, Right2Up9, Right3, Right30, Right31, Right32, Right33, Right34,
+                Right2Down4, Right2Down5, Right2Down6, Right2Down7, Right2Down8, Right2Up1, Right2Up2, Right2Up3,
+                Right2Up4, Right2Up5, Right2Up6, Right2Up7, Right2Up8, Right3, Right30, Right31, Right32, Right33, Right34,
                 Right35, Right36, Right37, Right38, Right39, Right3Down1, Right3Down2, Right3Down3, Right3Down4, Right3Down5, Right3Down6,
-                Right3Down7, Right3Down8, Right3Up1, Right3Up2, Right3Up3, Right3Up4, Right3Up5, Right3Up6, Right3Up7, Right3Up8, Right4,
-                Right40, Right4Down1, Right4Down2, Right4Down3, Right4Down4, Right4Down5, Right4Down6, Right4Down7, Right4Up1, Right4Up2,
-                Right4Up3, Right4Up4, Right4Up5, Right4Up6, Right4Up7, Right5, Right5Down1, Right5Down2, Right5Down3, Right5Down4,
-                Right5Down5, Right5Down6, Right5Up1, Right5Up2, Right5Up3, Right5Up4, Right5Up5, Right5Up6, Right6, Right6Down1, Right6Down2,
-                Right6Down3, Right6Down4, Right6Down5, Right6Up1, Right6Up2, Right6Up3, Right6Up4, Right6Up5, Right7, Right7Down1,
-                Right7Down2, Right7Down3, Right7Down4, Right7Up1, Right7Up2, Right7Up3, Right7Up4, Right8, Right8Down1, Right8Down2,
-                Right8Down3, Right8Up1, Right8Up2, Right8Up3, Right9, Right9Down1, Right9Down2, Right9Up1, Right9Up2,
+                Right3Down7,  Right3Up1, Right3Up2, Right3Up3, Right3Up4, Right3Up5, Right3Up6, Right3Up7, Right4,
+                Right40, Right4Down1, Right4Down2, Right4Down3, Right4Down4, Right4Down5, Right4Down6, Right4Up1, Right4Up2,
+                Right4Up3, Right4Up4, Right4Up5, Right4Up6,  Right5, Right5Down1, Right5Down2, Right5Down3, Right5Down4,
+                Right5Down5,  Right5Up1, Right5Up2, Right5Up3, Right5Up4, Right5Up5,  Right6, Right6Down1, Right6Down2,
+                Right6Down3, Right6Down4,  Right6Up1, Right6Up2, Right6Up3, Right6Up4,  Right7, Right7Down1,
+                Right7Down2, Right7Down3,  Right7Up1, Right7Up2, Right7Up3,  Right8, Right8Down1, Right8Down2,
+                 Right8Up1, Right8Up2,  Right9, Right9Down1,  Right9Up1,
                 Up1, Up10, Up11, Up12, Up13, Up14, Up15, Up16, Up17, Up18, Up19, Up2, Up20, Up21, Up22, Up23, Up24, Up25, Up26, Up27,
                 Up28, Up29, Up3, Up30, Up31, Up32, Up33, Up34, Up35, Up36, Up37, Up38, Up39, Up4, Up40, Up5, Up6, Up7, Up8, Up9
         );
@@ -1493,9 +1384,14 @@ public class GameBoard {
         //ResourcesCounter.updateResources(Client.getVirtualModel().getChosenStarter(), MyPoints);
         Random rand = new Random();
 
+        System.out.println("AAAA" + Client.getVirtualModel().getGoldDeck().getClass());
         ArrayList<CardJSON> goldDeck = Client.getVirtualModel().getGoldDeck();
+        System.out.println("GOLD SIZE: " + goldDeck.size());
+        System.out.println("GOLD DECK: " + goldDeck);
+
         for(int i = 0; i<goldDeck.size(); i++){
-            System.out.println(goldDeck.get(i).getClass());
+            System.out.println("CARD " + i + " " + goldDeck.get(i));
+            System.out.println("CARD " + i + " " + (goldDeck.get(i) instanceof CardJSON));
             //String sos = goldDeck.get(i).getID();
         }
         /*
@@ -1563,32 +1459,32 @@ public class GameBoard {
 
 
 
-        assert CardHand1 != null : "fx:id=\"CardHand1\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert CardHand2 != null : "fx:id=\"CardHand2\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert CardHand3 != null : "fx:id=\"CardHand3\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert CommonObj1 != null : "fx:id=\"CommonObj\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert CommonObj2 != null : "fx:id=\"CommonObj\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert Down1 != null : "fx:id=\"Down1\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert GoldDeck != null : "fx:id=\"GoldDeck\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert GoldDeck1 != null : "fx:id=\"GoldDeck1\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert GoldDeck2 != null : "fx:id=\"GoldDeck2\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert Left1 != null : "fx:id=\"Left1\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert PersonalObj != null : "fx:id=\"PersonalObj\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert ResDeck != null : "fx:id=\"ResDeck\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert ResDeck2 != null : "fx:id=\"ResDeck2\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert ResDeck3 != null : "fx:id=\"ResDeck2\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert Right1 != null : "fx:id=\"Right1\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert StartingCard != null : "fx:id=\"StartingCard\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert Up1 != null : "fx:id=\"Up1\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert allContainer != null : "fx:id=\"allContainer\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert commonBoardDecksContainer != null : "fx:id=\"commonBoardDecksContainer\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert commonGoalText != null : "fx:id=\"commonGoalText\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert handBg != null : "fx:id=\"handBg\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert handContainer != null : "fx:id=\"handContainer\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert objbackground != null : "fx:id=\"objbackground\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert personalBoardContainer != null : "fx:id=\"personalBoardContainer\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert personalBoardScroll != null : "fx:id=\"personalBoardScroll\" was not injected: check your FXML file 'GameBoard.fxml'.";
-        assert personalGoalText != null : "fx:id=\"personalGoalText\" was not injected: check your FXML file 'GameBoard.fxml'.";
+        assert CardHand1 != null : "fx:id=\"CardHand1\" was not injected: check your FXML file 'Game.fxml'.";
+        assert CardHand2 != null : "fx:id=\"CardHand2\" was not injected: check your FXML file 'Game.fxml'.";
+        assert CardHand3 != null : "fx:id=\"CardHand3\" was not injected: check your FXML file 'Game.fxml'.";
+        assert CommonObj1 != null : "fx:id=\"CommonObj\" was not injected: check your FXML file 'Game.fxml'.";
+        assert CommonObj2 != null : "fx:id=\"CommonObj\" was not injected: check your FXML file 'Game.fxml'.";
+        assert Down1 != null : "fx:id=\"Down1\" was not injected: check your FXML file 'Game.fxml'.";
+        assert GoldDeck != null : "fx:id=\"GoldDeck\" was not injected: check your FXML file 'Game.fxml'.";
+        assert GoldDeck1 != null : "fx:id=\"GoldDeck1\" was not injected: check your FXML file 'Game.fxml'.";
+        assert GoldDeck2 != null : "fx:id=\"GoldDeck2\" was not injected: check your FXML file 'Game.fxml'.";
+        assert Left1 != null : "fx:id=\"Left1\" was not injected: check your FXML file 'Game.fxml'.";
+        assert PersonalObj != null : "fx:id=\"PersonalObj\" was not injected: check your FXML file 'Game.fxml'.";
+        assert ResDeck != null : "fx:id=\"ResDeck\" was not injected: check your FXML file 'Game.fxml'.";
+        assert ResDeck2 != null : "fx:id=\"ResDeck2\" was not injected: check your FXML file 'Game.fxml'.";
+        assert ResDeck3 != null : "fx:id=\"ResDeck2\" was not injected: check your FXML file 'Game.fxml'.";
+        assert Right1 != null : "fx:id=\"Right1\" was not injected: check your FXML file 'Game.fxml'.";
+        assert StartingCard != null : "fx:id=\"StartingCard\" was not injected: check your FXML file 'Game.fxml'.";
+        assert Up1 != null : "fx:id=\"Up1\" was not injected: check your FXML file 'Game.fxml'.";
+        assert allContainer != null : "fx:id=\"allContainer\" was not injected: check your FXML file 'Game.fxml'.";
+        assert commonBoardDecksContainer != null : "fx:id=\"commonBoardDecksContainer\" was not injected: check your FXML file 'Game.fxml'.";
+        assert commonGoalText != null : "fx:id=\"commonGoalText\" was not injected: check your FXML file 'Game.fxml'.";
+        assert handBg != null : "fx:id=\"handBg\" was not injected: check your FXML file 'Game.fxml'.";
+        assert handContainer != null : "fx:id=\"handContainer\" was not injected: check your FXML file 'Game.fxml'.";
+        assert objbackground != null : "fx:id=\"objbackground\" was not injected: check your FXML file 'Game.fxml'.";
+        assert personalBoardContainer != null : "fx:id=\"personalBoardContainer\" was not injected: check your FXML file 'Game.fxml'.";
+        assert personalBoardScroll != null : "fx:id=\"personalBoardScroll\" was not injected: check your FXML file 'Game.fxml'.";
+        assert personalGoalText != null : "fx:id=\"personalGoalText\" was not injected: check your FXML file 'Game.fxml'.";
 
     }
 }

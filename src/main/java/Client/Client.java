@@ -181,15 +181,31 @@ public class Client {
         System.out.println(rec);
         Client.virtualModel.setCg2(mapper.readValue(new File("src/main/resources/json/" + rec +"front.json"), CardJSON.class));
 
-        //Get resources deck
+        //Get resource deck size
         rec = client.checkForMSG();
-        Client.virtualModel.setResourceDeck(mapper.readValue(rec, ArrayList.class));
-        System.out.println(Client.virtualModel.getResourceDeck().size());
+        System.out.println(rec);
+        int resourceDeckSize = Integer.parseInt(rec);
+        Client.getVirtualModel().setResourceDeck(new ArrayList<>());
+
+        //Get resource deck
+        for(int i = 0; i < resourceDeckSize; i++){
+            rec = client.checkForMSG();
+            CardJSON card = mapper.readValue(rec, CardJSON.class);
+            Client.getVirtualModel().getResourceDeck().add(card);
+        }
+
+        //Get gold deck size
+        rec = client.checkForMSG();
+        System.out.println(rec);
+        int goldDeckSize = Integer.parseInt(rec);
+        Client.getVirtualModel().setGoldDeck(new ArrayList<>());
 
         //Get gold deck
-        rec = client.checkForMSG();
-        Client.virtualModel.setGoldDeck(mapper.readValue(rec, ArrayList.class));
-        System.out.println(Client.virtualModel.getGoldDeck().size());
+        for(int i = 0; i < goldDeckSize; i++){
+            rec = client.checkForMSG();
+            CardJSON card = mapper.readValue(rec, CardJSON.class);
+            Client.getVirtualModel().getGoldDeck().add(card);
+        }
 
         //Get starter card
         rec = client.checkForMSG();

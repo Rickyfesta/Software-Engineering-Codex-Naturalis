@@ -47,8 +47,15 @@ public class ServerController {
         ClientHandler.broadcastMessage("Game is starting!");
         ClientHandler.broadcastMessage(cg1.getID());
         ClientHandler.broadcastMessage(cg2.getID());
-        ClientHandler.broadcastMessage(mapper.writeValueAsString(resourceDeck));
-        ClientHandler.broadcastMessage(mapper.writeValueAsString(goldDeck));
+        ClientHandler.broadcastMessage(String.valueOf(resourceDeck.size()));
+        for(int i = 0; i < resourceDeck.size(); i++){
+            ClientHandler.broadcastMessage(mapper.writeValueAsString(resourceDeck.get(i)));
+        }
+        ClientHandler.broadcastMessage(String.valueOf(goldDeck.size()));
+        for(int i = 0; i < goldDeck.size(); i++){
+            ClientHandler.broadcastMessage(mapper.writeValueAsString(goldDeck.get(i)));
+        }
+
         for(int i = 0; i<Server.getPlayerCount().get(); i++){
             ClientHandler clientHandler = Server.getClientHandlers().get(i);
             clientHandler.sendMessageToClient(startingChoices.get(i).getID());
@@ -151,6 +158,8 @@ public class ServerController {
         for (int i = 10; i<41; i++){
             goldDeck.add(mapper.readValue(new File("src/main/resources/json/G"+ i +"front.json"), CardJSON.class));
         }
+
+        System.out.println("\n\nINSTANCEOF MUST BE TRUE\n\n" + (goldDeck.getFirst() instanceof CardJSON) + "\n\n");
     }
 
     private void generateResourcesDeck() throws IOException {

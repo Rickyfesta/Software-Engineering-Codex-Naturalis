@@ -45,7 +45,7 @@ public class PersonalGoalScene implements Initializable {
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Parent root;
             try {
-                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/GUI/GameBoard.fxml")));
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/GUI/Game.fxml")));
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
@@ -66,7 +66,7 @@ public class PersonalGoalScene implements Initializable {
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Parent root = null;
             try {
-                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/GUI/GameBoard.fxml")));
+                root = FXMLLoader.load(GameBoard.class.getResource("/GUI/Starte.fxml"));
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
