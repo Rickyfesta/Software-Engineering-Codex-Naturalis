@@ -13,7 +13,7 @@
    <children>
       <ImageView fitHeight="750.0" fitWidth="1300.0" pickOnBounds="true">
          <image>
-            <Image url="@../Images/woodback.jpg" />
+            <Image url="@img/woodback.jpg" />
          </image></ImageView>
       <ImageView fitHeight="301.0" fitWidth="287.0" layoutX="506.0" layoutY="449.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -22,7 +22,7 @@
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1041.0" layoutY="543.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Images/Publisher.png" />
+            <Image url="@img/Publisher.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="191.0" fitWidth="159.0" layoutX="289.0" layoutY="411.0" pickOnBounds="true" preserveRatio="true">

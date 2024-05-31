@@ -12,9 +12,9 @@
 <AnchorPane prefHeight="750.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.GUI.SceneControllers.PersonalGoalScene">
    <children>
 
-      <ImageView fitHeight="750.0" fitWidth="1300.0" layoutX="-28.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="750.0" fitWidth="1300.0" pickOnBounds="true">
                  <image>
-            <Image url="@../Images/woodback.jpg" />
+            <Image url="@img/woodback.jpg" />
          </image></ImageView>
       <ImageView fx:id="personalGoal2" fitHeight="180.0" fitWidth="312.0" layoutX="756.0" layoutY="285.0" onMouseClicked="#selectSecondGoal" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="personalGoal1" fitHeight="180.0" fitWidth="312.0" layoutX="295.0" layoutY="285.0" onMouseClicked="#selectFirstGoal" pickOnBounds="true" preserveRatio="true" />
