@@ -290,9 +290,12 @@ public class CardsController {
                                                     returnToOriginalPosition(HandCard);
                                                 } else {
 
+                                                    String Start = ((ImageView) HandCard).getImage().getUrl().substring(imageViewIdWrongURLHandCard.lastIndexOf('/') + 1);
+                                                    URL cardUURL = getClass().getResource("/Images/"+ Start);
+                                                    //System.out.println("/src/main/resources/Images/" + Start);
+                                                    //System.out.println(System.getProperty("user.dir"));
+                                                    imageView.setImage(new Image(cardUURL.toString()));
                                                     ((ImageView) HandCard).setImage(null);
-                                                    imageView.setImage(new Image("/" + imageViewIHandCard.replace("json", "jpg")));
-                                                    //System.out.println("Remember now need to pick another card");
                                                     returnToOriginalPosition(HandCard);
                                                     CardPicker.PickNewCard((ImageView) HandCard);
 
