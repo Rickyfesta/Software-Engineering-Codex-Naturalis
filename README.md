@@ -70,7 +70,9 @@
 
 # Jar
 
-_To be completed_
+Move to the directory that contains the jaf files.
+To execute server: java -jar Server.jar (running on port 60000);
+To execute client: java -jar Client.jar
 
 
 
