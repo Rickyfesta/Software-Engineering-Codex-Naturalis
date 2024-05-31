@@ -83,6 +83,7 @@ public class Client {
                         msgFromGroupChat = bufferedReader.readLine();
                         if(msgFromGroupChat.equals("Start")){
                             setTurn(false);
+                            System.out.println("START: " + isTurn());
                             continue;
                         }
                         else if(msgFromGroupChat.equals("Your turn")){

@@ -44,6 +44,12 @@ public class ServerController {
 
     public void startGame() throws IOException {
 
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         ClientHandler.broadcastMessage("Game is starting!");
         ClientHandler.broadcastMessage(cg1.getID());
         ClientHandler.broadcastMessage(cg2.getID());
@@ -203,6 +209,7 @@ public class ServerController {
             String handChoice = current.checkForMSG();
             int cardToReplace = 0;
 
+            System.out.println("HAND CHOICE " + handChoice);
             if(handChoice.equals("first")){
                 this.hands.get(i).setCardOne(null);
                 cardToReplace = 1;
@@ -217,6 +224,7 @@ public class ServerController {
             }
 
             String choice = current.checkForMSG();
+            System.out.println("CARDTOPICK " + choice);
             CardJSON cardToPick = null;
             //id of card to pick
             if(choice.contains("G")){
@@ -256,12 +264,12 @@ public class ServerController {
             }
 
             if(i == Server.getNumPlayers()-1)
-                i = 0;
+                i = -1;
 
             //if not win
-            if(Objects.equals(current.checkForMSG(), "Win")){
-                current.sendMessageToClient("Die");
-            }
+            //if(Objects.equals(current.checkForMSG(), "Win")){
+               // current.sendMessageToClient("Die");
+            //}
             current.sendMessageToClient("Done");
         }
     }

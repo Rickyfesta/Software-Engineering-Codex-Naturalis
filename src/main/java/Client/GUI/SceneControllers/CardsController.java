@@ -72,7 +72,7 @@ public class CardsController {
       @ ensures initialYMap.containsKey(HandCard);
       */
 
-    public void makeDraggable(Node HandCard, ScrollPane scrollPane, double initialX, double initialY, ImageView copy, AnchorPane personalBoardContainer, String startURL, List<ImageView> imageViewList, List<Text> resourcesList) throws IOException {
+    public void makeDraggable(Node HandCard, ScrollPane scrollPane, double initialX, double initialY, ImageView copy, AnchorPane personalBoardContainer, String startURL, List<ImageView> imageViewList, List<Text> resourcesList, String choice) throws IOException {
         initialXMap.put(HandCard, initialX);
         initialYMap.put(HandCard, initialY);
         HandCard.setLayoutX(initialX);
@@ -294,7 +294,6 @@ public class CardsController {
                                                     imageView.setImage(new Image("/" + imageViewIHandCard.replace("json", "jpg")));
                                                     //System.out.println("Remember now need to pick another card");
                                                     returnToOriginalPosition(HandCard);
-
                                                     CardPicker.PickNewCard((ImageView) HandCard);
 
                                                     //METHOD TO FREEZE
@@ -427,6 +426,7 @@ public class CardsController {
                             }
                         }
                         trustCorner = false;
+                        Client.sendMessage(choice);
                     }
                 } catch (IOException e) {
                     throw new RuntimeException(e);

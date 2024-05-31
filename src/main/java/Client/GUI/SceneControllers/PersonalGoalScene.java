@@ -66,7 +66,7 @@ public class PersonalGoalScene implements Initializable {
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Parent root = null;
             try {
-                root = FXMLLoader.load(GameBoard.class.getResource("/GUI/Starte.fxml"));
+                root = FXMLLoader.load(GameBoard.class.getResource("/GUI/Game.fxml"));
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
