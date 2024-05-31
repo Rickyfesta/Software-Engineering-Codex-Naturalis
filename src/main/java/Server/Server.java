@@ -58,6 +58,7 @@ public class Server {
                 Socket clientSocket = serverSocket.accept();
                 clients.add(clientSocket);
                 clientHandler = new ClientHandler(clientSocket, Server::closeServerSocket);
+                System.out.println("A new client has just connected");
                 clientHandlers.add(clientHandler);
                 new Thread(clientHandler).start();
                 //System.out.println(getNicknames());

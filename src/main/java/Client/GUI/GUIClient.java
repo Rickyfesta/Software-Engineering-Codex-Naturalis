@@ -13,6 +13,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 
 public class GUIClient extends Application {
 
@@ -42,7 +43,7 @@ public class GUIClient extends Application {
             PauseTransition wait = new PauseTransition(Duration.seconds(1));
             wait.setOnFinished((e) -> {
                 try {
-                    Parent root = FXMLLoader.load(StarterSceneController.class.getResource("/GUI/UsernameScene.fxml")); //scene
+                    Parent root = FXMLLoader.load(Objects.requireNonNull(StarterSceneController.class.getResource("/GUI/UsernameScene.fxml"))); //scene
                     Scene scene = new Scene(root);
                     stage.setScene(scene);
                     stage.show();

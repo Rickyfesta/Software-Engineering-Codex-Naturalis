@@ -64,11 +64,11 @@ public class PersonalGoalScene implements Initializable {
             Client.sendMessage("second");
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Parent root;
+            Parent root = null;
             try {
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/GUI/GameBoard.fxml")));
             } catch (IOException ex) {
-                throw new RuntimeException(ex);
+                ex.printStackTrace();
             }
             Scene scene = new Scene(root);
             stage.setScene(scene);

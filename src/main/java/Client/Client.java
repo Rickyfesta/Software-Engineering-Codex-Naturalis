@@ -17,11 +17,12 @@ public class Client {
     private static Socket socket;
     private static BufferedReader bufferedReader;
     private static PrintWriter bufferedWriter;
-    private final String username;
+    private String username;
     private final ArrayList<String> messages = new ArrayList<>();
     private static VirtualModel virtualModel = new VirtualModel();
     private static ObjectMapper mapper = new ObjectMapper();
     private static boolean turn = true;
+    private static Client instance;
 
     public static VirtualModel getVirtualModel() {
         return virtualModel;
@@ -47,12 +48,20 @@ public class Client {
       @ ensures this.bufferedReader != null;
       */
     public Client(Socket socket, String username) throws IOException {
-        Client.socket = socket;
-        this.username = username;
-        Client.bufferedWriter = new PrintWriter((socket.getOutputStream()), true);
-        Client.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        this.listenForMessage();
+        if(instance == null){
+            Client.socket = socket;
+            this.username = username;
+            Client.bufferedWriter = new PrintWriter((socket.getOutputStream()), true);
+            Client.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            this.listenForMessage();
+            instance = this;
+        }
     }
+
+    public static Client getInstance() {
+        return instance;
+    }
+
     /**@ requires socket != null;
       @ requires bufferedWriter != null;
       @ requires username != null;

@@ -1495,7 +1495,7 @@ public class GameBoard {
 
         ArrayList<CardJSON> goldDeck = Client.getVirtualModel().getGoldDeck();
         for(int i = 0; i<goldDeck.size(); i++){
-            System.out.println(goldDeck.getClass());
+            System.out.println(goldDeck.get(i).getClass());
             //String sos = goldDeck.get(i).getID();
         }
         /*
@@ -1527,7 +1527,7 @@ public class GameBoard {
         ResDeck3.setImage(new Image("/Images/" + ResURL3 + "front.jpg"));
  */
 
-        rec = client.checkForMSG();
+        rec = Client.getInstance().checkForMSG();
         if(Client.isTurn()){
             //Here i make draggable all the cards inside my hand to make them placeable
             cardsController.makeDraggable(CardHand1, personalBoardScroll, 508, 650, copy, personalBoardContainer, Starturl.toString(), imageViewList, ResourcesList);
