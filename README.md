@@ -36,20 +36,6 @@
 </td></tr>
 </table>
 
-
-### Tabella Voto
-<table>
-
-
-| Requisiti                                       |Voto Massimo|Realizzazione|
-|:------------------------------------------------|:----------:|:-----------:|
-| Regole semplificate + comunicazione + CLI       |     18     |  :white_check_mark:  |
-| Regole complete + comunicazione + CLI           |     21     |  :white_check_mark:  |
-| Regole complete + comunicazione + GUI           |     24     |  :white_check_mark:  |
-| Regole complete + comunicazione + GUI +1FA      |     27     |  :x:  |
-| Regole complete + comunicazione + CLI + GUI +1FA| 30 / 30L   |  :x:  |
-
-
   
 </table>
 
